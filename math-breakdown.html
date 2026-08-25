@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="NeuralPath mathematics lessons broken down step by step."
+    >
+
+    <title>Break It Down — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #65666a;
+
+            --lavender: #e8dff0;
+            --blue: #dce9f1;
+            --yellow: #f2e9c9;
+            --sage: #dce8d9;
+            --peach: #efd9d4;
+            --pink: #ead9df;
+
+            --lavender-dark: #bca8d2;
+
+            --border: #dedbd2;
+
+            --radius: 18px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--cream);
+
+            color: var(--ink);
+
+            line-height: 1.6;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        /* ============================
+           HEADER
+        ============================ */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid rgba(222, 219, 210, 0.8);
+        }
+
+
+        .nav {
+
+            width: min(1180px, 92%);
+
+            min-height: 76px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        .logo {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.5rem;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+        }
+
+
+        .logo-dot {
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+
+            margin-left: 4px;
+
+            border-radius: 50%;
+
+            background: var(--lavender-dark);
+        }
+
+
+        .home-button {
+
+            padding: 10px 18px;
+
+            border-radius: 999px;
+
+            background: var(--lavender);
+
+            text-decoration: none;
+
+            font-weight: 650;
+
+            font-size: 0.88rem;
+
+            transition: 0.2s ease;
+        }
+
+
+        .home-button:hover {
+
+            background: var(--lavender-dark);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ============================
+           HERO
+        ============================ */
+
+        .hero {
+
+            width: min(1050px, 92%);
+
+            margin: auto;
+
+            padding:
+                85px 0 55px;
+        }
+
+
+        .breadcrumb {
+
+            display: inline-block;
+
+            margin-bottom: 25px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.85rem;
+
+            text-decoration: none;
+        }
+
+
+        .breadcrumb:hover {
+            text-decoration: underline;
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            margin-bottom: 14px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.78rem;
+
+            font-weight: 750;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero h1 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(2.8rem, 6vw, 4.5rem);
+
+            font-weight: 400;
+
+            line-height: 1.08;
+        }
+
+
+        .hero h1 span {
+
+            color: #82719b;
+        }
+
+
+        .hero p {
+
+            max-width: 650px;
+
+            margin-top: 22px;
+
+            color: var(--soft-ink);
+
+            font-size: 1.05rem;
+        }
+
+
+        /* ============================
+           TOPIC SECTION
+        ============================ */
+
+        .topics {
+
+            width: min(1050px, 92%);
+
+            margin: auto;
+
+            padding:
+                25px 0 90px;
+        }
+
+
+        .topic-section {
+
+            margin-bottom: 65px;
+        }
+
+
+        .topic-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .topic-number {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 50%;
+
+            background: var(--lavender);
+
+            font-size: 0.8rem;
+
+            font-weight: 750;
+        }
+
+
+        .topic-title h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.7rem;
+
+            font-weight: 400;
+        }
+
+
+        .topic-description {
+
+            max-width: 650px;
+
+            margin-bottom: 22px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.92rem;
+        }
+
+
+        /* ============================
+           LESSON CARDS
+        ============================ */
+
+        .lesson-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+        }
+
+
+        .lesson {
+
+            position: relative;
+
+            min-height: 150px;
+
+            padding: 24px;
+
+            border-radius: var(--radius);
+
+            border:
+                1px solid rgba(41, 42, 45, 0.07);
+
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .lesson:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(55, 53, 48, 0.10);
+        }
+
+
+        .lesson-label {
+
+            display: block;
+
+            margin-bottom: 28px;
+
+            color: #68686b;
+
+            font-size: 0.72rem;
+
+            font-weight: 750;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .lesson h3 {
+
+            font-size: 1.02rem;
+
+            line-height: 1.35;
+        }
+
+
+        .lesson-arrow {
+
+            position: absolute;
+
+            right: 19px;
+
+            bottom: 15px;
+
+            font-size: 1rem;
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        .lesson:hover
+        .lesson-arrow {
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* ============================
+           COLORS
+        ============================ */
+
+        .lavender {
+            background: var(--lavender);
+        }
+
+
+        .blue {
+            background: var(--blue);
+        }
+
+
+        .yellow {
+            background: var(--yellow);
+        }
+
+
+        .sage {
+            background: var(--sage);
+        }
+
+
+        .peach {
+            background: var(--peach);
+        }
+
+
+        .pink {
+            background: var(--pink);
+        }
+
+
+        /* ============================
+           STUDY TIP
+        ============================ */
+
+        .study-tip {
+
+            margin-top: 15px;
+
+            padding: 27px 30px;
+
+            border-radius: var(--radius);
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .study-tip strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 0.95rem;
+        }
+
+
+        .study-tip p {
+
+            color: var(--soft-ink);
+
+            font-size: 0.88rem;
+        }
+
+
+        /* ============================
+           BACK SECTION
+        ============================ */
+
+        .back-section {
+
+            width: min(1050px, 92%);
+
+            margin: auto;
+
+            padding:
+                0 0 80px;
+        }
+
+
+        .back-button {
+
+            display: inline-block;
+
+            padding: 12px 20px;
+
+            border-radius: 999px;
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            text-decoration: none;
+
+            font-size: 0.88rem;
+
+            transition: 0.2s ease;
+        }
+
+
+        .back-button:hover {
+
+            background: var(--lavender);
+
+            transform: translateX(-3px);
+        }
+
+
+        /* ============================
+           FOOTER
+        ============================ */
+
+        footer {
+
+            padding:
+                45px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+
+            width: min(1050px, 92%);
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .footer-brand {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.1rem;
+        }
+
+
+        .footer-text {
+
+            color: var(--soft-ink);
+
+            font-size: 0.8rem;
+        }
+
+
+        /* ============================
+           MOBILE
+        ============================ */
+
+        @media (max-width: 800px) {
+
+            .lesson-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .lesson-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero {
+
+                padding-top: 60px;
+            }
+
+
+            .footer-inner {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ============================
+         HEADER
+    ============================ -->
+
+    <header class="site-header">
+
+        <nav class="nav">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                NeuralPath<span class="logo-dot"></span>
+            </a>
+
+
+            <a
+                href="mathematics.html"
+                class="home-button"
+            >
+                ← Mathematics
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- ============================
+             HERO
+        ============================ -->
+
+        <div class="hero">
+
+            <a
+                href="mathematics.html"
+                class="breadcrumb"
+            >
+                Mathematics → Learning Paths
+            </a>
+
+
+            <span class="eyebrow">
+                Mathematics · Step by step
+            </span>
+
+
+            <h1>
+                Let's break it
+                <span>down.</span>
+            </h1>
+
+
+            <p>
+
+                Choose a topic and work through it
+                one idea at a time. No rushing, no
+                assuming you already know everything.
+
+            </p>
+
+        </div>
+
+
+        <!-- ============================
+             TOPICS
+        ============================ -->
+
+        <div class="topics">
+
+
+            <!-- ALGEBRA -->
+
+            <section class="topic-section">
+
+                <div class="topic-title">
+
+                    <span class="topic-number">
+                        01
+                    </span>
+
+
+                    <h2>
+                        Algebra
+                    </h2>
+
+                </div>
+
+
+                <p class="topic-description">
+
+                    Learn how numbers, variables,
+                    expressions, equations, and graphs
+                    work together.
+
+                </p>
+
+
+                <div class="lesson-grid">
+
+
+                    <a
+                        href="math-variables.html"
+                        class="lesson lavender"
+                    >
+
+                        <span class="lesson-label">
+                            Start here
+                        </span>
+
+
+                        <h3>
+                            Understanding Variables
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson blue"
+                    >
+
+                        <span class="lesson-label">
+                            Algebra
+                        </span>
+
+
+                        <h3>
+                            Coefficients & Constants
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson yellow"
+                    >
+
+                        <span class="lesson-label">
+                            Algebra
+                        </span>
+
+
+                        <h3>
+                            Combining Like Terms
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson sage"
+                    >
+
+                        <span class="lesson-label">
+                            Equations
+                        </span>
+
+
+                        <h3>
+                            Solving One-Step Equations
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson peach"
+                    >
+
+                        <span class="lesson-label">
+                            Equations
+                        </span>
+
+
+                        <h3>
+                            Multi-Step Equations
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson pink"
+                    >
+
+                        <span class="lesson-label">
+                            Algebra
+                        </span>
+
+
+                        <h3>
+                            Inequalities
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- FUNCTIONS -->
+
+            <section class="topic-section">
+
+                <div class="topic-title">
+
+                    <span class="topic-number">
+                        02
+                    </span>
+
+
+                    <h2>
+                        Functions
+                    </h2>
+
+                </div>
+
+
+                <p class="topic-description">
+
+                    Understand how inputs and outputs
+                    create mathematical relationships.
+
+                </p>
+
+
+                <div class="lesson-grid">
+
+
+                    <a
+                        href="#"
+                        class="lesson blue"
+                    >
+
+                        <span class="lesson-label">
+                            Functions
+                        </span>
+
+
+                        <h3>
+                            What Is a Function?
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson lavender"
+                    >
+
+                        <span class="lesson-label">
+                            Functions
+                        </span>
+
+
+                        <h3>
+                            Function Notation
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson yellow"
+                    >
+
+                        <span class="lesson-label">
+                            Graphing
+                        </span>
+
+
+                        <h3>
+                            Reading Function Graphs
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- GEOMETRY -->
+
+            <section class="topic-section">
+
+                <div class="topic-title">
+
+                    <span class="topic-number">
+                        03
+                    </span>
+
+
+                    <h2>
+                        Geometry
+                    </h2>
+
+                </div>
+
+
+                <p class="topic-description">
+
+                    Explore shapes, measurements,
+                    angles, area, perimeter, and
+                    spatial relationships.
+
+                </p>
+
+
+                <div class="lesson-grid">
+
+
+                    <a
+                        href="#"
+                        class="lesson sage"
+                    >
+
+                        <span class="lesson-label">
+                            Foundations
+                        </span>
+
+
+                        <h3>
+                            Points, Lines & Planes
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson peach"
+                    >
+
+                        <span class="lesson-label">
+                            Geometry
+                        </span>
+
+
+                        <h3>
+                            Understanding Angles
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson blue"
+                    >
+
+                        <span class="lesson-label">
+                            Measurement
+                        </span>
+
+
+                        <h3>
+                            Area & Perimeter
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+
+            <section class="topic-section">
+
+                <div class="topic-title">
+
+                    <span class="topic-number">
+                        04
+                    </span>
+
+
+                    <h2>
+                        Statistics
+                    </h2>
+
+                </div>
+
+
+                <p class="topic-description">
+
+                    Learn how to understand, organize,
+                    and interpret data.
+
+                </p>
+
+
+                <div class="lesson-grid">
+
+
+                    <a
+                        href="#"
+                        class="lesson yellow"
+                    >
+
+                        <span class="lesson-label">
+                            Statistics
+                        </span>
+
+
+                        <h3>
+                            Mean, Median & Mode
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson lavender"
+                    >
+
+                        <span class="lesson-label">
+                            Data
+                        </span>
+
+
+                        <h3>
+                            Reading Data Displays
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson sage"
+                    >
+
+                        <span class="lesson-label">
+                            Data
+                        </span>
+
+
+                        <h3>
+                            Understanding Distributions
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRE-ALGEBRA -->
+
+            <section class="topic-section">
+
+                <div class="topic-title">
+
+                    <span class="topic-number">
+                        05
+                    </span>
+
+
+                    <h2>
+                        Foundations
+                    </h2>
+
+                </div>
+
+
+                <p class="topic-description">
+
+                    Review the building blocks that make
+                    later mathematics easier to understand.
+
+                </p>
+
+
+                <div class="lesson-grid">
+
+
+                    <a
+                        href="#"
+                        class="lesson pink"
+                    >
+
+                        <span class="lesson-label">
+                            Foundations
+                        </span>
+
+
+                        <h3>
+                            Order of Operations
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson blue"
+                    >
+
+                        <span class="lesson-label">
+                            Foundations
+                        </span>
+
+
+                        <h3>
+                            Fractions & Decimals
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="lesson yellow"
+                    >
+
+                        <span class="lesson-label">
+                            Foundations
+                        </span>
+
+
+                        <h3>
+                            Positive & Negative Numbers
+                        </h3>
+
+
+                        <span class="lesson-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- STUDY TIP -->
+
+            <div class="study-tip">
+
+                <strong>
+                    A small reminder.
+                </strong>
+
+
+                <p>
+
+                    You don't need to understand
+                    everything immediately. If a lesson
+                    feels too difficult, go back one step
+                    and build from there.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ============================
+             BACK BUTTON
+        ============================ -->
+
+        <div class="back-section">
+
+            <a
+                href="mathematics.html"
+                class="back-button"
+            >
+                ← Back to learning paths
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ============================
+         FOOTER
+    ============================ -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                NeuralPath
+            </div>
+
+
+            <p class="footer-text">
+                Learn your way. © 2026 NeuralPath
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
