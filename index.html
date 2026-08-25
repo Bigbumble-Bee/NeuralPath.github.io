@@ -999,135 +999,31 @@
         .featured-label {
             font-size: 0.75rem;
 
+            color: var(--soft-ink);
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+
             text-transform: uppercase;
-
-            letter-spacing: 0.1em;
-
-            font-weight: 750;
         }
 
 
         .featured-card h3 {
-            margin-top: 25px;
+            margin-top: 20px;
 
-            font-family: "Starborn", sans-serif;
+            font-size: 1.6rem;
 
-            font-size: 1.8rem;
-
-            font-weight: 400;
+            line-height: 1.2;
         }
 
 
         .featured-card p {
             margin-top: 15px;
 
-            color: #55565a;
-        }
+            color: #5a5c61;
 
-
-        .featured-card .button {
-            margin-top: 25px;
-
-            background:
-                rgba(255,255,255,0.65);
-        }
-
-
-        /* ================================
-           ABOUT
-        ================================= */
-
-        .about {
-            display: grid;
-
-            grid-template-columns:
-                0.8fr 1.2fr;
-
-            gap: 70px;
-
-            align-items: center;
-        }
-
-
-        .about-note {
-            padding: 35px;
-
-            background: var(--yellow);
-
-            border-radius:
-                45% 55% 48% 52% /
-                55% 45% 55% 45%;
-
-            text-align: center;
-        }
-
-
-        .about-note p {
-            margin-top: 15px;
-
-            font-family: "Starborn", sans-serif;
-
-            font-size: 1.5rem;
-        }
-
-
-        .about-text h2 {
-            font-family: "Starborn", sans-serif;
-
-            font-size:
-                clamp(2rem, 4vw, 3rem);
-
-            font-weight: 400;
-        }
-
-
-        .about-text p {
-            margin-top: 20px;
-
-            color: var(--soft-ink);
-
-            max-width: 650px;
-        }
-
-
-        /* ================================
-           SUPPORT
-        ================================= */
-
-        .support {
-            background: var(--lavender);
-
-            border-radius: 25px;
-
-            padding: 55px;
-
-            text-align: center;
-        }
-
-
-        .support h2 {
-            font-family: "Starborn", sans-serif;
-
-            font-size:
-                clamp(2rem, 4vw, 3rem);
-
-            font-weight: 400;
-        }
-
-
-        .support p {
-            max-width: 620px;
-
-            margin: 18px auto 0;
-
-            color: #5d5962;
-        }
-
-
-        .support .button {
-            margin-top: 25px;
-
-            background: var(--white);
+            font-size: 0.95rem;
         }
 
 
@@ -1135,86 +1031,90 @@
            FOOTER
         ================================= */
 
-        footer {
+        .site-footer {
+            width: 100%;
+
             margin-top: 90px;
 
-            padding: 55px 0;
+            padding: 50px 0;
 
             border-top:
                 1px solid var(--border);
         }
 
 
-        .footer-inner {
+        .footer-content {
             width: min(1180px, 92%);
 
             margin: auto;
 
-            display: flex;
+            display: grid;
 
-            justify-content: space-between;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-            align-items: center;
+            gap: 50px;
         }
 
 
-        .footer-brand {
-            font-family: "Starborn", sans-serif;
+        .footer-block h4 {
+            font-size: 0.95rem;
 
-            font-size: 1.2rem;
+            font-weight: 700;
+
+            margin-bottom: 20px;
         }
 
 
-        .footer-text {
+        .footer-block ul {
+            list-style: none;
+        }
+
+
+        .footer-block li {
+            margin-bottom: 12px;
+        }
+
+
+        .footer-block a {
             color: var(--soft-ink);
 
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+
+            transition: 0.2s ease;
+
+            text-decoration: none;
+        }
+
+
+        .footer-block a:hover {
+            color: var(--ink);
+
+            transform: translateX(2px);
+
+            display: inline-block;
         }
 
 
         /* ================================
-           TABLET
+           RESPONSIVE
         ================================= */
 
-        @media (max-width: 850px) {
-
-            .nav-links {
-                display: none;
-            }
-
+        @media (max-width: 900px) {
 
             .hero {
                 grid-template-columns: 1fr;
 
-                text-align: center;
+                min-height: auto;
 
-                padding-top: 65px;
+                gap: 40px;
+
+                padding: 60px 0;
             }
 
 
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-
-            .hero-actions {
-                justify-content: center;
-            }
-
-
-            .subjects-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-
-            .learning-preferences {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-
+            .subjects-grid,
+            .learning-preferences,
             .mind-grid {
                 grid-template-columns:
                     repeat(2, 1fr);
@@ -1227,38 +1127,24 @@
             }
 
 
-            .about {
+            .footer-content {
                 grid-template-columns: 1fr;
+
+                gap: 30px;
             }
-
-
-            .about-note {
-                max-width: 350px;
-
-                margin: auto;
-            }
-
-
-            .featured {
-                grid-template-columns: 1fr;
-            }
-
         }
 
 
-        /* ================================
-           PHONE
-        ================================= */
+        @media (max-width: 600px) {
 
-        @media (max-width: 560px) {
+            .nav {
+                flex-direction: column;
 
-            .hero h1 {
-                font-size: 2.8rem;
-            }
+                gap: 15px;
 
+                min-height: auto;
 
-            section {
-                padding: 65px 0;
+                padding: 15px 0;
             }
 
 
@@ -1270,208 +1156,90 @@
             }
 
 
-            .support {
-                padding: 35px 22px;
+            .featured {
+                grid-template-columns: 1fr;
             }
 
 
-            .footer-inner {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+
+            .hero-actions {
                 flex-direction: column;
-
-                text-align: center;
             }
 
 
-            .hero-art {
-                transform: scale(0.85);
+            .button {
+                width: 100%;
             }
-
-        }
-
-
-        /* ================================
-           REDUCED MOTION
-        ================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-
-            *,
-            *::before,
-            *::after {
-                transition-duration:
-                    0.01ms !important;
-            }
-
         }
 
     </style>
 
 </head>
-
-
 <body>
 
-
-    <!-- ================================
-         HEADER
-    ================================= -->
-
     <header class="site-header">
-
         <nav class="nav">
-
-            <a
-                class="logo"
-                href="#"
-            >
+            <a href="#" class="logo">
                 NeuralPath<span class="logo-dot"></span>
             </a>
 
-
             <ul class="nav-links">
-
-                <li>
-                    <a href="#subjects">
-                        Subjects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#learning-paths">
-                        Learning Paths
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#different-minds">
-                        Resources
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#tutorials">
-                        Tutorials
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
-
+                <li><a href="#subjects">Subjects</a></li>
+                <li><a href="#learning-paths">Learning Paths</a></li>
+                <li><a href="#minds">Minds</a></li>
             </ul>
-
-
-            <a
-                class="button button-primary"
-                href="#learning-paths"
-            >
-                Start Learning
-            </a>
-
         </nav>
-
     </header>
 
 
     <main>
 
-
-        <!-- ================================
-             HERO
-        ================================= -->
-
         <section class="hero">
-
-            <div class="hero-text">
-
-                <span class="eyebrow">
-                    A free space for learning
-                </span>
-
+            <div>
+                <span class="eyebrow">Welcome to NeuralPath</span>
 
                 <h1>
-                    Learn
-                    <span>your way.</span>
+                    Learn Your
+                    <span>Way</span>
                 </h1>
 
-
                 <p class="hero-description">
-
-                    Education doesn't have one path.
-
-                    NeuralPath helps learners explore
-                    ideas through tutorials, explanations,
-                    practice, and resources designed for
-                    different ways of learning.
-
+                    There's no single "right" way to understand something. We help you discover learning approaches that match your unique mind. Explore different paths. Find your pace. Grow with confidence.
                 </p>
 
-
                 <div class="hero-actions">
-
-                    <a
-                        class="button button-primary"
-                        href="#subjects"
-                    >
-                        Start Learning
+                    <a href="#subjects" class="button button-primary">
+                        Explore Subjects
                     </a>
-
-
-                    <a
-                        class="button button-secondary"
-                        href="#about"
-                    >
-                        About NeuralPath
+                    <a href="#learning-paths" class="button button-secondary">
+                        Find Your Path
                     </a>
-
                 </div>
-
             </div>
 
-
-            <div
-                class="hero-art"
-                aria-hidden="true"
-            >
-
+            <div class="hero-art">
                 <div class="path"></div>
 
-                <span class="path-dot dot-one"></span>
-
-                <span class="path-dot dot-two"></span>
-
-                <span class="path-dot dot-three"></span>
-
-                <span class="path-dot dot-four"></span>
-
-
                 <div class="student">
-
                     <div class="student-hair"></div>
-
-                    <div class="student-head"></div>
-
-                    <span class="face-dot face-left"></span>
-
-                    <span class="face-dot face-right"></span>
-
-                    <span class="face-smile"></span>
-
+                    <div class="student-head">
+                        <div class="face-dot face-left"></div>
+                        <div class="face-dot face-right"></div>
+                        <div class="face-smile"></div>
+                    </div>
                     <div class="student-body"></div>
-
                     <div class="student-book"></div>
-
                 </div>
 
+                <div class="path-dot dot-one"></div>
+                <div class="path-dot dot-two"></div>
+                <div class="path-dot dot-three"></div>
+                <div class="path-dot dot-four"></div>
             </div>
-
         </section>
 
 
@@ -1509,7 +1277,7 @@
 
                 <a
                     class="subject-card subject-math"
-                    href="#"
+                    href="mathematics.html"
                 >
 
                     <span class="subject-number">
@@ -1534,7 +1302,7 @@
 
                 <a
                     class="subject-card subject-science"
-                    href="#"
+                    href="science.html"
                 >
 
                     <span class="subject-number">
@@ -1559,7 +1327,7 @@
 
                 <a
                     class="subject-card subject-history"
-                    href="#"
+                    href="history.html"
                 >
 
                     <span class="subject-number">
@@ -1584,7 +1352,7 @@
 
                 <a
                     class="subject-card subject-english"
-                    href="#"
+                    href="english.html"
                 >
 
                     <span class="subject-number">
@@ -1609,7 +1377,7 @@
 
                 <a
                     class="subject-card subject-government"
-                    href="#"
+                    href="government.html"
                 >
 
                     <span class="subject-number">
@@ -1634,7 +1402,7 @@
 
                 <a
                     class="subject-card subject-study"
-                    href="#"
+                    href="study-skills.html"
                 >
 
                     <span class="subject-number">
@@ -1704,16 +1472,12 @@
                     </span>
 
                     <div>
-
-                        <h3>
-                            Break it down
-                        </h3>
-
+                        <h3>Visual</h3>
                         <p>
-                            One concept at a time,
-                            with clear steps.
+                            Learn best with diagrams,
+                            charts, images, and spatial
+                            thinking.
                         </p>
-
                     </div>
 
                 </a>
@@ -1725,20 +1489,16 @@
                 >
 
                     <span class="preference-icon">
-                        ✦
+                        ♪
                     </span>
 
                     <div>
-
-                        <h3>
-                            Show me
-                        </h3>
-
+                        <h3>Auditory</h3>
                         <p>
-                            Diagrams, examples,
-                            and visual explanations.
+                            Thrive through listening,
+                            discussion, and spoken
+                            explanation.
                         </p>
-
                     </div>
 
                 </a>
@@ -1750,20 +1510,16 @@
                 >
 
                     <span class="preference-icon">
-                        •••
+                        ✋
                     </span>
 
                     <div>
-
-                        <h3>
-                            Keep it short
-                        </h3>
-
+                        <h3>Kinesthetic</h3>
                         <p>
-                            Quick explanations
-                            and the key points.
+                            Engage with hands-on practice,
+                            movement, and real-world
+                            experience.
                         </p>
-
                     </div>
 
                 </a>
@@ -1775,20 +1531,15 @@
                 >
 
                     <span class="preference-icon">
-                        ✓
+                        📖
                     </span>
 
                     <div>
-
-                        <h3>
-                            Let me practice
-                        </h3>
-
+                        <h3>Reading/Writing</h3>
                         <p>
-                            Questions, activities,
-                            and examples.
+                            Connect through text, note-taking,
+                            and written information.
                         </p>
-
                     </div>
 
                 </a>
@@ -1800,20 +1551,16 @@
                 >
 
                     <span class="preference-icon">
-                        ↗
+                        💭
                     </span>
 
                     <div>
-
-                        <h3>
-                            Go deeper
-                        </h3>
-
+                        <h3>Analytical</h3>
                         <p>
-                            Detailed explanations
-                            and deeper connections.
+                            Deep dive into structure,
+                            logic, and systematic
+                            understanding.
                         </p>
-
                     </div>
 
                 </a>
@@ -1825,24 +1572,19 @@
                 >
 
                     <span class="preference-icon">
-                        ?
+                        👥
                     </span>
 
                     <div>
-
-                        <h3>
-                            I'm not sure yet
-                        </h3>
-
+                        <h3>Social</h3>
                         <p>
-                            Explore different approaches
-                            and discover what works.
+                            Learn together through
+                            collaboration, discussion,
+                            and group work.
                         </p>
-
                     </div>
 
                 </a>
-
 
             </div>
 
@@ -1856,26 +1598,27 @@
         <div class="path-section">
 
             <section
-                id="different-minds"
-                aria-labelledby="different-minds-title"
+                id="minds"
+                aria-labelledby="minds-title"
             >
 
                 <div class="section-heading">
 
                     <span class="eyebrow">
-                        Resources
+                        Learning Styles
                     </span>
 
 
-                    <h2 id="different-minds-title">
-                        Resources for different minds.
+                    <h2 id="minds-title">
+                        Different minds, different approaches.
                     </h2>
 
 
                     <p>
-                        Explore strategies and resources
-                        that may be useful for different
-                        learning needs and experiences.
+                        Neuroscience shows us that
+                        brains work in wonderfully
+                        different ways. There's no
+                        "best" — only "best for you."
                     </p>
 
                 </div>
@@ -1890,16 +1633,15 @@
                     >
 
                         <span class="mind-card-number">
-                            01
+                            Sequential
                         </span>
 
-                        <h3>
-                            ADHD
-                        </h3>
+                        <h3>Step by Step</h3>
 
                         <p>
-                            Focus-friendly study strategies,
-                            task breakdowns, and organization.
+                            Build understanding
+                            piece by piece, working
+                            through concepts in order.
                         </p>
 
                         <span class="mind-arrow">
@@ -1915,17 +1657,15 @@
                     >
 
                         <span class="mind-card-number">
-                            02
+                            Holistic
                         </span>
 
-                        <h3>
-                            Autism
-                        </h3>
+                        <h3>See the Big Picture</h3>
 
                         <p>
-                            Structured resources, clear
-                            explanations, and predictable
-                            learning formats.
+                            Start with the overview,
+                            then dive into details
+                            that fit the whole.
                         </p>
 
                         <span class="mind-arrow">
@@ -1941,17 +1681,15 @@
                     >
 
                         <span class="mind-card-number">
-                            03
+                            Abstract
                         </span>
 
-                        <h3>
-                            Reading differences
-                        </h3>
+                        <h3>Think in Concepts</h3>
 
                         <p>
-                            Reading strategies, accessible
-                            formatting, and alternative ways
-                            to work with information.
+                            Thrive with theories,
+                            symbols, and abstract
+                            ideas that represent reality.
                         </p>
 
                         <span class="mind-arrow">
@@ -1967,16 +1705,15 @@
                     >
 
                         <span class="mind-card-number">
-                            04
+                            Concrete
                         </span>
 
-                        <h3>
-                            Executive function
-                        </h3>
+                        <h3>Learn with Examples</h3>
 
                         <p>
-                            Planning, organization, time
-                            management, and getting started.
+                            Connect through
+                            real examples, case studies,
+                            and tangible situations.
                         </p>
 
                         <span class="mind-arrow">
@@ -1992,17 +1729,15 @@
                     >
 
                         <span class="mind-card-number">
-                            05
+                            Verbal
                         </span>
 
-                        <h3>
-                            Academic stress
-                        </h3>
+                        <h3>Put It in Words</h3>
 
                         <p>
-                            Low-pressure practice, study
-                            planning, and approaches to
-                            difficult assignments.
+                            Organize thoughts through
+                            language, talking, writing,
+                            and self-explanation.
                         </p>
 
                         <span class="mind-arrow">
@@ -2018,17 +1753,15 @@
                     >
 
                         <span class="mind-card-number">
-                            06
+                            Nonverbal
                         </span>
 
-                        <h3>
-                            Explore
-                        </h3>
+                        <h3>Think in Patterns</h3>
 
                         <p>
-                            Not sure what you need?
-                            Browse different strategies
-                            and find your starting point.
+                            Understand through
+                            spatial relationships,
+                            patterns, and visual logic.
                         </p>
 
                         <span class="mind-arrow">
@@ -2036,7 +1769,6 @@
                         </span>
 
                     </a>
-
 
                 </div>
 
@@ -2054,19 +1786,18 @@
             <div class="section-heading">
 
                 <span class="eyebrow">
-                    Different paths
+                    Our Process
                 </span>
 
 
                 <h2>
-                    Learn in the way
-                    that works for you.
+                    How NeuralPath works.
                 </h2>
 
 
                 <p>
-                    The same idea can be approached
-                    from different directions.
+                    Designed to help you learn in a way
+                    that matches how you think.
                 </p>
 
             </div>
@@ -2074,79 +1805,61 @@
 
             <div class="learning-path">
 
+                <div class="learning-step">
 
-                <article class="learning-step">
+                    <div class="step-number">1</div>
 
-                    <div class="step-number">
-                        1
-                    </div>
-
-                    <h3>
-                        Explore
-                    </h3>
+                    <h3>Choose a Subject</h3>
 
                     <p>
-                        Get introduced to a new concept
-                        without the pressure to know
-                        everything immediately.
+                        Pick any subject you want
+                        to explore—from math to
+                        history to study skills.
                     </p>
 
-                </article>
+                </div>
 
+                <div class="learning-step">
 
-                <article class="learning-step">
+                    <div class="step-number">2</div>
 
-                    <div class="step-number">
-                        2
-                    </div>
-
-                    <h3>
-                        Understand
-                    </h3>
+                    <h3>Pick Your Approach</h3>
 
                     <p>
-                        Follow explanations, examples,
-                        diagrams, and different perspectives.
+                        Select the learning style
+                        that resonates with you—visual,
+                        auditory, hands-on, or other.
                     </p>
 
-                </article>
+                </div>
 
+                <div class="learning-step">
 
-                <article class="learning-step">
+                    <div class="step-number">3</div>
 
-                    <div class="step-number">
-                        3
-                    </div>
-
-                    <h3>
-                        Practice
-                    </h3>
+                    <h3>Learn at Your Pace</h3>
 
                     <p>
-                        Test what you know with questions,
-                        activities, and examples.
+                        Move through content when you're
+                        ready. Pause, rewind, revisit as
+                        many times as you need.
                     </p>
 
-                </article>
+                </div>
 
+                <div class="learning-step">
 
-                <article class="learning-step">
+                    <div class="step-number">4</div>
 
-                    <div class="step-number">
-                        4
-                    </div>
-
-                    <h3>
-                        Apply
-                    </h3>
+                    <h3>Grow Confidently</h3>
 
                     <p>
-                        Take what you learned and
-                        use it somewhere new.
+                        Build real understanding
+                        without pressure. Learn in
+                        the way your brain works best.
                     </p>
 
-                </article>
-
+                </div>
 
             </div>
 
@@ -2154,185 +1867,62 @@
 
 
         <!-- ================================
-             TUTORIALS
+             FEATURED TUTORIALS
         ================================= -->
 
-        <section
-            id="tutorials"
-            aria-labelledby="tutorials-title"
-        >
+        <section>
 
             <div class="section-heading">
 
                 <span class="eyebrow">
-                    Coming soon
+                    Get Started
                 </span>
 
 
-                <h2 id="tutorials-title">
-                    Learn something new.
+                <h2>
+                    Featured Tutorials
                 </h2>
-
-
-                <p>
-                    NeuralPath tutorials will break
-                    difficult concepts into manageable
-                    steps.
-                </p>
 
             </div>
 
 
             <div class="featured">
 
-
-                <article class="featured-card">
+                <div class="featured-card">
 
                     <span class="featured-label">
                         Mathematics
                     </span>
 
-
                     <h3>
-                        Understanding Algebra
+                        Introduction to Fractions
                     </h3>
 
-
                     <p>
-                        Learn what the symbols,
-                        variables, and equations are
-                        actually telling you.
+                        Understand fractions through multiple
+                        approaches: visual models, real-world
+                        examples, and hands-on practice.
                     </p>
 
-
-                    <a
-                        class="button"
-                        href="#"
-                    >
-                        Coming soon
-                    </a>
-
-                </article>
-
-
-                <article class="featured-card">
-
-                    <span class="featured-label">
-                        Study Skills
-                    </span>
-
-
-                    <h3>
-                        Finding your study method
-                    </h3>
-
-
-                    <p>
-                        Explore different approaches
-                        to studying and discover what
-                        helps information stick.
-                    </p>
-
-
-                    <a
-                        class="button"
-                        href="#"
-                    >
-                        Coming soon
-                    </a>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================
-             ABOUT
-        ================================= -->
-
-        <section
-            id="about"
-            class="about"
-            aria-labelledby="about-title"
-        >
-
-            <div class="about-note">
-
-                <div style="font-size: 2rem;">
-                    ✦
                 </div>
 
-                <p>
-                    There is more than one way
-                    to understand something.
-                </p>
+                <div class="featured-card">
 
-            </div>
+                    <span class="featured-label">
+                        Science
+                    </span>
 
+                    <h3>
+                        The Water Cycle
+                    </h3>
 
-            <div class="about-text">
+                    <p>
+                        Explore evaporation, condensation,
+                        and precipitation through interactive
+                        diagrams and live demonstrations.
+                    </p>
 
-                <span class="eyebrow">
-                    About NeuralPath
-                </span>
-
-
-                <h2 id="about-title">
-                    Education doesn't
-                    have one path.
-                </h2>
-
-
-                <p>
-                    NeuralPath is being built as a
-                    free educational space for students
-                    and self-directed learners.
-                </p>
-
-
-                <p>
-                    Instead of assuming that everyone
-                    learns the same way, NeuralPath aims
-                    to provide different explanations,
-                    formats, and approaches to the same
-                    knowledge.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================
-             SUPPORT
-        ================================= -->
-
-        <section>
-
-            <div class="support">
-
-                <h2>
-                    Keep learning free.
-                </h2>
-
-
-                <p>
-                    NeuralPath is being built around
-                    the idea that useful educational
-                    information should be accessible
-                    to learners who want to find it.
-                </p>
-
-
-                <a
-                    class="button"
-                    href="#"
-                >
-                    Support NeuralPath
-                </a>
+                </div>
 
             </div>
 
@@ -2341,27 +1931,49 @@
     </main>
 
 
-    <!-- ================================
-         FOOTER
-    ================================= -->
+    <footer class="site-footer">
 
-    <footer>
+        <div class="footer-content">
 
-        <div class="footer-inner">
+            <div class="footer-block">
 
-            <div class="footer-brand">
-                NeuralPath
+                <h4>NeuralPath</h4>
+
+                <ul>
+                    <li><a href="#subjects">Subjects</a></li>
+                    <li><a href="#learning-paths">Learning Paths</a></li>
+                    <li><a href="#minds">Different Minds</a></li>
+                </ul>
+
             </div>
 
+            <div class="footer-block">
 
-            <p class="footer-text">
-                Learn your way. © 2026 NeuralPath
-            </p>
+                <h4>Resources</h4>
+
+                <ul>
+                    <li><a href="#">Learning Guide</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footer-block">
+
+                <h4>About</h4>
+
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+
+            </div>
 
         </div>
 
     </footer>
-
 
 </body>
 </html>
