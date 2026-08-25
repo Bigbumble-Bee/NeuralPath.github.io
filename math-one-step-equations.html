@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn how to solve one-step equations with NeuralPath."
+    >
+
+    <title>One-Step Equations — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #65666a;
+
+            --lavender: #e8dff0;
+            --lavender-dark: #bca8d2;
+
+            --blue: #dce9f1;
+            --blue-dark: #abc8d9;
+
+            --yellow: #f2e9c9;
+            --sage: #dce8d9;
+
+            --peach: #efd9d4;
+            --pink: #ead9df;
+
+            --border: #dedbd2;
+
+            --radius: 18px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--cream);
+
+            color: var(--ink);
+
+            line-height: 1.65;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        /* HEADER */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid rgba(222, 219, 210, 0.8);
+        }
+
+
+        .nav {
+
+            width: min(1050px, 92%);
+
+            min-height: 76px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.5rem;
+
+            text-decoration: none;
+        }
+
+
+        .logo-dot {
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+
+            margin-left: 4px;
+
+            border-radius: 50%;
+
+            background: var(--lavender-dark);
+        }
+
+
+        .back-button {
+
+            padding: 10px 18px;
+
+            border-radius: 999px;
+
+            background: var(--lavender);
+
+            text-decoration: none;
+
+            font-weight: 650;
+
+            font-size: 0.86rem;
+
+            transition: 0.2s ease;
+        }
+
+
+        .back-button:hover {
+
+            background: var(--lavender-dark);
+
+            transform: translateX(-3px);
+        }
+
+
+        /* MAIN */
+
+        main {
+
+            width: min(850px, 92%);
+
+            margin: auto;
+
+            padding:
+                65px 0 100px;
+        }
+
+
+        .breadcrumb {
+
+            margin-bottom: 28px;
+
+            font-size: 0.84rem;
+
+            color: var(--soft-ink);
+        }
+
+
+        .breadcrumb a {
+
+            text-decoration: none;
+        }
+
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* ROADMAP */
+
+        .lesson-roadmap {
+
+            margin-bottom: 45px;
+
+            padding: 20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 17px;
+
+            background: var(--paper);
+        }
+
+
+        .roadmap-title {
+
+            margin-bottom: 14px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+        }
+
+
+        .roadmap {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .roadmap-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #858589;
+
+            font-size: 0.76rem;
+
+            font-weight: 650;
+        }
+
+
+        .roadmap-dot {
+
+            width: 19px;
+
+            height: 19px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #e6e3dc;
+
+            font-size: 0.62rem;
+        }
+
+
+        .roadmap-item.complete {
+
+            color: #65666a;
+        }
+
+
+        .roadmap-item.complete
+        .roadmap-dot {
+
+            background: var(--sage);
+
+            color: #566253;
+        }
+
+
+        .roadmap-item.current {
+
+            color: var(--ink);
+        }
+
+
+        .roadmap-item.current
+        .roadmap-dot {
+
+            background: var(--lavender);
+
+            color: var(--ink);
+        }
+
+
+        .roadmap-arrow {
+
+            color: #b3afa7;
+
+            font-size: 0.75rem;
+        }
+
+
+        /* TITLE */
+
+        .eyebrow {
+
+            display: block;
+
+            margin-bottom: 15px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.77rem;
+
+            font-weight: 750;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        h1 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(2.6rem, 6vw, 4.3rem);
+
+            line-height: 1.08;
+
+            font-weight: 400;
+        }
+
+
+        .intro {
+
+            margin-top: 20px;
+
+            max-width: 650px;
+
+            color: var(--soft-ink);
+
+            font-size: 1.06rem;
+        }
+
+
+        /* PROGRESS */
+
+        .progress-area {
+
+            margin-top: 35px;
+
+            padding: 17px 20px;
+
+            border-radius: 15px;
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .progress-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            font-size: 0.76rem;
+
+            color: var(--soft-ink);
+
+            font-weight: 700;
+        }
+
+
+        .progress-bar {
+
+            height: 7px;
+
+            overflow: hidden;
+
+            border-radius: 999px;
+
+            background: #e7e3da;
+        }
+
+
+        .progress-fill {
+
+            width: 72%;
+
+            height: 100%;
+
+            border-radius: 999px;
+
+            background: var(--lavender-dark);
+        }
+
+
+        /* LESSON */
+
+        .lesson-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius: var(--radius);
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .lesson-label {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding: 5px 11px;
+
+            border-radius: 999px;
+
+            background: var(--lavender);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.06em;
+
+            text-transform: uppercase;
+        }
+
+
+        .lesson-block h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+        }
+
+
+        .lesson-block p {
+
+            color: #55565a;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* EQUATION */
+
+        .equation-card {
+
+            margin: 30px auto;
+
+            padding: 30px;
+
+            width: min(600px, 100%);
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background: var(--blue);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 2.1rem;
+        }
+
+
+        .equation-card.small {
+
+            font-size: 1.55rem;
+
+            background: var(--yellow);
+        }
+
+
+        /* INVERSE OPERATIONS */
+
+        .inverse-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .inverse-card {
+
+            padding: 25px;
+
+            border-radius: 17px;
+
+            text-align: center;
+        }
+
+
+        .inverse-card.addition {
+
+            background: var(--peach);
+        }
+
+
+        .inverse-card.multiply {
+
+            background: var(--sage);
+        }
+
+
+        .inverse-card h3 {
+
+            margin-bottom: 10px;
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.1rem;
+
+            font-weight: 400;
+        }
+
+
+        .inverse-equation {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 1.5rem;
+
+            margin: 10px 0;
+        }
+
+
+        .inverse-card p {
+
+            margin: 0;
+
+            font-size: 0.85rem;
+        }
+
+
+        /* BALANCE */
+
+        .balance-box {
+
+            margin-top: 28px;
+
+            padding: 28px;
+
+            border-radius: 17px;
+
+            background: var(--yellow);
+        }
+
+
+        .balance-box h3 {
+
+            margin-bottom: 10px;
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.2rem;
+
+            font-weight: 400;
+        }
+
+
+        .balance-box p {
+
+            margin: 0;
+        }
+
+
+        /* STEPS */
+
+        .step-box {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background: var(--blue);
+        }
+
+
+        .step {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .step-number {
+
+            flex: 0 0 30px;
+
+            width: 30px;
+
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--white);
+
+            font-weight: 800;
+
+            font-size: 0.8rem;
+        }
+
+
+        .step-text {
+
+            padding-top: 3px;
+        }
+
+
+        .step-equation {
+
+            margin-top: 5px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 1.3rem;
+        }
+
+
+        /* PRACTICE */
+
+        .practice-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius: var(--radius);
+
+            background: var(--yellow);
+
+            border:
+                1px solid rgba(41,42,45,0.05);
+        }
+
+
+        .practice-block h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+
+        .question {
+
+            margin-top: 25px;
+
+            font-size: 1.08rem;
+
+            font-weight: 650;
+        }
+
+
+        .answer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .answer-button {
+
+            min-height: 60px;
+
+            border:
+                1px solid rgba(41,42,45,0.08);
+
+            border-radius: 14px;
+
+            background: var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 1.05rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .answer-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .feedback {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+        }
+
+
+        .feedback.show {
+            display: block;
+        }
+
+
+        .feedback.correct {
+            background: var(--sage);
+        }
+
+
+        .feedback.incorrect {
+            background: var(--pink);
+        }
+
+
+        .feedback strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* ANOTHER WAY */
+
+        .different-way {
+
+            margin-top: 55px;
+
+            padding: 30px;
+
+            border-radius: var(--radius);
+
+            background: var(--blue);
+        }
+
+
+        .different-way h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.7rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+
+        .different-way p {
+
+            color: #566066;
+
+            margin-bottom: 20px;
+        }
+
+
+        .explanation-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .explanation-buttons button {
+
+            border: none;
+
+            padding: 10px 16px;
+
+            border-radius: 999px;
+
+            background: var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 0.82rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .explanation-buttons button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .alternative {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.7);
+        }
+
+
+        .alternative.show {
+            display: block;
+        }
+
+
+        /* NEXT */
+
+        .next-section {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-top: 60px;
+        }
+
+
+        .next-button {
+
+            flex: 1;
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background: var(--lavender);
+
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+
+        .next-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .next-label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 750;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .next-title {
+            font-weight: 700;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            padding: 45px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+
+            width: min(850px, 92%);
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .footer-brand {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.1rem;
+        }
+
+
+        .footer-text {
+
+            color: var(--soft-ink);
+
+            font-size: 0.8rem;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            .inverse-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .answer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .next-section {
+
+                flex-direction: column;
+            }
+
+
+            .lesson-block,
+            .practice-block {
+
+                padding: 25px;
+            }
+
+
+            .roadmap {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .roadmap-arrow {
+
+                display: none;
+            }
+
+
+            .footer-inner {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <nav class="nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            NeuralPath<span class="logo-dot"></span>
+        </a>
+
+
+        <a
+            href="math-breakdown.html"
+            class="back-button"
+        >
+            ← Algebra
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            NeuralPath
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="mathematics.html">
+            Mathematics
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="math-breakdown.html">
+            Break it down
+        </a>
+
+        &nbsp;→&nbsp;
+
+        One-Step Equations
+
+    </div>
+
+
+    <!-- ROADMAP -->
+
+    <div class="lesson-roadmap">
+
+        <div class="roadmap-title">
+            Algebra foundations
+        </div>
+
+
+        <div class="roadmap">
+
+
+            <div class="roadmap-item complete">
+
+                <span class="roadmap-dot">
+                    ✓
+                </span>
+
+                Variables
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item complete">
+
+                <span class="roadmap-dot">
+                    ✓
+                </span>
+
+                Coefficients
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item complete">
+
+                <span class="roadmap-dot">
+                    ✓
+                </span>
+
+                Like Terms
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item current">
+
+                <span class="roadmap-dot">
+                    4
+                </span>
+
+                Equations
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    5
+                </span>
+
+                Inequalities
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <span class="eyebrow">
+        Algebra · Foundations
+    </span>
+
+
+    <h1>
+        One-Step<br>
+        Equations
+    </h1>
+
+
+    <p class="intro">
+
+        An equation is like a balance.
+
+        Your goal is to figure out what value makes
+        both sides equal.
+
+    </p>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-area">
+
+        <div class="progress-top">
+
+            <span>
+                Lesson progress
+            </span>
+
+            <span>
+                4 of 5
+            </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- UNDERSTAND -->
+
+    <section class="lesson-block">
+
+        <span class="lesson-label">
+            Step 1 · Understand
+        </span>
+
+
+        <h2>
+            What is an equation?
+        </h2>
+
+
+        <p>
+
+            An equation says that two expressions
+            have the same value.
+
+        </p>
+
+
+        <div class="equation-card">
+
+            x + 4 = 9
+
+        </div>
+
+
+        <p>
+
+            We don't know what <strong>x</strong> is yet.
+
+            But we know that when 4 is added to x,
+            the result is 9.
+
+        </p>
+
+
+        <div class="balance-box">
+
+            <h3>
+                Think of a balance.
+            </h3>
+
+
+            <p>
+
+                The two sides of the equation must stay
+                equal.
+
+                Whatever you do to one side, you must
+                also do to the other side.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVERSE OPERATIONS -->
+
+    <section class="lesson-block">
+
+        <span class="lesson-label">
+            Step 2 · Understand
+        </span>
+
+
+        <h2>
+            Undo what was done.
+        </h2>
+
+
+        <p>
+
+            To isolate the variable, use the
+            <strong>inverse operation</strong>.
+
+            In other words: do the opposite.
+
+        </p>
+
+
+        <div class="inverse-grid">
+
+
+            <div class="inverse-card addition">
+
+                <h3>
+                    Addition
+                </h3>
+
+
+                <div class="inverse-equation">
+                    + 4
+                </div>
+
+
+                <p>
+                    is undone by
+                </p>
+
+
+                <div class="inverse-equation">
+                    − 4
+                </div>
+
+            </div>
+
+
+            <div class="inverse-card multiply">
+
+                <h3>
+                    Multiplication
+                </h3>
+
+
+                <div class="inverse-equation">
+                    × 4
+                </div>
+
+
+                <p>
+                    is undone by
+                </p>
+
+
+                <div class="inverse-equation">
+                    ÷ 4
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="equation-card small">
+
+            x + 4 = 9
+
+        </div>
+
+
+        <p>
+
+            Since 4 was added to x, subtract 4
+            from both sides.
+
+        </p>
+
+    </section>
+
+
+    <!-- SOLVING -->
+
+    <section class="lesson-block">
+
+        <span class="lesson-label">
+            Step 3 · Solve
+        </span>
+
+
+        <h2>
+            Let's solve it together.
+        </h2>
+
+
+        <div class="step-box">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+
+                <div class="step-text">
+
+                    Start with the equation:
+
+                    <div class="step-equation">
+                        x + 4 = 9
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+
+                <div class="step-text">
+
+                    Subtract 4 from both sides:
+
+                    <div class="step-equation">
+                        x + 4 − 4 = 9 − 4
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+
+                <div class="step-text">
+
+                    Simplify:
+
+                    <div class="step-equation">
+                        x = 5
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="equation-card">
+
+            x = 5
+
+        </div>
+
+
+        <p>
+
+            We found the value of x.
+
+            The answer is <strong>5</strong>.
+
+        </p>
+
+    </section>
+
+
+    <!-- PRACTICE -->
+
+    <section class="practice-block">
+
+        <span class="lesson-label">
+            Step 4 · Practice
+        </span>
+
+
+        <h2>
+            Your turn.
+        </h2>
+
+
+        <p>
+
+            Solve:
+
+        </p>
+
+
+        <div class="equation-card">
+
+            x + 6 = 10
+
+        </div>
+
+
+        <p class="question">
+
+            What is x?
+
+        </p>
+
+
+        <div class="answer-grid">
+
+
+            <button
+                class="answer-button"
+                onclick="checkAnswer('4')"
+            >
+                x = 4
+            </button>
+
+
+            <button
+                class="answer-button"
+                onclick="checkAnswer('16')"
+            >
+                x = 16
+            </button>
+
+
+            <button
+                class="answer-button"
+                onclick="checkAnswer('6')"
+            >
+                x = 6
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="feedback"
+            class="feedback"
+        >
+
+            <strong id="feedback-title"></strong>
+
+            <span id="feedback-text"></span>
+
+        </div>
+
+
+        <p class="question">
+
+            One more:
+
+        </p>
+
+
+        <div class="equation-card small">
+
+            x − 3 = 8
+
+        </div>
+
+
+        <p class="question">
+
+            What is x?
+
+        </p>
+
+
+        <div class="answer-grid">
+
+
+            <button
+                class="answer-button"
+                onclick="checkSecond('11')"
+            >
+                x = 11
+            </button>
+
+
+            <button
+                class="answer-button"
+                onclick="checkSecond('5')"
+            >
+                x = 5
+            </button>
+
+
+            <button
+                class="answer-button"
+                onclick="checkSecond('24')"
+            >
+                x = 24
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="feedback-second"
+            class="feedback"
+        >
+
+            <strong id="feedback-title-second"></strong>
+
+            <span id="feedback-text-second"></span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ANOTHER WAY -->
+
+    <section class="different-way">
+
+        <h2>
+            Need another way?
+        </h2>
+
+
+        <p>
+
+            Pick the explanation that works best
+            for your brain.
+
+        </p>
+
+
+        <div class="explanation-buttons">
+
+
+            <button
+                onclick="showAlternative('simple')"
+            >
+                Keep it simple
+            </button>
+
+
+            <button
+                onclick="showAlternative('visual')"
+            >
+                Show me visually
+            </button>
+
+
+            <button
+                onclick="showAlternative('balance')"
+            >
+                Balance idea
+            </button>
+
+
+            <button
+                onclick="showAlternative('steps')"
+            >
+                Step-by-step
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="simple"
+            class="alternative"
+        >
+
+            <strong>
+                Keep it simple
+            </strong>
+
+
+            <p>
+
+                Find the operation attached to x.
+
+                Do the opposite operation to both sides.
+
+                Then x is by itself.
+
+            </p>
+
+        </div>
+
+
+        <div
+            id="visual"
+            class="alternative"
+        >
+
+            <strong>
+                Show me visually
+            </strong>
+
+
+            <p>
+
+                Imagine x is a mystery box.
+
+                x + 6 = 10 means:
+
+                [ mystery box ] + [6] = [10]
+
+                Remove 6 from both sides.
+
+                The mystery box contains 4.
+
+            </p>
+
+        </div>
+
+
+        <div
+            id="balance"
+            class="alternative"
+        >
+
+            <strong>
+                Balance idea
+            </strong>
+
+
+            <p>
+
+                Imagine a physical balance scale.
+
+                If you remove 6 from the left side,
+                you must remove 6 from the right side
+                too.
+
+                Otherwise the equation would no longer
+                be balanced.
+
+            </p>
+
+        </div>
+
+
+        <div
+            id="steps"
+            class="alternative"
+        >
+
+            <strong>
+                Step-by-step
+            </strong>
+
+
+            <p>
+
+                1. Identify the operation.<br>
+
+                2. Find its inverse.<br>
+
+                3. Apply the inverse to BOTH sides.<br>
+
+                4. Simplify.<br>
+
+                5. Check your answer.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEXT -->
+
+    <div class="next-section">
+
+
+        <a
+            href="math-like-terms.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+                Previous lesson
+            </span>
+
+
+            <span class="next-title">
+                ← Combining Like Terms
+            </span>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="next-button"
+        >
+
+            <span class="next-label">
+                Coming next
+            </span>
+
+
+            <span class="next-title">
+                Inequalities →
+            </span>
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            NeuralPath
+        </div>
+
+
+        <p class="footer-text">
+            Learn your way. © 2026 NeuralPath
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+
+    function checkAnswer(answer) {
+
+        const feedback =
+            document.getElementById("feedback");
+
+        const title =
+            document.getElementById("feedback-title");
+
+        const text =
+            document.getElementById("feedback-text");
+
+
+        feedback.classList.add("show");
+
+
+        if (answer === "4") {
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+            feedback.classList.add(
+                "correct"
+            );
+
+
+            title.textContent =
+                "Correct!";
+
+
+            text.textContent =
+                "Subtract 6 from both sides: 10 − 6 = 4. Therefore x = 4.";
+
+        }
+
+        else {
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+
+            title.textContent =
+                "Not quite.";
+
+
+            text.textContent =
+                "Because 6 is added to x, subtract 6 from both sides. 10 − 6 = 4.";
+
+        }
+
+    }
+
+
+    function checkSecond(answer) {
+
+        const feedback =
+            document.getElementById(
+                "feedback-second"
+            );
+
+        const title =
+            document.getElementById(
+                "feedback-title-second"
+            );
+
+        const text =
+            document.getElementById(
+                "feedback-text-second"
+            );
+
+
+        feedback.classList.add("show");
+
+
+        if (answer === "11") {
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+            feedback.classList.add(
+                "correct"
+            );
+
+
+            title.textContent =
+                "Correct!";
+
+
+            text.textContent =
+                "Add 3 to both sides: 8 + 3 = 11. Therefore x = 11.";
+
+        }
+
+        else {
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+
+            title.textContent =
+                "Not quite.";
+
+
+            text.textContent =
+                "Because 3 is subtracted from x, add 3 to both sides. 8 + 3 = 11.";
+
+        }
+
+    }
+
+
+    function showAlternative(type) {
+
+        const alternatives =
+            document.querySelectorAll(
+                ".alternative"
+            );
+
+
+        alternatives.forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+        const selected =
+            document.getElementById(type);
+
+
+        if (selected) {
+
+            selected.classList.add(
+                "show"
+            );
+
+
+            selected.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "nearest"
+
+            });
+
+        }
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
