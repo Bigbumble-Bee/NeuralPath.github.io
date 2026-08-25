@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn about coefficients and constants with NeuralPath."
+    >
+
+    <title>Coefficients & Constants — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #65666a;
+
+            --lavender: #e8dff0;
+            --lavender-dark: #bca8d2;
+
+            --blue: #dce9f1;
+            --blue-dark: #abc8d9;
+
+            --yellow: #f2e9c9;
+            --sage: #dce8d9;
+            --peach: #efd9d4;
+            --pink: #ead9df;
+
+            --border: #dedbd2;
+
+            --radius: 18px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--cream);
+
+            color: var(--ink);
+
+            line-height: 1.65;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        /* ============================
+           HEADER
+        ============================ */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid rgba(222, 219, 210, 0.8);
+        }
+
+
+        .nav {
+
+            width: min(1050px, 92%);
+
+            min-height: 76px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.5rem;
+
+            text-decoration: none;
+        }
+
+
+        .logo-dot {
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+
+            margin-left: 4px;
+
+            border-radius: 50%;
+
+            background: var(--lavender-dark);
+        }
+
+
+        .back-button {
+
+            padding: 10px 18px;
+
+            border-radius: 999px;
+
+            background: var(--lavender);
+
+            text-decoration: none;
+
+            font-weight: 650;
+
+            font-size: 0.86rem;
+
+            transition: 0.2s ease;
+        }
+
+
+        .back-button:hover {
+
+            background: var(--lavender-dark);
+
+            transform: translateX(-3px);
+        }
+
+
+        /* ============================
+           MAIN
+        ============================ */
+
+        main {
+
+            width: min(850px, 92%);
+
+            margin: auto;
+
+            padding:
+                65px 0 100px;
+        }
+
+
+        /* ============================
+           BREADCRUMB
+        ============================ */
+
+        .breadcrumb {
+
+            margin-bottom: 28px;
+
+            font-size: 0.84rem;
+
+            color: var(--soft-ink);
+        }
+
+
+        .breadcrumb a {
+
+            text-decoration: none;
+        }
+
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* ============================
+           LESSON ROADMAP
+        ============================ */
+
+        .lesson-roadmap {
+
+            margin-bottom: 45px;
+
+            padding: 20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 17px;
+
+            background: var(--paper);
+        }
+
+
+        .roadmap-title {
+
+            margin-bottom: 14px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+        }
+
+
+        .roadmap {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .roadmap-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #858589;
+
+            font-size: 0.76rem;
+
+            font-weight: 650;
+        }
+
+
+        .roadmap-dot {
+
+            width: 19px;
+
+            height: 19px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #e6e3dc;
+
+            font-size: 0.62rem;
+        }
+
+
+        .roadmap-item.complete {
+
+            color: #65666a;
+        }
+
+
+        .roadmap-item.complete
+        .roadmap-dot {
+
+            background: var(--sage);
+
+            color: #566253;
+        }
+
+
+        .roadmap-item.current {
+
+            color: var(--ink);
+        }
+
+
+        .roadmap-item.current
+        .roadmap-dot {
+
+            background: var(--lavender);
+
+            color: var(--ink);
+
+        }
+
+
+        .roadmap-arrow {
+
+            color: #b3afa7;
+
+            font-size: 0.75rem;
+        }
+
+
+        /* ============================
+           TITLE
+        ============================ */
+
+        .eyebrow {
+
+            display: block;
+
+            margin-bottom: 15px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.77rem;
+
+            font-weight: 750;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        h1 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(2.6rem, 6vw, 4.3rem);
+
+            line-height: 1.08;
+
+            font-weight: 400;
+        }
+
+
+        .intro {
+
+            margin-top: 20px;
+
+            max-width: 650px;
+
+            color: var(--soft-ink);
+
+            font-size: 1.06rem;
+        }
+
+
+        /* ============================
+           PROGRESS
+        ============================ */
+
+        .progress-area {
+
+            margin-top: 35px;
+
+            padding: 17px 20px;
+
+            border-radius: 15px;
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .progress-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            font-size: 0.76rem;
+
+            color: var(--soft-ink);
+
+            font-weight: 700;
+        }
+
+
+        .progress-bar {
+
+            height: 7px;
+
+            overflow: hidden;
+
+            border-radius: 999px;
+
+            background: #e7e3da;
+        }
+
+
+        .progress-fill {
+
+            width: 40%;
+
+            height: 100%;
+
+            border-radius: 999px;
+
+            background: var(--lavender-dark);
+        }
+
+
+        /* ============================
+           LESSON BLOCK
+        ============================ */
+
+        .lesson-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius: var(--radius);
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .lesson-label {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding: 5px 11px;
+
+            border-radius: 999px;
+
+            background: var(--lavender);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.06em;
+
+            text-transform: uppercase;
+        }
+
+
+        .lesson-block h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+        }
+
+
+        .lesson-block p {
+
+            color: #55565a;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* ============================
+           MATH DISPLAY
+        ============================ */
+
+        .math-display {
+
+            margin: 30px auto;
+
+            padding: 28px;
+
+            width: min(550px, 100%);
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background: var(--blue);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 2.2rem;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        .math-display.small {
+
+            font-size: 1.55rem;
+
+            background: var(--yellow);
+        }
+
+
+        /* ============================
+           PARTS OF EXPRESSION
+        ============================ */
+
+        .parts {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin: 28px 0;
+        }
+
+
+        .part {
+
+            padding: 22px 15px;
+
+            text-align: center;
+
+            border-radius: 16px;
+        }
+
+
+        .part-symbol {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 1.8rem;
+
+            font-weight: 700;
+        }
+
+
+        .part-name {
+
+            font-size: 0.8rem;
+
+            font-weight: 750;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.05em;
+        }
+
+
+        .part-description {
+
+            margin-top: 6px;
+
+            color: #626367;
+
+            font-size: 0.75rem;
+        }
+
+
+        /* ============================
+           ANALOGY
+        ============================ */
+
+        .analogy {
+
+            margin-top: 25px;
+
+            padding: 25px 28px;
+
+            border-radius: 17px;
+
+            background: var(--peach);
+        }
+
+
+        .analogy strong {
+
+            display: block;
+
+            margin-bottom: 7px;
+        }
+
+
+        .analogy p {
+
+            margin: 0;
+
+            color: #5f5553;
+        }
+
+
+        /* ============================
+           PRACTICE
+        ============================ */
+
+        .practice-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius: var(--radius);
+
+            background: var(--yellow);
+
+            border:
+                1px solid rgba(41,42,45,0.05);
+        }
+
+
+        .practice-block h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+
+        .question {
+
+            margin-top: 25px;
+
+            font-size: 1.08rem;
+
+            font-weight: 650;
+        }
+
+
+        .answer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .answer-button {
+
+            min-height: 60px;
+
+            border:
+                1px solid rgba(41,42,45,0.08);
+
+            border-radius: 14px;
+
+            background: var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 1.05rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .answer-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .feedback {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+        }
+
+
+        .feedback.show {
+            display: block;
+        }
+
+
+        .feedback.correct {
+            background: var(--sage);
+        }
+
+
+        .feedback.incorrect {
+            background: var(--pink);
+        }
+
+
+        .feedback strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* ============================
+           SECOND PRACTICE
+        ============================ */
+
+        .second-practice {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background: rgba(255,255,255,0.55);
+        }
+
+
+        .second-practice .question {
+
+            margin-top: 0;
+        }
+
+
+        /* ============================
+           DIFFERENT WAY
+        ============================ */
+
+        .different-way {
+
+            margin-top: 55px;
+
+            padding: 30px;
+
+            border-radius: var(--radius);
+
+            background: var(--blue);
+        }
+
+
+        .different-way h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.7rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+
+        .different-way p {
+
+            color: #566066;
+
+            margin-bottom: 20px;
+        }
+
+
+        .explanation-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .explanation-buttons button {
+
+            border: none;
+
+            padding: 10px 16px;
+
+            border-radius: 999px;
+
+            background: var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 0.82rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .explanation-buttons button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .alternative {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.7);
+        }
+
+
+        .alternative.show {
+            display: block;
+        }
+
+
+        /* ============================
+           NEXT
+        ============================ */
+
+        .next-section {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-top: 60px;
+        }
+
+
+        .next-button {
+
+            flex: 1;
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background: var(--lavender);
+
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+
+        .next-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .next-label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 750;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .next-title {
+            font-weight: 700;
+        }
+
+
+        /* ============================
+           FOOTER
+        ============================ */
+
+        footer {
+
+            padding: 45px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+
+            width: min(850px, 92%);
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .footer-brand {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.1rem;
+        }
+
+
+        .footer-text {
+
+            color: var(--soft-ink);
+
+            font-size: 0.8rem;
+        }
+
+
+        /* ============================
+           MOBILE
+        ============================ */
+
+        @media (max-width: 650px) {
+
+            .parts {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .answer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .next-section {
+
+                flex-direction: column;
+            }
+
+
+            .lesson-block,
+            .practice-block {
+
+                padding: 25px;
+            }
+
+
+            .roadmap {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .roadmap-arrow {
+
+                display: none;
+            }
+
+
+            .footer-inner {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ============================
+         HEADER
+    ============================ -->
+
+    <header class="site-header">
+
+        <nav class="nav">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                NeuralPath<span class="logo-dot"></span>
+            </a>
+
+
+            <a
+                href="math-breakdown.html"
+                class="back-button"
+            >
+                ← Algebra
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- ============================
+             BREADCRUMB
+        ============================ -->
+
+        <div class="breadcrumb">
+
+            <a href="index.html">
+                NeuralPath
+            </a>
+
+            &nbsp;→&nbsp;
+
+            <a href="mathematics.html">
+                Mathematics
+            </a>
+
+            &nbsp;→&nbsp;
+
+            <a href="math-breakdown.html">
+                Break it down
+            </a>
+
+            &nbsp;→&nbsp;
+
+            Coefficients
+
+        </div>
+
+
+        <!-- ============================
+             ROADMAP
+        ============================ -->
+
+        <div class="lesson-roadmap">
+
+            <div class="roadmap-title">
+                Algebra foundations
+            </div>
+
+
+            <div class="roadmap">
+
+
+                <div class="roadmap-item complete">
+
+                    <span class="roadmap-dot">
+                        ✓
+                    </span>
+
+                    Variables
+
+                </div>
+
+
+                <span class="roadmap-arrow">
+                    →
+                </span>
+
+
+                <div class="roadmap-item current">
+
+                    <span class="roadmap-dot">
+                        2
+                    </span>
+
+                    Coefficients
+
+                </div>
+
+
+                <span class="roadmap-arrow">
+                    →
+                </span>
+
+
+                <div class="roadmap-item">
+
+                    <span class="roadmap-dot">
+                        3
+                    </span>
+
+                    Like Terms
+
+                </div>
+
+
+                <span class="roadmap-arrow">
+                    →
+                </span>
+
+
+                <div class="roadmap-item">
+
+                    <span class="roadmap-dot">
+                        4
+                    </span>
+
+                    Equations
+
+                </div>
+
+
+                <span class="roadmap-arrow">
+                    →
+                </span>
+
+
+                <div class="roadmap-item">
+
+                    <span class="roadmap-dot">
+                        5
+                    </span>
+
+                    Inequalities
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ============================
+             TITLE
+        ============================ -->
+
+        <span class="eyebrow">
+            Algebra · Foundations
+        </span>
+
+
+        <h1>
+            Coefficients
+            & Constants
+        </h1>
+
+
+        <p class="intro">
+
+            Variables are only one part of an algebraic
+            expression. Let's figure out what the numbers
+            around them are doing.
+
+        </p>
+
+
+        <!-- ============================
+             PROGRESS
+        ============================ -->
+
+        <div class="progress-area">
+
+            <div class="progress-top">
+
+                <span>
+                    Lesson progress
+                </span>
+
+                <span>
+                    2 of 5
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ============================
+             COEFFICIENT
+        ============================ -->
+
+        <section class="lesson-block">
+
+            <span class="lesson-label">
+                Step 1 · Learn
+            </span>
+
+
+            <h2>
+                Meet the coefficient.
+            </h2>
+
+
+            <p>
+
+                A <strong>coefficient</strong> is a number
+                multiplied by a variable.
+
+            </p>
+
+
+            <div class="math-display">
+
+                3x
+
+            </div>
+
+
+            <p>
+
+                In <strong>3x</strong>, the 3 is the
+                coefficient and x is the variable.
+
+            </p>
+
+
+            <div class="parts">
+
+
+                <div class="part lavender">
+
+                    <span class="part-symbol">
+                        3
+                    </span>
+
+                    <span class="part-name">
+                        Coefficient
+                    </span>
+
+                    <div class="part-description">
+                        Tells us how many x's
+                    </div>
+
+                </div>
+
+
+                <div class="part blue">
+
+                    <span class="part-symbol">
+                        x
+                    </span>
+
+                    <span class="part-name">
+                        Variable
+                    </span>
+
+                    <div class="part-description">
+                        Represents a value
+                    </div>
+
+                </div>
+
+
+                <div class="part yellow">
+
+                    <span class="part-symbol">
+                        ×
+                    </span>
+
+                    <span class="part-name">
+                        Multiplication
+                    </span>
+
+                    <div class="part-description">
+                        3x means 3 × x
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="analogy">
+
+                <strong>
+                    Think of it like groups.
+                </strong>
+
+
+                <p>
+
+                    If x represents one group,
+                    then <strong>3x</strong> means
+                    three groups of x.
+
+                    The coefficient tells you
+                    how many groups you have.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================
+             CONSTANT
+        ============================ -->
+
+        <section class="lesson-block">
+
+            <span class="lesson-label">
+                Step 2 · Learn
+            </span>
+
+
+            <h2>
+                Now meet the constant.
+            </h2>
+
+
+            <p>
+
+                A <strong>constant</strong> is a number
+                that does not have a variable attached
+                to it.
+
+            </p>
+
+
+            <div class="math-display">
+
+                3x + 7
+
+            </div>
+
+
+            <p>
+
+                Let's identify every part.
+
+            </p>
+
+
+            <div class="parts">
+
+
+                <div class="part lavender">
+
+                    <span class="part-symbol">
+                        3
+                    </span>
+
+                    <span class="part-name">
+                        Coefficient
+                    </span>
+
+                    <div class="part-description">
+                        Multiplies x
+                    </div>
+
+                </div>
+
+
+                <div class="part blue">
+
+                    <span class="part-symbol">
+                        x
+                    </span>
+
+                    <span class="part-name">
+                        Variable
+                    </span>
+
+                    <div class="part-description">
+                        Represents a value
+                    </div>
+
+                </div>
+
+
+                <div class="part yellow">
+
+                    <span class="part-symbol">
+                        7
+                    </span>
+
+                    <span class="part-name">
+                        Constant
+                    </span>
+
+                    <div class="part-description">
+                        Has no variable
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <p>
+
+                So in <strong>3x + 7</strong>:
+
+                3 is the coefficient,
+
+                x is the variable,
+
+                and 7 is the constant.
+
+            </p>
+
+        </section>
+
+
+        <!-- ============================
+             PRACTICE 1
+        ============================ -->
+
+        <section class="practice-block">
+
+            <span class="lesson-label">
+                Step 3 · Try it
+            </span>
+
+
+            <h2>
+                Find the coefficient.
+            </h2>
+
+
+            <p>
+
+                Look at the expression:
+
+            </p>
+
+
+            <div class="math-display">
+
+                5x + 12
+
+            </div>
+
+
+            <p class="question">
+
+                What is the coefficient?
+
+            </p>
+
+
+            <div class="answer-grid">
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkCoefficient(5)"
+                >
+                    5
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkCoefficient('x')"
+                >
+                    x
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkCoefficient(12)"
+                >
+                    12
+                </button>
+
+
+            </div>
+
+
+            <div
+                id="coefficient-feedback"
+                class="feedback"
+            >
+
+                <strong id="coefficient-title"></strong>
+
+                <span id="coefficient-text"></span>
+
+            </div>
+
+
+            <!-- PRACTICE 2 -->
+
+            <div class="second-practice">
+
+                <p class="question">
+
+                    Now try this one:
+
+                </p>
+
+
+                <div class="math-display small">
+
+                    8x + 3
+
+                </div>
+
+
+                <p class="question">
+
+                    What is the constant?
+
+                </p>
+
+
+                <div class="answer-grid">
+
+
+                    <button
+                        class="answer-button"
+                        onclick="checkConstant(8)"
+                    >
+                        8
+                    </button>
+
+
+                    <button
+                        class="answer-button"
+                        onclick="checkConstant('x')"
+                    >
+                        x
+                    </button>
+
+
+                    <button
+                        class="answer-button"
+                        onclick="checkConstant(3)"
+                    >
+                        3
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    id="constant-feedback"
+                    class="feedback"
+                >
+
+                    <strong id="constant-title"></strong>
+
+                    <span id="constant-text"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================
+             DIFFERENT WAY
+        ============================ -->
+
+        <section class="different-way">
+
+            <h2>
+                Need another way?
+            </h2>
+
+
+            <p>
+
+                Pick an explanation style that works
+                better for your brain right now.
+
+            </p>
+
+
+            <div class="explanation-buttons">
+
+
+                <button
+                    onclick="showAlternative('simple')"
+                >
+                    Keep it simple
+                </button>
+
+
+                <button
+                    onclick="showAlternative('visual')"
+                >
+                    Show me visually
+                </button>
+
+
+                <button
+                    onclick="showAlternative('analogy')"
+                >
+                    Give me an analogy
+                </button>
+
+
+                <button
+                    onclick="showAlternative('steps')"
+                >
+                    Step-by-step
+                </button>
+
+
+            </div>
+
+
+            <div
+                id="simple"
+                class="alternative"
+            >
+
+                <strong>
+                    Keep it simple
+                </strong>
+
+
+                <p>
+
+                    The coefficient tells you how many
+                    times the variable is being used.
+
+                    In <strong>4x</strong>, the coefficient
+                    is 4.
+
+                    A constant is simply a number without
+                    a variable.
+
+                </p>
+
+            </div>
+
+
+            <div
+                id="visual"
+                class="alternative"
+            >
+
+                <strong>
+                    Show me visually
+                </strong>
+
+
+                <p>
+
+                    Think of <strong>x</strong> as one box.
+
+                    <strong>4x</strong> would be:
+
+                    [x] [x] [x] [x]
+
+                    Four boxes containing x.
+
+                    The 4 is the coefficient.
+
+                </p>
+
+            </div>
+
+
+            <div
+                id="analogy"
+                class="alternative"
+            >
+
+                <strong>
+                    Give me an analogy
+                </strong>
+
+
+                <p>
+
+                    Imagine ordering 4 pizzas.
+
+                    If one pizza represents x,
+                    then 4x means four pizzas.
+
+                    The coefficient tells you how many
+                    pizzas you have.
+
+                    A constant is like a separate item
+                    on the receipt that isn't multiplied
+                    by anything.
+
+                </p>
+
+            </div>
+
+
+            <div
+                id="steps"
+                class="alternative"
+            >
+
+                <strong>
+                    Step-by-step
+                </strong>
+
+
+                <p>
+
+                    1. Find the variable.<br>
+
+                    2. Look for the number directly
+                    multiplying it.<br>
+
+                    3. That number is the coefficient.<br>
+
+                    4. Find any number without a variable.<br>
+
+                    5. That number is the constant.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================
+             NEXT LESSON
+        ============================ -->
+
+        <div class="next-section">
+
+
+            <a
+                href="math-variables.html"
+                class="next-button"
+            >
+
+                <span class="next-label">
+                    Previous lesson
+                </span>
+
+
+                <span class="next-title">
+                    ← Understanding Variables
+                </span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="next-button"
+            >
+
+                <span class="next-label">
+                    Coming next
+                </span>
+
+
+                <span class="next-title">
+                    Combining Like Terms →
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ============================
+         FOOTER
+    ============================ -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                NeuralPath
+            </div>
+
+
+            <p class="footer-text">
+                Learn your way. © 2026 NeuralPath
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ============================
+         JAVASCRIPT
+    ============================ -->
+
+    <script>
+
+
+        function checkCoefficient(answer) {
+
+            const feedback =
+                document.getElementById(
+                    "coefficient-feedback"
+                );
+
+            const title =
+                document.getElementById(
+                    "coefficient-title"
+                );
+
+            const text =
+                document.getElementById(
+                    "coefficient-text"
+                );
+
+
+            feedback.classList.add("show");
+
+
+            if (answer === 5) {
+
+                feedback.classList.remove(
+                    "incorrect"
+                );
+
+                feedback.classList.add(
+                    "correct"
+                );
+
+                title.textContent =
+                    "Correct!";
+
+                text.textContent =
+                    "5 is the coefficient because it multiplies x. The 12 is the constant.";
+
+            }
+
+            else {
+
+                feedback.classList.remove(
+                    "correct"
+                );
+
+                feedback.classList.add(
+                    "incorrect"
+                );
+
+                title.textContent =
+                    "Not quite.";
+
+                text.textContent =
+                    "Look for the number directly attached to the variable x. That number is the coefficient.";
+
+            }
+
+        }
+
+
+        function checkConstant(answer) {
+
+            const feedback =
+                document.getElementById(
+                    "constant-feedback"
+                );
+
+            const title =
+                document.getElementById(
+                    "constant-title"
+                );
+
+            const text =
+                document.getElementById(
+                    "constant-text"
+                );
+
+
+            feedback.classList.add("show");
+
+
+            if (answer === 3) {
+
+                feedback.classList.remove(
+                    "incorrect"
+                );
+
+                feedback.classList.add(
+                    "correct"
+                );
+
+                title.textContent =
+                    "Correct!";
+
+                text.textContent =
+                    "3 is the constant because it has no variable attached to it.";
+
+            }
+
+            else {
+
+                feedback.classList.remove(
+                    "correct"
+                );
+
+                feedback.classList.add(
+                    "incorrect"
+                );
+
+                title.textContent =
+                    "Not quite.";
+
+                text.textContent =
+                    "A constant is a number that does not have a variable attached to it.";
+
+            }
+
+        }
+
+
+        function showAlternative(type) {
+
+            const alternatives =
+                document.querySelectorAll(
+                    ".alternative"
+                );
+
+
+            alternatives.forEach(
+                function(item) {
+
+                    item.classList.remove(
+                        "show"
+                    );
+
+                }
+            );
+
+
+            const selected =
+                document.getElementById(type);
+
+
+            if (selected) {
+
+                selected.classList.add(
+                    "show"
+                );
+
+                selected.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "nearest"
+
+                });
+
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
