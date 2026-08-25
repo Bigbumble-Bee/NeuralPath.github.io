@@ -7,23 +7,17 @@
 
     <meta
         name="description"
-        content="NeuralPath is a free educational platform helping learners find different paths to understanding."
+        content="NeuralPath is a free educational space helping learners find different paths to understanding."
     >
 
     <title>NeuralPath — Learn Your Way</title>
 
-    <!-- Starborn font -->
     <link
         href="https://fonts.cdnfonts.com/css/starborn"
         rel="stylesheet"
     >
 
     <style>
-
-        /* =========================================
-           NEURALPATH
-           Base Styles
-        ========================================= */
 
         :root {
             --cream: #f8f6f0;
@@ -43,8 +37,6 @@
             --lavender-dark: #bca8d2;
             --blue-dark: #a8c4da;
             --sage-dark: #aec5aa;
-            --yellow-dark: #d7c57d;
-            --peach-dark: #d3aaa2;
 
             --border: #dedbd2;
 
@@ -54,10 +46,6 @@
             --radius: 18px;
         }
 
-
-        /* =========================================
-           RESET
-        ========================================= */
 
         * {
             box-sizing: border-box;
@@ -88,26 +76,10 @@
         }
 
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-
         a {
             color: inherit;
         }
 
-
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-
-        /* =========================================
-           ACCESSIBILITY
-        ========================================= */
 
         :focus-visible {
             outline: 3px solid #8c7ba8;
@@ -115,16 +87,18 @@
         }
 
 
-        /* =========================================
+        /* ================================
            HEADER
-        ========================================= */
+        ================================= */
 
         .site-header {
             position: sticky;
             top: 0;
+
             z-index: 100;
 
-            background: rgba(248, 246, 240, 0.94);
+            background:
+                rgba(248, 246, 240, 0.94);
 
             backdrop-filter: blur(12px);
 
@@ -136,21 +110,19 @@
         .nav {
             width: min(1180px, 92%);
 
-            margin: 0 auto;
+            margin: auto;
 
             min-height: 76px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 30px;
         }
 
-
-        /* =========================================
-           LOGO
-        ========================================= */
 
         .logo {
             text-decoration: none;
@@ -158,8 +130,6 @@
             font-family: "Starborn", sans-serif;
 
             font-size: 1.55rem;
-
-            letter-spacing: 0.03em;
 
             white-space: nowrap;
         }
@@ -179,10 +149,6 @@
         }
 
 
-        /* =========================================
-           NAVIGATION
-        ========================================= */
-
         .nav-links {
             display: flex;
 
@@ -201,9 +167,7 @@
 
             font-size: 0.92rem;
 
-            transition:
-                color 0.2s ease,
-                transform 0.2s ease;
+            transition: 0.2s ease;
         }
 
 
@@ -214,9 +178,9 @@
         }
 
 
-        /* =========================================
+        /* ================================
            BUTTONS
-        ========================================= */
+        ================================= */
 
         .button {
             display: inline-flex;
@@ -232,16 +196,14 @@
 
             text-decoration: none;
 
-            border: 1px solid rgba(41, 42, 45, 0.08);
+            border:
+                1px solid rgba(41, 42, 45, 0.08);
 
             font-weight: 650;
 
             font-size: 0.92rem;
 
-            transition:
-                transform 0.18s ease,
-                box-shadow 0.18s ease,
-                background 0.18s ease;
+            transition: 0.18s ease;
         }
 
 
@@ -250,11 +212,6 @@
 
             box-shadow:
                 0 7px 15px rgba(50, 48, 43, 0.10);
-        }
-
-
-        .button:active {
-            transform: translateY(0);
         }
 
 
@@ -278,35 +235,28 @@
         }
 
 
-        /* =========================================
+        /* ================================
            HERO
-        ========================================= */
+        ================================= */
 
         .hero {
             width: min(1180px, 92%);
 
-            margin: 0 auto;
+            margin: auto;
 
             min-height: 650px;
 
             display: grid;
 
             grid-template-columns:
-                1.1fr
-                0.9fr;
+                1.1fr 0.9fr;
 
             align-items: center;
 
             gap: 70px;
 
             padding:
-                80px 0
-                90px;
-        }
-
-
-        .hero-text {
-            position: relative;
+                80px 0 90px;
         }
 
 
@@ -336,10 +286,6 @@
             line-height: 1.02;
 
             font-weight: 400;
-
-            letter-spacing: 0.015em;
-
-            max-width: 720px;
         }
 
 
@@ -373,9 +319,9 @@
         }
 
 
-        /* =========================================
-           HERO DECORATION
-        ========================================= */
+        /* ================================
+           HERO ART
+        ================================= */
 
         .hero-art {
             min-height: 430px;
@@ -385,6 +331,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
         }
 
@@ -415,7 +362,8 @@
 
             border-radius: 50%;
 
-            border: 3px solid var(--cream);
+            border:
+                3px solid var(--cream);
         }
 
 
@@ -444,16 +392,12 @@
 
 
         .dot-four {
-            background: var(--peach-dark);
+            background: #d3aaa2;
 
             bottom: 25%;
             left: 14%;
         }
 
-
-        /* =========================================
-           SIMPLE STUDENT ILLUSTRATION
-        ========================================= */
 
         .student {
             position: relative;
@@ -589,14 +533,14 @@
         }
 
 
-        /* =========================================
-           SECTION
-        ========================================= */
+        /* ================================
+           GENERAL SECTIONS
+        ================================= */
 
         section {
             width: min(1180px, 92%);
 
-            margin: 0 auto;
+            margin: auto;
 
             padding:
                 90px 0;
@@ -631,9 +575,9 @@
         }
 
 
-        /* =========================================
+        /* ================================
            SUBJECTS
-        ========================================= */
+        ================================= */
 
         .subjects-grid {
             display: grid;
@@ -700,8 +644,6 @@
             color: var(--soft-ink);
 
             font-size: 0.94rem;
-
-            max-width: 280px;
         }
 
 
@@ -710,16 +652,6 @@
 
             right: 25px;
             bottom: 22px;
-
-            font-size: 1.2rem;
-
-            transition:
-                transform 0.2s ease;
-        }
-
-
-        .subject-card:hover .subject-arrow {
-            transform: translateX(4px);
         }
 
 
@@ -753,9 +685,123 @@
         }
 
 
-        /* =========================================
-           LEARNING PATH
-        ========================================= */
+        /* ================================
+           FIND YOUR PATH
+        ================================= */
+
+        .learning-preferences {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+
+        .preference-card {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            min-height: 150px;
+
+            padding: 25px;
+
+            border-radius: var(--radius);
+
+            border:
+                1px solid rgba(41, 42, 45, 0.08);
+
+            text-decoration: none;
+
+            color: var(--ink);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .preference-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 8px 22px rgba(55, 53, 48, 0.09);
+        }
+
+
+        .preference-icon {
+            flex-shrink: 0;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.65);
+
+            font-weight: 700;
+        }
+
+
+        .preference-card h3 {
+            font-size: 1.05rem;
+        }
+
+
+        .preference-card p {
+            margin-top: 5px;
+
+            color: #5f6064;
+
+            font-size: 0.88rem;
+
+            line-height: 1.5;
+        }
+
+
+        .preference-lavender {
+            background: #e8dff0;
+        }
+
+
+        .preference-blue {
+            background: #dce9f1;
+        }
+
+
+        .preference-yellow {
+            background: #f2e9c9;
+        }
+
+
+        .preference-sage {
+            background: #dce8d9;
+        }
+
+
+        .preference-peach {
+            background: #efd9d4;
+        }
+
+
+        .preference-pink {
+            background: #ead9df;
+        }
+
+
+        /* ================================
+           DIFFERENT MINDS
+        ================================= */
 
         .path-section {
             background: var(--paper);
@@ -770,15 +816,101 @@
         }
 
 
-        .path-inner {
+        .path-section > section {
             width: min(1180px, 92%);
-
-            margin: 0 auto;
-
-            padding:
-                90px 0;
         }
 
+
+        .mind-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+
+        .mind-card {
+            position: relative;
+
+            min-height: 205px;
+
+            padding: 28px;
+
+            background: var(--cream);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            text-decoration: none;
+
+            color: var(--ink);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .mind-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .mind-card-number {
+            font-size: 0.75rem;
+
+            font-weight: 700;
+
+            color: var(--soft-ink);
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .mind-card h3 {
+            margin-top: 30px;
+
+            font-size: 1.25rem;
+        }
+
+
+        .mind-card p {
+            margin-top: 8px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.9rem;
+
+            max-width: 300px;
+        }
+
+
+        .mind-arrow {
+            position: absolute;
+
+            right: 25px;
+
+            bottom: 20px;
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        .mind-card:hover .mind-arrow {
+            transform: translateX(4px);
+        }
+
+
+        /* ================================
+           LEARNING PROCESS
+        ================================= */
 
         .learning-path {
             display: grid;
@@ -787,14 +919,10 @@
                 repeat(4, 1fr);
 
             gap: 25px;
-
-            position: relative;
         }
 
 
         .learning-step {
-            position: relative;
-
             padding: 25px;
 
             border-radius: var(--radius);
@@ -828,8 +956,6 @@
 
         .learning-step h3 {
             margin-top: 25px;
-
-            font-size: 1.1rem;
         }
 
 
@@ -841,398 +967,18 @@
             font-size: 0.9rem;
         }
 
-<!-- ========================================
-     FIND YOUR PATH
-======================================== -->
 
-<section
-    id="learning-paths"
-    aria-labelledby="learning-paths-title"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            Find your path
-        </span>
-
-        <h2 id="learning-paths-title">
-            How do you like to learn?
-        </h2>
-
-        <p>
-            There isn't one right way to learn something.
-            Explore different approaches and find what
-            works best for you.
-        </p>
-
-    </div>
-
-
-    <div class="learning-preferences">
-
-
-        <a
-            href="#"
-            class="preference-card preference-lavender"
-        >
-
-            <span class="preference-icon">
-                ↓
-            </span>
-
-            <div>
-
-                <h3>
-                    Break it down
-                </h3>
-
-                <p>
-                    One concept at a time,
-                    with clear steps.
-                </p>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="preference-card preference-blue"
-        >
-
-            <span class="preference-icon">
-                ✦
-            </span>
-
-            <div>
-
-                <h3>
-                    Show me
-                </h3>
-
-                <p>
-                    Diagrams, examples,
-                    and visual explanations.
-                </p>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="preference-card preference-yellow"
-        >
-
-            <span class="preference-icon">
-                •••
-            </span>
-
-            <div>
-
-                <h3>
-                    Keep it short
-                </h3>
-
-                <p>
-                    Quick explanations
-                    and the key points.
-                </p>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="preference-card preference-sage"
-        >
-
-            <span class="preference-icon">
-                ✓
-            </span>
-
-            <div>
-
-                <h3>
-                    Let me practice
-                </h3>
-
-                <p>
-                    Questions, activities,
-                    and examples.
-                </p>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="preference-card preference-peach"
-        >
-
-            <span class="preference-icon">
-                ↗
-            </span>
-
-            <div>
-
-                <h3>
-                    Go deeper
-                </h3>
-
-                <p>
-                    Detailed explanations
-                    and deeper connections.
-                </p>
-
-            </div>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="preference-card preference-pink"
-        >
-
-            <span class="preference-icon">
-                ?
-            </span>
-
-            <div>
-
-                <h3>
-                    I'm not sure yet
-                </h3>
-
-                <p>
-                    Explore different approaches
-                    and discover what works.
-                </p>
-
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-<!-- ========================================
-     RESOURCES FOR DIFFERENT MINDS
-======================================== -->
-
-<div class="path-section">
-
-    <section
-        id="different-minds"
-        aria-labelledby="different-minds-title"
-    >
-
-        <div class="section-heading">
-
-            <span class="eyebrow">
-                Resources
-            </span>
-
-            <h2 id="different-minds-title">
-                Resources for different minds.
-            </h2>
-
-            <p>
-                Explore strategies and resources that
-                may be useful for different learning
-                needs and experiences.
-            </p>
-
-        </div>
-
-
-        <div class="mind-grid">
-
-
-            <a
-                href="#"
-                class="mind-card"
-            >
-
-                <span class="mind-card-number">
-                    01
-                </span>
-
-                <h3>
-                    ADHD
-                </h3>
-
-                <p>
-                    Focus-friendly study strategies,
-                    task breakdowns, and organization.
-                </p>
-
-                <span class="mind-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a
-                href="#"
-                class="mind-card"
-            >
-
-                <span class="mind-card-number">
-                    02
-                </span>
-
-                <h3>
-                    Autism
-                </h3>
-
-                <p>
-                    Structured resources, clear
-                    explanations, and predictable
-                    learning formats.
-                </p>
-
-                <span class="mind-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a
-                href="#"
-                class="mind-card"
-            >
-
-                <span class="mind-card-number">
-                    03
-                </span>
-
-                <h3>
-                    Reading differences
-                </h3>
-
-                <p>
-                    Reading strategies, accessible
-                    formatting, and alternative ways
-                    to work with information.
-                </p>
-
-                <span class="mind-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a
-                href="#"
-                class="mind-card"
-            >
-
-                <span class="mind-card-number">
-                    04
-                </span>
-
-                <h3>
-                    Executive function
-                </h3>
-
-                <p>
-                    Planning, organization, time
-                    management, and getting started.
-                </p>
-
-                <span class="mind-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a
-                href="#"
-                class="mind-card"
-            >
-
-                <span class="mind-card-number">
-                    05
-                </span>
-
-                <h3>
-                    Academic stress
-                </h3>
-
-                <p>
-                    Low-pressure practice, study
-                    planning, and approaches to
-                    difficult assignments.
-                </p>
-
-                <span class="mind-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a
-                href="#"
-                class="mind-card"
-            >
-
-                <span class="mind-card-number">
-                    06
-                </span>
-
-                <h3>
-                    Explore
-                </h3>
-
-                <p>
-                    Not sure what you need?
-                    Browse different strategies
-                    and find your starting point.
-                </p>
-
-                <span class="mind-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-        </div>
-
-    </section>
-
-</div>
-        /* =========================================
-           FEATURED TUTORIAL
-        ========================================= */
+        /* ================================
+           TUTORIALS
+        ================================= */
 
         .featured {
             display: grid;
 
             grid-template-columns:
-                1fr
-                1fr;
+                1fr 1fr;
 
             gap: 30px;
-
-            align-items: stretch;
         }
 
 
@@ -1240,9 +986,6 @@
             padding: 38px;
 
             border-radius: 22px;
-
-            border:
-                1px solid var(--border);
 
             background: var(--blue);
         }
@@ -1285,20 +1028,20 @@
         .featured-card .button {
             margin-top: 25px;
 
-            background: rgba(255,255,255,0.65);
+            background:
+                rgba(255,255,255,0.65);
         }
 
 
-        /* =========================================
+        /* ================================
            ABOUT
-        ========================================= */
+        ================================= */
 
         .about {
             display: grid;
 
             grid-template-columns:
-                0.8fr
-                1.2fr;
+                0.8fr 1.2fr;
 
             gap: 70px;
 
@@ -1319,19 +1062,12 @@
         }
 
 
-        .about-note .small-star {
-            font-size: 2rem;
-        }
-
-
         .about-note p {
             margin-top: 15px;
 
             font-family: "Starborn", sans-serif;
 
             font-size: 1.5rem;
-
-            line-height: 1.5;
         }
 
 
@@ -1354,17 +1090,16 @@
         }
 
 
-        /* =========================================
+        /* ================================
            SUPPORT
-        ========================================= */
+        ================================= */
 
         .support {
             background: var(--lavender);
 
             border-radius: 25px;
 
-            padding:
-                55px;
+            padding: 55px;
 
             text-align: center;
         }
@@ -1396,15 +1131,14 @@
         }
 
 
-        /* =========================================
+        /* ================================
            FOOTER
-        ========================================= */
+        ================================= */
 
         footer {
             margin-top: 90px;
 
-            padding:
-                55px 0;
+            padding: 55px 0;
 
             border-top:
                 1px solid var(--border);
@@ -1414,15 +1148,13 @@
         .footer-inner {
             width: min(1180px, 92%);
 
-            margin: 0 auto;
+            margin: auto;
 
             display: flex;
 
             justify-content: space-between;
 
             align-items: center;
-
-            gap: 30px;
         }
 
 
@@ -1439,277 +1171,12 @@
             font-size: 0.85rem;
         }
 
-/* =========================================
-   LEARNING PREFERENCES
-========================================= */
 
-.learning-preferences {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 16px;
-}
-
-
-.preference-card {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 18px;
-
-    min-height: 150px;
-
-    padding: 25px;
-
-    border-radius: var(--radius);
-
-    border:
-        1px solid rgba(41, 42, 45, 0.08);
-
-    text-decoration: none;
-
-    color: var(--ink);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-.preference-card:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 8px 22px rgba(55, 53, 48, 0.09);
-}
-
-
-.preference-icon {
-
-    flex-shrink: 0;
-
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.65);
-
-    font-weight: 700;
-
-    font-size: 1.05rem;
-}
-
-
-.preference-card h3 {
-
-    font-size: 1.05rem;
-
-    margin-bottom: 5px;
-}
-
-
-.preference-card p {
-
-    color: #5f6064;
-
-    font-size: 0.88rem;
-
-    line-height: 1.5;
-}
-
-
-/* Pastel preference colors */
-
-.preference-lavender {
-    background: #e8dff0;
-}
-
-
-.preference-blue {
-    background: #dce9f1;
-}
-
-
-.preference-yellow {
-    background: #f2e9c9;
-}
-
-
-.preference-sage {
-    background: #dce8d9;
-}
-
-
-.preference-peach {
-    background: #efd9d4;
-}
-
-
-.preference-pink {
-    background: #ead9df;
-}
-
-
-/* =========================================
-   DIFFERENT MINDS
-========================================= */
-
-.mind-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 16px;
-}
-
-
-.mind-card {
-
-    position: relative;
-
-    min-height: 205px;
-
-    padding: 28px;
-
-    background: var(--cream);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    text-decoration: none;
-
-    color: var(--ink);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-.mind-card:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow: var(--shadow);
-}
-
-
-.mind-card-number {
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    color: var(--soft-ink);
-
-    letter-spacing: 0.08em;
-}
-
-
-.mind-card h3 {
-
-    margin-top: 30px;
-
-    font-size: 1.25rem;
-}
-
-
-.mind-card p {
-
-    margin-top: 8px;
-
-    color: var(--soft-ink);
-
-    font-size: 0.9rem;
-
-    max-width: 300px;
-}
-
-
-.mind-arrow {
-
-    position: absolute;
-
-    right: 25px;
-
-    bottom: 20px;
-
-    font-size: 1.15rem;
-
-    transition:
-        transform 0.2s ease;
-}
-
-
-.mind-card:hover .mind-arrow {
-
-    transform:
-        translateX(4px);
-}
-
-
-/* =========================================
-   MOBILE — NEW SECTIONS
-========================================= */
-
-@media (max-width: 850px) {
-
-    .learning-preferences {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .mind-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 560px) {
-
-    .learning-preferences {
-
-        grid-template-columns: 1fr;
-    }
-
-
-    .mind-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-}
-        /* =========================================
-           MOBILE
-        ========================================= */
+        /* ================================
+           TABLET
+        ================================= */
 
         @media (max-width: 850px) {
-
-            .nav {
-                min-height: 68px;
-            }
-
 
             .nav-links {
                 display: none;
@@ -1719,9 +1186,9 @@
             .hero {
                 grid-template-columns: 1fr;
 
-                padding-top: 65px;
-
                 text-align: center;
+
+                padding-top: 65px;
             }
 
 
@@ -1736,12 +1203,19 @@
             }
 
 
-            .hero-art {
-                min-height: 330px;
+            .subjects-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
 
-            .subjects-grid {
+            .learning-preferences {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .mind-grid {
                 grid-template-columns:
                     repeat(2, 1fr);
             }
@@ -1755,15 +1229,13 @@
 
             .about {
                 grid-template-columns: 1fr;
-
-                gap: 40px;
             }
 
 
             .about-note {
                 max-width: 350px;
 
-                margin: 0 auto;
+                margin: auto;
             }
 
 
@@ -1773,6 +1245,10 @@
 
         }
 
+
+        /* ================================
+           PHONE
+        ================================= */
 
         @media (max-width: 560px) {
 
@@ -1786,11 +1262,9 @@
             }
 
 
-            .subjects-grid {
-                grid-template-columns: 1fr;
-            }
-
-
+            .subjects-grid,
+            .learning-preferences,
+            .mind-grid,
             .learning-path {
                 grid-template-columns: 1fr;
             }
@@ -1815,9 +1289,9 @@
         }
 
 
-        /* =========================================
+        /* ================================
            REDUCED MOTION
-        ========================================= */
+        ================================= */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -1829,54 +1303,74 @@
             *,
             *::before,
             *::after {
-                transition-duration: 0.01ms !important;
-                animation-duration: 0.01ms !important;
+                transition-duration:
+                    0.01ms !important;
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- ========================================
+    <!-- ================================
          HEADER
-    ========================================= -->
+    ================================= -->
 
     <header class="site-header">
 
         <nav class="nav">
 
-            <a class="logo" href="#">
+            <a
+                class="logo"
+                href="#"
+            >
                 NeuralPath<span class="logo-dot"></span>
             </a>
+
 
             <ul class="nav-links">
 
                 <li>
-                    <a href="#learn">Learn</a>
+                    <a href="#subjects">
+                        Subjects
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#subjects">Subjects</a>
+                    <a href="#learning-paths">
+                        Learning Paths
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#tutorials">Tutorials</a>
+                    <a href="#different-minds">
+                        Resources
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#about">About</a>
+                    <a href="#tutorials">
+                        Tutorials
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
                 </li>
 
             </ul>
 
+
             <a
                 class="button button-primary"
-                href="#learn"
+                href="#learning-paths"
             >
                 Start Learning
             </a>
@@ -1886,11 +1380,12 @@
     </header>
 
 
-    <!-- ========================================
-         HERO
-    ========================================= -->
-
     <main>
+
+
+        <!-- ================================
+             HERO
+        ================================= -->
 
         <section class="hero">
 
@@ -1900,10 +1395,12 @@
                     A free space for learning
                 </span>
 
+
                 <h1>
                     Learn
                     <span>your way.</span>
                 </h1>
+
 
                 <p class="hero-description">
 
@@ -1916,6 +1413,7 @@
 
                 </p>
 
+
                 <div class="hero-actions">
 
                     <a
@@ -1924,6 +1422,7 @@
                     >
                         Start Learning
                     </a>
+
 
                     <a
                         class="button button-secondary"
@@ -1937,8 +1436,6 @@
             </div>
 
 
-            <!-- Small original CSS illustration -->
-
             <div
                 class="hero-art"
                 aria-hidden="true"
@@ -1947,8 +1444,11 @@
                 <div class="path"></div>
 
                 <span class="path-dot dot-one"></span>
+
                 <span class="path-dot dot-two"></span>
+
                 <span class="path-dot dot-three"></span>
+
                 <span class="path-dot dot-four"></span>
 
 
@@ -1959,6 +1459,7 @@
                     <div class="student-head"></div>
 
                     <span class="face-dot face-left"></span>
+
                     <span class="face-dot face-right"></span>
 
                     <span class="face-smile"></span>
@@ -1974,9 +1475,9 @@
         </section>
 
 
-        <!-- ========================================
+        <!-- ================================
              SUBJECTS
-        ========================================= -->
+        ================================= -->
 
         <section
             id="subjects"
@@ -1989,9 +1490,11 @@
                     Explore
                 </span>
 
+
                 <h2 id="subjects-title">
                     Find your path.
                 </h2>
+
 
                 <p>
                     Start with a subject, follow your
@@ -2118,8 +1621,8 @@
                     </h3>
 
                     <p>
-                        Understand how governments,
-                        rights, and systems work.
+                        Understand governments,
+                        rights, and systems.
                     </p>
 
                     <span class="subject-arrow">
@@ -2153,130 +1656,506 @@
 
                 </a>
 
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             FIND YOUR PATH
+        ================================= -->
+
+        <section
+            id="learning-paths"
+            aria-labelledby="learning-paths-title"
+        >
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    Find your path
+                </span>
+
+
+                <h2 id="learning-paths-title">
+                    How do you like to learn?
+                </h2>
+
+
+                <p>
+                    There isn't one right way to learn
+                    something. Explore different approaches
+                    and find what works best for you.
+                </p>
+
+            </div>
+
+
+            <div class="learning-preferences">
+
+
+                <a
+                    href="#"
+                    class="preference-card preference-lavender"
+                >
+
+                    <span class="preference-icon">
+                        ↓
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Break it down
+                        </h3>
+
+                        <p>
+                            One concept at a time,
+                            with clear steps.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="preference-card preference-blue"
+                >
+
+                    <span class="preference-icon">
+                        ✦
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Show me
+                        </h3>
+
+                        <p>
+                            Diagrams, examples,
+                            and visual explanations.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="preference-card preference-yellow"
+                >
+
+                    <span class="preference-icon">
+                        •••
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Keep it short
+                        </h3>
+
+                        <p>
+                            Quick explanations
+                            and the key points.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="preference-card preference-sage"
+                >
+
+                    <span class="preference-icon">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Let me practice
+                        </h3>
+
+                        <p>
+                            Questions, activities,
+                            and examples.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="preference-card preference-peach"
+                >
+
+                    <span class="preference-icon">
+                        ↗
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Go deeper
+                        </h3>
+
+                        <p>
+                            Detailed explanations
+                            and deeper connections.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="preference-card preference-pink"
+                >
+
+                    <span class="preference-icon">
+                        ?
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            I'm not sure yet
+                        </h3>
+
+                        <p>
+                            Explore different approaches
+                            and discover what works.
+                        </p>
+
+                    </div>
+
+                </a>
+
 
             </div>
 
         </section>
 
 
-        <!-- ========================================
-             LEARNING PATH
-        ========================================= -->
+        <!-- ================================
+             DIFFERENT MINDS
+        ================================= -->
 
         <div class="path-section">
 
-            <div
-                class="path-inner"
-                id="learn"
+            <section
+                id="different-minds"
+                aria-labelledby="different-minds-title"
             >
 
                 <div class="section-heading">
 
                     <span class="eyebrow">
-                        Different paths
+                        Resources
                     </span>
 
-                    <h2>
-                        Learn in the way
-                        that works for you.
+
+                    <h2 id="different-minds-title">
+                        Resources for different minds.
                     </h2>
 
+
                     <p>
-                        The same idea can be approached
-                        from different directions.
+                        Explore strategies and resources
+                        that may be useful for different
+                        learning needs and experiences.
                     </p>
 
                 </div>
 
 
-                <div class="learning-path">
+                <div class="mind-grid">
 
 
-                    <article class="learning-step">
+                    <a
+                        href="#"
+                        class="mind-card"
+                    >
 
-                        <div class="step-number">
-                            1
-                        </div>
+                        <span class="mind-card-number">
+                            01
+                        </span>
+
+                        <h3>
+                            ADHD
+                        </h3>
+
+                        <p>
+                            Focus-friendly study strategies,
+                            task breakdowns, and organization.
+                        </p>
+
+                        <span class="mind-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="mind-card"
+                    >
+
+                        <span class="mind-card-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Autism
+                        </h3>
+
+                        <p>
+                            Structured resources, clear
+                            explanations, and predictable
+                            learning formats.
+                        </p>
+
+                        <span class="mind-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="mind-card"
+                    >
+
+                        <span class="mind-card-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Reading differences
+                        </h3>
+
+                        <p>
+                            Reading strategies, accessible
+                            formatting, and alternative ways
+                            to work with information.
+                        </p>
+
+                        <span class="mind-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="mind-card"
+                    >
+
+                        <span class="mind-card-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Executive function
+                        </h3>
+
+                        <p>
+                            Planning, organization, time
+                            management, and getting started.
+                        </p>
+
+                        <span class="mind-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="mind-card"
+                    >
+
+                        <span class="mind-card-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Academic stress
+                        </h3>
+
+                        <p>
+                            Low-pressure practice, study
+                            planning, and approaches to
+                            difficult assignments.
+                        </p>
+
+                        <span class="mind-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="mind-card"
+                    >
+
+                        <span class="mind-card-number">
+                            06
+                        </span>
 
                         <h3>
                             Explore
                         </h3>
 
                         <p>
-                            Get introduced to a new
-                            concept without the pressure
-                            to know everything immediately.
+                            Not sure what you need?
+                            Browse different strategies
+                            and find your starting point.
                         </p>
 
-                    </article>
+                        <span class="mind-arrow">
+                            →
+                        </span>
 
-
-                    <article class="learning-step">
-
-                        <div class="step-number">
-                            2
-                        </div>
-
-                        <h3>
-                            Understand
-                        </h3>
-
-                        <p>
-                            Follow explanations,
-                            examples, diagrams, and
-                            different perspectives.
-                        </p>
-
-                    </article>
-
-
-                    <article class="learning-step">
-
-                        <div class="step-number">
-                            3
-                        </div>
-
-                        <h3>
-                            Practice
-                        </h3>
-
-                        <p>
-                            Test what you know with
-                            questions, activities,
-                            and examples.
-                        </p>
-
-                    </article>
-
-
-                    <article class="learning-step">
-
-                        <div class="step-number">
-                            4
-                        </div>
-
-                        <h3>
-                            Apply
-                        </h3>
-
-                        <p>
-                            Take what you learned and
-                            use it somewhere new.
-                        </p>
-
-                    </article>
+                    </a>
 
 
                 </div>
 
-            </div>
+            </section>
 
         </div>
 
 
-        <!-- ========================================
-             FEATURED TUTORIALS
-        ========================================= -->
+        <!-- ================================
+             LEARNING PROCESS
+        ================================= -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    Different paths
+                </span>
+
+
+                <h2>
+                    Learn in the way
+                    that works for you.
+                </h2>
+
+
+                <p>
+                    The same idea can be approached
+                    from different directions.
+                </p>
+
+            </div>
+
+
+            <div class="learning-path">
+
+
+                <article class="learning-step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <p>
+                        Get introduced to a new concept
+                        without the pressure to know
+                        everything immediately.
+                    </p>
+
+                </article>
+
+
+                <article class="learning-step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Understand
+                    </h3>
+
+                    <p>
+                        Follow explanations, examples,
+                        diagrams, and different perspectives.
+                    </p>
+
+                </article>
+
+
+                <article class="learning-step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Practice
+                    </h3>
+
+                    <p>
+                        Test what you know with questions,
+                        activities, and examples.
+                    </p>
+
+                </article>
+
+
+                <article class="learning-step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Apply
+                    </h3>
+
+                    <p>
+                        Take what you learned and
+                        use it somewhere new.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             TUTORIALS
+        ================================= -->
 
         <section
             id="tutorials"
@@ -2289,9 +2168,11 @@
                     Coming soon
                 </span>
 
+
                 <h2 id="tutorials-title">
                     Learn something new.
                 </h2>
+
 
                 <p>
                     NeuralPath tutorials will break
@@ -2311,16 +2192,18 @@
                         Mathematics
                     </span>
 
+
                     <h3>
-                        Understanding
-                        Algebra
+                        Understanding Algebra
                     </h3>
+
 
                     <p>
                         Learn what the symbols,
                         variables, and equations are
                         actually telling you.
                     </p>
+
 
                     <a
                         class="button"
@@ -2338,16 +2221,18 @@
                         Study Skills
                     </span>
 
+
                     <h3>
-                        Finding your
-                        study method
+                        Finding your study method
                     </h3>
+
 
                     <p>
                         Explore different approaches
-                        to studying and figure out what
+                        to studying and discover what
                         helps information stick.
                     </p>
+
 
                     <a
                         class="button"
@@ -2364,9 +2249,9 @@
         </section>
 
 
-        <!-- ========================================
+        <!-- ================================
              ABOUT
-        ======================================== -->
+        ================================= -->
 
         <section
             id="about"
@@ -2376,15 +2261,13 @@
 
             <div class="about-note">
 
-                <div class="small-star">
+                <div style="font-size: 2rem;">
                     ✦
                 </div>
 
                 <p>
-                    There is more
-                    than one way
-                    to understand
-                    something.
+                    There is more than one way
+                    to understand something.
                 </p>
 
             </div>
@@ -2396,31 +2279,26 @@
                     About NeuralPath
                 </span>
 
+
                 <h2 id="about-title">
                     Education doesn't
                     have one path.
                 </h2>
 
+
                 <p>
-                    NeuralPath is being built as a free
-                    educational space for students and
-                    self-directed learners.
-
-                    Instead of assuming that everyone
-                    learns the same way, NeuralPath
-                    aims to provide different explanations,
-                    formats, and approaches to the same
-                    knowledge.
-
+                    NeuralPath is being built as a
+                    free educational space for students
+                    and self-directed learners.
                 </p>
 
+
                 <p>
-                    Whether you're reviewing something
-                    you learned yesterday, trying to
-                    understand a difficult concept, or
-                    exploring something simply because
-                    you're curious — there's a path
-                    forward.
+                    Instead of assuming that everyone
+                    learns the same way, NeuralPath aims
+                    to provide different explanations,
+                    formats, and approaches to the same
+                    knowledge.
                 </p>
 
             </div>
@@ -2428,9 +2306,9 @@
         </section>
 
 
-        <!-- ========================================
+        <!-- ================================
              SUPPORT
-        ========================================= -->
+        ================================= -->
 
         <section>
 
@@ -2440,12 +2318,14 @@
                     Keep learning free.
                 </h2>
 
+
                 <p>
                     NeuralPath is being built around
                     the idea that useful educational
                     information should be accessible
                     to learners who want to find it.
                 </p>
+
 
                 <a
                     class="button"
@@ -2461,9 +2341,9 @@
     </main>
 
 
-    <!-- ========================================
+    <!-- ================================
          FOOTER
-    ======================================== -->
+    ================================= -->
 
     <footer>
 
@@ -2472,6 +2352,7 @@
             <div class="footer-brand">
                 NeuralPath
             </div>
+
 
             <p class="footer-text">
                 Learn your way. © 2026 NeuralPath
