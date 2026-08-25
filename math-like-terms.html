@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn how to combine like terms with NeuralPath."
+    >
+
+    <title>Combining Like Terms — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #65666a;
+
+            --lavender: #e8dff0;
+            --lavender-dark: #bca8d2;
+
+            --blue: #dce9f1;
+            --blue-dark: #abc8d9;
+
+            --yellow: #f2e9c9;
+            --sage: #dce8d9;
+            --peach: #efd9d4;
+            --pink: #ead9df;
+
+            --border: #dedbd2;
+
+            --radius: 18px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--cream);
+
+            color: var(--ink);
+
+            line-height: 1.65;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        /* HEADER */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid rgba(222, 219, 210, 0.8);
+        }
+
+
+        .nav {
+
+            width: min(1050px, 92%);
+
+            min-height: 76px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.5rem;
+
+            text-decoration: none;
+        }
+
+
+        .logo-dot {
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+
+            margin-left: 4px;
+
+            border-radius: 50%;
+
+            background: var(--lavender-dark);
+        }
+
+
+        .back-button {
+
+            padding: 10px 18px;
+
+            border-radius: 999px;
+
+            background: var(--lavender);
+
+            text-decoration: none;
+
+            font-weight: 650;
+
+            font-size: 0.86rem;
+
+            transition: 0.2s ease;
+        }
+
+
+        .back-button:hover {
+
+            background: var(--lavender-dark);
+
+            transform: translateX(-3px);
+        }
+
+
+        /* MAIN */
+
+        main {
+
+            width: min(850px, 92%);
+
+            margin: auto;
+
+            padding:
+                65px 0 100px;
+        }
+
+
+        .breadcrumb {
+
+            margin-bottom: 28px;
+
+            font-size: 0.84rem;
+
+            color: var(--soft-ink);
+        }
+
+
+        .breadcrumb a {
+
+            text-decoration: none;
+        }
+
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* ROADMAP */
+
+        .lesson-roadmap {
+
+            margin-bottom: 45px;
+
+            padding: 20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 17px;
+
+            background: var(--paper);
+        }
+
+
+        .roadmap-title {
+
+            margin-bottom: 14px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+        }
+
+
+        .roadmap {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .roadmap-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #858589;
+
+            font-size: 0.76rem;
+
+            font-weight: 650;
+        }
+
+
+        .roadmap-dot {
+
+            width: 19px;
+
+            height: 19px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #e6e3dc;
+
+            font-size: 0.62rem;
+        }
+
+
+        .roadmap-item.complete {
+
+            color: #65666a;
+        }
+
+
+        .roadmap-item.complete
+        .roadmap-dot {
+
+            background: var(--sage);
+
+            color: #566253;
+        }
+
+
+        .roadmap-item.current {
+
+            color: var(--ink);
+        }
+
+
+        .roadmap-item.current
+        .roadmap-dot {
+
+            background: var(--lavender);
+
+            color: var(--ink);
+        }
+
+
+        .roadmap-arrow {
+
+            color: #b3afa7;
+
+            font-size: 0.75rem;
+        }
+
+
+        /* TITLE */
+
+        .eyebrow {
+
+            display: block;
+
+            margin-bottom: 15px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.77rem;
+
+            font-weight: 750;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        h1 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(2.6rem, 6vw, 4.3rem);
+
+            line-height: 1.08;
+
+            font-weight: 400;
+        }
+
+
+        .intro {
+
+            margin-top: 20px;
+
+            max-width: 650px;
+
+            color: var(--soft-ink);
+
+            font-size: 1.06rem;
+        }
+
+
+        /* PROGRESS */
+
+        .progress-area {
+
+            margin-top: 35px;
+
+            padding: 17px 20px;
+
+            border-radius: 15px;
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .progress-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            font-size: 0.76rem;
+
+            color: var(--soft-ink);
+
+            font-weight: 700;
+        }
+
+
+        .progress-bar {
+
+            height: 7px;
+
+            overflow: hidden;
+
+            border-radius: 999px;
+
+            background: #e7e3da;
+        }
+
+
+        .progress-fill {
+
+            width: 55%;
+
+            height: 100%;
+
+            border-radius: 999px;
+
+            background: var(--lavender-dark);
+        }
+
+
+        /* LESSON */
+
+        .lesson-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius: var(--radius);
+
+            background: var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .lesson-label {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding: 5px 11px;
+
+            border-radius: 999px;
+
+            background: var(--lavender);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.06em;
+
+            text-transform: uppercase;
+        }
+
+
+        .lesson-block h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+        }
+
+
+        .lesson-block p {
+
+            color: #55565a;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* MATH */
+
+        .math-display {
+
+            margin: 30px auto;
+
+            padding: 28px;
+
+            width: min(550px, 100%);
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background: var(--blue);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 2.2rem;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        .math-display.small {
+
+            font-size: 1.65rem;
+
+            background: var(--yellow);
+        }
+
+
+        /* LIKE TERMS */
+
+        .term-comparison {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .comparison-card {
+
+            padding: 25px;
+
+            border-radius: 16px;
+        }
+
+
+        .comparison-card.yes {
+
+            background: var(--sage);
+        }
+
+
+        .comparison-card.no {
+
+            background: var(--pink);
+        }
+
+
+        .comparison-card h3 {
+
+            margin-bottom: 10px;
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.2rem;
+
+            font-weight: 400;
+        }
+
+
+        .comparison-equation {
+
+            margin: 10px 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 1.5rem;
+        }
+
+
+        .comparison-card p {
+
+            margin: 0;
+
+            font-size: 0.87rem;
+        }
+
+
+        /* ANALOGY */
+
+        .analogy {
+
+            margin-top: 25px;
+
+            padding: 25px 28px;
+
+            border-radius: 17px;
+
+            background: var(--peach);
+        }
+
+
+        .analogy strong {
+
+            display: block;
+
+            margin-bottom: 7px;
+        }
+
+
+        .analogy p {
+
+            margin: 0;
+
+            color: #5f5553;
+        }
+
+
+        /* PRACTICE */
+
+        .practice-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius: var(--radius);
+
+            background: var(--yellow);
+
+            border:
+                1px solid rgba(41,42,45,0.05);
+        }
+
+
+        .practice-block h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+
+        .question {
+
+            margin-top: 25px;
+
+            font-size: 1.08rem;
+
+            font-weight: 650;
+        }
+
+
+        .answer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+
+        .answer-button {
+
+            min-height: 60px;
+
+            border:
+                1px solid rgba(41,42,45,0.08);
+
+            border-radius: 14px;
+
+            background: var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 1.05rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .answer-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .feedback {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+        }
+
+
+        .feedback.show {
+            display: block;
+        }
+
+
+        .feedback.correct {
+            background: var(--sage);
+        }
+
+
+        .feedback.incorrect {
+            background: var(--pink);
+        }
+
+
+        .feedback strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* STEP EXPLANATION */
+
+        .step-box {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background: var(--blue);
+        }
+
+
+        .step {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 17px;
+        }
+
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .step-number {
+
+            flex: 0 0 30px;
+
+            width: 30px;
+
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--white);
+
+            font-weight: 800;
+
+            font-size: 0.8rem;
+        }
+
+
+        .step-text {
+
+            padding-top: 3px;
+        }
+
+
+        /* DIFFERENT WAY */
+
+        .different-way {
+
+            margin-top: 55px;
+
+            padding: 30px;
+
+            border-radius: var(--radius);
+
+            background: var(--blue);
+        }
+
+
+        .different-way h2 {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.7rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+
+        .different-way p {
+
+            color: #566066;
+
+            margin-bottom: 20px;
+        }
+
+
+        .explanation-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .explanation-buttons button {
+
+            border: none;
+
+            padding: 10px 16px;
+
+            border-radius: 999px;
+
+            background: var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 0.82rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .explanation-buttons button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .alternative {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.7);
+        }
+
+
+        .alternative.show {
+            display: block;
+        }
+
+
+        /* NEXT */
+
+        .next-section {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-top: 60px;
+        }
+
+
+        .next-button {
+
+            flex: 1;
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background: var(--lavender);
+
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+
+        .next-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .next-label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 750;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .next-title {
+            font-weight: 700;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            padding: 45px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+
+            width: min(850px, 92%);
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .footer-brand {
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.1rem;
+        }
+
+
+        .footer-text {
+
+            color: var(--soft-ink);
+
+            font-size: 0.8rem;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            .term-comparison {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .answer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .next-section {
+
+                flex-direction: column;
+            }
+
+
+            .lesson-block,
+            .practice-block {
+
+                padding: 25px;
+            }
+
+
+            .roadmap {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .roadmap-arrow {
+
+                display: none;
+            }
+
+
+            .footer-inner {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <nav class="nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            NeuralPath<span class="logo-dot"></span>
+        </a>
+
+
+        <a
+            href="math-breakdown.html"
+            class="back-button"
+        >
+            ← Algebra
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            NeuralPath
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="mathematics.html">
+            Mathematics
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="math-breakdown.html">
+            Break it down
+        </a>
+
+        &nbsp;→&nbsp;
+
+        Like Terms
+
+    </div>
+
+
+    <!-- ROADMAP -->
+
+    <div class="lesson-roadmap">
+
+        <div class="roadmap-title">
+            Algebra foundations
+        </div>
+
+
+        <div class="roadmap">
+
+
+            <div class="roadmap-item complete">
+
+                <span class="roadmap-dot">
+                    ✓
+                </span>
+
+                Variables
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item complete">
+
+                <span class="roadmap-dot">
+                    ✓
+                </span>
+
+                Coefficients
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item current">
+
+                <span class="roadmap-dot">
+                    3
+                </span>
+
+                Like Terms
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    4
+                </span>
+
+                Equations
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    5
+                </span>
+
+                Inequalities
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <span class="eyebrow">
+        Algebra · Foundations
+    </span>
+
+
+    <h1>
+        Combining<br>
+        Like Terms
+    </h1>
+
+
+    <p class="intro">
+
+        Once you know what coefficients and variables are,
+        you can start putting similar terms together.
+
+    </p>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-area">
+
+        <div class="progress-top">
+
+            <span>
+                Lesson progress
+            </span>
+
+            <span>
+                3 of 5
+            </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LESSON 1 -->
+
+    <section class="lesson-block">
+
+        <span class="lesson-label">
+            Step 1 · Understand
+        </span>
+
+
+        <h2>
+            What are like terms?
+        </h2>
+
+
+        <p>
+
+            <strong>Like terms</strong> are terms that
+            have the same variable part.
+
+        </p>
+
+
+        <div class="math-display">
+
+            3x + 2x
+
+        </div>
+
+
+        <p>
+
+            Both terms contain <strong>x</strong>,
+            so they are like terms.
+
+            That means we can combine them.
+
+        </p>
+
+
+        <div class="math-display small">
+
+            3x + 2x = 5x
+
+        </div>
+
+
+        <div class="analogy">
+
+            <strong>
+                Think about it like objects.
+            </strong>
+
+
+            <p>
+
+                3 apples + 2 apples = 5 apples.
+
+                You can combine them because they're
+                the same kind of thing.
+
+                Algebra works the same way.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- LESSON 2 -->
+
+    <section class="lesson-block">
+
+        <span class="lesson-label">
+            Step 2 · Compare
+        </span>
+
+
+        <h2>
+            Same kind or different kind?
+        </h2>
+
+
+        <div class="term-comparison">
+
+
+            <div class="comparison-card yes">
+
+                <h3>
+                    ✓ Like terms
+                </h3>
+
+
+                <div class="comparison-equation">
+                    4x + 3x
+                </div>
+
+
+                <p>
+
+                    Both terms contain x.
+
+                    They can be combined.
+
+                </p>
+
+            </div>
+
+
+            <div class="comparison-card no">
+
+                <h3>
+                    ✕ Not like terms
+                </h3>
+
+
+                <div class="comparison-equation">
+                    4x + 3
+                </div>
+
+
+                <p>
+
+                    One term has x and the other
+                    does not.
+
+                    They cannot be combined.
+
+                </p>
+
+            </div>
+
+
+            <div class="comparison-card yes">
+
+                <h3>
+                    ✓ Like terms
+                </h3>
+
+
+                <div class="comparison-equation">
+                    x + x
+                </div>
+
+
+                <p>
+
+                    Both terms contain x.
+
+                </p>
+
+            </div>
+
+
+            <div class="comparison-card no">
+
+                <h3>
+                    ✕ Not like terms
+                </h3>
+
+
+                <div class="comparison-equation">
+                    x + y
+                </div>
+
+
+                <p>
+
+                    x and y are different variables.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- LESSON 3 -->
+
+    <section class="lesson-block">
+
+        <span class="lesson-label">
+            Step 3 · The rule
+        </span>
+
+
+        <h2>
+            Combine the coefficients.
+        </h2>
+
+
+        <p>
+
+            When terms are alike, you add or subtract
+            their coefficients.
+
+        </p>
+
+
+        <div class="math-display">
+
+            4x + 3x = 7x
+
+        </div>
+
+
+        <div class="step-box">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+
+                <div class="step-text">
+
+                    Find the like terms:
+
+                    <strong>
+                        4x and 3x
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+
+                <div class="step-text">
+
+                    Add the coefficients:
+
+                    <strong>
+                        4 + 3 = 7
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+
+                <div class="step-text">
+
+                    Keep the variable:
+
+                    <strong>
+                        7x
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- PRACTICE -->
+
+    <section class="practice-block">
+
+        <span class="lesson-label">
+            Step 4 · Try it
+        </span>
+
+
+        <h2>
+            Your turn.
+        </h2>
+
+
+        <p>
+
+            Simplify the expression:
+
+        </p>
+
+
+        <div class="math-display">
+
+            4x + 3x
+
+        </div>
+
+
+        <p class="question">
+
+            What is the simplified expression?
+
+        </p>
+
+
+        <div class="answer-grid">
+
+
+            <button
+                class="answer-button"
+                onclick="checkAnswer('7x')"
+            >
+                7x
+            </button>
+
+
+            <button
+                class="answer-button"
+                onclick="checkAnswer('12x')"
+            >
+                12x
+            </button>
+
+
+            <button
+                class="answer-button"
+                onclick="checkAnswer('7')"
+            >
+                7
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="feedback"
+            class="feedback"
+        >
+
+            <strong id="feedback-title"></strong>
+
+            <span id="feedback-text"></span>
+
+        </div>
+
+
+        <!-- SECOND QUESTION -->
+
+        <div class="second-practice">
+
+
+            <p class="question">
+
+                Try another:
+
+            </p>
+
+
+            <div class="math-display small">
+
+                6x + 2x
+
+            </div>
+
+
+            <p class="question">
+
+                What does this simplify to?
+
+            </p>
+
+
+            <div class="answer-grid">
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkSecond('8x')"
+                >
+                    8x
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkSecond('12x')"
+                >
+                    12x
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkSecond('8')"
+                >
+                    8
+                </button>
+
+
+            </div>
+
+
+            <div
+                id="feedback-second"
+                class="feedback"
+            >
+
+                <strong id="feedback-title-second"></strong>
+
+                <span id="feedback-text-second"></span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- DIFFERENT WAY -->
+
+    <section class="different-way">
+
+        <h2>
+            Need another way?
+        </h2>
+
+
+        <p>
+
+            Choose an explanation style.
+
+        </p>
+
+
+        <div class="explanation-buttons">
+
+
+            <button
+                onclick="showAlternative('simple')"
+            >
+                Keep it simple
+            </button>
+
+
+            <button
+                onclick="showAlternative('visual')"
+            >
+                Show me visually
+            </button>
+
+
+            <button
+                onclick="showAlternative('analogy')"
+            >
+                Give me an analogy
+            </button>
+
+
+            <button
+                onclick="showAlternative('steps')"
+            >
+                Step-by-step
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="simple"
+            class="alternative"
+        >
+
+            <strong>
+                Keep it simple
+            </strong>
+
+
+            <p>
+
+                Find terms with the same variable.
+
+                Add their coefficients.
+
+                Keep the variable.
+
+            </p>
+
+        </div>
+
+
+        <div
+            id="visual"
+            class="alternative"
+        >
+
+            <strong>
+                Show me visually
+            </strong>
+
+
+            <p>
+
+                Think of x as a box.
+
+                3x means:
+
+                [x] [x] [x]
+
+                2x means:
+
+                [x] [x]
+
+                Together:
+
+                [x] [x] [x] [x] [x]
+
+                = 5x
+
+            </p>
+
+        </div>
+
+
+        <div
+            id="analogy"
+            class="alternative"
+        >
+
+            <strong>
+                Give me an analogy
+            </strong>
+
+
+            <p>
+
+                Imagine you have 4 blue pencils
+                and someone gives you 3 more blue
+                pencils.
+
+                You now have 7 blue pencils.
+
+                4x + 3x works the same way.
+
+            </p>
+
+        </div>
+
+
+        <div
+            id="steps"
+            class="alternative"
+        >
+
+            <strong>
+                Step-by-step
+            </strong>
+
+
+            <p>
+
+                1. Identify the terms.<br>
+
+                2. Check whether their variable parts
+                match.<br>
+
+                3. Add or subtract the coefficients.<br>
+
+                4. Keep the variable part.<br>
+
+                5. Write the simplified expression.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEXT -->
+
+    <div class="next-section">
+
+
+        <a
+            href="math-coefficients.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+                Previous lesson
+            </span>
+
+
+            <span class="next-title">
+                ← Coefficients & Constants
+            </span>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="next-button"
+        >
+
+            <span class="next-label">
+                Coming next
+            </span>
+
+
+            <span class="next-title">
+                One-Step Equations →
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            NeuralPath
+        </div>
+
+
+        <p class="footer-text">
+            Learn your way. © 2026 NeuralPath
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+
+    function checkAnswer(answer) {
+
+        const feedback =
+            document.getElementById("feedback");
+
+        const title =
+            document.getElementById("feedback-title");
+
+        const text =
+            document.getElementById("feedback-text");
+
+
+        feedback.classList.add("show");
+
+
+        if (answer === "7x") {
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+            feedback.classList.add(
+                "correct"
+            );
+
+
+            title.textContent =
+                "Correct!";
+
+
+            text.textContent =
+                "4 + 3 = 7, and we keep the x. So 4x + 3x = 7x.";
+
+        }
+
+        else {
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+
+            title.textContent =
+                "Not quite.";
+
+
+            text.textContent =
+                "Add the coefficients 4 and 3. Then keep the variable x.";
+
+        }
+
+    }
+
+
+    function checkSecond(answer) {
+
+        const feedback =
+            document.getElementById(
+                "feedback-second"
+            );
+
+        const title =
+            document.getElementById(
+                "feedback-title-second"
+            );
+
+        const text =
+            document.getElementById(
+                "feedback-text-second"
+            );
+
+
+        feedback.classList.add("show");
+
+
+        if (answer === "8x") {
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+            feedback.classList.add(
+                "correct"
+            );
+
+
+            title.textContent =
+                "Correct!";
+
+
+            text.textContent =
+                "6 + 2 = 8, so 6x + 2x = 8x.";
+
+        }
+
+        else {
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+
+            title.textContent =
+                "Not quite.";
+
+
+            text.textContent =
+                "Add the coefficients: 6 + 2 = 8. Keep the x.";
+
+        }
+
+    }
+
+
+    function showAlternative(type) {
+
+        const alternatives =
+            document.querySelectorAll(
+                ".alternative"
+            );
+
+
+        alternatives.forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+        const selected =
+            document.getElementById(type);
+
+
+        if (selected) {
+
+            selected.classList.add(
+                "show"
+            );
+
+
+            selected.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "nearest"
+
+            });
+
+        }
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
