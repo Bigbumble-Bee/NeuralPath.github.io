@@ -2,153 +2,1848 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NeuralPath | Learn Your Way</title>
+    <meta
+        name="description"
+        content="NeuralPath is a free educational platform helping learners find different paths to understanding."
+    >
+
+    <title>NeuralPath — Learn Your Way</title>
+
+    <!-- Starborn font -->
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f7fb;
-            color: #20242c;
+
+        /* =========================================
+           NEURALPATH
+           Base Styles
+        ========================================= */
+
+        :root {
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #65666a;
+
+            --lavender: #d9cde8;
+            --blue: #c9ddec;
+            --sage: #cdddc9;
+            --yellow: #eee0ad;
+            --peach: #e8c9c2;
+            --pink: #e7cbd5;
+
+            --lavender-dark: #bca8d2;
+            --blue-dark: #a8c4da;
+            --sage-dark: #aec5aa;
+            --yellow-dark: #d7c57d;
+            --peach-dark: #d3aaa2;
+
+            --border: #dedbd2;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+
+            --radius: 18px;
         }
 
-        header {
-            background: #ffffff;
-            padding: 20px 8%;
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--cream);
+            color: var(--ink);
+
+            line-height: 1.6;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        /* =========================================
+           ACCESSIBILITY
+        ========================================= */
+
+        :focus-visible {
+            outline: 3px solid #8c7ba8;
+            outline-offset: 4px;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(248, 246, 240, 0.94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid rgba(222, 219, 210, 0.8);
+        }
+
+
+        .nav {
+            width: min(1180px, 92%);
+
+            margin: 0 auto;
+
+            min-height: 76px;
+
             display: flex;
+            align-items: center;
             justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo {
+            text-decoration: none;
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.55rem;
+
+            letter-spacing: 0.03em;
+
+            white-space: nowrap;
+        }
+
+
+        .logo-dot {
+            display: inline-block;
+
+            width: 8px;
+            height: 8px;
+
+            margin-left: 4px;
+
+            border-radius: 50%;
+
+            background: var(--lavender-dark);
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: var(--soft-ink);
+
+            font-size: 0.92rem;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--ink);
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding: 12px 22px;
+
+            border-radius: 999px;
+
+            text-decoration: none;
+
+            border: 1px solid rgba(41, 42, 45, 0.08);
+
+            font-weight: 650;
+
+            font-size: 0.92rem;
+
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                background 0.18s ease;
+        }
+
+
+        .button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 7px 15px rgba(50, 48, 43, 0.10);
+        }
+
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+
+        .button-primary {
+            background: var(--lavender);
+        }
+
+
+        .button-primary:hover {
+            background: var(--lavender-dark);
+        }
+
+
+        .button-secondary {
+            background: var(--blue);
+        }
+
+
+        .button-secondary:hover {
+            background: var(--blue-dark);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            width: min(1180px, 92%);
+
+            margin: 0 auto;
+
+            min-height: 650px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr
+                0.9fr;
+
+            align-items: center;
+
+            gap: 70px;
+
+            padding:
+                80px 0
+                90px;
+        }
+
+
+        .hero-text {
+            position: relative;
+        }
+
+
+        .eyebrow {
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.83rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero h1 {
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(3rem, 7vw, 5.8rem);
+
+            line-height: 1.02;
+
+            font-weight: 400;
+
+            letter-spacing: 0.015em;
+
+            max-width: 720px;
+        }
+
+
+        .hero h1 span {
+            display: block;
+
+            color: #82719b;
+        }
+
+
+        .hero-description {
+            max-width: 600px;
+
+            margin-top: 28px;
+
+            color: var(--soft-ink);
+
+            font-size:
+                clamp(1rem, 2vw, 1.18rem);
+        }
+
+
+        .hero-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 32px;
+        }
+
+
+        /* =========================================
+           HERO DECORATION
+        ========================================= */
+
+        .hero-art {
+            min-height: 430px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .path {
+            position: absolute;
+
+            width: 330px;
+            height: 330px;
+
+            border:
+                2px dashed #c9c2b6;
+
+            border-radius:
+                48% 52% 60% 40% /
+                50% 42% 58% 50%;
+
+            transform:
+                rotate(-15deg);
+        }
+
+
+        .path-dot {
+            position: absolute;
+
+            width: 18px;
+            height: 18px;
+
+            border-radius: 50%;
+
+            border: 3px solid var(--cream);
+        }
+
+
+        .dot-one {
+            background: var(--lavender-dark);
+
+            top: 18%;
+            left: 27%;
+        }
+
+
+        .dot-two {
+            background: var(--blue-dark);
+
+            top: 31%;
+            right: 12%;
+        }
+
+
+        .dot-three {
+            background: var(--sage-dark);
+
+            bottom: 18%;
+            right: 27%;
+        }
+
+
+        .dot-four {
+            background: var(--peach-dark);
+
+            bottom: 25%;
+            left: 14%;
+        }
+
+
+        /* =========================================
+           SIMPLE STUDENT ILLUSTRATION
+        ========================================= */
+
+        .student {
+            position: relative;
+
+            width: 180px;
+            height: 230px;
+
+            z-index: 2;
+        }
+
+
+        .student-head {
+            position: absolute;
+
+            width: 95px;
+            height: 105px;
+
+            top: 20px;
+            left: 42px;
+
+            background: #f0c9a8;
+
+            border-radius:
+                47% 47% 45% 45%;
+        }
+
+
+        .student-hair {
+            position: absolute;
+
+            width: 105px;
+            height: 78px;
+
+            top: 7px;
+            left: 36px;
+
+            background: #5c4e4a;
+
+            border-radius:
+                55% 55% 35% 35%;
+        }
+
+
+        .student-body {
+            position: absolute;
+
+            width: 145px;
+            height: 105px;
+
+            bottom: 10px;
+            left: 18px;
+
+            background: var(--lavender);
+
+            border-radius:
+                55px 55px 22px 22px;
+        }
+
+
+        .student-book {
+            position: absolute;
+
+            width: 75px;
+            height: 55px;
+
+            bottom: 38px;
+            left: 53px;
+
+            background: var(--paper);
+
+            border:
+                2px solid #c7c2b8;
+
+            transform: rotate(-8deg);
+
+            border-radius: 5px;
+        }
+
+
+        .student-book::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+
+            width: 2px;
+            height: 100%;
+
+            background: #d3cec4;
+        }
+
+
+        .face-dot {
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            background: var(--ink);
+
+            border-radius: 50%;
+
+            top: 69px;
+        }
+
+
+        .face-left {
+            left: 68px;
+        }
+
+
+        .face-right {
+            left: 106px;
+        }
+
+
+        .face-smile {
+            position: absolute;
+
+            width: 18px;
+            height: 9px;
+
+            border-bottom:
+                2px solid var(--ink);
+
+            border-radius: 50%;
+
+            top: 82px;
+            left: 80px;
+        }
+
+
+        /* =========================================
+           SECTION
+        ========================================= */
+
+        section {
+            width: min(1180px, 92%);
+
+            margin: 0 auto;
+
+            padding:
+                90px 0;
+        }
+
+
+        .section-heading {
+            max-width: 700px;
+
+            margin-bottom: 42px;
+        }
+
+
+        .section-heading h2 {
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(2rem, 4vw, 3.2rem);
+
+            line-height: 1.15;
+
+            font-weight: 400;
+        }
+
+
+        .section-heading p {
+            margin-top: 15px;
+
+            color: var(--soft-ink);
+
+            max-width: 650px;
+        }
+
+
+        /* =========================================
+           SUBJECTS
+        ========================================= */
+
+        .subjects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .subject-card {
+            position: relative;
+
+            min-height: 210px;
+
+            padding: 28px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background: var(--paper);
+
+            text-decoration: none;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .subject-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .subject-number {
+            font-size: 0.78rem;
+
+            color: var(--soft-ink);
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .subject-card h3 {
+            margin-top: 35px;
+
+            font-size: 1.35rem;
+        }
+
+
+        .subject-card p {
+            margin-top: 8px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.94rem;
+
+            max-width: 280px;
+        }
+
+
+        .subject-arrow {
+            position: absolute;
+
+            right: 25px;
+            bottom: 22px;
+
+            font-size: 1.2rem;
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        .subject-card:hover .subject-arrow {
+            transform: translateX(4px);
+        }
+
+
+        .subject-math {
+            background: #f0e9f5;
+        }
+
+
+        .subject-science {
+            background: #e7f0e6;
+        }
+
+
+        .subject-history {
+            background: #f4edcf;
+        }
+
+
+        .subject-english {
+            background: #f1e2e5;
+        }
+
+
+        .subject-government {
+            background: #e3edf4;
+        }
+
+
+        .subject-study {
+            background: #eee9e0;
+        }
+
+
+        /* =========================================
+           LEARNING PATH
+        ========================================= */
+
+        .path-section {
+            background: var(--paper);
+
+            width: 100%;
+
+            border-top:
+                1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        .path-inner {
+            width: min(1180px, 92%);
+
+            margin: 0 auto;
+
+            padding:
+                90px 0;
+        }
+
+
+        .learning-path {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+
+            position: relative;
+        }
+
+
+        .learning-step {
+            position: relative;
+
+            padding: 25px;
+
+            border-radius: var(--radius);
+
+            background: var(--cream);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .step-number {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            font-weight: 700;
+        }
+
+
+        .learning-step h3 {
+            margin-top: 25px;
+
+            font-size: 1.1rem;
+        }
+
+
+        .learning-step p {
+            margin-top: 8px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================
+           FEATURED TUTORIAL
+        ========================================= */
+
+        .featured {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 30px;
+
+            align-items: stretch;
+        }
+
+
+        .featured-card {
+            padding: 38px;
+
+            border-radius: 22px;
+
+            border:
+                1px solid var(--border);
+
+            background: var(--blue);
+        }
+
+
+        .featured-card:nth-child(2) {
+            background: var(--peach);
+        }
+
+
+        .featured-label {
+            font-size: 0.75rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.1em;
+
+            font-weight: 750;
+        }
+
+
+        .featured-card h3 {
+            margin-top: 25px;
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.8rem;
+
+            font-weight: 400;
+        }
+
+
+        .featured-card p {
+            margin-top: 15px;
+
+            color: #55565a;
+        }
+
+
+        .featured-card .button {
+            margin-top: 25px;
+
+            background: rgba(255,255,255,0.65);
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about {
+            display: grid;
+
+            grid-template-columns:
+                0.8fr
+                1.2fr;
+
+            gap: 70px;
+
             align-items: center;
         }
 
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #20242c;
-        }
 
-        .hero {
-            padding: 100px 8%;
+        .about-note {
+            padding: 35px;
+
+            background: var(--yellow);
+
+            border-radius:
+                45% 55% 48% 52% /
+                55% 45% 55% 45%;
+
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
+
+        .about-note .small-star {
+            font-size: 2rem;
         }
 
-        .hero p {
-            font-size: 20px;
+
+        .about-note p {
+            margin-top: 15px;
+
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.5rem;
+
+            line-height: 1.5;
+        }
+
+
+        .about-text h2 {
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(2rem, 4vw, 3rem);
+
+            font-weight: 400;
+        }
+
+
+        .about-text p {
+            margin-top: 20px;
+
+            color: var(--soft-ink);
+
             max-width: 650px;
-            margin: auto;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 25px;
-            background: #20242c;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+
+        /* =========================================
+           SUPPORT
+        ========================================= */
+
+        .support {
+            background: var(--lavender);
+
+            border-radius: 25px;
+
+            padding:
+                55px;
+
+            text-align: center;
         }
 
-        section {
-            padding: 60px 8%;
+
+        .support h2 {
+            font-family: "Starborn", sans-serif;
+
+            font-size:
+                clamp(2rem, 4vw, 3rem);
+
+            font-weight: 400;
         }
 
-        .cards {
+
+        .support p {
+            max-width: 620px;
+
+            margin: 18px auto 0;
+
+            color: #5d5962;
+        }
+
+
+        .support .button {
+            margin-top: 25px;
+
+            background: var(--white);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            margin-top: 90px;
+
+            padding:
+                55px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+            width: min(1180px, 92%);
+
+            margin: 0 auto;
+
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
         }
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            flex: 1;
-            min-width: 200px;
+
+        .footer-brand {
+            font-family: "Starborn", sans-serif;
+
+            font-size: 1.2rem;
         }
+
+
+        .footer-text {
+            color: var(--soft-ink);
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .nav {
+                min-height: 68px;
+            }
+
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                padding-top: 65px;
+
+                text-align: center;
+            }
+
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+
+            .hero-art {
+                min-height: 330px;
+            }
+
+
+            .subjects-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .learning-path {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .about {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+
+            .about-note {
+                max-width: 350px;
+
+                margin: 0 auto;
+            }
+
+
+            .featured {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+
+            section {
+                padding: 65px 0;
+            }
+
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .learning-path {
+                grid-template-columns: 1fr;
+            }
+
+
+            .support {
+                padding: 35px 22px;
+            }
+
+
+            .footer-inner {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .hero-art {
+                transform: scale(0.85);
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <strong>NeuralPath</strong>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#learn">Learn</a>
-        <a href="#about">About</a>
-        <a href="#blog">Blog</a>
-    </nav>
-</header>
+    <!-- ========================================
+         HEADER
+    ========================================= -->
 
-<section class="hero">
-    <h1>Learn Your Way.</h1>
+    <header class="site-header">
 
-    <p>
-        NeuralPath is a free educational platform designed to help
-        learners explore knowledge through different paths, explanations,
-        and learning resources.
-    </p>
+        <nav class="nav">
 
-    <a class="button" href="#learn">Start Learning</a>
-</section>
+            <a class="logo" href="#">
+                NeuralPath<span class="logo-dot"></span>
+            </a>
 
-<section id="learn">
+            <ul class="nav-links">
 
-    <h2>Explore Learning</h2>
+                <li>
+                    <a href="#learn">Learn</a>
+                </li>
 
-    <div class="cards">
+                <li>
+                    <a href="#subjects">Subjects</a>
+                </li>
 
-        <div class="card">
-            <h3>Mathematics</h3>
-            <p>Step-by-step explanations, examples, and practice.</p>
+                <li>
+                    <a href="#tutorials">Tutorials</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+            </ul>
+
+            <a
+                class="button button-primary"
+                href="#learn"
+            >
+                Start Learning
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ========================================
+         HERO
+    ========================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <span class="eyebrow">
+                    A free space for learning
+                </span>
+
+                <h1>
+                    Learn
+                    <span>your way.</span>
+                </h1>
+
+                <p class="hero-description">
+
+                    Education doesn't have one path.
+
+                    NeuralPath helps learners explore
+                    ideas through tutorials, explanations,
+                    practice, and resources designed for
+                    different ways of learning.
+
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        class="button button-primary"
+                        href="#subjects"
+                    >
+                        Start Learning
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="#about"
+                    >
+                        About NeuralPath
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Small original CSS illustration -->
+
+            <div
+                class="hero-art"
+                aria-hidden="true"
+            >
+
+                <div class="path"></div>
+
+                <span class="path-dot dot-one"></span>
+                <span class="path-dot dot-two"></span>
+                <span class="path-dot dot-three"></span>
+                <span class="path-dot dot-four"></span>
+
+
+                <div class="student">
+
+                    <div class="student-hair"></div>
+
+                    <div class="student-head"></div>
+
+                    <span class="face-dot face-left"></span>
+                    <span class="face-dot face-right"></span>
+
+                    <span class="face-smile"></span>
+
+                    <div class="student-body"></div>
+
+                    <div class="student-book"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             SUBJECTS
+        ========================================= -->
+
+        <section
+            id="subjects"
+            aria-labelledby="subjects-title"
+        >
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    Explore
+                </span>
+
+                <h2 id="subjects-title">
+                    Find your path.
+                </h2>
+
+                <p>
+                    Start with a subject, follow your
+                    curiosity, and learn at your own pace.
+                </p>
+
+            </div>
+
+
+            <div class="subjects-grid">
+
+
+                <a
+                    class="subject-card subject-math"
+                    href="#"
+                >
+
+                    <span class="subject-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Mathematics
+                    </h3>
+
+                    <p>
+                        Understand the process,
+                        not just the answer.
+                    </p>
+
+                    <span class="subject-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="subject-card subject-science"
+                    href="#"
+                >
+
+                    <span class="subject-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Science
+                    </h3>
+
+                    <p>
+                        Break complicated systems
+                        into understandable pieces.
+                    </p>
+
+                    <span class="subject-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="subject-card subject-history"
+                    href="#"
+                >
+
+                    <span class="subject-number">
+                        03
+                    </span>
+
+                    <h3>
+                        History
+                    </h3>
+
+                    <p>
+                        Connect events, people,
+                        ideas, and consequences.
+                    </p>
+
+                    <span class="subject-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="subject-card subject-english"
+                    href="#"
+                >
+
+                    <span class="subject-number">
+                        04
+                    </span>
+
+                    <h3>
+                        English
+                    </h3>
+
+                    <p>
+                        Explore writing, literature,
+                        language, and ideas.
+                    </p>
+
+                    <span class="subject-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="subject-card subject-government"
+                    href="#"
+                >
+
+                    <span class="subject-number">
+                        05
+                    </span>
+
+                    <h3>
+                        Government
+                    </h3>
+
+                    <p>
+                        Understand how governments,
+                        rights, and systems work.
+                    </p>
+
+                    <span class="subject-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="subject-card subject-study"
+                    href="#"
+                >
+
+                    <span class="subject-number">
+                        06
+                    </span>
+
+                    <h3>
+                        Study Skills
+                    </h3>
+
+                    <p>
+                        Build strategies for
+                        independent learning.
+                    </p>
+
+                    <span class="subject-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             LEARNING PATH
+        ========================================= -->
+
+        <div class="path-section">
+
+            <div
+                class="path-inner"
+                id="learn"
+            >
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        Different paths
+                    </span>
+
+                    <h2>
+                        Learn in the way
+                        that works for you.
+                    </h2>
+
+                    <p>
+                        The same idea can be approached
+                        from different directions.
+                    </p>
+
+                </div>
+
+
+                <div class="learning-path">
+
+
+                    <article class="learning-step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Explore
+                        </h3>
+
+                        <p>
+                            Get introduced to a new
+                            concept without the pressure
+                            to know everything immediately.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learning-step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Understand
+                        </h3>
+
+                        <p>
+                            Follow explanations,
+                            examples, diagrams, and
+                            different perspectives.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learning-step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Practice
+                        </h3>
+
+                        <p>
+                            Test what you know with
+                            questions, activities,
+                            and examples.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learning-step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <h3>
+                            Apply
+                        </h3>
+
+                        <p>
+                            Take what you learned and
+                            use it somewhere new.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Science</h3>
-            <p>Explore biology, chemistry, physics, and more.</p>
+
+        <!-- ========================================
+             FEATURED TUTORIALS
+        ========================================= -->
+
+        <section
+            id="tutorials"
+            aria-labelledby="tutorials-title"
+        >
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    Coming soon
+                </span>
+
+                <h2 id="tutorials-title">
+                    Learn something new.
+                </h2>
+
+                <p>
+                    NeuralPath tutorials will break
+                    difficult concepts into manageable
+                    steps.
+                </p>
+
+            </div>
+
+
+            <div class="featured">
+
+
+                <article class="featured-card">
+
+                    <span class="featured-label">
+                        Mathematics
+                    </span>
+
+                    <h3>
+                        Understanding
+                        Algebra
+                    </h3>
+
+                    <p>
+                        Learn what the symbols,
+                        variables, and equations are
+                        actually telling you.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="#"
+                    >
+                        Coming soon
+                    </a>
+
+                </article>
+
+
+                <article class="featured-card">
+
+                    <span class="featured-label">
+                        Study Skills
+                    </span>
+
+                    <h3>
+                        Finding your
+                        study method
+                    </h3>
+
+                    <p>
+                        Explore different approaches
+                        to studying and figure out what
+                        helps information stick.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="#"
+                    >
+                        Coming soon
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             ABOUT
+        ======================================== -->
+
+        <section
+            id="about"
+            class="about"
+            aria-labelledby="about-title"
+        >
+
+            <div class="about-note">
+
+                <div class="small-star">
+                    ✦
+                </div>
+
+                <p>
+                    There is more
+                    than one way
+                    to understand
+                    something.
+                </p>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <span class="eyebrow">
+                    About NeuralPath
+                </span>
+
+                <h2 id="about-title">
+                    Education doesn't
+                    have one path.
+                </h2>
+
+                <p>
+                    NeuralPath is being built as a free
+                    educational space for students and
+                    self-directed learners.
+
+                    Instead of assuming that everyone
+                    learns the same way, NeuralPath
+                    aims to provide different explanations,
+                    formats, and approaches to the same
+                    knowledge.
+
+                </p>
+
+                <p>
+                    Whether you're reviewing something
+                    you learned yesterday, trying to
+                    understand a difficult concept, or
+                    exploring something simply because
+                    you're curious — there's a path
+                    forward.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             SUPPORT
+        ========================================= -->
+
+        <section>
+
+            <div class="support">
+
+                <h2>
+                    Keep learning free.
+                </h2>
+
+                <p>
+                    NeuralPath is being built around
+                    the idea that useful educational
+                    information should be accessible
+                    to learners who want to find it.
+                </p>
+
+                <a
+                    class="button"
+                    href="#"
+                >
+                    Support NeuralPath
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                NeuralPath
+            </div>
+
+            <p class="footer-text">
+                Learn your way. © 2026 NeuralPath
+            </p>
+
         </div>
 
-        <div class="card">
-            <h3>History</h3>
-            <p>Understand historical events, movements, and ideas.</p>
-        </div>
+    </footer>
 
-        <div class="card">
-            <h3>Study Skills</h3>
-            <p>Strategies for studying, organization, and independent learning.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="about">
-
-    <h2>About NeuralPath</h2>
-
-    <p>
-        NeuralPath exists to make educational information easier to
-        understand and easier to access.
-    </p>
-
-</section>
-
-<section id="blog">
-
-    <h2>Latest From NeuralPath</h2>
-
-    <p>
-        Tutorials and educational articles coming soon.
-    </p>
-
-</section>
 
 </body>
 </html>
