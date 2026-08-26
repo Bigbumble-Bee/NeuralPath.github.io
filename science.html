@@ -1,470 +1,604 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science | NeuralPath</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+<title>Science | NeuralPath</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: #f5f1ed;
-            color: #4d4a48;
-            min-height: 100vh;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap');
 
-        /* ---------- HEADER ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        header {
-            width: 100%;
-            padding: 22px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd5cf;
-            background: #f8f5f2;
-        }
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: #f8f5f2;
+    color: #4e4b52;
+    min-height: 100vh;
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: 700;
-            color: #595653;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
+/* =========================
+   HEADER
+========================= */
 
-        nav {
-            display: flex;
-            gap: 25px;
-        }
+header {
+    width: 100%;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.75);
+    border-bottom: 1px solid #e8e1df;
+    backdrop-filter: blur(8px);
+}
 
-        nav a {
-            text-decoration: none;
-            color: #706b67;
-            font-size: 14px;
-            transition: 0.2s;
-        }
+.logo {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 30px;
+    color: #6d6875;
+    text-decoration: none;
+}
 
-        nav a:hover {
-            color: #9b8fa3;
-        }
+.back {
+    text-decoration: none;
+    color: #7b7580;
+    font-size: 14px;
+    transition: 0.2s;
+}
 
-        /* ---------- MAIN ---------- */
+.back:hover {
+    color: #4e4b52;
+}
 
-        main {
-            width: 86%;
-            max-width: 1150px;
-            margin: 0 auto;
-            padding: 70px 0 100px;
-        }
+/* =========================
+   MAIN
+========================= */
 
-        .eyebrow {
-            font-size: 13px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #a0969d;
-            margin-bottom: 12px;
-        }
+main {
+    width: 86%;
+    max-width: 1100px;
+    margin: 70px auto;
+}
 
-        h1 {
-            font-size: 48px;
-            font-weight: 600;
-            color: #55514f;
-            margin-bottom: 12px;
-        }
+/* =========================
+   INTRO
+========================= */
 
-        .intro {
-            font-size: 18px;
-            color: #77716d;
-            max-width: 650px;
-            line-height: 1.7;
-            margin-bottom: 55px;
-        }
+.intro {
+    text-align: center;
+    margin-bottom: 55px;
+}
 
-        /* ---------- LEARNING PATH ---------- */
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9b8f99;
+    margin-bottom: 12px;
+}
 
-        .section-title {
-            text-align: center;
-            font-size: 27px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #595552;
-        }
+h1 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 400;
+    color: #57515b;
+    margin-bottom: 12px;
+}
 
-        .section-subtitle {
-            text-align: center;
-            color: #88817d;
-            margin-bottom: 35px;
-            font-size: 15px;
-        }
+.subtitle {
+    max-width: 620px;
+    margin: auto;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #77717a;
+}
 
-        .learning-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+/* =========================
+   SECTION
+========================= */
 
-        .path-card {
-            display: block;
-            text-decoration: none;
-            background: #fbf9f7;
-            border: 1px solid #ded7d2;
-            border-radius: 18px;
-            padding: 30px 25px;
-            min-height: 190px;
-            transition: transform 0.2s ease,
-                        box-shadow 0.2s ease,
-                        border-color 0.2s ease;
-        }
+.section-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
 
-        .path-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(95, 88, 84, 0.09);
-            border-color: #c9bec9;
-        }
+.section-title h2 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 32px;
+    font-weight: 400;
+    color: #625c65;
+}
 
-        .path-icon {
-            font-size: 25px;
-            color: #8f8294;
-            margin-bottom: 18px;
-        }
+.section-title p {
+    font-size: 14px;
+    color: #918a92;
+    margin-top: 5px;
+}
 
-        .path-card h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #5d5855;
-            margin-bottom: 10px;
-        }
+/* =========================
+   LEARNING PATHS
+========================= */
 
-        .path-card p {
-            color: #85807c;
-            font-size: 14px;
-            line-height: 1.6;
-        }
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 75px;
+}
 
-        .arrow {
-            display: block;
-            margin-top: 18px;
-            color: #9c8fa0;
-            font-size: 18px;
-        }
+.path-card {
+    text-decoration: none;
+    color: inherit;
+    background: #ffffff;
+    border: 1px solid #e8e1df;
+    border-radius: 20px;
+    padding: 28px 25px;
+    min-height: 190px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
 
-        /* ---------- SECOND ROW ---------- */
+.path-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(90,80,90,0.08);
+}
 
-        .learning-grid .path-card:nth-child(4),
-        .learning-grid .path-card:nth-child(5) {
-            grid-column: span 1;
-        }
+.path-icon {
+    font-size: 25px;
+    margin-bottom: 16px;
+    color: #8c8490;
+}
 
-        /* ---------- DIVIDER ---------- */
+.path-card h3 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 9px;
+    color: #5d5760;
+}
 
-        .divider {
-            height: 1px;
-            background: #ddd6d1;
-            margin: 75px 0 55px;
-        }
+.path-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #858087;
+}
 
-        /* ---------- SCIENCE TOPICS ---------- */
+/* Pastel hover colors */
 
-        .topics-note {
-            text-align: center;
-            color: #88817d;
-            font-size: 15px;
-            margin-bottom: 30px;
-        }
+.path-card:nth-child(1):hover {
+    background: #f4eeee;
+}
 
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-        }
+.path-card:nth-child(2):hover {
+    background: #eef3f1;
+}
 
-        .topic-card {
-            background: #faf7f5;
-            border: 1px solid #ded7d2;
-            border-radius: 16px;
-            padding: 25px 18px;
-            text-align: center;
-            transition: 0.2s ease;
-        }
+.path-card:nth-child(3):hover {
+    background: #f4f0e9;
+}
 
-        .topic-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(95, 88, 84, 0.08);
-        }
+.path-card:nth-child(4):hover {
+    background: #eeeef5;
+}
 
-        .topic-number {
-            font-size: 12px;
-            color: #a1979f;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
+.path-card:nth-child(5):hover {
+    background: #f3edf3;
+}
 
-        .topic-card h3 {
-            font-size: 16px;
-            color: #5e5956;
-            font-weight: 600;
-        }
+/* =========================
+   CURRICULUM
+========================= */
 
-        .topic-card p {
-            font-size: 12px;
-            line-height: 1.5;
-            color: #89827e;
-            margin-top: 8px;
-        }
+.curriculum-section {
+    border-top: 1px solid #e5dfdc;
+    padding-top: 60px;
+}
 
-        /* ---------- FOOTER ---------- */
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
 
-        footer {
-            text-align: center;
-            padding: 35px;
-            border-top: 1px solid #ddd5cf;
-            color: #96908c;
-            font-size: 13px;
-            background: #f8f5f2;
-        }
+.subject-card {
+    text-decoration: none;
+    color: inherit;
+    background: #ffffff;
+    border: 1px solid #e7e1df;
+    border-radius: 18px;
+    padding: 25px;
+    min-height: 170px;
+    transition: 0.2s ease;
+}
 
-        /* ---------- MOBILE ---------- */
+.subject-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(80,70,80,0.07);
+}
 
-        @media (max-width: 850px) {
+.number {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #a097a0;
+    margin-bottom: 18px;
+}
 
-            .learning-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+.subject-card h3 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 28px;
+    font-weight: 400;
+    color: #5d5760;
+    margin-bottom: 8px;
+}
 
-            .topic-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+.subject-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #858087;
+}
 
-            h1 {
-                font-size: 40px;
-            }
-        }
+/* =========================
+   FOOTER
+========================= */
 
-        @media (max-width: 550px) {
+footer {
+    text-align: center;
+    padding: 60px 20px 40px;
+    color: #aaa2a9;
+    font-size: 13px;
+}
 
-            header {
-                padding: 18px 5%;
-            }
+/* =========================
+   MOBILE
+========================= */
 
-            nav {
-                display: none;
-            }
+@media (max-width: 800px) {
 
-            main {
-                width: 90%;
-                padding-top: 50px;
-            }
+    main {
+        width: 90%;
+        margin-top: 45px;
+    }
 
-            h1 {
-                font-size: 34px;
-            }
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
 
-            .learning-grid,
-            .topic-grid {
-                grid-template-columns: 1fr;
-            }
+    .curriculum-grid {
+        grid-template-columns: 1fr;
+    }
 
-            .path-card {
-                min-height: auto;
-            }
-        }
-    </style>
+    .path-card {
+        min-height: auto;
+    }
+
+    header {
+        padding: 18px 5%;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-    <a href="index.html" class="logo">NeuralPath</a>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="mathematics.html">Mathematics</a>
-        <a href="science.html">Science</a>
-    </nav>
+    <a href="index.html" class="logo">
+        NeuralPath
+    </a>
+
+    <a href="index.html" class="back">
+        ← Back home
+    </a>
+
 </header>
 
 
 <main>
 
-    <div class="eyebrow">NeuralPath · Science</div>
+    <!-- INTRO -->
 
-    <h1>Science</h1>
+    <section class="intro">
 
-    <p class="intro">
-        Explore science in a way that works for you.
-        Choose how you'd like to learn before choosing what you'd like to study.
-    </p>
+        <div class="eyebrow">
+            SCIENCE
+        </div>
+
+        <h1>How do you want to learn?</h1>
+
+        <p class="subtitle">
+            There isn't one right way to learn science.
+            Choose the approach that feels most useful right now.
+        </p>
+
+    </section>
 
 
-    <!-- LEARNING PATH -->
+    <!-- LEARNING PATHS -->
 
     <section>
 
-        <h2 class="section-title">
-            How do you like to learn?
-        </h2>
+        <div class="section-title">
 
-        <p class="section-subtitle">
-            You don't have to learn science in one specific way.
-            Pick the approach that sounds most useful right now.
-        </p>
+            <h2>Find your path.</h2>
+
+            <p>
+                Choose a learning style to begin exploring science.
+            </p>
+
+        </div>
 
 
         <div class="learning-grid">
 
+
             <!-- BREAK IT DOWN -->
 
-            <a href="science-breakdown.html" class="path-card">
+            <a
+                href="science-breakdown.html"
+                class="path-card"
+            >
 
-                <div class="path-icon">↓</div>
+                <div class="path-icon">
+                    ↓
+                </div>
 
-                <h2>Break it down</h2>
+                <h3>
+                    Break it down
+                </h3>
 
                 <p>
-                    Step-by-step explanations that focus on one concept at a time.
+                    Step-by-step explanations that focus
+                    on one scientific concept at a time.
                 </p>
-
-                <span class="arrow">→</span>
 
             </a>
 
 
             <!-- SHOW ME -->
 
-            <a href="science-show-me.html" class="path-card">
+            <a
+                href="science-show-me.html"
+                class="path-card"
+            >
 
-                <div class="path-icon">✦</div>
+                <div class="path-icon">
+                    ✦
+                </div>
 
-                <h2>Show me</h2>
+                <h3>
+                    Show me
+                </h3>
 
                 <p>
-                    Visual examples, diagrams, patterns, and scientific relationships.
+                    Visual examples, diagrams, models,
+                    patterns, and scientific relationships.
                 </p>
-
-                <span class="arrow">→</span>
 
             </a>
 
 
             <!-- KEEP IT SHORT -->
 
-            <a href="science-keep-it-short.html" class="path-card">
+            <a
+                href="science-keep-it-short.html"
+                class="path-card"
+            >
 
-                <div class="path-icon">•••</div>
+                <div class="path-icon">
+                    •••
+                </div>
 
-                <h2>Keep it short</h2>
+                <h3>
+                    Keep it short
+                </h3>
 
                 <p>
-                    Quick explanations, formulas, definitions, and key points.
+                    Quick explanations, definitions,
+                    formulas, and key scientific ideas.
                 </p>
-
-                <span class="arrow">→</span>
 
             </a>
 
 
-            <!-- LET ME PRACTICE -->
+            <!-- PRACTICE -->
 
-            <a href="science-let-me-practice.html" class="path-card">
+            <a
+                href="science-let-me-practice.html"
+                class="path-card"
+            >
 
-                <div class="path-icon">✓</div>
+                <div class="path-icon">
+                    ✓
+                </div>
 
-                <h2>Let me practice</h2>
+                <h3>
+                    Let me practice
+                </h3>
 
                 <p>
-                    Interactive questions with hints, explanations, and progress.
+                    Interactive questions with hints,
+                    explanations, scoring, and progress.
                 </p>
-
-                <span class="arrow">→</span>
 
             </a>
 
 
             <!-- GO DEEPER -->
 
-            <a href="science-go-deeper.html" class="path-card">
+            <a
+                href="science-go-deeper.html"
+                class="path-card"
+            >
 
-                <div class="path-icon">↗</div>
+                <div class="path-icon">
+                    ↗
+                </div>
 
-                <h2>Go deeper</h2>
+                <h3>
+                    Go deeper
+                </h3>
 
                 <p>
-                    Detailed explanations, connections, experiments, and advanced concepts.
+                    Detailed explanations, connections,
+                    history, applications, and advanced concepts.
                 </p>
 
-                <span class="arrow">→</span>
-
             </a>
+
 
         </div>
 
     </section>
 
 
-    <!-- DIVIDER -->
+    <!-- CURRICULUM -->
 
-    <div class="divider"></div>
+    <section class="curriculum-section">
 
+        <div class="section-title">
 
-    <!-- SCIENCE TOPICS -->
+            <h2>Explore a science topic.</h2>
 
-    <section>
+            <p>
+                You can also skip the learning path
+                and go directly to a science subject.
+            </p>
 
-        <h2 class="section-title">
-            Explore a topic.
-        </h2>
-
-        <p class="topics-note">
-            You can also skip the learning path and go directly to a science topic.
-        </p>
+        </div>
 
 
-        <div class="topic-grid">
-
-            <div class="topic-card">
-                <div class="topic-number">01</div>
-                <h3>Biology</h3>
-                <p>Living things, cells, genetics, ecosystems, and life processes.</p>
-            </div>
+        <div class="curriculum-grid">
 
 
-            <div class="topic-card">
-                <div class="topic-number">02</div>
-                <h3>Chemistry</h3>
-                <p>Matter, atoms, reactions, energy, and chemical relationships.</p>
-            </div>
+            <!-- BIOLOGY -->
+
+            <a
+                href="science-biology.html"
+                class="subject-card"
+            >
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    Biology
+                </h3>
+
+                <p>
+                    Explore living things, cells,
+                    genetics, ecosystems, evolution,
+                    and the systems that make life work.
+                </p>
+
+            </a>
 
 
-            <div class="topic-card">
-                <div class="topic-number">03</div>
-                <h3>Physics</h3>
-                <p>Motion, forces, energy, waves, electricity, and matter.</p>
-            </div>
+            <!-- CHEMISTRY -->
+
+            <a
+                href="science-chemistry.html"
+                class="subject-card"
+            >
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    Chemistry
+                </h3>
+
+                <p>
+                    Learn about matter, atoms,
+                    chemical reactions, energy,
+                    and how substances interact.
+                </p>
+
+            </a>
 
 
-            <div class="topic-card">
-                <div class="topic-number">04</div>
-                <h3>Earth & Space</h3>
-                <p>Earth systems, weather, geology, astronomy, and the universe.</p>
-            </div>
+            <!-- PHYSICS -->
+
+            <a
+                href="science-physics.html"
+                class="subject-card"
+            >
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    Physics
+                </h3>
+
+                <p>
+                    Understand motion, forces,
+                    energy, waves, electricity,
+                    and the physical world.
+                </p>
+
+            </a>
 
 
-            <div class="topic-card">
-                <div class="topic-number">05</div>
-                <h3>Science Foundations</h3>
-                <p>Scientific thinking, measurements, experiments, evidence, and models.</p>
-            </div>
+            <!-- EARTH & SPACE -->
+
+            <a
+                href="science-earth-space.html"
+                class="subject-card"
+            >
+
+                <div class="number">
+                    04
+                </div>
+
+                <h3>
+                    Earth & Space
+                </h3>
+
+                <p>
+                    Explore Earth systems, weather,
+                    climate, geology, astronomy,
+                    and our place in space.
+                </p>
+
+            </a>
+
+
+            <!-- SCIENTIFIC FOUNDATIONS -->
+
+            <a
+                href="science-foundations.html"
+                class="subject-card"
+            >
+
+                <div class="number">
+                    05
+                </div>
+
+                <h3>
+                    Scientific Foundations
+                </h3>
+
+                <p>
+                    Learn scientific thinking,
+                    measurement, experiments,
+                    evidence, and how science works.
+                </p>
+
+            </a>
+
 
         </div>
 
@@ -474,7 +608,9 @@
 
 
 <footer>
+
     NeuralPath · Learn in the way that works for you.
+
 </footer>
 
 </body>
