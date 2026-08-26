@@ -1,0 +1,883 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Science | NeuralPath</title>
+
+<!-- Starborn-style font pairing -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   NEURALPATH — SCIENCE
+   Muted pastel / Starborn-inspired aesthetic
+========================================================= */
+
+:root {
+    --background: #f7f4f1;
+    --paper: #fffdfb;
+    --text: #56515a;
+    --soft-text: #858089;
+    --faint-text: #a39ba4;
+
+    --border: #e7e1df;
+
+    --pink: #eadde2;
+    --blue: #dce8ea;
+    --green: #dfe9df;
+    --yellow: #eee7d4;
+    --purple: #e4ddeb;
+    --peach: #eedfd6;
+
+    --shadow: rgba(75, 68, 77, 0.08);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: "Quicksand", sans-serif;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    width: 100%;
+    padding: 20px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 253, 251, 0.82);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(10px);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.logo {
+    font-family: "Patrick Hand", cursive;
+    font-size: 31px;
+    color: #67616b;
+    text-decoration: none;
+}
+
+.back {
+    font-size: 14px;
+    color: var(--soft-text);
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.back:hover {
+    color: var(--text);
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    width: 88%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 70px 0 80px;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--faint-text);
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-family: "Patrick Hand", cursive;
+    font-size: clamp(48px, 7vw, 72px);
+    font-weight: 400;
+    color: #57515b;
+    line-height: 1.05;
+    margin-bottom: 16px;
+}
+
+.intro-text {
+    max-width: 650px;
+    margin: auto;
+
+    color: var(--soft-text);
+    font-size: 16px;
+}
+
+/* =========================================================
+   LEARNING PATH SECTION
+========================================================= */
+
+.learning-section {
+    margin-bottom: 85px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-family: "Patrick Hand", cursive;
+    font-size: 35px;
+    font-weight: 400;
+    color: #615b64;
+}
+
+.section-heading p {
+    color: var(--faint-text);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* =========================================================
+   LEARNING CARDS
+========================================================= */
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.learning-card {
+    display: block;
+
+    padding: 29px 27px;
+    min-height: 195px;
+
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 21px;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px var(--shadow);
+}
+
+.learning-icon {
+    font-size: 24px;
+    color: #837c86;
+    margin-bottom: 13px;
+}
+
+.learning-card h3 {
+    font-family: "Patrick Hand", cursive;
+    font-size: 28px;
+    font-weight: 400;
+    color: #5c5660;
+    margin-bottom: 8px;
+}
+
+.learning-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--soft-text);
+}
+
+/* Individual muted pastel hover colors */
+
+.learning-card:nth-child(1):hover {
+    background: #f3e9eb;
+}
+
+.learning-card:nth-child(2):hover {
+    background: #eaf1f2;
+}
+
+.learning-card:nth-child(3):hover {
+    background: #f1ede4;
+}
+
+.learning-card:nth-child(4):hover {
+    background: #eaeaf1;
+}
+
+.learning-card:nth-child(5):hover {
+    background: #eee8f0;
+}
+
+/* =========================================================
+   CURRICULUM SECTION
+========================================================= */
+
+.curriculum-section {
+    border-top: 1px solid var(--border);
+    padding-top: 65px;
+}
+
+.curriculum-heading {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.curriculum-heading h2 {
+    font-family: "Patrick Hand", cursive;
+    font-size: 35px;
+    font-weight: 400;
+    color: #615b64;
+}
+
+.curriculum-heading p {
+    max-width: 600px;
+    margin: 5px auto 0;
+
+    color: var(--faint-text);
+    font-size: 14px;
+}
+
+/* =========================================================
+   SIX CURRICULUM CARDS
+========================================================= */
+
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.curriculum-card {
+    position: relative;
+
+    display: block;
+
+    min-height: 225px;
+    padding: 27px;
+
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    text-decoration: none;
+    color: inherit;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.curriculum-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px var(--shadow);
+}
+
+/* Small decorative circle */
+
+.curriculum-card::after {
+    content: "";
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    right: -25px;
+    bottom: -30px;
+
+    border-radius: 50%;
+
+    opacity: 0.55;
+}
+
+.curriculum-card:nth-child(1)::after {
+    background: var(--green);
+}
+
+.curriculum-card:nth-child(2)::after {
+    background: var(--blue);
+}
+
+.curriculum-card:nth-child(3)::after {
+    background: var(--purple);
+}
+
+.curriculum-card:nth-child(4)::after {
+    background: var(--yellow);
+}
+
+.curriculum-card:nth-child(5)::after {
+    background: var(--pink);
+}
+
+.curriculum-card:nth-child(6)::after {
+    background: var(--peach);
+}
+
+.curriculum-number {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--faint-text);
+    margin-bottom: 16px;
+}
+
+.curriculum-card h3 {
+    font-family: "Patrick Hand", cursive;
+    font-size: 30px;
+    font-weight: 400;
+
+    color: #5b555e;
+
+    margin-bottom: 9px;
+}
+
+.curriculum-card p {
+    max-width: 290px;
+
+    font-size: 13px;
+    line-height: 1.65;
+
+    color: var(--soft-text);
+}
+
+.curriculum-topics {
+    margin-top: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.topic {
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: #f1edeb;
+
+    font-size: 11px;
+    color: #817981;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #aaa2aa;
+    font-size: 12px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    main {
+        width: 91%;
+        padding-top: 50px;
+    }
+
+    .learning-grid,
+    .curriculum-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-card {
+        min-height: auto;
+    }
+
+    .curriculum-card {
+        min-height: 205px;
+    }
+
+    header {
+        padding: 17px 5%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 48px;
+    }
+
+    .intro-text {
+        font-size: 14px;
+    }
+
+    .section-heading h2,
+    .curriculum-heading h2 {
+        font-size: 31px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+    <a href="index.html" class="logo">
+        NeuralPath
+    </a>
+
+    <a href="index.html" class="back">
+        ← Back home
+    </a>
+
+</header>
+
+
+<main>
+
+
+<!-- =======================================================
+     INTRO
+======================================================= -->
+
+<section class="intro">
+
+    <div class="eyebrow">
+        SCIENCE
+    </div>
+
+    <h1>
+        How do you want to learn?
+    </h1>
+
+    <p class="intro-text">
+        You don't have to learn science in one specific way.
+        Choose the approach that sounds most useful right now.
+    </p>
+
+</section>
+
+
+<!-- =======================================================
+     LEARNING PATHS
+======================================================= -->
+
+<section class="learning-section">
+
+    <div class="section-heading">
+
+        <h2>
+            Find your path.
+        </h2>
+
+        <p>
+            Pick a way to explore science.
+        </p>
+
+    </div>
+
+
+    <div class="learning-grid">
+
+
+        <!-- BREAK IT DOWN -->
+
+        <a
+            href="science-breakdown.html"
+            class="learning-card"
+        >
+
+            <div class="learning-icon">
+                ↓
+            </div>
+
+            <h3>
+                Break it down
+            </h3>
+
+            <p>
+                Step-by-step explanations that focus
+                on one scientific concept at a time.
+            </p>
+
+        </a>
+
+
+        <!-- SHOW ME -->
+
+        <a
+            href="science-show-me.html"
+            class="learning-card"
+        >
+
+            <div class="learning-icon">
+                ✦
+            </div>
+
+            <h3>
+                Show me
+            </h3>
+
+            <p>
+                Visual examples, diagrams, models,
+                patterns, and scientific relationships.
+            </p>
+
+        </a>
+
+
+        <!-- KEEP IT SHORT -->
+
+        <a
+            href="science-keep-it-short.html"
+            class="learning-card"
+        >
+
+            <div class="learning-icon">
+                •••
+            </div>
+
+            <h3>
+                Keep it short
+            </h3>
+
+            <p>
+                Quick definitions, formulas, key facts,
+                and essential scientific ideas.
+            </p>
+
+        </a>
+
+
+        <!-- PRACTICE -->
+
+        <a
+            href="science-let-me-practice.html"
+            class="learning-card"
+        >
+
+            <div class="learning-icon">
+                ✓
+            </div>
+
+            <h3>
+                Let me practice
+            </h3>
+
+            <p>
+                Interactive questions with hints,
+                explanations, scores, and progress.
+            </p>
+
+        </a>
+
+
+        <!-- GO DEEPER -->
+
+        <a
+            href="science-go-deeper.html"
+            class="learning-card"
+        >
+
+            <div class="learning-icon">
+                ↗
+            </div>
+
+            <h3>
+                Go deeper
+            </h3>
+
+            <p>
+                Detailed explanations, connections,
+                applications, and advanced concepts.
+            </p>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CURRICULUM
+======================================================= -->
+
+<section class="curriculum-section">
+
+    <div class="curriculum-heading">
+
+        <h2>
+            Explore a science topic.
+        </h2>
+
+        <p>
+            Choose a curriculum to jump directly
+            into a subject.
+        </p>
+
+    </div>
+
+
+    <div class="curriculum-grid">
+
+
+        <!-- 01 BIOLOGY -->
+
+        <a
+            href="science-biology.html"
+            class="curriculum-card"
+        >
+
+            <div class="curriculum-number">
+                01
+            </div>
+
+            <h3>
+                Biology
+            </h3>
+
+            <p>
+                Explore living things and the systems
+                that make life work.
+            </p>
+
+            <div class="curriculum-topics">
+
+                <span class="topic">Cells</span>
+                <span class="topic">Genetics</span>
+                <span class="topic">Evolution</span>
+                <span class="topic">Ecosystems</span>
+
+            </div>
+
+        </a>
+
+
+        <!-- 02 CHEMISTRY -->
+
+        <a
+            href="science-chemistry.html"
+            class="curriculum-card"
+        >
+
+            <div class="curriculum-number">
+                02
+            </div>
+
+            <h3>
+                Chemistry
+            </h3>
+
+            <p>
+                Discover what matter is made of
+                and how substances interact.
+            </p>
+
+            <div class="curriculum-topics">
+
+                <span class="topic">Matter</span>
+                <span class="topic">Atoms</span>
+                <span class="topic">Elements</span>
+                <span class="topic">Reactions</span>
+
+            </div>
+
+        </a>
+
+
+        <!-- 03 PHYSICS -->
+
+        <a
+            href="science-physics.html"
+            class="curriculum-card"
+        >
+
+            <div class="curriculum-number">
+                03
+            </div>
+
+            <h3>
+                Physics
+            </h3>
+
+            <p>
+                Understand motion, forces, energy,
+                waves, and electricity.
+            </p>
+
+            <div class="curriculum-topics">
+
+                <span class="topic">Motion</span>
+                <span class="topic">Forces</span>
+                <span class="topic">Energy</span>
+                <span class="topic">Waves</span>
+
+            </div>
+
+        </a>
+
+
+        <!-- 04 EARTH & SPACE -->
+
+        <a
+            href="science-earth-space.html"
+            class="curriculum-card"
+        >
+
+            <div class="curriculum-number">
+                04
+            </div>
+
+            <h3>
+                Earth & Space Science
+            </h3>
+
+            <p>
+                Explore Earth systems, weather,
+                geology, and the universe.
+            </p>
+
+            <div class="curriculum-topics">
+
+                <span class="topic">Earth Systems</span>
+                <span class="topic">Weather</span>
+                <span class="topic">Geology</span>
+                <span class="topic">Astronomy</span>
+
+            </div>
+
+        </a>
+
+
+        <!-- 05 ENVIRONMENTAL SCIENCE -->
+
+        <a
+            href="science-environmental.html"
+            class="curriculum-card"
+        >
+
+            <div class="curriculum-number">
+                05
+            </div>
+
+            <h3>
+                Environmental Science
+            </h3>
+
+            <p>
+                Study ecosystems, resources,
+                biodiversity, climate, and human impact.
+            </p>
+
+            <div class="curriculum-topics">
+
+                <span class="topic">Ecosystems</span>
+                <span class="topic">Biodiversity</span>
+                <span class="topic">Resources</span>
+                <span class="topic">Human Impact</span>
+
+            </div>
+
+        </a>
+
+
+        <!-- 06 FOUNDATIONS -->
+
+        <a
+            href="science-foundations.html"
+            class="curriculum-card"
+        >
+
+            <div class="curriculum-number">
+                06
+            </div>
+
+            <h3>
+                Science Foundations
+            </h3>
+
+            <p>
+                Learn how scientists investigate,
+                measure, analyze, and use evidence.
+            </p>
+
+            <div class="curriculum-topics">
+
+                <span class="topic">Scientific Method</span>
+                <span class="topic">Measurement</span>
+                <span class="topic">Evidence</span>
+                <span class="topic">Data & Graphs</span>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    NeuralPath · Learn in the way that works for you.
+
+</footer>
+
+
+</body>
+</html>
+```
