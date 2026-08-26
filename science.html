@@ -1,0 +1,4183 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Science | NeuralPath</title>
+
+<style>
+
+/* =========================================
+   NEURALPATH SCIENCE
+   Muted Pastel • Simple • Accessible
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+    --cream: #faf7f2;
+    --paper: #fffdf9;
+
+    --text: #4f4a48;
+    --muted: #827b77;
+
+    --pink: #e8cbd2;
+    --blue: #c9dce4;
+    --green: #cedfce;
+    --yellow: #eee1bd;
+    --lavender: #d9cfe5;
+    --peach: #efd3c3;
+
+    --border: #e5ded7;
+
+    --shadow:
+        0 8px 25px rgba(75, 68, 63, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: var(--cream);
+
+    color: var(--text);
+
+    font-family:
+        "Quicksand",
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 7%;
+
+    background:
+        rgba(255, 253, 249, 0.94);
+
+    border-bottom:
+        1px solid var(--border);
+
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.back-button {
+    text-decoration: none;
+
+    color: var(--text);
+
+    background: var(--blue);
+
+    padding:
+        9px 17px;
+
+    border-radius: 20px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.back-button:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    text-align: center;
+
+    padding:
+        75px 20px 50px;
+}
+
+.eyebrow {
+    color: var(--muted);
+
+    font-size: 0.76rem;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin:
+        10px 0;
+
+    font-size:
+        clamp(2.6rem, 6vw, 4.2rem);
+}
+
+.hero p {
+    max-width: 690px;
+
+    margin:
+        0 auto;
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+    width:
+        min(1100px, 92%);
+
+    margin:
+        auto;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-card {
+    background:
+        var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        22px;
+
+    padding:
+        20px 23px;
+
+    margin-bottom:
+        45px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.progress-top {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        9px;
+
+    font-size:
+        0.88rem;
+}
+
+.progress-track {
+    height:
+        10px;
+
+    background:
+        #eee9e3;
+
+    border-radius:
+        20px;
+
+    overflow:
+        hidden;
+}
+
+.progress-fill {
+    width:
+        0%;
+
+    height:
+        100%;
+
+    background:
+        var(--lavender);
+
+    border-radius:
+        20px;
+
+    transition:
+        width 0.4s ease;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+    text-align:
+        center;
+
+    margin:
+        50px auto 28px;
+}
+
+.section-heading h2 {
+    margin:
+        0 0 7px;
+
+    font-size:
+        2rem;
+}
+
+.section-heading p {
+    margin:
+        0;
+
+    color:
+        var(--muted);
+}
+
+
+/* =========================================
+   CURRICULUM GRID
+========================================= */
+
+.curriculum-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        20px;
+}
+
+
+/* =========================================
+   CURRICULUM CARD
+========================================= */
+
+.curriculum-card {
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        25px;
+
+    padding:
+        30px;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    position:
+        relative;
+}
+
+.curriculum-card:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 13px 30px rgba(75, 68, 63, 0.10);
+}
+
+
+/* Pastel backgrounds */
+
+.curriculum-card:nth-child(1) {
+    background:
+        #f2e9ee;
+}
+
+.curriculum-card:nth-child(2) {
+    background:
+        #e8f1f4;
+}
+
+.curriculum-card:nth-child(3) {
+    background:
+        #edf3ed;
+}
+
+.curriculum-card:nth-child(4) {
+    background:
+        #f5efdc;
+}
+
+.curriculum-card:nth-child(5) {
+    background:
+        #f1eaf4;
+}
+
+.curriculum-card:nth-child(6) {
+    background:
+        #f2e8df;
+}
+
+
+/* Number */
+
+.card-number {
+    font-size:
+        0.75rem;
+
+    letter-spacing:
+        2px;
+
+    color:
+        var(--muted);
+}
+
+
+/* Card title */
+
+.curriculum-card h3 {
+    margin:
+        8px 0;
+
+    font-size:
+        1.55rem;
+}
+
+
+/* Card description */
+
+.curriculum-card p {
+    margin:
+        0;
+
+    color:
+        var(--muted);
+
+    max-width:
+        430px;
+}
+
+
+/* Arrow */
+
+.card-arrow {
+    position:
+        absolute;
+
+    right:
+        25px;
+
+    bottom:
+        23px;
+
+    width:
+        37px;
+
+    height:
+        37px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.52);
+
+    transition:
+        transform 0.2s ease;
+}
+
+.curriculum-card:hover .card-arrow {
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================
+   TOPIC AREAS
+========================================= */
+
+.topic-area {
+    display:
+        none;
+
+    margin:
+        55px 0 70px;
+}
+
+.topic-area.active {
+    display:
+        block;
+}
+
+.topic-header {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin-bottom:
+        25px;
+}
+
+.topic-header h2 {
+    margin:
+        0;
+
+    font-size:
+        2rem;
+}
+
+.topic-header p {
+    margin:
+        5px 0 0;
+
+    color:
+        var(--muted);
+}
+
+.close-topics {
+    border:
+        none;
+
+    background:
+        var(--blue);
+
+    color:
+        var(--text);
+
+    padding:
+        10px 16px;
+
+    border-radius:
+        18px;
+
+    font-family:
+        inherit;
+
+    cursor:
+        pointer;
+}
+
+
+/* Topic grid */
+
+.topic-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        15px;
+}
+
+
+/* Topic */
+
+.topic-card {
+    background:
+        var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    padding:
+        23px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.topic-card:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        #f5f0eb;
+}
+
+.topic-card h3 {
+    margin:
+        0 0 6px;
+
+    font-size:
+        1.15rem;
+}
+
+.topic-card p {
+    margin:
+        0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.9rem;
+}
+
+
+/* =========================================
+   LESSON
+========================================= */
+
+.lesson {
+    display:
+        none;
+
+    margin:
+        50px 0 80px;
+}
+
+.lesson.active {
+    display:
+        block;
+}
+
+.lesson-card {
+    background:
+        var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        27px;
+
+    padding:
+        35px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.lesson-label {
+    color:
+        var(--muted);
+
+    font-size:
+        0.75rem;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+}
+
+.lesson-title {
+    margin:
+        7px 0 20px;
+
+    font-size:
+        2rem;
+}
+
+
+/* =========================================
+   VISUAL
+========================================= */
+
+.visual-box {
+    background:
+        #f5f1ec;
+
+    border-radius:
+        22px;
+
+    padding:
+        30px;
+
+    text-align:
+        center;
+
+    margin:
+        25px 0;
+}
+
+.visual-label {
+    color:
+        var(--muted);
+
+    font-size:
+        0.72rem;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+}
+
+.visual-main {
+    font-size:
+        2rem;
+
+    font-weight:
+        700;
+
+    margin:
+        20px 0;
+}
+
+.visual-steps {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+}
+
+.visual-step {
+    background:
+        var(--blue);
+
+    padding:
+        10px 16px;
+
+    border-radius:
+        14px;
+
+    font-weight:
+        600;
+}
+
+
+/* =========================================
+   EXPLANATION
+========================================= */
+
+.explanation {
+    background:
+        #f7f3ed;
+
+    padding:
+        22px;
+
+    border-radius:
+        18px;
+
+    margin:
+        20px 0;
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question-card {
+    background:
+        #f3edf4;
+
+    border-radius:
+        21px;
+
+    padding:
+        25px;
+
+    margin-top:
+        28px;
+}
+
+.question-card h3 {
+    margin-top:
+        0;
+}
+
+.answers {
+    display:
+        grid;
+
+    gap:
+        10px;
+}
+
+.answer {
+    width:
+        100%;
+
+    text-align:
+        left;
+
+    padding:
+        13px 16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        14px;
+
+    background:
+        var(--paper);
+
+    color:
+        var(--text);
+
+    font-family:
+        inherit;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+.answer:hover {
+    background:
+        #f0e8eb;
+}
+
+.answer.correct {
+    background:
+        var(--green);
+}
+
+.answer.incorrect {
+    background:
+        var(--pink);
+}
+
+.answer:disabled {
+    cursor:
+        default;
+}
+
+
+/* =========================================
+   FEEDBACK
+========================================= */
+
+.feedback {
+    margin-top:
+        15px;
+
+    font-weight:
+        600;
+}
+
+
+/* =========================================
+   HINT
+========================================= */
+
+.hint-area {
+    margin-top:
+        16px;
+}
+
+.hint-button {
+    border:
+        none;
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--text);
+
+    padding:
+        9px 15px;
+
+    border-radius:
+        17px;
+
+    font-family:
+        inherit;
+
+    cursor:
+        pointer;
+}
+
+.hint-text {
+    display:
+        none;
+
+    margin-top:
+        10px;
+
+    color:
+        var(--muted);
+}
+
+
+/* =========================================
+   ANSWER EXPLANATION
+========================================= */
+
+.answer-explanation {
+    display:
+        none;
+
+    margin-top:
+        15px;
+
+    padding:
+        16px;
+
+    background:
+        #f7f2e7;
+
+    border-radius:
+        15px;
+
+    color:
+        var(--text);
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.next-button,
+.back-topics-button {
+    border:
+        none;
+
+    color:
+        var(--text);
+
+    font-family:
+        inherit;
+
+    cursor:
+        pointer;
+
+    padding:
+        10px 17px;
+
+    border-radius:
+        18px;
+}
+
+.next-button {
+    display:
+        none;
+
+    margin-top:
+        20px;
+
+    background:
+        var(--lavender);
+}
+
+.back-topics-button {
+    margin-top:
+        25px;
+
+    background:
+        var(--blue);
+}
+
+
+/* =========================================
+   RESULTS
+========================================= */
+
+.results {
+    display:
+        none;
+
+    text-align:
+        center;
+
+    background:
+        var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        25px;
+
+    padding:
+        40px;
+
+    margin:
+        50px 0 80px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.results.active {
+    display:
+        block;
+}
+
+.results h2 {
+    margin-top:
+        0;
+
+    font-size:
+        2rem;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align:
+        center;
+
+    padding:
+        40px 20px;
+
+    color:
+        var(--muted);
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+    .curriculum-grid,
+    .topic-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    header {
+        padding:
+            18px 20px;
+    }
+
+    .hero {
+        padding:
+            55px 20px 40px;
+    }
+
+    .lesson-card {
+        padding:
+            23px;
+    }
+
+    .topic-header {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+    .visual-main {
+        font-size:
+            1.5rem;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="logo">
+        NeuralPath
+    </div>
+
+    <a
+        href="index.html"
+        class="back-button">
+
+        ← Home
+
+    </a>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+        SCIENCE · NEURALPATH
+    </div>
+
+    <h1>
+        Explore Science.
+    </h1>
+
+    <p>
+        Learn about the living world, matter, energy, Earth,
+        space, and the science behind the world around you.
+    </p>
+
+</section>
+
+
+
+<main class="container">
+
+
+<!-- =========================================
+     PROGRESS
+========================================= -->
+
+<div class="progress-card">
+
+    <div class="progress-top">
+
+        <span>
+            Your progress
+        </span>
+
+        <span id="progressText">
+            0%
+        </span>
+
+    </div>
+
+    <div class="progress-track">
+
+        <div
+            class="progress-fill"
+            id="progressFill">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     CURRICULUM
+========================================= -->
+
+<div class="section-heading">
+
+    <h2>
+        Choose a topic.
+    </h2>
+
+    <p>
+        Start with the area of science that interests you.
+    </p>
+
+</div>
+
+
+
+<div class="curriculum-grid">
+
+
+    <!-- BIOLOGY -->
+
+    <div
+        class="curriculum-card"
+        onclick="showTopics('biology')">
+
+        <div class="card-number">
+            01
+        </div>
+
+        <h3>
+            Biology
+        </h3>
+
+        <p>
+            Explore cells, genetics, evolution, ecosystems,
+            and the living world.
+        </p>
+
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+
+
+    <!-- CHEMISTRY -->
+
+    <div
+        class="curriculum-card"
+        onclick="showTopics('chemistry')">
+
+        <div class="card-number">
+            02
+        </div>
+
+        <h3>
+            Chemistry
+        </h3>
+
+        <p>
+            Understand matter, atoms, elements, bonding,
+            reactions, and chemical change.
+        </p>
+
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+
+
+    <!-- PHYSICS -->
+
+    <div
+        class="curriculum-card"
+        onclick="showTopics('physics')">
+
+        <div class="card-number">
+            03
+        </div>
+
+        <h3>
+            Physics
+        </h3>
+
+        <p>
+            Explore motion, forces, energy, waves,
+            electricity, and how things move.
+        </p>
+
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+
+
+    <!-- EARTH & SPACE -->
+
+    <div
+        class="curriculum-card"
+        onclick="showTopics('earthspace')">
+
+        <div class="card-number">
+            04
+        </div>
+
+        <h3>
+            Earth & Space Science
+        </h3>
+
+        <p>
+            Discover Earth's systems, weather, geology,
+            astronomy, and space.
+        </p>
+
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+
+
+    <!-- ENVIRONMENTAL -->
+
+    <div
+        class="curriculum-card"
+        onclick="showTopics('environmental')">
+
+        <div class="card-number">
+            05
+        </div>
+
+        <h3>
+            Environmental Science
+        </h3>
+
+        <p>
+            Learn about ecosystems, biodiversity,
+            resources, climate, and human impact.
+        </p>
+
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+
+
+    <!-- FOUNDATIONS -->
+
+    <div
+        class="curriculum-card"
+        onclick="showTopics('foundations')">
+
+        <div class="card-number">
+            06
+        </div>
+
+        <h3>
+            Science Foundations
+        </h3>
+
+        <p>
+            Build the skills behind scientific thinking,
+            measurement, evidence, and data.
+        </p>
+
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     BIOLOGY TOPICS
+========================================= -->
+
+<section
+    class="topic-area"
+    id="biology">
+
+    <div class="topic-header">
+
+        <div>
+
+            <h2>
+                Biology
+            </h2>
+
+            <p>
+                Choose something to explore.
+            </p>
+
+        </div>
+
+        <button
+            class="close-topics"
+            onclick="hideTopics()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Cells')">
+
+            <h3>
+                Cells
+            </h3>
+
+            <p>
+                The basic units of life.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Genetics')">
+
+            <h3>
+                Genetics
+            </h3>
+
+            <p>
+                DNA, genes, traits, and inheritance.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Evolution')">
+
+            <h3>
+                Evolution
+            </h3>
+
+            <p>
+                How populations change over time.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Ecosystems')">
+
+            <h3>
+                Ecosystems
+            </h3>
+
+            <p>
+                Organisms and their environments.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CHEMISTRY TOPICS
+========================================= -->
+
+<section
+    class="topic-area"
+    id="chemistry">
+
+    <div class="topic-header">
+
+        <div>
+
+            <h2>
+                Chemistry
+            </h2>
+
+            <p>
+                Explore matter and chemical change.
+            </p>
+
+        </div>
+
+        <button
+            class="close-topics"
+            onclick="hideTopics()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Matter')">
+
+            <h3>
+                Matter
+            </h3>
+
+            <p>
+                Solids, liquids, gases, and physical properties.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Atoms')">
+
+            <h3>
+                Atoms & Elements
+            </h3>
+
+            <p>
+                Protons, neutrons, electrons, and elements.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Bonds')">
+
+            <h3>
+                Chemical Bonds
+            </h3>
+
+            <p>
+                How atoms connect to one another.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Reactions')">
+
+            <h3>
+                Chemical Reactions
+            </h3>
+
+            <p>
+                How substances transform into new substances.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PHYSICS TOPICS
+========================================= -->
+
+<section
+    class="topic-area"
+    id="physics">
+
+    <div class="topic-header">
+
+        <div>
+
+            <h2>
+                Physics
+            </h2>
+
+            <p>
+                Understand motion, energy, and forces.
+            </p>
+
+        </div>
+
+        <button
+            class="close-topics"
+            onclick="hideTopics()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Motion')">
+
+            <h3>
+                Motion
+            </h3>
+
+            <p>
+                Position, speed, velocity, and acceleration.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Forces')">
+
+            <h3>
+                Forces
+            </h3>
+
+            <p>
+                Pushes, pulls, gravity, and Newton's laws.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Energy')">
+
+            <h3>
+                Energy
+            </h3>
+
+            <p>
+                Kinetic, potential, and energy transformations.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Waves')">
+
+            <h3>
+                Waves
+            </h3>
+
+            <p>
+                Vibrations, frequency, wavelength, and energy.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     EARTH & SPACE TOPICS
+========================================= -->
+
+<section
+    class="topic-area"
+    id="earthspace">
+
+    <div class="topic-header">
+
+        <div>
+
+            <h2>
+                Earth & Space Science
+            </h2>
+
+            <p>
+                Explore Earth and the universe around it.
+            </p>
+
+        </div>
+
+        <button
+            class="close-topics"
+            onclick="hideTopics()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Earth Systems')">
+
+            <h3>
+                Earth Systems
+            </h3>
+
+            <p>
+                The atmosphere, hydrosphere, geosphere, and biosphere.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Weather')">
+
+            <h3>
+                Weather & Climate
+            </h3>
+
+            <p>
+                Atmospheric conditions and long-term patterns.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Geology')">
+
+            <h3>
+                Geology
+            </h3>
+
+            <p>
+                Rocks, minerals, plate tectonics, and Earth's history.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Astronomy')">
+
+            <h3>
+                Astronomy
+            </h3>
+
+            <p>
+                Stars, planets, galaxies, and the universe.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ENVIRONMENTAL TOPICS
+========================================= -->
+
+<section
+    class="topic-area"
+    id="environmental">
+
+    <div class="topic-header">
+
+        <div>
+
+            <h2>
+                Environmental Science
+            </h2>
+
+            <p>
+                Understand the relationships between life and the environment.
+            </p>
+
+        </div>
+
+        <button
+            class="close-topics"
+            onclick="hideTopics()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Biodiversity')">
+
+            <h3>
+                Biodiversity
+            </h3>
+
+            <p>
+                The variety of life within ecosystems.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Resources')">
+
+            <h3>
+                Natural Resources
+            </h3>
+
+            <p>
+                Renewable and nonrenewable resources.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Climate')">
+
+            <h3>
+                Climate Change
+            </h3>
+
+            <p>
+                Earth's changing climate and its causes.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Human Impact')">
+
+            <h3>
+                Human Impact
+            </h3>
+
+            <p>
+                How human activity affects natural systems.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOUNDATIONS TOPICS
+========================================= -->
+
+<section
+    class="topic-area"
+    id="foundations">
+
+    <div class="topic-header">
+
+        <div>
+
+            <h2>
+                Science Foundations
+            </h2>
+
+            <p>
+                Learn the skills scientists use.
+            </p>
+
+        </div>
+
+        <button
+            class="close-topics"
+            onclick="hideTopics()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Scientific Method')">
+
+            <h3>
+                Scientific Method
+            </h3>
+
+            <p>
+                Questions, hypotheses, experiments, and conclusions.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Measurement')">
+
+            <h3>
+                Measurement
+            </h3>
+
+            <p>
+                Units, tools, precision, and accuracy.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Evidence')">
+
+            <h3>
+                Evidence & Claims
+            </h3>
+
+            <p>
+                Using observations and data to support conclusions.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic-card"
+            onclick="startLesson('Data')">
+
+            <h3>
+                Data & Graphs
+            </h3>
+
+            <p>
+                Organizing, displaying, and interpreting scientific data.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     LESSON
+========================================= -->
+
+<section
+    class="lesson"
+    id="lesson">
+
+    <div class="lesson-card">
+
+
+        <div
+            class="lesson-label"
+            id="lessonLabel">
+
+            SCIENCE
+
+        </div>
+
+
+        <h2
+            class="lesson-title"
+            id="lessonTitle">
+
+            Topic
+
+        </h2>
+
+
+        <div class="visual-box">
+
+            <div class="visual-label">
+                SEE THE IDEA
+            </div>
+
+
+            <div
+                class="visual-main"
+                id="visualMain">
+
+            </div>
+
+
+            <div
+                class="visual-steps"
+                id="visualSteps">
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="explanation"
+            id="lessonExplanation">
+
+        </div>
+
+
+        <div class="question-card">
+
+            <h3
+                id="questionText">
+
+            </h3>
+
+
+            <div
+                class="answers"
+                id="answers">
+
+            </div>
+
+
+            <div
+                class="feedback"
+                id="feedback">
+
+            </div>
+
+
+            <div class="hint-area">
+
+                <button
+                    class="hint-button"
+                    onclick="showHint()">
+
+                    Need a hint?
+
+                </button>
+
+
+                <div
+                    class="hint-text"
+                    id="hintText">
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="answer-explanation"
+                id="answerExplanation">
+
+            </div>
+
+
+            <button
+                class="next-button"
+                id="nextButton"
+                onclick="nextQuestion()">
+
+                Next →
+
+            </button>
+
+        </div>
+
+
+        <button
+            class="back-topics-button"
+            onclick="backToTopics()">
+
+            ← Choose another topic
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     RESULTS
+========================================= -->
+
+<section
+    class="results"
+    id="results">
+
+    <h2>
+        You finished this topic.
+    </h2>
+
+
+    <p
+        id="resultMessage">
+
+    </p>
+
+
+    <button
+        class="back-topics-button"
+        onclick="backToTopics()">
+
+        Explore another topic
+
+    </button>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    NeuralPath · Learn at your own pace.
+
+</footer>
+
+
+
+<script>
+
+/* =========================================
+   STATE
+========================================= */
+
+let currentTopic = "";
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+
+/* =========================================
+   LESSON DATABASE
+========================================= */
+
+const lessons = {
+
+
+/* =========================================
+   BIOLOGY
+========================================= */
+
+"Cells": {
+
+    category: "BIOLOGY",
+
+    explanation:
+        "Cells are the basic units of life. Some organisms consist of one cell, while others are made of many cells working together.",
+
+    visual:
+        "CELL → ORGANELLES → FUNCTIONS",
+
+    steps: [
+        "Cell",
+        "Nucleus",
+        "Membrane",
+        "Cytoplasm"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What is considered the basic unit of life?",
+
+            answers: [
+                "An organ",
+                "A cell",
+                "A tissue",
+                "A molecule"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Think of the smallest structure that can carry out the functions of life.",
+
+            explanation:
+                "The cell is the basic structural and functional unit of life."
+        },
+
+        {
+            q:
+                "Which organelle contains most of a eukaryotic cell's DNA?",
+
+            answers: [
+                "Nucleus",
+                "Cell membrane",
+                "Ribosome",
+                "Cytoplasm"
+            ],
+
+            correct: 0,
+
+            hint:
+                "It acts like the cell's control center.",
+
+            explanation:
+                "The nucleus contains most of the genetic material in eukaryotic cells."
+        }
+
+    ]
+
+},
+
+
+"Genetics": {
+
+    category: "BIOLOGY",
+
+    explanation:
+        "Genetics is the study of heredity. DNA contains information that helps determine traits, and genes are sections of DNA.",
+
+    visual:
+        "DNA → GENES → TRAITS",
+
+    steps: [
+        "DNA",
+        "Gene",
+        "Protein",
+        "Trait"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What molecule stores genetic information?",
+
+            answers: [
+                "DNA",
+                "ATP",
+                "Water",
+                "Glucose"
+            ],
+
+            correct: 0,
+
+            hint:
+                "It is often described as the molecule that carries genetic instructions.",
+
+            explanation:
+                "DNA stores the genetic information used by cells."
+        },
+
+        {
+            q:
+                "A gene is best described as...",
+
+            answers: [
+                "A type of cell",
+                "A section of DNA",
+                "A complete organism",
+                "A type of tissue"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Genes are pieces of genetic material.",
+
+            explanation:
+                "A gene is a segment of DNA that contains information used to produce a functional product."
+        }
+
+    ]
+
+},
+
+
+"Evolution": {
+
+    category: "BIOLOGY",
+
+    explanation:
+        "Evolution describes changes in populations across generations. Natural selection can cause traits that improve survival or reproduction to become more common.",
+
+    visual:
+        "VARIATION → SELECTION → CHANGE",
+
+    steps: [
+        "Variation",
+        "Environment",
+        "Selection",
+        "Generations"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Evolution occurs in...",
+
+            answers: [
+                "Individual organisms during their lifetime",
+                "Populations across generations",
+                "Only individual cells",
+                "Only ecosystems"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Evolution involves changes in inherited traits over generations.",
+
+            explanation:
+                "Evolution is a change in inherited characteristics of populations across generations."
+        },
+
+        {
+            q:
+                "Natural selection acts on differences between organisms called...",
+
+            answers: [
+                "Variations",
+                "Planets",
+                "Atoms",
+                "Organelles"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about differences in traits.",
+
+            explanation:
+                "Variation refers to differences in traits among individuals in a population."
+        }
+
+    ]
+
+},
+
+
+"Ecosystems": {
+
+    category: "BIOLOGY",
+
+    explanation:
+        "An ecosystem includes living organisms and the nonliving environment around them. Organisms interact with each other and with environmental factors.",
+
+    visual:
+        "ORGANISMS ↔ ENVIRONMENT",
+
+    steps: [
+        "Producers",
+        "Consumers",
+        "Decomposers",
+        "Environment"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which organisms usually make their own food?",
+
+            answers: [
+                "Producers",
+                "Consumers",
+                "Decomposers",
+                "Predators"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think of plants using photosynthesis.",
+
+            explanation:
+                "Producers, such as plants and algae, can make their own food."
+        },
+
+        {
+            q:
+                "What do decomposers do?",
+
+            answers: [
+                "Create sunlight",
+                "Break down dead material",
+                "Stop energy flow",
+                "Produce oxygen only"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Think about what happens to dead organisms.",
+
+            explanation:
+                "Decomposers break down dead organisms and organic material, returning nutrients to the environment."
+        }
+
+    ]
+
+},
+
+
+/* =========================================
+   CHEMISTRY
+========================================= */
+
+"Matter": {
+
+    category: "CHEMISTRY",
+
+    explanation:
+        "Matter is anything that has mass and takes up space. It commonly exists as solids, liquids, gases, and plasma.",
+
+    visual:
+        "SOLID → LIQUID → GAS",
+
+    steps: [
+        "Solid",
+        "Melting",
+        "Liquid",
+        "Evaporation",
+        "Gas"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which state of matter has a definite volume but takes the shape of its container?",
+
+            answers: [
+                "Solid",
+                "Liquid",
+                "Gas",
+                "Plasma"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Think about water in a cup.",
+
+            explanation:
+                "Liquids have a definite volume but take the shape of their container."
+        },
+
+        {
+            q:
+                "Which state of matter has neither a definite shape nor a definite volume?",
+
+            answers: [
+                "Solid",
+                "Liquid",
+                "Gas",
+                "Crystal"
+            ],
+
+            correct: 2,
+
+            hint:
+                "It spreads out to fill its container.",
+
+            explanation:
+                "Gases expand to fill the space available to them."
+        }
+
+    ]
+
+},
+
+
+"Atoms": {
+
+    category: "CHEMISTRY",
+
+    explanation:
+        "Atoms are the basic units of ordinary matter. They contain protons and neutrons in the nucleus and electrons surrounding the nucleus.",
+
+    visual:
+        "ATOM = PROTONS + NEUTRONS + ELECTRONS",
+
+    steps: [
+        "Proton +",
+        "Neutron 0",
+        "Electron −",
+        "Nucleus"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which particle has a positive charge?",
+
+            answers: [
+                "Electron",
+                "Neutron",
+                "Proton",
+                "Photon"
+            ],
+
+            correct: 2,
+
+            hint:
+                "Its charge is represented with a plus sign.",
+
+            explanation:
+                "Protons have a positive electric charge."
+        },
+
+        {
+            q:
+                "Where are protons and neutrons found?",
+
+            answers: [
+                "Outside the atom",
+                "In the nucleus",
+                "In the electron cloud only",
+                "Between atoms"
+            ],
+
+            correct: 1,
+
+            hint:
+                "The center of the atom contains the nucleus.",
+
+            explanation:
+                "Protons and neutrons are located in the nucleus."
+        }
+
+    ]
+
+},
+
+
+"Bonds": {
+
+    category: "CHEMISTRY",
+
+    explanation:
+        "Chemical bonds hold atoms together. Different types of bonding involve atoms sharing or transferring electrons.",
+
+    visual:
+        "ATOM + ATOM → BOND",
+
+    steps: [
+        "Atoms",
+        "Electrons",
+        "Interaction",
+        "Bond"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Why do atoms form chemical bonds?",
+
+            answers: [
+                "To interact through their electrons",
+                "To become planets",
+                "To disappear",
+                "To stop having mass"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Chemical bonding involves electrons.",
+
+            explanation:
+                "Chemical bonds form through interactions involving electrons between atoms."
+        },
+
+        {
+            q:
+                "In a covalent bond, atoms generally...",
+
+            answers: [
+                "Share electrons",
+                "Destroy electrons",
+                "Lose their nuclei",
+                "Become identical"
+            ],
+
+            correct: 0,
+
+            hint:
+                "The word 'covalent' is associated with sharing.",
+
+            explanation:
+                "Covalent bonds involve atoms sharing pairs of electrons."
+        }
+
+    ]
+
+},
+
+
+"Reactions": {
+
+    category: "CHEMISTRY",
+
+    explanation:
+        "A chemical reaction rearranges atoms to form new substances. The atoms themselves are conserved even though they are reorganized.",
+
+    visual:
+        "REACTANTS → PRODUCTS",
+
+    steps: [
+        "Reactants",
+        "Bond changes",
+        "Atoms rearrange",
+        "Products"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What are the substances present before a chemical reaction called?",
+
+            answers: [
+                "Products",
+                "Reactants",
+                "Solutions",
+                "Elements"
+            ],
+
+            correct: 1,
+
+            hint:
+                "They react with one another.",
+
+            explanation:
+                "Reactants are the starting substances in a chemical reaction."
+        },
+
+        {
+            q:
+                "What happens to atoms during a chemical reaction?",
+
+            answers: [
+                "They disappear",
+                "They are rearranged",
+                "They turn into energy only",
+                "They stop existing"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Matter is conserved.",
+
+            explanation:
+                "Chemical reactions rearrange atoms into new combinations."
+        }
+
+    ]
+
+},
+
+
+/* =========================================
+   PHYSICS
+========================================= */
+
+"Motion": {
+
+    category: "PHYSICS",
+
+    explanation:
+        "Motion describes how an object's position changes over time. Speed tells how quickly distance is covered.",
+
+    visual:
+        "DISTANCE ÷ TIME = SPEED",
+
+    steps: [
+        "Distance",
+        "÷",
+        "Time",
+        "=",
+        "Speed"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What does speed describe?",
+
+            answers: [
+                "How quickly an object moves",
+                "How heavy an object is",
+                "How hot an object is",
+                "Its color"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Speed involves distance and time.",
+
+            explanation:
+                "Speed describes how quickly an object covers distance."
+        },
+
+        {
+            q:
+                "If a car travels 100 meters in 10 seconds, what is its average speed?",
+
+            answers: [
+                "5 m/s",
+                "10 m/s",
+                "50 m/s",
+                "1000 m/s"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Speed = distance ÷ time.",
+
+            explanation:
+                "100 ÷ 10 = 10 m/s."
+        }
+
+    ]
+
+},
+
+
+"Forces": {
+
+    category: "PHYSICS",
+
+    explanation:
+        "A force is a push or pull that can change an object's motion. Forces are measured in newtons.",
+
+    visual:
+        "FORCE → CHANGE IN MOTION",
+
+    steps: [
+        "Push",
+        "Pull",
+        "Force",
+        "Motion"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "A force is best described as...",
+
+            answers: [
+                "A push or pull",
+                "A type of energy only",
+                "A measurement of temperature",
+                "A color"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about pushing or pulling an object.",
+
+            explanation:
+                "A force is a push or pull that can affect an object's motion."
+        },
+
+        {
+            q:
+                "What is the SI unit of force?",
+
+            answers: [
+                "Joule",
+                "Watt",
+                "Newton",
+                "Meter"
+            ],
+
+            correct: 2,
+
+            hint:
+                "It is named after a famous physicist.",
+
+            explanation:
+                "Force is measured in newtons (N)."
+        }
+
+    ]
+
+},
+
+
+"Energy": {
+
+    category: "PHYSICS",
+
+    explanation:
+        "Energy is the ability to cause change or do work. Kinetic energy is associated with motion, while potential energy is stored energy.",
+
+    visual:
+        "POTENTIAL ↔ KINETIC",
+
+    steps: [
+        "Stored",
+        "↓",
+        "Motion",
+        "↓",
+        "Transfer"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which type of energy is associated with motion?",
+
+            answers: [
+                "Potential energy",
+                "Kinetic energy",
+                "Chemical bond only",
+                "Nuclear charge"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Think of the word 'kinetic' as relating to movement.",
+
+            explanation:
+                "Kinetic energy is the energy associated with motion."
+        },
+
+        {
+            q:
+                "Energy can be...",
+
+            answers: [
+                "Created from nothing",
+                "Destroyed completely",
+                "Transferred and transformed",
+                "Removed from the universe"
+            ],
+
+            correct: 2,
+
+            hint:
+                "Think about conservation of energy.",
+
+            explanation:
+                "Energy can be transferred between objects and transformed from one form to another."
+        }
+
+    ]
+
+},
+
+
+"Waves": {
+
+    category: "PHYSICS",
+
+    explanation:
+        "Waves transfer energy from one place to another. Important wave properties include wavelength, frequency, amplitude, and speed.",
+
+    visual:
+        "WAVE = ENERGY TRANSFER",
+
+    steps: [
+        "Amplitude",
+        "Wavelength",
+        "Frequency",
+        "Energy"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What does wavelength measure?",
+
+            answers: [
+                "The distance between corresponding points on waves",
+                "The mass of a wave",
+                "The temperature of a wave",
+                "The number of objects in a wave"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about the distance from one crest to the next.",
+
+            explanation:
+                "Wavelength is the distance between corresponding points on successive waves."
+        },
+
+        {
+            q:
+                "Frequency describes...",
+
+            answers: [
+                "How often waves occur",
+                "How heavy waves are",
+                "The color of the medium",
+                "The size of the container"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Frequency is measured in cycles per second.",
+
+            explanation:
+                "Frequency describes how many wave cycles occur per unit of time."
+        }
+
+    ]
+
+},
+
+
+/* =========================================
+   EARTH & SPACE
+========================================= */
+
+"Earth Systems": {
+
+    category: "EARTH & SPACE",
+
+    explanation:
+        "Earth can be understood as interacting systems, including the atmosphere, hydrosphere, geosphere, and biosphere.",
+
+    visual:
+        "EARTH SYSTEMS ↔ INTERACTIONS",
+
+    steps: [
+        "Atmosphere",
+        "Hydrosphere",
+        "Geosphere",
+        "Biosphere"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which Earth system includes most of Earth's water?",
+
+            answers: [
+                "Atmosphere",
+                "Hydrosphere",
+                "Geosphere",
+                "Biosphere"
+            ],
+
+            correct: 1,
+
+            hint:
+                "Think of the prefix 'hydro,' meaning water.",
+
+            explanation:
+                "The hydrosphere includes Earth's water in oceans, lakes, rivers, groundwater, ice, and more."
+        },
+
+        {
+            q:
+                "Which system includes living organisms?",
+
+            answers: [
+                "Biosphere",
+                "Geosphere",
+                "Atmosphere",
+                "Hydrosphere"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about the prefix 'bio,' meaning life.",
+
+            explanation:
+                "The biosphere includes Earth's living organisms and the regions where life exists."
+        }
+
+    ]
+
+},
+
+
+"Weather": {
+
+    category: "EARTH & SPACE",
+
+    explanation:
+        "Weather describes short-term atmospheric conditions. Climate describes patterns of weather over longer periods.",
+
+    visual:
+        "WEATHER = SHORT TERM\nCLIMATE = LONG TERM",
+
+    steps: [
+        "Temperature",
+        "Precipitation",
+        "Wind",
+        "Pressure"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Weather describes...",
+
+            answers: [
+                "Short-term atmospheric conditions",
+                "Only temperatures from millions of years ago",
+                "The structure of rocks",
+                "The orbit of planets"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Weather can change from day to day.",
+
+            explanation:
+                "Weather refers to atmospheric conditions over relatively short periods."
+        },
+
+        {
+            q:
+                "Climate describes...",
+
+            answers: [
+                "Long-term patterns",
+                "One thunderstorm",
+                "One afternoon",
+                "A single cloud"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Climate involves patterns over long periods.",
+
+            explanation:
+                "Climate describes long-term patterns and averages of weather."
+        }
+
+    ]
+
+},
+
+
+"Geology": {
+
+    category: "EARTH & SPACE",
+
+    explanation:
+        "Geology is the study of Earth, including its rocks, minerals, structures, processes, and history.",
+
+    visual:
+        "ROCKS ↔ EARTH PROCESSES",
+
+    steps: [
+        "Minerals",
+        "Rocks",
+        "Plate movement",
+        "Earth history"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What is geology primarily the study of?",
+
+            answers: [
+                "Earth",
+                "Only stars",
+                "Only animals",
+                "Only weather"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Geo means Earth.",
+
+            explanation:
+                "Geology is the scientific study of Earth and its materials and processes."
+        },
+
+        {
+            q:
+                "What theory explains the movement of Earth's large plates?",
+
+            answers: [
+                "Cell theory",
+                "Plate tectonics",
+                "Germ theory",
+                "Evolution"
+            ],
+
+            correct: 1,
+
+            hint:
+                "It includes the word 'plates.'",
+
+            explanation:
+                "Plate tectonics describes the movement and interaction of Earth's lithospheric plates."
+        }
+
+    ]
+
+},
+
+
+"Astronomy": {
+
+    category: "EARTH & SPACE",
+
+    explanation:
+        "Astronomy studies objects and phenomena beyond Earth, including stars, planets, galaxies, and the universe.",
+
+    visual:
+        "PLANETS → STARS → GALAXIES → UNIVERSE",
+
+    steps: [
+        "Planet",
+        "Star",
+        "Galaxy",
+        "Universe"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What is the closest star to Earth?",
+
+            answers: [
+                "The Moon",
+                "The Sun",
+                "Mars",
+                "Polaris"
+            ],
+
+            correct: 1,
+
+            hint:
+                "It provides Earth with light and heat.",
+
+            explanation:
+                "The Sun is Earth's nearest star."
+        },
+
+        {
+            q:
+                "A galaxy is best described as...",
+
+            answers: [
+                "A collection of stars, gas, dust, and other matter",
+                "A single planet",
+                "A type of rock",
+                "A cloud in Earth's atmosphere"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Our solar system is inside one.",
+
+            explanation:
+                "A galaxy is a large gravitationally bound system containing stars, gas, dust, and other matter."
+        }
+
+    ]
+
+},
+
+
+/* =========================================
+   ENVIRONMENTAL SCIENCE
+========================================= */
+
+"Biodiversity": {
+
+    category: "ENVIRONMENTAL SCIENCE",
+
+    explanation:
+        "Biodiversity refers to the variety of life. It can describe diversity within species, between species, and among ecosystems.",
+
+    visual:
+        "BIODIVERSITY = VARIETY OF LIFE",
+
+    steps: [
+        "Genes",
+        "Species",
+        "Ecosystems",
+        "Variety"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What does biodiversity describe?",
+
+            answers: [
+                "The variety of life",
+                "Only the number of rocks",
+                "Only weather patterns",
+                "The amount of sunlight"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Bio means life.",
+
+            explanation:
+                "Biodiversity describes the variety of living organisms and biological systems."
+        },
+
+        {
+            q:
+                "Why can biodiversity be important to ecosystems?",
+
+            answers: [
+                "It contributes to ecosystem complexity and resilience",
+                "It removes all competition",
+                "It stops energy flow",
+                "It eliminates environmental change"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about how variety can help ecosystems respond to change.",
+
+            explanation:
+                "Greater biodiversity can contribute to ecosystem stability and resilience."
+        }
+
+    ]
+
+},
+
+
+"Resources": {
+
+    category: "ENVIRONMENTAL SCIENCE",
+
+    explanation:
+        "Natural resources are materials and forms of energy obtained from the environment. Some are renewable while others are finite.",
+
+    visual:
+        "RESOURCE → USE → REPLACEMENT?",
+
+    steps: [
+        "Renewable",
+        "Nonrenewable",
+        "Use",
+        "Conservation"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which is a renewable resource?",
+
+            answers: [
+                "Coal",
+                "Oil",
+                "Sunlight",
+                "Natural gas"
+            ],
+
+            correct: 2,
+
+            hint:
+                "Think of a resource that is continually supplied by the Sun.",
+
+            explanation:
+                "Sunlight is a renewable energy resource."
+        },
+
+        {
+            q:
+                "Which resource is nonrenewable?",
+
+            answers: [
+                "Wind",
+                "Sunlight",
+                "Coal",
+                "Moving water"
+            ],
+
+            correct: 2,
+
+            hint:
+                "Think of fossil fuels.",
+
+            explanation:
+                "Coal is a fossil fuel and is considered nonrenewable on human timescales."
+        }
+
+    ]
+
+},
+
+
+"Climate": {
+
+    category: "ENVIRONMENTAL SCIENCE",
+
+    explanation:
+        "Earth's climate is influenced by many factors, including incoming solar energy, atmospheric composition, oceans, land, and natural processes.",
+
+    visual:
+        "SUN → EARTH → ATMOSPHERE → CLIMATE",
+
+    steps: [
+        "Solar energy",
+        "Atmosphere",
+        "Heat",
+        "Climate"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which gas is a major greenhouse gas released by human activities?",
+
+            answers: [
+                "Carbon dioxide",
+                "Helium",
+                "Neon",
+                "Argon"
+            ],
+
+            correct: 0,
+
+            hint:
+                "It is produced by processes such as burning fossil fuels.",
+
+            explanation:
+                "Carbon dioxide is an important greenhouse gas whose atmospheric concentration has increased substantially due to human activities."
+        },
+
+        {
+            q:
+                "The greenhouse effect involves atmospheric gases absorbing and re-emitting...",
+
+            answers: [
+                "Infrared radiation",
+                "Sound waves",
+                "Ocean currents",
+                "Visible rocks"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about heat leaving Earth's surface.",
+
+            explanation:
+                "Greenhouse gases interact with outgoing infrared radiation, contributing to warming of Earth's surface and lower atmosphere."
+        }
+
+    ]
+
+},
+
+
+"Human Impact": {
+
+    category: "ENVIRONMENTAL SCIENCE",
+
+    explanation:
+        "Human activities can affect ecosystems through land use, resource consumption, pollution, and changes to atmospheric composition.",
+
+    visual:
+        "HUMAN ACTIVITY → ENVIRONMENTAL CHANGE",
+
+    steps: [
+        "Population",
+        "Resources",
+        "Pollution",
+        "Environmental response"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which is an example of pollution?",
+
+            answers: [
+                "Introducing harmful substances into the environment",
+                "Plant growth",
+                "Natural rainfall",
+                "Photosynthesis"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Pollution involves harmful changes to the environment.",
+
+            explanation:
+                "Pollution occurs when harmful substances or forms of energy are introduced into the environment."
+        },
+
+        {
+            q:
+                "Conservation generally means...",
+
+            answers: [
+                "Using resources responsibly and protecting natural systems",
+                "Using every resource as quickly as possible",
+                "Removing ecosystems",
+                "Stopping all scientific research"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about protecting resources for the future.",
+
+            explanation:
+                "Conservation involves responsible management and protection of natural resources and ecosystems."
+        }
+
+    ]
+
+},
+
+
+/* =========================================
+   FOUNDATIONS
+========================================= */
+
+"Scientific Method": {
+
+    category: "SCIENCE FOUNDATIONS",
+
+    explanation:
+        "Scientific investigations use observations, questions, hypotheses, evidence, and reasoning to investigate natural phenomena.",
+
+    visual:
+        "QUESTION → HYPOTHESIS → TEST → EVIDENCE",
+
+    steps: [
+        "Question",
+        "Hypothesis",
+        "Investigation",
+        "Evidence",
+        "Conclusion"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What is a hypothesis?",
+
+            answers: [
+                "A testable explanation or prediction",
+                "A guaranteed fact",
+                "A random measurement",
+                "The final grade"
+            ],
+
+            correct: 0,
+
+            hint:
+                "It can be tested using evidence.",
+
+            explanation:
+                "A hypothesis is a proposed, testable explanation or prediction."
+        },
+
+        {
+            q:
+                "Why is evidence important in science?",
+
+            answers: [
+                "It helps evaluate explanations and claims",
+                "It guarantees every hypothesis is correct",
+                "It replaces observations",
+                "It prevents questions"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Scientists use evidence to determine how well ideas are supported.",
+
+            explanation:
+                "Evidence allows scientists to evaluate whether observations support or contradict an explanation."
+        }
+
+    ]
+
+},
+
+
+"Measurement": {
+
+    category: "SCIENCE FOUNDATIONS",
+
+    explanation:
+        "Scientific measurement uses standardized units and instruments. Accuracy describes closeness to a true value, while precision describes consistency.",
+
+    visual:
+        "MEASURE → RECORD → COMPARE",
+
+    steps: [
+        "Tool",
+        "Unit",
+        "Measurement",
+        "Data"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Which SI unit is commonly used to measure length?",
+
+            answers: [
+                "Meter",
+                "Liter",
+                "Gram",
+                "Second"
+            ],
+
+            correct: 0,
+
+            hint:
+                "It is the base SI unit for length.",
+
+            explanation:
+                "The meter is the SI base unit for length."
+        },
+
+        {
+            q:
+                "Precision describes...",
+
+            answers: [
+                "How consistent repeated measurements are",
+                "Whether a measurement is colorful",
+                "How fast an object moves",
+                "How large an object is"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Think about repeated measurements being close to one another.",
+
+            explanation:
+                "Precision refers to the consistency or repeatability of measurements."
+        }
+
+    ]
+
+},
+
+
+"Evidence": {
+
+    category: "SCIENCE FOUNDATIONS",
+
+    explanation:
+        "Scientific claims should be supported by evidence. Evidence can come from observations, measurements, experiments, and other reliable data.",
+
+    visual:
+        "CLAIM + EVIDENCE → REASONING",
+
+    steps: [
+        "Claim",
+        "Evidence",
+        "Reasoning",
+        "Conclusion"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "What should support a scientific claim?",
+
+            answers: [
+                "Evidence",
+                "A guess alone",
+                "A preference",
+                "A rumor"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Scientific conclusions should be based on data or observations.",
+
+            explanation:
+                "Scientific claims should be supported by relevant evidence."
+        },
+
+        {
+            q:
+                "Which is an example of evidence?",
+
+            answers: [
+                "A measured temperature",
+                "A personal preference",
+                "A prediction with no basis",
+                "A random opinion"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Evidence can be observed or measured.",
+
+            explanation:
+                "A measured temperature is an example of observable, quantitative evidence."
+        }
+
+    ]
+
+},
+
+
+"Data": {
+
+    category: "SCIENCE FOUNDATIONS",
+
+    explanation:
+        "Scientists organize data so that patterns and relationships can be identified. Tables and graphs are common ways to display data.",
+
+    visual:
+        "DATA → TABLE → GRAPH → PATTERN",
+
+    steps: [
+        "Collect",
+        "Organize",
+        "Graph",
+        "Interpret"
+    ],
+
+    questions: [
+
+        {
+            q:
+                "Why do scientists use graphs?",
+
+            answers: [
+                "To make patterns and relationships easier to see",
+                "To make data disappear",
+                "To replace experiments",
+                "To guarantee a hypothesis is correct"
+            ],
+
+            correct: 0,
+
+            hint:
+                "Graphs turn numerical information into a visual form.",
+
+            explanation:
+                "Graphs help scientists identify patterns, trends, and relationships in data."
+        },
+
+        {
+            q:
+                "Which variable is usually placed on the x-axis in an experiment?",
+
+            answers: [
+                "Independent variable",
+                "Dependent variable",
+                "Conclusion",
+                "Control group"
+            ],
+
+            correct: 0,
+
+            hint:
+                "It is the variable the researcher changes or controls.",
+
+            explanation:
+                "The independent variable is commonly placed on the x-axis, while the dependent variable is commonly placed on the y-axis."
+        }
+
+    ]
+
+}
+
+};
+
+
+/* =========================================
+   SHOW TOPICS
+========================================= */
+
+function showTopics(category) {
+
+    document
+        .querySelectorAll(".topic-area")
+        .forEach(area => {
+
+            area.classList.remove("active");
+
+        });
+
+
+    const selected =
+        document.getElementById(category);
+
+    selected.classList.add("active");
+
+
+    selected.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =========================================
+   HIDE TOPICS
+========================================= */
+
+function hideTopics() {
+
+    document
+        .querySelectorAll(".topic-area")
+        .forEach(area => {
+
+            area.classList.remove("active");
+
+        });
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================
+   START LESSON
+========================================= */
+
+function startLesson(topic) {
+
+    currentTopic = topic;
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    answered = false;
+
+
+    document
+        .querySelectorAll(".topic-area")
+        .forEach(area => {
+
+            area.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById("results")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("lesson")
+        .classList.add("active");
+
+
+    document
+        .getElementById("lesson")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+
+    loadQuestion();
+
+}
+
+
+/* =========================================
+   LOAD QUESTION
+========================================= */
+
+function loadQuestion() {
+
+    const lesson =
+        lessons[currentTopic];
+
+    const question =
+        lesson.questions[currentQuestion];
+
+
+    answered = false;
+
+
+    document
+        .getElementById("lessonLabel")
+        .textContent =
+            lesson.category +
+            " · STEP " +
+            (currentQuestion + 1);
+
+
+    document
+        .getElementById("lessonTitle")
+        .textContent =
+            currentTopic;
+
+
+    document
+        .getElementById("visualMain")
+        .textContent =
+            lesson.visual;
+
+
+    const visualSteps =
+        document.getElementById("visualSteps");
+
+
+    visualSteps.innerHTML = "";
+
+
+    lesson.steps.forEach(step => {
+
+        const span =
+            document.createElement("span");
+
+        span.className =
+            "visual-step";
+
+        span.textContent =
+            step;
+
+        visualSteps.appendChild(span);
+
+    });
+
+
+    document
+        .getElementById("lessonExplanation")
+        .innerHTML =
+            "<strong>Here's the idea:</strong><br><br>" +
+            lesson.explanation;
+
+
+    document
+        .getElementById("questionText")
+        .textContent =
+            question.q;
+
+
+    const answers =
+        document.getElementById("answers");
+
+
+    answers.innerHTML = "";
+
+
+    question.answers.forEach(
+        (answer, index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "answer";
+
+            button.textContent =
+                answer;
+
+            button.onclick =
+                () => checkAnswer(
+                    index,
+                    button
+                );
+
+            answers.appendChild(button);
+
+        }
+    );
+
+
+    document
+        .getElementById("feedback")
+        .textContent = "";
+
+
+    document
+        .getElementById("hintText")
+        .textContent =
+            question.hint;
+
+
+    document
+        .getElementById("hintText")
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById("answerExplanation")
+        .textContent =
+            question.explanation;
+
+
+    document
+        .getElementById("answerExplanation")
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById("nextButton")
+        .style.display =
+            "none";
+
+
+    updateProgress();
+
+}
+
+
+/* =========================================
+   CHECK ANSWER
+========================================= */
+
+function checkAnswer(index, button) {
+
+    if (answered) return;
+
+
+    answered = true;
+
+
+    const lesson =
+        lessons[currentTopic];
+
+    const question =
+        lesson.questions[currentQuestion];
+
+
+    const buttons =
+        document.querySelectorAll(".answer");
+
+
+    buttons.forEach(
+        b => b.disabled = true
+    );
+
+
+    if (index === question.correct) {
+
+        button.classList.add("correct");
+
+        document
+            .getElementById("feedback")
+            .textContent =
+                "✓ Correct!";
+
+        score++;
+
+    }
+
+    else {
+
+        button.classList.add("incorrect");
+
+        buttons[
+            question.correct
+        ].classList.add("correct");
+
+        document
+            .getElementById("feedback")
+            .textContent =
+                "Not quite — the correct answer is highlighted.";
+
+    }
+
+
+    document
+        .getElementById("answerExplanation")
+        .style.display =
+            "block";
+
+
+    document
+        .getElementById("nextButton")
+        .style.display =
+            "inline-block";
+
+
+    updateProgress();
+
+}
+
+
+/* =========================================
+   HINT
+========================================= */
+
+function showHint() {
+
+    document
+        .getElementById("hintText")
+        .style.display =
+            "block";
+
+}
+
+
+/* =========================================
+   NEXT QUESTION
+========================================= */
+
+function nextQuestion() {
+
+    const lesson =
+        lessons[currentTopic];
+
+
+    currentQuestion++;
+
+
+    if (
+        currentQuestion >=
+        lesson.questions.length
+    ) {
+
+        finishLesson();
+
+        return;
+
+    }
+
+
+    loadQuestion();
+
+}
+
+
+/* =========================================
+   FINISH LESSON
+========================================= */
+
+function finishLesson() {
+
+    const lesson =
+        lessons[currentTopic];
+
+    const total =
+        lesson.questions.length;
+
+
+    const percentage =
+        Math.round(
+            (score / total) * 100
+        );
+
+
+    document
+        .getElementById("lesson")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("results")
+        .classList.add("active");
+
+
+    document
+        .getElementById("resultMessage")
+        .textContent =
+            "You scored " +
+            score +
+            " out of " +
+            total +
+            " (" +
+            percentage +
+            "%).";
+
+
+    updateProgress(100);
+
+
+    document
+        .getElementById("results")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+
+/* =========================================
+   BACK TO TOPICS
+========================================= */
+
+function backToTopics() {
+
+    document
+        .getElementById("lesson")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("results")
+        .classList.remove("active");
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+function updateProgress(customProgress) {
+
+    let progress;
+
+
+    if (
+        customProgress !== undefined
+    ) {
+
+        progress =
+            customProgress;
+
+    }
+
+    else if (currentTopic) {
+
+        const total =
+            lessons[currentTopic]
+                .questions.length;
+
+        progress =
+            Math.round(
+                (currentQuestion / total) * 100
+            );
+
+    }
+
+    else {
+
+        progress = 0;
+
+    }
+
+
+    document
+        .getElementById("progressFill")
+        .style.width =
+            progress + "%";
+
+
+    document
+        .getElementById("progressText")
+        .textContent =
+            progress + "%";
+
+}
+
+</script>
+
+</body>
+</html>
+```
