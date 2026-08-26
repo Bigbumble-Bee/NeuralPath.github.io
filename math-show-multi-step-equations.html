@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="description"
+content="Learn how to solve multi-step equations visually with NeuralPath."
+>
+
+<title>Multi-Step Equations — NeuralPath</title>
+
+<link
+href="https://fonts.cdnfonts.com/css/starborn"
+rel="stylesheet"
+>
+
+<style>
+
+:root {
+
+    --cream: #f8f6f0;
+    --paper: #fffdf8;
+    --white: #ffffff;
+
+    --ink: #292a2d;
+    --soft-ink: #68686c;
+
+    --lavender: #e8dff0;
+    --lavender-dark: #bca8d2;
+
+    --blue: #dce9f1;
+    --blue-dark: #abc8d9;
+
+    --yellow: #f2e9c9;
+    --yellow-dark: #d9c98f;
+
+    --sage: #dce8d9;
+    --sage-dark: #aec3aa;
+
+    --peach: #efd9d4;
+    --pink: #ead9df;
+
+    --border: #dedbd2;
+
+    --radius: 20px;
+
+    --shadow:
+        0 8px 25px rgba(55, 53, 48, 0.07);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+    line-height: 1.65;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background:
+        rgba(248, 246, 240, 0.94);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.nav {
+
+    width:
+        min(1050px, 92%);
+
+    min-height:
+        76px;
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+}
+
+
+.logo {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.5rem;
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
+}
+
+
+.logo-dot {
+
+    display:
+        inline-block;
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    margin-left:
+        4px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--lavender-dark);
+}
+
+
+.back-button {
+
+    padding:
+        10px 18px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--lavender);
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        700;
+
+    transition:
+        0.2s ease;
+}
+
+
+.back-button:hover {
+
+    background:
+        var(--lavender-dark);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+    width:
+        min(850px, 92%);
+
+    margin:
+        auto;
+
+    padding:
+        60px 0 100px;
+}
+
+
+.breadcrumb {
+
+    margin-bottom:
+        28px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.83rem;
+}
+
+
+.breadcrumb a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+}
+
+
+.breadcrumb a:hover {
+
+    text-decoration:
+        underline;
+}
+
+
+/* =========================
+   ROADMAP
+========================= */
+
+.lesson-roadmap {
+
+    margin-bottom:
+        45px;
+
+    padding:
+        20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        17px;
+
+    background:
+        var(--paper);
+}
+
+
+.roadmap-title {
+
+    margin-bottom:
+        14px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.1em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.roadmap {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    flex-wrap:
+        wrap;
+}
+
+
+.roadmap-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    color:
+        #858589;
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        650;
+}
+
+
+.roadmap-dot {
+
+    width:
+        19px;
+
+    height:
+        19px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        #e6e3dc;
+
+    font-size:
+        0.62rem;
+}
+
+
+.roadmap-item.current {
+
+    color:
+        var(--ink);
+}
+
+
+.roadmap-item.current .roadmap-dot {
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--ink);
+}
+
+
+.roadmap-arrow {
+
+    color:
+        #b3afa7;
+
+    font-size:
+        0.75rem;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.eyebrow {
+
+    display:
+        block;
+
+    margin-bottom:
+        15px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.77rem;
+
+    font-weight:
+        750;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+}
+
+
+h1 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        clamp(2.4rem, 6vw, 4rem);
+
+    line-height:
+        1.08;
+
+    font-weight:
+        400;
+}
+
+
+.intro {
+
+    margin-top:
+        20px;
+
+    max-width:
+        680px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        1.06rem;
+}
+
+
+/* =========================
+   GENERAL LESSON BLOCK
+========================= */
+
+.visual-block {
+
+    margin-top:
+        50px;
+
+    padding:
+        35px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--paper);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.lesson-label {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        15px;
+
+    padding:
+        5px 11px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--yellow);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.06em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.visual-block h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.9rem;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.2;
+
+    margin-bottom:
+        12px;
+}
+
+
+.visual-block > p {
+
+    color:
+        var(--soft-ink);
+
+    margin-bottom:
+        20px;
+}
+
+
+/* =========================
+   BIG EQUATION
+========================= */
+
+.equation-stage {
+
+    margin-top:
+        30px;
+
+    padding:
+        40px 20px;
+
+    border-radius:
+        18px;
+
+    background:
+        var(--blue);
+
+    text-align:
+        center;
+}
+
+
+.big-equation {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2rem, 6vw, 3rem);
+
+    background:
+        var(--white);
+
+    padding:
+        20px;
+
+    border-radius:
+        18px;
+
+    display:
+        inline-block;
+}
+
+
+/* =========================
+   STEP SYSTEM
+========================= */
+
+.steps {
+
+    margin-top:
+        30px;
+
+    display:
+        grid;
+
+    gap:
+        15px;
+}
+
+
+.step {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        48px 1fr;
+
+    gap:
+        18px;
+
+    align-items:
+        center;
+
+    padding:
+        20px;
+
+    border-radius:
+        17px;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.step-number {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--lavender);
+
+    font-weight:
+        800;
+}
+
+
+.step-content {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1.45rem;
+}
+
+
+.step-description {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--soft-ink);
+
+    font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+    font-size:
+        0.84rem;
+}
+
+
+/* =========================
+   COLOR OPERATION CARDS
+========================= */
+
+.operation-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        15px;
+
+    margin-top:
+        25px;
+}
+
+
+.operation-card {
+
+    padding:
+        23px;
+
+    border-radius:
+        17px;
+
+    background:
+        var(--white);
+}
+
+
+.operation-card.add {
+
+    border-top:
+        6px solid var(--sage-dark);
+}
+
+
+.operation-card.combine {
+
+    border-top:
+        6px solid var(--lavender-dark);
+}
+
+
+.operation-card h3 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.15rem;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        8px;
+}
+
+
+.operation-card p {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.87rem;
+}
+
+
+.operation-example {
+
+    margin-top:
+        14px;
+
+    padding:
+        12px;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--cream);
+
+    font-family:
+        Georgia,
+        serif;
+
+    text-align:
+        center;
+
+    font-size:
+        1.2rem;
+}
+
+
+/* =========================
+   VISUAL TRANSFORMATION
+========================= */
+
+.transformation {
+
+    margin-top:
+        30px;
+
+    padding:
+        30px 20px;
+
+    border-radius:
+        18px;
+
+    background:
+        var(--lavender);
+
+    text-align:
+        center;
+}
+
+
+.transform-line {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(1.6rem, 5vw, 2.4rem);
+
+    margin:
+        12px 0;
+}
+
+
+.transform-arrow {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        1.2rem;
+}
+
+
+.transform-note {
+
+    margin-top:
+        20px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.88rem;
+}
+
+
+/* =========================
+   INTERACTIVE STEP-BY-STEP
+========================= */
+
+.interactive {
+
+    margin-top:
+        50px;
+
+    padding:
+        35px;
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--sage);
+
+    border:
+        1px solid var(--border);
+
+    text-align:
+        center;
+}
+
+
+.interactive h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.9rem;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        10px;
+}
+
+
+.interactive-intro {
+
+    color:
+        var(--soft-ink);
+
+    margin-bottom:
+        25px;
+}
+
+
+.interactive-equation {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2rem, 6vw, 3rem);
+
+    margin-bottom:
+        25px;
+}
+
+
+.interactive-buttons {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+}
+
+
+.interactive-button {
+
+    padding:
+        12px 20px;
+
+    border:
+        none;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--white);
+
+    color:
+        var(--ink);
+
+    font: inherit;
+
+    font-weight:
+        750;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.interactive-button:hover {
+
+    background:
+        var(--lavender);
+
+    transform:
+        translateY(-3px);
+}
+
+
+.interactive-feedback {
+
+    min-height:
+        30px;
+
+    margin-top:
+        22px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.9rem;
+}
+
+
+.interactive-result {
+
+    display:
+        none;
+
+    margin-top:
+        20px;
+
+    padding:
+        18px;
+
+    border-radius:
+        14px;
+
+    background:
+        var(--white);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.6rem;
+}
+
+
+.interactive-result.show {
+
+    display:
+        block;
+}
+
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice {
+
+    margin-top:
+        50px;
+
+    padding:
+        35px;
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--yellow);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.practice h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.9rem;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        10px;
+}
+
+
+.practice > p {
+
+    color:
+        var(--soft-ink);
+}
+
+
+.practice-question {
+
+    margin-top:
+        25px;
+
+    padding:
+        25px;
+
+    border-radius:
+        17px;
+
+    background:
+        var(--white);
+
+    text-align:
+        center;
+}
+
+
+.question-equation {
+
+    margin-bottom:
+        20px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        2rem;
+}
+
+
+.answer-buttons {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+}
+
+
+.answer-button {
+
+    min-width:
+        110px;
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        13px;
+
+    background:
+        var(--cream);
+
+    color:
+        var(--ink);
+
+    font: inherit;
+
+    font-weight:
+        750;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.answer-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.practice-feedback {
+
+    display:
+        none;
+
+    margin-top:
+        18px;
+
+    padding:
+        17px;
+
+    border-radius:
+        13px;
+
+    text-align:
+        left;
+}
+
+
+.practice-feedback.show {
+
+    display:
+        block;
+}
+
+
+.practice-feedback.correct {
+
+    background:
+        var(--sage);
+}
+
+
+.practice-feedback.incorrect {
+
+    background:
+        var(--pink);
+}
+
+
+/* =========================
+   REMEMBER
+========================= */
+
+.remember {
+
+    margin-top:
+        50px;
+
+    padding:
+        30px;
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--peach);
+}
+
+
+.remember h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.7rem;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        12px;
+}
+
+
+.remember p {
+
+    color:
+        var(--soft-ink);
+}
+
+
+.remember-list {
+
+    margin-top:
+        22px;
+
+    display:
+        grid;
+
+    gap:
+        10px;
+}
+
+
+.remember-item {
+
+    padding:
+        15px 18px;
+
+    border-radius:
+        13px;
+
+    background:
+        var(--white);
+
+    font-size:
+        0.9rem;
+}
+
+
+.remember-item strong {
+
+    margin-right:
+        5px;
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+.next-section {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    margin-top:
+        55px;
+}
+
+
+.next-button {
+
+    flex:
+        1;
+
+    padding:
+        20px;
+
+    border-radius:
+        17px;
+
+    background:
+        var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
+
+    transition:
+        0.2s ease;
+}
+
+
+.next-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.next-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        750;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.08em;
+}
+
+
+.next-title {
+
+    font-weight:
+        700;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding:
+        45px 0;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.footer-inner {
+
+    width:
+        min(850px, 92%);
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+}
+
+
+.footer-brand {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.1rem;
+}
+
+
+.footer-text {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.8rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .visual-block,
+    .practice,
+    .interactive {
+
+        padding:
+            25px;
+
+    }
+
+
+    .operation-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .next-section {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .roadmap {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .roadmap-arrow {
+
+        display:
+            none;
+
+    }
+
+
+    .footer-inner {
+
+        flex-direction:
+            column;
+
+        gap:
+            10px;
+
+        text-align:
+            center;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<nav class="nav">
+
+<a
+href="index.html"
+class="logo"
+>
+NeuralPath<span class="logo-dot"></span>
+</a>
+
+
+<a
+href="math-show-one-step-equations.html"
+class="back-button"
+>
+← Previous
+</a>
+
+</nav>
+
+</header>
+
+
+<main>
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+<a href="index.html">
+NeuralPath
+</a>
+
+&nbsp;→&nbsp;
+
+<a href="mathematics.html">
+Mathematics
+</a>
+
+&nbsp;→&nbsp;
+
+<a href="math-show-me.html">
+Show Me
+</a>
+
+&nbsp;→&nbsp;
+
+Multi-Step Equations
+
+</div>
+
+
+<!-- ROADMAP -->
+
+<div class="lesson-roadmap">
+
+<div class="roadmap-title">
+Show Me · Visual Mathematics
+</div>
+
+
+<div class="roadmap">
+
+
+<div class="roadmap-item">
+
+<span class="roadmap-dot">
+1
+</span>
+
+Variables
+
+</div>
+
+
+<span class="roadmap-arrow">
+→
+</span>
+
+
+<div class="roadmap-item">
+
+<span class="roadmap-dot">
+2
+</span>
+
+Coefficients
+
+</div>
+
+
+<span class="roadmap-arrow">
+→
+</span>
+
+
+<div class="roadmap-item">
+
+<span class="roadmap-dot">
+3
+</span>
+
+Like Terms
+
+</div>
+
+
+<span class="roadmap-arrow">
+→
+</span>
+
+
+<div class="roadmap-item">
+
+<span class="roadmap-dot">
+4
+</span>
+
+One-Step
+
+</div>
+
+
+<span class="roadmap-arrow">
+→
+</span>
+
+
+<div class="roadmap-item current">
+
+<span class="roadmap-dot">
+5
+</span>
+
+Multi-Step
+
+</div>
+
+
+<span class="roadmap-arrow">
+→
+</span>
+
+
+<div class="roadmap-item">
+
+<span class="roadmap-dot">
+6
+</span>
+
+Inequalities
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TITLE -->
+
+<span class="eyebrow">
+Show Me · Equations
+</span>
+
+
+<h1>
+Multi-Step Equations
+</h1>
+
+
+<p class="intro">
+
+Some equations need more than one step.
+The easiest way to approach them is to
+work through the equation in a predictable order:
+simplify first, then isolate the variable.
+
+</p>
+
+
+<!-- VISUAL 01 -->
+
+<section class="visual-block">
+
+<span class="lesson-label">
+Visual 01 · The Big Picture
+</span>
+
+
+<h2>
+One equation can have several layers.
+</h2>
+
+
+<p>
+
+Instead of trying to solve everything at once,
+peel away one layer at a time.
+
+</p>
+
+
+<div class="equation-stage">
+
+<div class="big-equation">
+
+2x + 3 = 11
+
+</div>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+
+<div>
+
+<div class="step-content">
+Remove the +3
+</div>
+
+
+<div class="step-description">
+Undo addition by subtracting 3 from both sides.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+
+<div>
+
+<div class="step-content">
+Remove the ×2
+</div>
+
+
+<div class="step-description">
+Undo multiplication by dividing both sides by 2.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+
+<div>
+
+<div class="step-content">
+Check the answer
+</div>
+
+
+<div class="step-description">
+Make sure your value makes the original equation true.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VISUAL 02 -->
+
+<section class="visual-block">
+
+<span class="lesson-label">
+Visual 02 · Step One
+</span>
+
+
+<h2>
+Undo addition or subtraction first.
+</h2>
+
+
+<p>
+
+Look at:
+
+<strong>2x + 3 = 11</strong>
+
+</p>
+
+
+<div class="transformation">
+
+
+<div class="transform-line">
+2x + 3 = 11
+</div>
+
+
+<div class="transform-arrow">
+↓
+</div>
+
+
+<div class="transform-line">
+2x + 3 − 3 = 11 − 3
+</div>
+
+
+<div class="transform-arrow">
+↓
+</div>
+
+
+<div class="transform-line">
+2x = 8
+</div>
+
+
+<div class="transform-note">
+
+The +3 disappeared because we subtracted 3
+from both sides.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VISUAL 03 -->
+
+<section class="visual-block">
+
+<span class="lesson-label">
+Visual 03 · Step Two
+</span>
+
+
+<h2>
+Now undo multiplication.
+</h2>
+
+
+<p>
+
+We are left with:
+
+<strong>2x = 8</strong>
+
+The 2 is multiplying x.
+
+</p>
+
+
+<div class="transformation">
+
+
+<div class="transform-line">
+2x = 8
+</div>
+
+
+<div class="transform-arrow">
+↓
+</div>
+
+
+<div class="transform-line">
+2x ÷ 2 = 8 ÷ 2
+</div>
+
+
+<div class="transform-arrow">
+↓
+</div>
+
+
+<div class="transform-line">
+x = 4
+</div>
+
+
+<div class="transform-note">
+
+The ×2 disappeared because we divided
+both sides by 2.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VISUAL 04 -->
+
+<section class="visual-block">
+
+<span class="lesson-label">
+Visual 04 · Why This Order?
+</span>
+
+
+<h2>
+Think of the equation like layers.
+</h2>
+
+
+<p>
+
+Imagine that x is inside several mathematical
+layers. We remove the outer layer first.
+
+</p>
+
+
+<div class="operation-grid">
+
+
+<div class="operation-card add">
+
+<h3>
+First layer
+</h3>
+
+
+<p>
+Undo addition or subtraction.
+</p>
+
+
+<div class="operation-example">
+2x + 3 → 2x
+</div>
+
+</div>
+
+
+<div class="operation-card combine">
+
+<h3>
+Second layer
+</h3>
+
+
+<p>
+Undo multiplication or division.
+</p>
+
+
+<div class="operation-example">
+2x → x
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FULL EXAMPLE -->
+
+<section class="visual-block">
+
+<span class="lesson-label">
+Visual 05 · Full Example
+</span>
+
+
+<h2>
+Let's watch the whole thing happen.
+</h2>
+
+
+<p>
+
+We will solve:
+
+<strong>3x − 5 = 16</strong>
+
+</p>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+
+<div>
+
+<div class="step-content">
+3x − 5 = 16
+</div>
+
+
+<div class="step-description">
+Start with the original equation.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+
+<div>
+
+<div class="step-content">
+3x − 5 + 5 = 16 + 5
+</div>
+
+
+<div class="step-description">
+Add 5 to both sides to undo −5.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+
+<div>
+
+<div class="step-content">
+3x = 21
+</div>
+
+
+<div class="step-description">
+The constant has been removed.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+4
+</div>
+
+
+<div>
+
+<div class="step-content">
+3x ÷ 3 = 21 ÷ 3
+</div>
+
+
+<div class="step-description">
+Divide both sides by 3.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+5
+</div>
+
+
+<div>
+
+<div class="step-content">
+x = 7
+</div>
+
+
+<div class="step-description">
+The variable is isolated.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INTERACTIVE -->
+
+<section class="interactive">
+
+<h2>
+What comes first?
+</h2>
+
+
+<p class="interactive-intro">
+
+Look at the equation and choose
+the first thing we should undo.
+
+</p>
+
+
+<div class="interactive-equation">
+
+4x + 6 = 22
+
+</div>
+
+
+<div class="interactive-buttons">
+
+
+<button
+class="interactive-button"
+onclick="chooseStep('multiply')"
+>
+
+Divide by 4
+
+</button>
+
+
+<button
+class="interactive-button"
+onclick="chooseStep('subtract')"
+>
+
+Subtract 6
+
+</button>
+
+
+<button
+class="interactive-button"
+onclick="chooseStep('add')"
+>
+
+Add 6
+
+</button>
+
+
+<button
+class="interactive-button"
+onclick="chooseStep('multiplywrong')"
+>
+
+Multiply by 4
+
+</button>
+
+</div>
+
+
+<div
+id="interactive-feedback"
+class="interactive-feedback"
+>
+
+Choose the step you think comes first.
+
+</div>
+
+
+<div
+id="interactive-result"
+class="interactive-result"
+>
+
+4x = 16
+
+<br>
+
+x = 4
+
+</div>
+
+</section>
+
+
+<!-- PRACTICE -->
+
+<section class="practice">
+
+
+<span class="lesson-label">
+Try One
+</span>
+
+
+<h2>
+Your turn.
+</h2>
+
+
+<p>
+
+Solve the equation:
+
+</p>
+
+
+<div class="practice-question">
+
+
+<div class="question-equation">
+
+5x + 2 = 27
+
+</div>
+
+
+<div class="answer-buttons">
+
+
+<button
+class="answer-button"
+onclick="checkAnswer('4')"
+>
+
+x = 4
+
+</button>
+
+
+<button
+class="answer-button"
+onclick="checkAnswer('5')"
+>
+
+x = 5
+
+</button>
+
+
+<button
+class="answer-button"
+onclick="checkAnswer('6')"
+>
+
+x = 6
+
+</button>
+
+
+<button
+class="answer-button"
+onclick="checkAnswer('7')"
+>
+
+x = 7
+
+</button>
+
+</div>
+
+
+<div
+id="practice-feedback"
+class="practice-feedback"
+>
+
+<strong id="practice-title"></strong>
+
+<span id="practice-text"></span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- REMEMBER -->
+
+<section class="remember">
+
+
+<h2>
+The NeuralPath method
+</h2>
+
+
+<p>
+
+When an equation looks complicated,
+don't solve everything at once.
+
+</p>
+
+
+<div class="remember-list">
+
+
+<div class="remember-item">
+
+<strong>1.</strong>
+
+Look for addition or subtraction.
+
+</div>
+
+
+<div class="remember-item">
+
+<strong>2.</strong>
+
+Undo it on BOTH sides.
+
+</div>
+
+
+<div class="remember-item">
+
+<strong>3.</strong>
+
+Look for multiplication or division.
+
+</div>
+
+
+<div class="remember-item">
+
+<strong>4.</strong>
+
+Undo it on BOTH sides.
+
+</div>
+
+
+<div class="remember-item">
+
+<strong>5.</strong>
+
+Check your answer.
+
+</div>
+
+
+<div class="remember-item">
+
+<strong>Example:</strong>
+
+3x − 5 = 16 → x = 7
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NEXT -->
+
+<div class="next-section">
+
+
+<a
+href="math-show-one-step-equations.html"
+class="next-button"
+>
+
+<span class="next-label">
+Previous visual lesson
+</span>
+
+
+<span class="next-title">
+← One-Step Equations
+</span>
+
+</a>
+
+
+<a
+href="math-show-inequalities.html"
+class="next-button"
+>
+
+<span class="next-label">
+Next visual lesson
+</span>
+
+
+<span class="next-title">
+Inequalities →
+</span>
+
+</a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+
+<div class="footer-inner">
+
+
+<div class="footer-brand">
+NeuralPath
+</div>
+
+
+<div class="footer-text">
+Learn your way. © 2026 NeuralPath
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+
+/* =========================
+   INTERACTIVE QUESTION
+========================= */
+
+function chooseStep(choice) {
+
+    const feedback =
+        document.getElementById(
+            "interactive-feedback"
+        );
+
+    const result =
+        document.getElementById(
+            "interactive-result"
+        );
+
+
+    if (choice === "subtract") {
+
+        feedback.innerHTML =
+            "<strong>Correct.</strong> 6 is being added to 4x, so subtract 6 from both sides first.";
+
+        result.classList.add("show");
+
+    }
+
+    else {
+
+        feedback.innerHTML =
+            "Not quite. Look at the equation from the outside in. What operation is being applied to 4x first?";
+
+        result.classList.remove("show");
+
+    }
+
+}
+
+
+/* =========================
+   PRACTICE
+========================= */
+
+function checkAnswer(value) {
+
+    const feedback =
+        document.getElementById(
+            "practice-feedback"
+        );
+
+    const title =
+        document.getElementById(
+            "practice-title"
+        );
+
+    const text =
+        document.getElementById(
+            "practice-text"
+        );
+
+
+    feedback.classList.add("show");
+
+
+    if (value === "5") {
+
+        feedback.classList.remove(
+            "incorrect"
+        );
+
+        feedback.classList.add(
+            "correct"
+        );
+
+        title.textContent =
+            "Correct! ";
+
+        text.textContent =
+            "Subtract 2 from both sides: 5x = 25. Then divide by 5: x = 5.";
+
+    }
+
+    else {
+
+        feedback.classList.remove(
+            "correct"
+        );
+
+        feedback.classList.add(
+            "incorrect"
+        );
+
+        title.textContent =
+            "Not quite. ";
+
+        text.textContent =
+            "Start by undoing the +2. Subtract 2 from both sides, then divide by 5.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
