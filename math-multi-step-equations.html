@@ -1,0 +1,3149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn how to solve multi-step equations with NeuralPath."
+    >
+
+    <title>Multi-Step Equations — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #65666a;
+
+            --lavender: #e8dff0;
+            --lavender-dark: #bca8d2;
+
+            --blue: #dce9f1;
+            --blue-dark: #abc8d9;
+
+            --yellow: #f2e9c9;
+
+            --sage: #dce8d9;
+
+            --peach: #efd9d4;
+
+            --pink: #ead9df;
+
+            --border: #dedbd2;
+
+            --radius: 18px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--cream);
+
+            color: var(--ink);
+
+            line-height: 1.65;
+
+        }
+
+
+        a {
+
+            color: inherit;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid rgba(222, 219, 210, 0.8);
+
+        }
+
+
+        .nav {
+
+            width: min(1050px, 92%);
+
+            min-height: 76px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size: 1.5rem;
+
+            text-decoration: none;
+
+        }
+
+
+        .logo-dot {
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+
+            margin-left: 4px;
+
+            border-radius: 50%;
+
+            background:
+                var(--lavender-dark);
+
+        }
+
+
+        .back-button {
+
+            padding: 10px 18px;
+
+            border-radius: 999px;
+
+            background:
+                var(--lavender);
+
+            text-decoration: none;
+
+            font-weight: 650;
+
+            font-size: 0.86rem;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .back-button:hover {
+
+            background:
+                var(--lavender-dark);
+
+            transform:
+                translateX(-3px);
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+
+            width:
+                min(850px, 92%);
+
+            margin: auto;
+
+            padding:
+                65px 0 100px;
+
+        }
+
+
+        .breadcrumb {
+
+            margin-bottom: 28px;
+
+            font-size: 0.84rem;
+
+            color: var(--soft-ink);
+
+        }
+
+
+        .breadcrumb a {
+
+            text-decoration: none;
+
+        }
+
+
+        .breadcrumb a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =========================
+           ROADMAP
+        ========================= */
+
+        .lesson-roadmap {
+
+            margin-bottom: 45px;
+
+            padding: 20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 17px;
+
+            background:
+                var(--paper);
+
+        }
+
+
+        .roadmap-title {
+
+            margin-bottom: 14px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .roadmap {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .roadmap-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #858589;
+
+            font-size: 0.76rem;
+
+            font-weight: 650;
+
+        }
+
+
+        .roadmap-dot {
+
+            width: 19px;
+
+            height: 19px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                #e6e3dc;
+
+            font-size: 0.62rem;
+
+        }
+
+
+        .roadmap-item.complete {
+
+            color: #65666a;
+
+        }
+
+
+        .roadmap-item.complete
+        .roadmap-dot {
+
+            background:
+                var(--sage);
+
+            color: #566253;
+
+        }
+
+
+        .roadmap-item.current {
+
+            color: var(--ink);
+
+        }
+
+
+        .roadmap-item.current
+        .roadmap-dot {
+
+            background:
+                var(--lavender);
+
+            color: var(--ink);
+
+        }
+
+
+        .roadmap-arrow {
+
+            color: #b3afa7;
+
+            font-size: 0.75rem;
+
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .eyebrow {
+
+            display: block;
+
+            margin-bottom: 15px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.77rem;
+
+            font-weight: 750;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        h1 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                clamp(2.6rem, 6vw, 4.3rem);
+
+            line-height: 1.08;
+
+            font-weight: 400;
+
+        }
+
+
+        .intro {
+
+            margin-top: 20px;
+
+            max-width: 650px;
+
+            color: var(--soft-ink);
+
+            font-size: 1.06rem;
+
+        }
+
+
+        /* =========================
+           PROGRESS
+        ========================= */
+
+        .progress-area {
+
+            margin-top: 35px;
+
+            padding: 17px 20px;
+
+            border-radius: 15px;
+
+            background:
+                var(--paper);
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .progress-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            font-size: 0.76rem;
+
+            color: var(--soft-ink);
+
+            font-weight: 700;
+
+        }
+
+
+        .progress-bar {
+
+            height: 7px;
+
+            overflow: hidden;
+
+            border-radius: 999px;
+
+            background:
+                #e7e3da;
+
+        }
+
+
+        .progress-fill {
+
+            width: 25%;
+
+            height: 100%;
+
+            border-radius: 999px;
+
+            background:
+                var(--lavender-dark);
+
+        }
+
+
+        /* =========================
+           LESSON BLOCKS
+        ========================= */
+
+        .lesson-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .lesson-label {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding: 5px 11px;
+
+            border-radius: 999px;
+
+            background:
+                var(--lavender);
+
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.06em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .lesson-block h2 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .lesson-block p {
+
+            color: #55565a;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =========================
+           ORDER GRID
+        ========================= */
+
+        .order-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 13px;
+
+            margin-top: 28px;
+
+        }
+
+
+        .order-card {
+
+            padding: 22px 15px;
+
+            border-radius: 16px;
+
+            text-align: center;
+
+            background:
+                var(--blue);
+
+        }
+
+
+        .order-number {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 0.72rem;
+
+            font-weight: 800;
+
+            color: var(--soft-ink);
+
+        }
+
+
+        .order-card strong {
+
+            font-size: 0.92rem;
+
+        }
+
+
+        /* =========================
+           EQUATIONS
+        ========================= */
+
+        .equation-card {
+
+            width:
+                min(650px, 100%);
+
+            margin:
+                30px auto;
+
+            padding: 28px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background:
+                var(--blue);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(1.5rem, 4vw, 2.15rem);
+
+        }
+
+
+        .equation-card.yellow {
+
+            background:
+                var(--yellow);
+
+        }
+
+
+        .equation-card.peach {
+
+            background:
+                var(--peach);
+
+        }
+
+
+        .equation-card.sage {
+
+            background:
+                var(--sage);
+
+        }
+
+
+        /* =========================
+           STEP BOX
+        ========================= */
+
+        .step-box {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background:
+                var(--blue);
+
+        }
+
+
+        .step {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 24px;
+
+        }
+
+
+        .step:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .step-number {
+
+            flex:
+                0 0 30px;
+
+            width: 30px;
+
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                var(--white);
+
+            font-weight: 800;
+
+            font-size: 0.8rem;
+
+        }
+
+
+        .step-text {
+
+            padding-top: 3px;
+
+        }
+
+
+        .step-text strong {
+
+            display: block;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .step-equation {
+
+            margin-top: 7px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 1.35rem;
+
+        }
+
+
+        /* =========================
+           TIP
+        ========================= */
+
+        .tip {
+
+            margin-top: 28px;
+
+            padding: 23px;
+
+            border-radius: 16px;
+
+            background:
+                var(--yellow);
+
+        }
+
+
+        .tip strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* =========================
+           PRACTICE
+        ========================= */
+
+        .practice-block {
+
+            margin-top: 55px;
+
+            padding: 35px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--yellow);
+
+            border:
+                1px solid rgba(41,42,45,0.05);
+
+        }
+
+
+        .practice-block h2 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size: 1.9rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .question {
+
+            margin-top: 25px;
+
+            font-size: 1.08rem;
+
+            font-weight: 650;
+
+        }
+
+
+        .answer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .answer-button {
+
+            min-height: 62px;
+
+            border:
+                1px solid rgba(41,42,45,0.08);
+
+            border-radius: 14px;
+
+            background:
+                var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 1.02rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
+        }
+
+
+        .answer-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .feedback {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+        }
+
+
+        .feedback.show {
+
+            display: block;
+
+        }
+
+
+        .feedback.correct {
+
+            background:
+                var(--sage);
+
+        }
+
+
+        .feedback.incorrect {
+
+            background:
+                var(--pink);
+
+        }
+
+
+        .feedback strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* =========================
+           CHECK CARD
+        ========================= */
+
+        .check-card {
+
+            margin-top: 28px;
+
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background:
+                var(--sage);
+
+        }
+
+
+        .check-card h3 {
+
+            margin-bottom: 8px;
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size: 1.25rem;
+
+            font-weight: 400;
+
+        }
+
+
+        /* =========================
+           DIFFERENT LEARNING PATHS
+        ========================= */
+
+        .different-way {
+
+            margin-top: 55px;
+
+            padding: 30px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--blue);
+
+        }
+
+
+        .different-way h2 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size: 1.7rem;
+
+            font-weight: 400;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .different-way p {
+
+            color: #566066;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .explanation-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+        }
+
+
+        .explanation-buttons button {
+
+            border: none;
+
+            padding: 10px 16px;
+
+            border-radius: 999px;
+
+            background:
+                var(--white);
+
+            color: var(--ink);
+
+            font: inherit;
+
+            font-size: 0.82rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .explanation-buttons button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .alternative {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.7);
+
+        }
+
+
+        .alternative.show {
+
+            display: block;
+
+        }
+
+
+        /* =========================
+           NEXT SECTION
+        ========================= */
+
+        .next-section {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-top: 60px;
+
+        }
+
+
+        .next-button {
+
+            flex: 1;
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background:
+                var(--lavender);
+
+            text-decoration: none;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .next-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .next-label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--soft-ink);
+
+            font-size: 0.7rem;
+
+            font-weight: 750;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+
+        }
+
+
+        .next-title {
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding: 45px 0;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .footer-inner {
+
+            width:
+                min(850px, 92%);
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .footer-brand {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size: 1.1rem;
+
+        }
+
+
+        .footer-text {
+
+            color:
+                var(--soft-ink);
+
+            font-size: 0.8rem;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .order-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .answer-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .next-section {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .lesson-block,
+            .practice-block {
+
+                padding: 25px;
+
+            }
+
+
+            .roadmap {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+            }
+
+
+            .roadmap-arrow {
+
+                display:
+                    none;
+
+            }
+
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+
+                gap: 10px;
+
+                text-align:
+                    center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="site-header">
+
+    <nav class="nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            NeuralPath<span class="logo-dot"></span>
+
+        </a>
+
+
+        <a
+            href="math-breakdown.html"
+            class="back-button"
+        >
+
+            ← Algebra
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================
+     BREADCRUMB
+========================= -->
+
+<div class="breadcrumb">
+
+    <a href="index.html">
+        NeuralPath
+    </a>
+
+    &nbsp;→&nbsp;
+
+    <a href="mathematics.html">
+        Mathematics
+    </a>
+
+    &nbsp;→&nbsp;
+
+    <a href="math-breakdown.html">
+        Break it down
+    </a>
+
+    &nbsp;→&nbsp;
+
+    Multi-Step Equations
+
+</div>
+
+
+<!-- =========================
+     ROADMAP
+========================= -->
+
+<div class="lesson-roadmap">
+
+    <div class="roadmap-title">
+
+        Algebra foundations → next level
+
+    </div>
+
+
+    <div class="roadmap">
+
+
+        <div class="roadmap-item complete">
+
+            <span class="roadmap-dot">
+                ✓
+            </span>
+
+            Like Terms
+
+        </div>
+
+
+        <span class="roadmap-arrow">
+            →
+        </span>
+
+
+        <div class="roadmap-item complete">
+
+            <span class="roadmap-dot">
+                ✓
+            </span>
+
+            One-Step
+
+        </div>
+
+
+        <span class="roadmap-arrow">
+            →
+        </span>
+
+
+        <div class="roadmap-item complete">
+
+            <span class="roadmap-dot">
+                ✓
+            </span>
+
+            Inequalities
+
+        </div>
+
+
+        <span class="roadmap-arrow">
+            →
+        </span>
+
+
+        <div class="roadmap-item current">
+
+            <span class="roadmap-dot">
+                4
+            </span>
+
+            Multi-Step
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     TITLE
+========================= -->
+
+<span class="eyebrow">
+
+    Algebra · Problem Solving
+
+</span>
+
+
+<h1>
+
+    Multi-Step Equations
+
+</h1>
+
+
+<p class="intro">
+
+    You've already learned how to undo one
+    operation at a time.
+
+    Now we're going to combine those skills
+    to solve equations with several steps.
+
+</p>
+
+
+<!-- =========================
+     PROGRESS
+========================= -->
+
+<div class="progress-area">
+
+    <div class="progress-top">
+
+        <span>
+            Algebra problem solving
+        </span>
+
+        <span>
+            1 of 4
+        </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+        <div class="progress-fill"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SECTION 1
+========================= -->
+
+<section class="lesson-block">
+
+    <span class="lesson-label">
+
+        Step 1 · The plan
+
+    </span>
+
+
+    <h2>
+
+        Don't solve everything at once.
+
+    </h2>
+
+
+    <p>
+
+        Multi-step equations look complicated
+        because several operations are happening
+        at the same time.
+
+    </p>
+
+
+    <p>
+
+        The trick is to break the problem into
+        smaller decisions.
+
+    </p>
+
+
+    <div class="order-grid">
+
+
+        <div class="order-card">
+
+            <span class="order-number">
+                01
+            </span>
+
+            <strong>
+                Distribute
+            </strong>
+
+        </div>
+
+
+        <div class="order-card">
+
+            <span class="order-number">
+                02
+            </span>
+
+            <strong>
+                Combine like terms
+            </strong>
+
+        </div>
+
+
+        <div class="order-card">
+
+            <span class="order-number">
+                03
+            </span>
+
+            <strong>
+                Move variables
+            </strong>
+
+        </div>
+
+
+        <div class="order-card">
+
+            <span class="order-number">
+                04
+            </span>
+
+            <strong>
+                Move constants
+            </strong>
+
+        </div>
+
+
+        <div class="order-card">
+
+            <span class="order-number">
+                05
+            </span>
+
+            <strong>
+                Isolate x
+            </strong>
+
+        </div>
+
+
+        <div class="order-card">
+
+            <span class="order-number">
+                06
+            </span>
+
+            <strong>
+                Check
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="tip">
+
+        <strong>
+            NeuralPath tip
+        </strong>
+
+        You do NOT always need every step.
+
+        Use the steps that actually appear
+        in the equation.
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 2
+========================= -->
+
+<section class="lesson-block">
+
+    <span class="lesson-label">
+
+        Step 2 · Follow along
+
+    </span>
+
+
+    <h2>
+
+        Let's solve one together.
+
+    </h2>
+
+
+    <p>
+
+        Try not to jump ahead. Follow each
+        transformation one at a time.
+
+    </p>
+
+
+    <div class="equation-card">
+
+        3x + 5 = 20
+
+    </div>
+
+
+    <div class="step-box">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+
+            <div class="step-text">
+
+                <strong>
+                    Look for the variable.
+                </strong>
+
+                The variable is x.
+
+                The number 3 is multiplying x,
+                and 5 is being added.
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+
+            <div class="step-text">
+
+                <strong>
+                    Undo addition first.
+                </strong>
+
+                Subtract 5 from both sides.
+
+                <div class="step-equation">
+
+                    3x + 5 − 5 = 20 − 5
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+
+            <div class="step-text">
+
+                <strong>
+                    Simplify.
+                </strong>
+
+                <div class="step-equation">
+
+                    3x = 15
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+
+            <div class="step-text">
+
+                <strong>
+                    Undo multiplication.
+                </strong>
+
+                Divide both sides by 3.
+
+                <div class="step-equation">
+
+                    x = 5
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="equation-card sage">
+
+        x = 5
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 3
+========================= -->
+
+<section class="lesson-block">
+
+    <span class="lesson-label">
+
+        Step 3 · Distribute
+
+    </span>
+
+
+    <h2>
+
+        What if there are parentheses?
+
+    </h2>
+
+
+    <p>
+
+        Sometimes the first thing you need to
+        do is distribute.
+
+    </p>
+
+
+    <p>
+
+        Multiply the number outside the parentheses
+        by <strong>every term inside</strong>.
+
+    </p>
+
+
+    <div class="equation-card yellow">
+
+        2(x + 3) = 14
+
+    </div>
+
+
+    <div class="step-box">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+
+            <div class="step-text">
+
+                Multiply 2 by x.
+
+                <div class="step-equation">
+                    2x
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+
+            <div class="step-text">
+
+                Multiply 2 by 3.
+
+                <div class="step-equation">
+                    6
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+
+            <div class="step-text">
+
+                Rewrite the equation.
+
+                <div class="step-equation">
+
+                    2x + 6 = 14
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+
+            <div class="step-text">
+
+                Subtract 6.
+
+                <div class="step-equation">
+
+                    2x = 8
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                5
+            </div>
+
+
+            <div class="step-text">
+
+                Divide by 2.
+
+                <div class="step-equation">
+
+                    x = 4
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="tip">
+
+        <strong>
+            Watch the parentheses.
+        </strong>
+
+        If you have:
+
+        <strong>
+            −3(x + 2)
+        </strong>
+
+        the negative 3 multiplies BOTH terms.
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 4
+========================= -->
+
+<section class="lesson-block">
+
+    <span class="lesson-label">
+
+        Step 4 · Combine
+
+    </span>
+
+
+    <h2>
+
+        Put like terms together.
+
+    </h2>
+
+
+    <p>
+
+        After distributing, you may have
+        several terms that can be combined.
+
+    </p>
+
+
+    <div class="equation-card">
+
+        2x + 3x + 4 = 24
+
+    </div>
+
+
+    <div class="step-box">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+
+            <div class="step-text">
+
+                Find the like terms.
+
+                <div class="step-equation">
+
+                    2x + 3x
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+
+            <div class="step-text">
+
+                Combine them.
+
+                <div class="step-equation">
+
+                    5x + 4 = 24
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+
+            <div class="step-text">
+
+                Continue solving.
+
+                <div class="step-equation">
+
+                    5x = 20
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+
+            <div class="step-text">
+
+                Divide by 5.
+
+                <div class="step-equation">
+
+                    x = 4
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 5
+========================= -->
+
+<section class="lesson-block">
+
+    <span class="lesson-label">
+
+        Step 5 · Level up
+
+    </span>
+
+
+    <h2>
+
+        What if x is on both sides?
+
+    </h2>
+
+
+    <p>
+
+        This looks intimidating, but the goal
+        is still exactly the same:
+
+        get x by itself.
+
+    </p>
+
+
+    <div class="equation-card peach">
+
+        5x + 2 = 2x + 14
+
+    </div>
+
+
+    <div class="step-box">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+
+            <div class="step-text">
+
+                <strong>
+                    Move the variable terms.
+                </strong>
+
+                Subtract 2x from both sides.
+
+                <div class="step-equation">
+
+                    3x + 2 = 14
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+
+            <div class="step-text">
+
+                <strong>
+                    Move the constant.
+                </strong>
+
+                Subtract 2.
+
+                <div class="step-equation">
+
+                    3x = 12
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+
+            <div class="step-text">
+
+                <strong>
+                    Divide by 3.
+                </strong>
+
+                <div class="step-equation">
+
+                    x = 4
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 6
+========================= -->
+
+<section class="lesson-block">
+
+    <span class="lesson-label">
+
+        Step 6 · Check
+
+    </span>
+
+
+    <h2>
+
+        Don't skip the check.
+
+    </h2>
+
+
+    <p>
+
+        One of the easiest ways to catch a mistake
+        is to substitute your answer back into
+        the original equation.
+
+    </p>
+
+
+    <div class="equation-card">
+
+        5x + 2 = 2x + 14
+
+    </div>
+
+
+    <p>
+
+        We found:
+
+    </p>
+
+
+    <div class="equation-card sage">
+
+        x = 4
+
+    </div>
+
+
+    <div class="check-card">
+
+        <h3>
+
+            Substitute 4 for x.
+
+        </h3>
+
+
+        <div class="step-equation">
+
+            5(4) + 2 = 2(4) + 14
+
+        </div>
+
+
+        <div class="step-equation">
+
+            20 + 2 = 8 + 14
+
+        </div>
+
+
+        <div class="step-equation">
+
+            22 = 22
+
+        </div>
+
+
+        <p>
+
+            Both sides are equal, so the answer
+            checks out.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRACTICE
+========================= -->
+
+<section class="practice-block">
+
+    <span class="lesson-label">
+
+        Practice
+
+    </span>
+
+
+    <h2>
+
+        Your turn.
+
+    </h2>
+
+
+    <p>
+
+        Work through each equation before
+        choosing an answer.
+
+    </p>
+
+
+    <!-- QUESTION 1 -->
+
+    <p class="question">
+
+        01 · Solve:
+
+    </p>
+
+
+    <div class="equation-card">
+
+        2x + 6 = 18
+
+    </div>
+
+
+    <div class="answer-grid">
+
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer('6')"
+        >
+
+            x = 6
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer('12')"
+        >
+
+            x = 12
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer('3')"
+        >
+
+            x = 3
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="feedback"
+        class="feedback"
+    >
+
+        <strong id="feedback-title"></strong>
+
+        <span id="feedback-text"></span>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <p class="question">
+
+        02 · Solve:
+
+    </p>
+
+
+    <div class="equation-card yellow">
+
+        3(x + 2) = 21
+
+    </div>
+
+
+    <div class="answer-grid">
+
+
+        <button
+            class="answer-button"
+            onclick="checkSecond('5')"
+        >
+
+            x = 5
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkSecond('7')"
+        >
+
+            x = 7
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkSecond('3')"
+        >
+
+            x = 3
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="feedback-second"
+        class="feedback"
+    >
+
+        <strong id="feedback-title-second"></strong>
+
+        <span id="feedback-text-second"></span>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <p class="question">
+
+        03 · Solve:
+
+    </p>
+
+
+    <div class="equation-card peach">
+
+        4x + 3 = 2x + 11
+
+    </div>
+
+
+    <div class="answer-grid">
+
+
+        <button
+            class="answer-button"
+            onclick="checkThird('4')"
+        >
+
+            x = 4
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkThird('7')"
+        >
+
+            x = 7
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkThird('2')"
+        >
+
+            x = 2
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="feedback-third"
+        class="feedback"
+    >
+
+        <strong id="feedback-title-third"></strong>
+
+        <span id="feedback-text-third"></span>
+
+    </div>
+
+
+    <!-- CHALLENGE -->
+
+    <p class="question">
+
+        04 · Challenge:
+
+    </p>
+
+
+    <div class="equation-card sage">
+
+        2(3x − 4) + 2 = 12
+
+    </div>
+
+
+    <div class="answer-grid">
+
+
+        <button
+            class="answer-button"
+            onclick="checkChallenge('3')"
+        >
+
+            x = 3
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkChallenge('4')"
+        >
+
+            x = 4
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            onclick="checkChallenge('2')"
+        >
+
+            x = 2
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="feedback-challenge"
+        class="feedback"
+    >
+
+        <strong id="feedback-title-challenge"></strong>
+
+        <span id="feedback-text-challenge"></span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DIFFERENT LEARNING PATHS
+========================= -->
+
+<section class="different-way">
+
+    <h2>
+
+        Need another way?
+
+    </h2>
+
+
+    <p>
+
+        There isn't one "correct" way to understand
+        a math problem.
+
+        Try the explanation that fits your brain.
+
+    </p>
+
+
+    <div class="explanation-buttons">
+
+
+        <button
+            onclick="showAlternative('simple')"
+        >
+
+            Keep it simple
+
+        </button>
+
+
+        <button
+            onclick="showAlternative('visual')"
+        >
+
+            Show me visually
+
+        </button>
+
+
+        <button
+            onclick="showAlternative('checklist')"
+        >
+
+            Give me a checklist
+
+        </button>
+
+
+        <button
+            onclick="showAlternative('words')"
+        >
+
+            Explain it in words
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="simple"
+        class="alternative"
+    >
+
+        <strong>
+            Keep it simple
+        </strong>
+
+
+        <p>
+
+            Think of an equation like a locked box.
+
+            Your job is to undo everything around x
+            until only x is left.
+
+            Work one operation at a time.
+
+        </p>
+
+    </div>
+
+
+    <div
+        id="visual"
+        class="alternative"
+    >
+
+        <strong>
+            Show me visually
+        </strong>
+
+
+        <p>
+
+            Imagine both sides of the equation
+            sitting on a balance scale.
+
+            Whatever you do to one side,
+            you must do to the other.
+
+        </p>
+
+    </div>
+
+
+    <div
+        id="checklist"
+        class="alternative"
+    >
+
+        <strong>
+            Give me a checklist
+        </strong>
+
+
+        <p>
+
+            □ Distribute
+
+            <br>
+
+            □ Combine like terms
+
+            <br>
+
+            □ Move variable terms
+
+            <br>
+
+            □ Move constants
+
+            <br>
+
+            □ Isolate x
+
+            <br>
+
+            □ Check your answer
+
+        </p>
+
+    </div>
+
+
+    <div
+        id="words"
+        class="alternative"
+    >
+
+        <strong>
+            Explain it in words
+        </strong>
+
+
+        <p>
+
+            Instead of thinking about six separate
+            algebra rules, think:
+
+            "I am cleaning up the equation until
+            the variable is alone."
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMPLETION
+========================= -->
+
+<section class="lesson-block">
+
+    <span class="lesson-label">
+
+        You've got the idea
+
+    </span>
+
+
+    <h2>
+
+        Multi-step equations: complete.
+
+    </h2>
+
+
+    <p>
+
+        You can now take an equation with several
+        operations and break it into manageable
+        pieces.
+
+    </p>
+
+
+    <div class="equation-card yellow">
+
+        Distribute → Combine → Move → Isolate → Check
+
+    </div>
+
+
+    <p>
+
+        Keep this pattern in mind as equations
+        become more complicated.
+
+    </p>
+
+</section>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="next-section">
+
+
+    <a
+        href="math-inequalities.html"
+        class="next-button"
+    >
+
+        <span class="next-label">
+
+            Previous lesson
+
+        </span>
+
+
+        <span class="next-title">
+
+            ← Inequalities
+
+        </span>
+
+    </a>
+
+
+    <a
+        href="#"
+        class="next-button"
+    >
+
+        <span class="next-label">
+
+            Coming next
+
+        </span>
+
+
+        <span class="next-title">
+
+            Systems of Equations →
+
+        </span>
+
+    </a>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <div class="footer-brand">
+
+            NeuralPath
+
+        </div>
+
+
+        <p class="footer-text">
+
+            Learn your way. © 2026 NeuralPath
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+    /* =========================
+       FEEDBACK SYSTEM
+    ========================= */
+
+    function showFeedback(
+
+        id,
+        titleId,
+        textId,
+        correct,
+        correctTitle,
+        correctText,
+        incorrectTitle,
+        incorrectText
+
+    ) {
+
+
+        const feedback =
+            document.getElementById(id);
+
+
+        const title =
+            document.getElementById(titleId);
+
+
+        const text =
+            document.getElementById(textId);
+
+
+        feedback.classList.add("show");
+
+
+        if (correct) {
+
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+
+            feedback.classList.add(
+                "correct"
+            );
+
+
+            title.textContent =
+                correctTitle;
+
+
+            text.textContent =
+                correctText;
+
+
+        }
+
+        else {
+
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+
+            title.textContent =
+                incorrectTitle;
+
+
+            text.textContent =
+                incorrectText;
+
+        }
+
+    }
+
+
+    /* =========================
+       QUESTION 1
+    ========================= */
+
+    function checkAnswer(answer) {
+
+
+        showFeedback(
+
+            "feedback",
+
+            "feedback-title",
+
+            "feedback-text",
+
+            answer === "6",
+
+            "Correct!",
+
+            "Subtract 6 from both sides: 2x = 12. Then divide by 2. x = 6.",
+
+            "Not quite.",
+
+            "Subtract 6 from both sides first. You get 2x = 12. Then divide by 2. x = 6."
+
+        );
+
+    }
+
+
+    /* =========================
+       QUESTION 2
+    ========================= */
+
+    function checkSecond(answer) {
+
+
+        showFeedback(
+
+            "feedback-second",
+
+            "feedback-title-second",
+
+            "feedback-text-second",
+
+            answer === "5",
+
+            "Correct!",
+
+            "Distribute first: 3x + 6 = 21. Subtract 6: 3x = 15. Divide by 3: x = 5.",
+
+            "Not quite.",
+
+            "Start by distributing the 3. Then subtract 6 from both sides and divide by 3. x = 5."
+
+        );
+
+    }
+
+
+    /* =========================
+       QUESTION 3
+    ========================= */
+
+    function checkThird(answer) {
+
+
+        showFeedback(
+
+            "feedback-third",
+
+            "feedback-title-third",
+
+            "feedback-text-third",
+
+            answer === "4",
+
+            "Correct!",
+
+            "Subtract 2x from both sides: 2x + 3 = 11. Subtract 3: 2x = 8. Divide by 2: x = 4.",
+
+            "Not quite.",
+
+            "Move the variable terms together first. Subtract 2x from both sides, then subtract 3. You get x = 4."
+
+        );
+
+    }
+
+
+    /* =========================
+       CHALLENGE
+    ========================= */
+
+    function checkChallenge(answer) {
+
+
+        showFeedback(
+
+            "feedback-challenge",
+
+            "feedback-title-challenge",
+
+            "feedback-text-challenge",
+
+            answer === "3",
+
+            "Correct!",
+
+            "Great work. Distribute first: 6x − 8 + 2 = 12. Combine like terms: 6x − 6 = 12. Add 6: 6x = 18. Divide by 6: x = 3.",
+
+            "Not quite.",
+
+            "Start by distributing the 2. Then combine −8 and +2. After that, isolate x one step at a time."
+
+        );
+
+    }
+
+
+    /* =========================
+       DIFFERENT EXPLANATIONS
+    ========================= */
+
+    function showAlternative(type) {
+
+
+        const alternatives =
+            document.querySelectorAll(
+                ".alternative"
+            );
+
+
+        alternatives.forEach(
+
+            function(item) {
+
+                item.classList.remove(
+                    "show"
+                );
+
+            }
+
+        );
+
+
+        const selected =
+            document.getElementById(type);
+
+
+        if (selected) {
+
+
+            selected.classList.add(
+                "show"
+            );
+
+
+            selected.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "nearest"
+
+            });
+
+        }
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
