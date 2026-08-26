@@ -1,0 +1,2596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Learn how to solve one-step equations visually with NeuralPath."
+    >
+
+    <title>Solving One-Step Equations — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #68686c;
+
+            --lavender: #e8dff0;
+            --lavender-dark: #bca8d2;
+
+            --blue: #dce9f1;
+            --blue-dark: #abc8d9;
+
+            --yellow: #f2e9c9;
+            --yellow-dark: #d9c98f;
+
+            --sage: #dce8d9;
+            --sage-dark: #aec3aa;
+
+            --peach: #efd9d4;
+            --pink: #ead9df;
+
+            --border: #dedbd2;
+
+            --radius: 20px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--cream);
+
+            color: var(--ink);
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter:
+                blur(12px);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        .nav {
+
+            width:
+                min(1050px, 92%);
+
+            min-height:
+                76px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+        }
+
+
+        .logo {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.5rem;
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+        }
+
+
+        .logo-dot {
+
+            display:
+                inline-block;
+
+            width:
+                8px;
+
+            height:
+                8px;
+
+            margin-left:
+                4px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--lavender-dark);
+        }
+
+
+        .back-button {
+
+            padding:
+                10px 18px;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--lavender);
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+
+            font-size:
+                0.85rem;
+
+            font-weight:
+                700;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .back-button:hover {
+
+            background:
+                var(--lavender-dark);
+
+            transform:
+                translateX(-3px);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+
+            width:
+                min(850px, 92%);
+
+            margin:
+                auto;
+
+            padding:
+                60px 0 100px;
+        }
+
+
+        .breadcrumb {
+
+            margin-bottom:
+                28px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.83rem;
+        }
+
+
+        .breadcrumb a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+        }
+
+
+        .breadcrumb a:hover {
+
+            text-decoration:
+                underline;
+        }
+
+
+        /* =========================
+           ROADMAP
+        ========================= */
+
+        .lesson-roadmap {
+
+            margin-bottom:
+                45px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                17px;
+
+            background:
+                var(--paper);
+        }
+
+
+        .roadmap-title {
+
+            margin-bottom:
+                14px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.1em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .roadmap {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .roadmap-item {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                6px;
+
+            color:
+                #858589;
+
+            font-size:
+                0.76rem;
+
+            font-weight:
+                650;
+        }
+
+
+        .roadmap-dot {
+
+            width:
+                19px;
+
+            height:
+                19px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50%;
+
+            background:
+                #e6e3dc;
+
+            font-size:
+                0.62rem;
+        }
+
+
+        .roadmap-item.current {
+
+            color:
+                var(--ink);
+        }
+
+
+        .roadmap-item.current .roadmap-dot {
+
+            background:
+                var(--yellow);
+
+            color:
+                var(--ink);
+        }
+
+
+        .roadmap-arrow {
+
+            color:
+                #b3afa7;
+
+            font-size:
+                0.75rem;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .eyebrow {
+
+            display:
+                block;
+
+            margin-bottom:
+                15px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.77rem;
+
+            font-weight:
+                750;
+
+            letter-spacing:
+                0.12em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        h1 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                clamp(2.4rem, 6vw, 4rem);
+
+            line-height:
+                1.08;
+
+            font-weight:
+                400;
+        }
+
+
+        .intro {
+
+            margin-top:
+                20px;
+
+            max-width:
+                650px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                1.06rem;
+        }
+
+
+        /* =========================
+           VISUAL BLOCK
+        ========================= */
+
+        .visual-block {
+
+            margin-top:
+                50px;
+
+            padding:
+                35px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--paper);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .lesson-label {
+
+            display:
+                inline-block;
+
+            margin-bottom:
+                15px;
+
+            padding:
+                5px 11px;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--yellow);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.06em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .visual-block h2 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.9rem;
+
+            font-weight:
+                400;
+
+            line-height:
+                1.2;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .visual-block > p {
+
+            color:
+                var(--soft-ink);
+
+            margin-bottom:
+                20px;
+        }
+
+
+        /* =========================
+           BALANCE VISUAL
+        ========================= */
+
+        .balance-stage {
+
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--blue);
+
+            text-align:
+                center;
+        }
+
+
+        .balance {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+            max-width:
+                700px;
+
+            margin:
+                auto;
+        }
+
+
+        .balance-side {
+
+            flex:
+                1;
+
+            min-height:
+                130px;
+
+            padding:
+                25px 15px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2.2rem;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .balance-side:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .balance-symbol {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                2rem;
+
+            font-weight:
+                bold;
+        }
+
+
+        .balance-explanation {
+
+            margin-top:
+                25px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.9rem;
+        }
+
+
+        /* =========================
+           UNDO VISUAL
+        ========================= */
+
+        .undo-stage {
+
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--lavender);
+
+            text-align:
+                center;
+        }
+
+
+        .undo-equation {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                12px;
+
+            flex-wrap:
+                wrap;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2.1rem;
+        }
+
+
+        .equation-box {
+
+            padding:
+                14px 20px;
+
+            border-radius:
+                16px;
+
+            background:
+                var(--white);
+
+            transition:
+                0.5s ease;
+        }
+
+
+        .operation {
+
+            padding:
+                10px 16px;
+
+            border-radius:
+                14px;
+
+            background:
+                var(--yellow);
+
+            font-family:
+                Inter,
+                sans-serif;
+
+            font-size:
+                0.9rem;
+
+            font-weight:
+                800;
+        }
+
+
+        .undo-result {
+
+            margin-top:
+                25px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                1.05rem;
+
+            color:
+                var(--soft-ink);
+        }
+
+
+        /* =========================
+           INTERACTIVE SOLVER
+        ========================= */
+
+        .solver-stage {
+
+            margin-top:
+                30px;
+
+            padding:
+                40px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--sage);
+
+            text-align:
+                center;
+        }
+
+
+        .solver-equation {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(2.2rem, 6vw, 3.2rem);
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .solver-buttons {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .solver-button {
+
+            padding:
+                12px 20px;
+
+            border:
+                none;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--white);
+
+            color:
+                var(--ink);
+
+            font: inherit;
+
+            font-weight:
+                750;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .solver-button:hover {
+
+            background:
+                var(--lavender);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        .solver-feedback {
+
+            min-height:
+                30px;
+
+            margin-top:
+                20px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.9rem;
+        }
+
+
+        .solver-answer {
+
+            display:
+                none;
+
+            margin-top:
+                20px;
+
+            padding:
+                17px;
+
+            border-radius:
+                14px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                1.7rem;
+        }
+
+
+        .solver-answer.show {
+
+            display:
+                block;
+        }
+
+
+        /* =========================
+           MULTIPLICATION EXAMPLE
+        ========================= */
+
+        .multiply-stage {
+
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--yellow);
+
+            text-align:
+                center;
+        }
+
+
+        .fraction-equation {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            flex-wrap:
+                wrap;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                2.1rem;
+        }
+
+
+        .fraction-box {
+
+            padding:
+                14px 20px;
+
+            border-radius:
+                15px;
+
+            background:
+                var(--white);
+        }
+
+
+        /* =========================
+           RULE
+        ========================= */
+
+        .rule-card {
+
+            margin-top:
+                30px;
+
+            padding:
+                30px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--peach);
+        }
+
+
+        .rule-card h3 {
+
+            margin-bottom:
+                12px;
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.4rem;
+
+            font-weight:
+                400;
+        }
+
+
+        .rule-card p {
+
+            color:
+                var(--soft-ink);
+        }
+
+
+        /* =========================
+           PRACTICE
+        ========================= */
+
+        .practice {
+
+            margin-top:
+                50px;
+
+            padding:
+                35px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--lavender);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .practice h2 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.9rem;
+
+            font-weight:
+                400;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .practice > p {
+
+            color:
+                var(--soft-ink);
+        }
+
+
+        .practice-question {
+
+            margin-top:
+                25px;
+
+            padding:
+                25px;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--white);
+
+            text-align:
+                center;
+        }
+
+
+        .question-equation {
+
+            margin-bottom:
+                20px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2rem;
+        }
+
+
+        .answer-buttons {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .answer-button {
+
+            min-width:
+                110px;
+
+            padding:
+                12px 18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--ink);
+
+            font: inherit;
+
+            font-weight:
+                750;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .answer-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .practice-feedback {
+
+            display:
+                none;
+
+            margin-top:
+                18px;
+
+            padding:
+                17px;
+
+            border-radius:
+                13px;
+        }
+
+
+        .practice-feedback.show {
+
+            display:
+                block;
+        }
+
+
+        .practice-feedback.correct {
+
+            background:
+                var(--sage);
+        }
+
+
+        .practice-feedback.incorrect {
+
+            background:
+                var(--pink);
+        }
+
+
+        /* =========================
+           REMEMBER
+        ========================= */
+
+        .remember {
+
+            margin-top:
+                50px;
+
+            padding:
+                30px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--yellow);
+        }
+
+
+        .remember h2 {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.7rem;
+
+            font-weight:
+                400;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .remember p {
+
+            color:
+                var(--soft-ink);
+        }
+
+
+        .remember-list {
+
+            margin-top:
+                22px;
+
+            display:
+                grid;
+
+            gap:
+                10px;
+        }
+
+
+        .remember-item {
+
+            padding:
+                15px 18px;
+
+            border-radius:
+                13px;
+
+            background:
+                var(--white);
+
+            font-size:
+                0.9rem;
+        }
+
+
+        .remember-item strong {
+
+            margin-right:
+                5px;
+        }
+
+
+        /* =========================
+           NEXT
+        ========================= */
+
+        .next-section {
+
+            display:
+                flex;
+
+            gap:
+                15px;
+
+            margin-top:
+                55px;
+        }
+
+
+        .next-button {
+
+            flex:
+                1;
+
+            padding:
+                20px;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .next-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .next-label {
+
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                750;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.08em;
+        }
+
+
+        .next-title {
+
+            font-weight:
+                700;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding:
+                45px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+
+            width:
+                min(850px, 92%);
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+        }
+
+
+        .footer-brand {
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+        }
+
+
+        .footer-text {
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.8rem;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .visual-block,
+            .practice {
+                padding:
+                    25px;
+            }
+
+
+            .balance {
+                flex-direction:
+                    column;
+            }
+
+
+            .balance-side {
+                width:
+                    100%;
+            }
+
+
+            .balance-symbol {
+                transform:
+                    rotate(90deg);
+            }
+
+
+            .next-section {
+                flex-direction:
+                    column;
+            }
+
+
+            .roadmap {
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .roadmap-arrow {
+                display:
+                    none;
+            }
+
+
+            .footer-inner {
+                flex-direction:
+                    column;
+
+                gap:
+                    10px;
+
+                text-align:
+                    center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <nav class="nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            NeuralPath<span class="logo-dot"></span>
+
+        </a>
+
+
+        <a
+            href="math-show-like-terms.html"
+            class="back-button"
+        >
+
+            ← Previous
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            NeuralPath
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="mathematics.html">
+            Mathematics
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="math-show-me.html">
+            Show Me
+        </a>
+
+        &nbsp;→&nbsp;
+
+        One-Step Equations
+
+    </div>
+
+
+    <!-- ROADMAP -->
+
+    <div class="lesson-roadmap">
+
+        <div class="roadmap-title">
+
+            Show Me · Visual Mathematics
+
+        </div>
+
+
+        <div class="roadmap">
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    1
+                </span>
+
+                Variables
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    2
+                </span>
+
+                Coefficients
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    3
+                </span>
+
+                Like Terms
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item current">
+
+                <span class="roadmap-dot">
+                    4
+                </span>
+
+                Equations
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    5
+                </span>
+
+                Multi-Step
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    6
+                </span>
+
+                Inequalities
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <span class="eyebrow">
+
+        Show Me · Equations
+
+    </span>
+
+
+    <h1>
+
+        Solving One-Step Equations
+
+    </h1>
+
+
+    <p class="intro">
+
+        Think of an equation like a balanced scale.
+        Whatever you do to one side, you need to
+        do to the other side to keep everything equal.
+
+    </p>
+
+
+    <!-- VISUAL 01 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 01 · The Balance
+
+        </span>
+
+
+        <h2>
+
+            An equation has two equal sides.
+
+        </h2>
+
+
+        <p>
+
+            The equal sign means that both sides
+            have the same value.
+
+        </p>
+
+
+        <div class="balance-stage">
+
+
+            <div class="balance">
+
+
+                <div class="balance-side">
+
+                    x + 3
+
+                </div>
+
+
+                <div class="balance-symbol">
+
+                    =
+
+                </div>
+
+
+                <div class="balance-side">
+
+                    8
+
+                </div>
+
+            </div>
+
+
+            <div class="balance-explanation">
+
+                Both sides represent the same amount.
+
+                <br>
+
+                Our goal is to find the value of
+                <strong>x</strong>.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 02 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 02 · Undo
+
+        </span>
+
+
+        <h2>
+
+            Undo what was done to x.
+
+        </h2>
+
+
+        <p>
+
+            In <strong>x + 3 = 8</strong>,
+            3 was added to x.
+
+            To get x alone, we use the
+            opposite operation.
+
+        </p>
+
+
+        <div class="undo-stage">
+
+
+            <div class="undo-equation">
+
+
+                <div class="equation-box">
+
+                    x + 3
+
+                </div>
+
+
+                <div>
+
+                    =
+
+                </div>
+
+
+                <div class="equation-box">
+
+                    8
+
+                </div>
+
+
+            </div>
+
+
+            <div style="margin-top: 20px;">
+
+                ↓
+
+            </div>
+
+
+            <div class="operation">
+
+                subtract 3 from BOTH sides
+
+            </div>
+
+
+            <div
+                class="undo-equation"
+                style="margin-top: 25px;"
+            >
+
+
+                <div class="equation-box">
+
+                    x
+
+                </div>
+
+
+                <div>
+
+                    =
+
+                </div>
+
+
+                <div class="equation-box">
+
+                    5
+
+                </div>
+
+
+            </div>
+
+
+            <div class="undo-result">
+
+                <strong>x = 5</strong>
+
+                <br>
+
+                The +3 was undone by −3.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 03 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 03 · Keep it balanced
+
+        </span>
+
+
+        <h2>
+
+            The same thing happens to both sides.
+
+        </h2>
+
+
+        <p>
+
+            We cannot subtract 3 from only one side.
+            That would change the balance.
+
+        </p>
+
+
+        <div class="balance-stage">
+
+
+            <div class="balance">
+
+
+                <div class="balance-side">
+
+                    x + 3
+
+                    <br>
+
+                    − 3
+
+                </div>
+
+
+                <div class="balance-symbol">
+
+                    =
+
+                </div>
+
+
+                <div class="balance-side">
+
+                    8
+
+                    <br>
+
+                    − 3
+
+                </div>
+
+            </div>
+
+
+            <div class="balance-explanation">
+
+                Left side:
+
+                <strong>x + 3 − 3 = x</strong>
+
+                <br>
+
+                Right side:
+
+                <strong>8 − 3 = 5</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 04 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 04 · Multiplication
+
+        </span>
+
+
+        <h2>
+
+            What if x is being multiplied?
+
+        </h2>
+
+
+        <p>
+
+            Consider:
+
+            <strong>3x = 12</strong>.
+
+            The 3 is multiplying x, so we use
+            division to undo it.
+
+        </p>
+
+
+        <div class="multiply-stage">
+
+
+            <div class="fraction-equation">
+
+
+                <div class="fraction-box">
+
+                    3x
+
+                </div>
+
+
+                <div>
+
+                    =
+
+                </div>
+
+
+                <div class="fraction-box">
+
+                    12
+
+                </div>
+
+            </div>
+
+
+            <div style="margin: 25px 0;">
+
+                ↓
+
+            </div>
+
+
+            <div class="operation">
+
+                divide BOTH sides by 3
+
+            </div>
+
+
+            <div
+                class="fraction-equation"
+                style="margin-top: 25px;"
+            >
+
+
+                <div class="fraction-box">
+
+                    x
+
+                </div>
+
+
+                <div>
+
+                    =
+
+                </div>
+
+
+                <div class="fraction-box">
+
+                    4
+
+                </div>
+
+            </div>
+
+
+            <div class="undo-result">
+
+                <strong>x = 4</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 05 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 05 · The Opposite Operation
+
+        </span>
+
+
+        <h2>
+
+            Every operation has an opposite.
+
+        </h2>
+
+
+        <p>
+
+            The opposite operation helps us
+            isolate the variable.
+
+        </p>
+
+
+        <div class="rule-card">
+
+
+            <h3>
+
+                Think: "How do I undo it?"
+
+            </h3>
+
+
+            <p>
+
+                Addition → Subtraction
+
+                <br><br>
+
+                Subtraction → Addition
+
+                <br><br>
+
+                Multiplication → Division
+
+                <br><br>
+
+                Division → Multiplication
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERACTIVE -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 06 · Try it
+
+        </span>
+
+
+        <h2>
+
+            What should we do first?
+
+        </h2>
+
+
+        <p>
+
+            Look at the equation and choose
+            the operation that will undo what
+            happened to x.
+
+        </p>
+
+
+        <div class="solver-stage">
+
+
+            <div class="solver-equation">
+
+                x + 7 = 12
+
+            </div>
+
+
+            <div class="solver-buttons">
+
+
+                <button
+                    class="solver-button"
+                    onclick="solverChoice('add')"
+                >
+
+                    Add 7
+
+                </button>
+
+
+                <button
+                    class="solver-button"
+                    onclick="solverChoice('subtract')"
+                >
+
+                    Subtract 7
+
+                </button>
+
+
+                <button
+                    class="solver-button"
+                    onclick="solverChoice('multiply')"
+                >
+
+                    Multiply by 7
+
+                </button>
+
+
+                <button
+                    class="solver-button"
+                    onclick="solverChoice('divide')"
+                >
+
+                    Divide by 7
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="solver-feedback"
+                class="solver-feedback"
+            >
+
+                Choose an operation.
+
+            </div>
+
+
+            <div
+                id="solver-answer"
+                class="solver-answer"
+            >
+
+                x = 5
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRACTICE -->
+
+    <section class="practice">
+
+
+        <span class="lesson-label">
+
+            Visual Practice
+
+        </span>
+
+
+        <h2>
+
+            Solve it.
+
+        </h2>
+
+
+        <p>
+
+            What is the value of x?
+
+        </p>
+
+
+        <div class="practice-question">
+
+
+            <div class="question-equation">
+
+                x − 4 = 9
+
+            </div>
+
+
+            <div class="answer-buttons">
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('5')"
+                >
+
+                    x = 5
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('13')"
+                >
+
+                    x = 13
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('36')"
+                >
+
+                    x = 36
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('4')"
+                >
+
+                    x = 4
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="practice-feedback"
+                class="practice-feedback"
+            >
+
+                <strong id="practice-title"></strong>
+
+                <span id="practice-text"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REMEMBER -->
+
+    <section class="remember">
+
+
+        <h2>
+
+            Remember it visually
+
+        </h2>
+
+
+        <p>
+
+            Your goal is always the same:
+            get the variable by itself.
+
+        </p>
+
+
+        <div class="remember-list">
+
+
+            <div class="remember-item">
+
+                <strong>1.</strong>
+
+                Look at what is happening to x.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>2.</strong>
+
+                Choose the opposite operation.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>3.</strong>
+
+                Do it to BOTH sides.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>4.</strong>
+
+                Simplify.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>5.</strong>
+
+                Check your answer.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>Example:</strong>
+
+                x + 3 = 8 → x = 5
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEXT -->
+
+    <div class="next-section">
+
+
+        <a
+            href="math-show-like-terms.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+
+                Previous visual lesson
+
+            </span>
+
+
+            <span class="next-title">
+
+                ← Combining Like Terms
+
+            </span>
+
+        </a>
+
+
+        <a
+            href="math-show-multi-step-equations.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+
+                Next visual lesson
+
+            </span>
+
+
+            <span class="next-title">
+
+                Multi-Step Equations →
+
+            </span>
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+
+    <div class="footer-inner">
+
+
+        <div class="footer-brand">
+
+            NeuralPath
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Learn your way. © 2026 NeuralPath
+
+        </div>
+
+    </div>
+
+
+</footer>
+
+
+<script>
+
+
+    /* =========================
+       INTERACTIVE SOLVER
+    ========================= */
+
+    function solverChoice(choice) {
+
+        const feedback =
+            document.getElementById(
+                "solver-feedback"
+            );
+
+        const answer =
+            document.getElementById(
+                "solver-answer"
+            );
+
+
+        if (choice === "subtract") {
+
+            feedback.innerHTML =
+                "<strong>Correct.</strong> 7 was added to x, so subtract 7 from both sides to undo it.";
+
+            answer.classList.add("show");
+
+        }
+
+        else {
+
+            feedback.innerHTML =
+                "Not quite. Look at what happened to x. Since 7 was added, what operation would undo addition?";
+
+            answer.classList.remove("show");
+
+        }
+
+    }
+
+
+    /* =========================
+       PRACTICE
+    ========================= */
+
+    function checkPractice(value) {
+
+        const feedback =
+            document.getElementById(
+                "practice-feedback"
+            );
+
+        const title =
+            document.getElementById(
+                "practice-title"
+            );
+
+        const text =
+            document.getElementById(
+                "practice-text"
+            );
+
+
+        feedback.classList.add("show");
+
+
+        if (value === "13") {
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+            feedback.classList.add(
+                "correct"
+            );
+
+            title.textContent =
+                "Correct! ";
+
+            text.textContent =
+                "Since x − 4 = 9, add 4 to both sides. That gives x = 13.";
+
+        }
+
+        else {
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+            title.textContent =
+                "Not quite. ";
+
+            text.textContent =
+                "The equation is x − 4 = 9. Since 4 is being subtracted, use addition to undo it. Try again.";
+
+        }
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
