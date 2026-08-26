@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn how to combine like terms through visual examples with NeuralPath."
+    >
+
+    <title>Combining Like Terms — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #68686c;
+
+            --lavender: #e8dff0;
+            --lavender-dark: #bca8d2;
+
+            --blue: #dce9f1;
+            --blue-dark: #abc8d9;
+
+            --yellow: #f2e9c9;
+            --yellow-dark: #d9c98f;
+
+            --sage: #dce8d9;
+            --sage-dark: #aec3aa;
+
+            --peach: #efd9d4;
+            --pink: #ead9df;
+
+            --border: #dedbd2;
+
+            --radius: 20px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--ink);
+
+            line-height:
+                1.65;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter:
+                blur(12px);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        .nav {
+            width:
+                min(1050px, 92%);
+
+            min-height:
+                76px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+        }
+
+
+        .logo {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.5rem;
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+        }
+
+
+        .logo-dot {
+            display:
+                inline-block;
+
+            width:
+                8px;
+
+            height:
+                8px;
+
+            margin-left:
+                4px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--lavender-dark);
+        }
+
+
+        .back-button {
+            padding:
+                10px 18px;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--lavender);
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+
+            font-size:
+                0.85rem;
+
+            font-weight:
+                700;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .back-button:hover {
+            background:
+                var(--lavender-dark);
+
+            transform:
+                translateX(-3px);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width:
+                min(850px, 92%);
+
+            margin:
+                auto;
+
+            padding:
+                60px 0 100px;
+        }
+
+
+        .breadcrumb {
+            margin-bottom:
+                28px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.83rem;
+        }
+
+
+        .breadcrumb a {
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+        }
+
+
+        .breadcrumb a:hover {
+            text-decoration:
+                underline;
+        }
+
+
+        /* =========================
+           ROADMAP
+        ========================= */
+
+        .lesson-roadmap {
+            margin-bottom:
+                45px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                17px;
+
+            background:
+                var(--paper);
+        }
+
+
+        .roadmap-title {
+            margin-bottom:
+                14px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.1em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .roadmap {
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .roadmap-item {
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                6px;
+
+            color:
+                #858589;
+
+            font-size:
+                0.76rem;
+
+            font-weight:
+                650;
+        }
+
+
+        .roadmap-dot {
+            width:
+                19px;
+
+            height:
+                19px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50%;
+
+            background:
+                #e6e3dc;
+
+            font-size:
+                0.62rem;
+        }
+
+
+        .roadmap-item.current {
+            color:
+                var(--ink);
+        }
+
+
+        .roadmap-item.current .roadmap-dot {
+            background:
+                var(--yellow);
+
+            color:
+                var(--ink);
+        }
+
+
+        .roadmap-arrow {
+            color:
+                #b3afa7;
+
+            font-size:
+                0.75rem;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .eyebrow {
+            display:
+                block;
+
+            margin-bottom:
+                15px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.77rem;
+
+            font-weight:
+                750;
+
+            letter-spacing:
+                0.12em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        h1 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                clamp(2.5rem, 6vw, 4.1rem);
+
+            line-height:
+                1.08;
+
+            font-weight:
+                400;
+        }
+
+
+        .intro {
+            margin-top:
+                20px;
+
+            max-width:
+                650px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                1.06rem;
+        }
+
+
+        /* =========================
+           VISUAL BLOCK
+        ========================= */
+
+        .visual-block {
+            margin-top:
+                50px;
+
+            padding:
+                35px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--paper);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .lesson-label {
+            display:
+                inline-block;
+
+            margin-bottom:
+                15px;
+
+            padding:
+                5px 11px;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--yellow);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.06em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .visual-block h2 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.9rem;
+
+            font-weight:
+                400;
+
+            line-height:
+                1.2;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .visual-block > p {
+            color:
+                var(--soft-ink);
+
+            margin-bottom:
+                20px;
+        }
+
+
+        /* =========================
+           VISUAL EXPRESSION
+        ========================= */
+
+        .expression-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--lavender);
+
+            text-align:
+                center;
+        }
+
+
+        .expression {
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2.1rem;
+        }
+
+
+        .term {
+            padding:
+                14px 20px;
+
+            border-radius:
+                16px;
+
+            background:
+                var(--white);
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .term:hover {
+            transform:
+                translateY(-4px);
+        }
+
+
+        .term-x {
+            background:
+                var(--blue);
+        }
+
+
+        .term-number {
+            background:
+                var(--sage);
+        }
+
+
+        .operator {
+            font-size:
+                2rem;
+        }
+
+
+        .explanation {
+            margin-top:
+                25px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.9rem;
+        }
+
+
+        /* =========================
+           GROUPING VISUAL
+        ========================= */
+
+        .group-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--blue);
+
+            text-align:
+                center;
+        }
+
+
+        .group-title {
+            margin-bottom:
+                22px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.85rem;
+
+            font-weight:
+                750;
+        }
+
+
+        .term-groups {
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                20px;
+
+            max-width:
+                600px;
+
+            margin:
+                auto;
+        }
+
+
+        .term-group {
+            min-height:
+                150px;
+
+            padding:
+                22px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--white);
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .term-group:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .term-group h3 {
+            margin-bottom:
+                15px;
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.05rem;
+
+            font-weight:
+                400;
+        }
+
+
+        .mini-terms {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                9px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .mini-term {
+            padding:
+                9px 13px;
+
+            border-radius:
+                12px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                1.25rem;
+        }
+
+
+        .x-mini {
+            background:
+                var(--blue);
+        }
+
+
+        .number-mini {
+            background:
+                var(--sage);
+        }
+
+
+        /* =========================
+           COMBINE ANIMATION
+        ========================= */
+
+        .combine-stage {
+            margin-top:
+                30px;
+
+            padding:
+                40px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--yellow);
+
+            text-align:
+                center;
+        }
+
+
+        .combine-equation {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2.2rem;
+        }
+
+
+        .combine-term {
+            padding:
+                13px 19px;
+
+            border-radius:
+                15px;
+
+            background:
+                var(--blue);
+
+            transition:
+                0.7s ease;
+        }
+
+
+        .combine-term.moving {
+            transform:
+                translateY(30px) scale(0.9);
+            opacity:
+                0.4;
+        }
+
+
+        .combine-result {
+            margin-top:
+                30px;
+
+            padding:
+                17px 25px;
+
+            display:
+                inline-block;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                2rem;
+
+            opacity:
+                0;
+
+            transform:
+                scale(0.8);
+
+            transition:
+                0.5s ease;
+        }
+
+
+        .combine-result.show {
+            opacity:
+                1;
+
+            transform:
+                scale(1);
+        }
+
+
+        .visual-button {
+            margin-top:
+                25px;
+
+            padding:
+                12px 20px;
+
+            border:
+                none;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--lavender);
+
+            color:
+                var(--ink);
+
+            font: inherit;
+
+            font-weight:
+                750;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .visual-button:hover {
+            background:
+                var(--lavender-dark);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================
+           NON-LIKE TERMS
+        ========================= */
+
+        .not-like-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--peach);
+
+            text-align:
+                center;
+        }
+
+
+        .not-like-expression {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                2rem;
+        }
+
+
+        .different-term {
+            padding:
+                13px 18px;
+
+            border-radius:
+                15px;
+
+            background:
+                var(--white);
+        }
+
+
+        .different-term:first-child {
+            background:
+                var(--blue);
+        }
+
+
+        .different-term:nth-child(3) {
+            background:
+                var(--lavender);
+        }
+
+
+        .not-like-message {
+            margin-top:
+                22px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.9rem;
+        }
+
+
+        /* =========================
+           INTERACTIVE
+        ========================= */
+
+        .interactive-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--sage);
+
+            text-align:
+                center;
+        }
+
+
+        .interactive-equation {
+            margin-bottom:
+                25px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(2rem, 5vw, 3rem);
+        }
+
+
+        .clickable-term {
+            display:
+                inline-block;
+
+            padding:
+                9px 13px;
+
+            margin:
+                3px;
+
+            border:
+                none;
+
+            border-radius:
+                12px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                1.25rem;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .clickable-term:hover {
+            transform:
+                translateY(-3px);
+        }
+
+
+        .clickable-term.selected {
+            box-shadow:
+                0 0 0 3px var(--lavender-dark);
+
+            background:
+                var(--lavender);
+        }
+
+
+        .interactive-message {
+            min-height:
+                28px;
+
+            margin-top:
+                18px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.88rem;
+        }
+
+
+        /* =========================
+           PRACTICE
+        ========================= */
+
+        .practice {
+            margin-top:
+                50px;
+
+            padding:
+                35px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--lavender);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .practice h2 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.9rem;
+
+            font-weight:
+                400;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .practice > p {
+            color:
+                var(--soft-ink);
+        }
+
+
+        .practice-question {
+            margin-top:
+                25px;
+
+            padding:
+                25px;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--white);
+
+            text-align:
+                center;
+        }
+
+
+        .question-equation {
+            margin-bottom:
+                20px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2rem;
+        }
+
+
+        .answer-buttons {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .answer-button {
+            min-width:
+                110px;
+
+            padding:
+                12px 18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--ink);
+
+            font: inherit;
+
+            font-weight:
+                750;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .answer-button:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .practice-feedback {
+            display:
+                none;
+
+            margin-top:
+                18px;
+
+            padding:
+                17px;
+
+            border-radius:
+                13px;
+        }
+
+
+        .practice-feedback.show {
+            display:
+                block;
+        }
+
+
+        .practice-feedback.correct {
+            background:
+                var(--sage);
+        }
+
+
+        .practice-feedback.incorrect {
+            background:
+                var(--pink);
+        }
+
+
+        /* =========================
+           REMEMBER
+        ========================= */
+
+        .remember {
+            margin-top:
+                50px;
+
+            padding:
+                30px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--yellow);
+        }
+
+
+        .remember h2 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.7rem;
+
+            font-weight:
+                400;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .remember p {
+            color:
+                var(--soft-ink);
+        }
+
+
+        .remember-list {
+            margin-top:
+                22px;
+
+            display:
+                grid;
+
+            gap:
+                10px;
+        }
+
+
+        .remember-item {
+            padding:
+                15px 18px;
+
+            border-radius:
+                13px;
+
+            background:
+                var(--white);
+
+            font-size:
+                0.9rem;
+        }
+
+
+        .remember-item strong {
+            margin-right:
+                5px;
+        }
+
+
+        /* =========================
+           NEXT
+        ========================= */
+
+        .next-section {
+            display:
+                flex;
+
+            gap:
+                15px;
+
+            margin-top:
+                55px;
+        }
+
+
+        .next-button {
+            flex:
+                1;
+
+            padding:
+                20px;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .next-button:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .next-label {
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                750;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.08em;
+        }
+
+
+        .next-title {
+            font-weight:
+                700;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding:
+                45px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+            width:
+                min(850px, 92%);
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+        }
+
+
+        .footer-brand {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+        }
+
+
+        .footer-text {
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.8rem;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .visual-block,
+            .practice {
+                padding:
+                    25px;
+            }
+
+
+            .term-groups {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .next-section {
+                flex-direction:
+                    column;
+            }
+
+
+            .roadmap {
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .roadmap-arrow {
+                display:
+                    none;
+            }
+
+
+            .footer-inner {
+                flex-direction:
+                    column;
+
+                gap:
+                    10px;
+
+                text-align:
+                    center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <nav class="nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            NeuralPath<span class="logo-dot"></span>
+
+        </a>
+
+
+        <a
+            href="math-show-coefficients.html"
+            class="back-button"
+        >
+
+            ← Previous
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            NeuralPath
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="mathematics.html">
+            Mathematics
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="math-show-me.html">
+            Show Me
+        </a>
+
+        &nbsp;→&nbsp;
+
+        Combining Like Terms
+
+    </div>
+
+
+    <!-- ROADMAP -->
+
+    <div class="lesson-roadmap">
+
+        <div class="roadmap-title">
+
+            Show Me · Visual Mathematics
+
+        </div>
+
+
+        <div class="roadmap">
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    1
+                </span>
+
+                Variables
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    2
+                </span>
+
+                Coefficients
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item current">
+
+                <span class="roadmap-dot">
+                    3
+                </span>
+
+                Like Terms
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    4
+                </span>
+
+                Equations
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    5
+                </span>
+
+                Multi-Step
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    6
+                </span>
+
+                Inequalities
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <span class="eyebrow">
+
+        Show Me · Algebra
+
+    </span>
+
+
+    <h1>
+
+        Combining Like Terms
+
+    </h1>
+
+
+    <p class="intro">
+
+        Think of like terms as things that belong
+        in the same group. If they match, we can
+        combine them.
+
+    </p>
+
+
+    <!-- VISUAL 01 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 01 · What is a term?
+
+        </span>
+
+
+        <h2>
+
+            Start by looking at the pieces.
+
+        </h2>
+
+
+        <p>
+
+            In the expression
+
+            <strong>3x + 2x + 5</strong>,
+
+            there are three terms.
+
+        </p>
+
+
+        <div class="expression-stage">
+
+
+            <div class="expression">
+
+
+                <div class="term term-x">
+
+                    3x
+
+                </div>
+
+
+                <div class="operator">
+
+                    +
+
+                </div>
+
+
+                <div class="term term-x">
+
+                    2x
+
+                </div>
+
+
+                <div class="operator">
+
+                    +
+
+                </div>
+
+
+                <div class="term term-number">
+
+                    5
+
+                </div>
+
+            </div>
+
+
+            <div class="explanation">
+
+                Each part separated by a + or −
+                is a <strong>term</strong>.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 02 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 02 · Find the groups
+
+        </span>
+
+
+        <h2>
+
+            Like terms belong together.
+
+        </h2>
+
+
+        <p>
+
+            Look at <strong>3x + 2x + 5</strong>.
+            The two x terms match because they
+            both contain x.
+
+        </p>
+
+
+        <div class="group-stage">
+
+
+            <div class="group-title">
+
+                SORT THE TERMS INTO THEIR GROUPS
+
+            </div>
+
+
+            <div class="term-groups">
+
+
+                <div class="term-group">
+
+                    <h3>
+
+                        x terms
+
+                    </h3>
+
+
+                    <div class="mini-terms">
+
+                        <span class="mini-term x-mini">
+                            3x
+                        </span>
+
+                        <span class="mini-term x-mini">
+                            2x
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="term-group">
+
+                    <h3>
+
+                        Number terms
+
+                    </h3>
+
+
+                    <div class="mini-terms">
+
+                        <span class="mini-term number-mini">
+                            5
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p style="margin-top: 20px;">
+
+            Notice how <strong>3x</strong> and
+            <strong>2x</strong> can go together,
+            while <strong>5</strong> stays separate.
+
+        </p>
+
+    </section>
+
+
+    <!-- VISUAL 03 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 03 · Combine
+
+        </span>
+
+
+        <h2>
+
+            Now put the matching terms together.
+
+        </h2>
+
+
+        <p>
+
+            We can combine the coefficients
+            because the variable is the same.
+
+        </p>
+
+
+        <div class="combine-stage">
+
+
+            <div class="combine-equation">
+
+
+                <span
+                    id="combine-one"
+                    class="combine-term"
+                >
+
+                    3x
+
+                </span>
+
+
+                <span>
+                    +
+                </span>
+
+
+                <span
+                    id="combine-two"
+                    class="combine-term"
+                >
+
+                    2x
+
+                </span>
+
+
+                <span>
+                    =
+                </span>
+
+
+                <span>
+                    ?
+                </span>
+
+            </div>
+
+
+            <button
+                class="visual-button"
+                onclick="combineTerms()"
+            >
+
+                Combine the like terms
+
+            </button>
+
+
+            <div
+                id="combine-result"
+                class="combine-result"
+            >
+
+                5x
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 04 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 04 · Why does it work?
+
+        </span>
+
+
+        <h2>
+
+            Think of x's as objects.
+
+        </h2>
+
+
+        <p>
+
+            If you have 3 x's and then get
+            2 more x's, how many x's do you have?
+
+        </p>
+
+
+        <div class="group-stage">
+
+
+            <div class="mini-terms">
+
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+
+                <span
+                    style="
+                        font-family: Georgia, serif;
+                        font-size: 1.7rem;
+                    "
+                >
+                    +
+                </span>
+
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+
+                <span
+                    style="
+                        font-family: Georgia, serif;
+                        font-size: 1.7rem;
+                    "
+                >
+                    =
+                </span>
+
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+                <span class="mini-term x-mini">
+                    x
+                </span>
+
+            </div>
+
+
+            <div class="explanation">
+
+                3 x's + 2 x's = 5 x's
+
+            </div>
+
+        </div>
+
+
+        <p style="margin-top: 20px;">
+
+            That's why:
+
+            <strong>3x + 2x = 5x</strong>.
+
+        </p>
+
+    </section>
+
+
+    <!-- VISUAL 05 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 05 · Not everything matches
+
+        </span>
+
+
+        <h2>
+
+            What about different variables?
+
+        </h2>
+
+
+        <p>
+
+            We can only combine terms when
+            their variable parts match.
+
+        </p>
+
+
+        <div class="not-like-stage">
+
+
+            <div class="not-like-expression">
+
+
+                <span class="different-term">
+
+                    3x
+
+                </span>
+
+
+                <span>
+                    +
+                </span>
+
+
+                <span class="different-term">
+
+                    2y
+
+                </span>
+
+            </div>
+
+
+            <div class="not-like-message">
+
+                <strong>3x</strong> and
+                <strong>2y</strong> are not like terms.
+
+                They have different variables.
+
+                <br><br>
+
+                So they stay:
+
+                <strong>3x + 2y</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERACTIVE -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 06 · Try it
+
+        </span>
+
+
+        <h2>
+
+            Find the like terms.
+
+        </h2>
+
+
+        <p>
+
+            Click the terms that belong together.
+
+        </p>
+
+
+        <div class="interactive-stage">
+
+
+            <div class="interactive-equation">
+
+
+                <button
+                    class="clickable-term"
+                    onclick="chooseLike(this, '3x')"
+                >
+                    3x
+                </button>
+
+
+                <span>
+                    +
+                </span>
+
+
+                <button
+                    class="clickable-term"
+                    onclick="chooseLike(this, '4')"
+                >
+                    4
+                </button>
+
+
+                <span>
+                    +
+                </span>
+
+
+                <button
+                    class="clickable-term"
+                    onclick="chooseLike(this, '2x')"
+                >
+                    2x
+                </button>
+
+
+                <span>
+                    +
+                </span>
+
+
+                <button
+                    class="clickable-term"
+                    onclick="chooseLike(this, '7')"
+                >
+                    7
+                </button>
+
+            </div>
+
+
+            <div
+                id="interactive-message"
+                class="interactive-message"
+            >
+
+                Which terms look like they belong
+                in the same group?
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRACTICE -->
+
+    <section class="practice">
+
+
+        <span class="lesson-label">
+
+            Visual Practice
+
+        </span>
+
+
+        <h2>
+
+            Combine the like terms.
+
+        </h2>
+
+
+        <p>
+
+            What does <strong>4x + 3x</strong>
+            simplify to?
+
+        </p>
+
+
+        <div class="practice-question">
+
+
+            <div class="question-equation">
+
+                4x + 3x = ?
+
+            </div>
+
+
+            <div class="answer-buttons">
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('7x')"
+                >
+
+                    7x
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('12x')"
+                >
+
+                    12x
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('7')"
+                >
+
+                    7
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('4x')"
+                >
+
+                    4x
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="practice-feedback"
+                class="practice-feedback"
+            >
+
+                <strong id="practice-title"></strong>
+
+                <span id="practice-text"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REMEMBER -->
+
+    <section class="remember">
+
+
+        <h2>
+
+            Remember it visually
+
+        </h2>
+
+
+        <p>
+
+            Before combining anything,
+            look at the variable part.
+
+        </p>
+
+
+        <div class="remember-list">
+
+
+            <div class="remember-item">
+
+                <strong>1.</strong>
+
+                Find the terms.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>2.</strong>
+
+                Find the terms with matching variables.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>3.</strong>
+
+                Add or subtract their coefficients.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>4.</strong>
+
+                Keep the variable.
+
+            </div>
+
+
+            <div class="remember-item">
+
+                <strong>Example:</strong>
+
+                3x + 2x = 5x
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEXT -->
+
+    <div class="next-section">
+
+
+        <a
+            href="math-show-coefficients.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+
+                Previous visual lesson
+
+            </span>
+
+
+            <span class="next-title">
+
+                ← Coefficients & Constants
+
+            </span>
+
+        </a>
+
+
+        <a
+            href="math-show-one-step-equations.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+
+                Next visual lesson
+
+            </span>
+
+
+            <span class="next-title">
+
+                Solving One-Step Equations →
+
+            </span>
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+
+    <div class="footer-inner">
+
+
+        <div class="footer-brand">
+
+            NeuralPath
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Learn your way. © 2026 NeuralPath
+
+        </div>
+
+    </div>
+
+
+</footer>
+
+
+<script>
+
+
+    /* =========================
+       COMBINE TERMS
+    ========================= */
+
+    function combineTerms() {
+
+        const first =
+            document.getElementById(
+                "combine-one"
+            );
+
+        const second =
+            document.getElementById(
+                "combine-two"
+            );
+
+        const result =
+            document.getElementById(
+                "combine-result"
+            );
+
+
+        first.classList.add("moving");
+
+        second.classList.add("moving");
+
+
+        setTimeout(function() {
+
+            result.classList.add("show");
+
+        }, 500);
+
+    }
+
+
+    /* =========================
+       LIKE TERM INTERACTION
+    ========================= */
+
+    let selectedTerms = [];
+
+
+    function chooseLike(button, term) {
+
+        button.classList.toggle("selected");
+
+
+        if (
+            selectedTerms.includes(term)
+        ) {
+
+            selectedTerms =
+                selectedTerms.filter(
+                    item => item !== term
+                );
+
+        }
+
+        else {
+
+            selectedTerms.push(term);
+
+        }
+
+
+        const message =
+            document.getElementById(
+                "interactive-message"
+            );
+
+
+        if (
+            selectedTerms.includes("3x") &&
+            selectedTerms.includes("2x")
+        ) {
+
+            message.innerHTML =
+                "<strong>Correct.</strong> 3x and 2x are like terms because they both contain x.";
+
+        }
+
+        else if (
+            selectedTerms.includes("4") &&
+            selectedTerms.includes("7")
+        ) {
+
+            message.innerHTML =
+                "<strong>Also correct.</strong> 4 and 7 are like terms because they are both constants.";
+
+        }
+
+        else {
+
+            message.textContent =
+                "Keep looking. Like terms have matching variable parts.";
+
+        }
+
+    }
+
+
+    /* =========================
+       PRACTICE
+    ========================= */
+
+    function checkPractice(answer) {
+
+        const feedback =
+            document.getElementById(
+                "practice-feedback"
+            );
+
+        const title =
+            document.getElementById(
+                "practice-title"
+            );
+
+        const text =
+            document.getElementById(
+                "practice-text"
+            );
+
+
+        feedback.classList.add("show");
+
+
+        if (answer === "7x") {
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+            feedback.classList.add(
+                "correct"
+            );
+
+            title.textContent =
+                "Correct! ";
+
+            text.textContent =
+                "Add the coefficients: 4 + 3 = 7, then keep the x. So 4x + 3x = 7x.";
+
+        }
+
+        else {
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+            title.textContent =
+                "Not quite. ";
+
+            text.textContent =
+                "Add the coefficients 4 and 3, but keep the variable x. Try again!";
+
+        }
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
