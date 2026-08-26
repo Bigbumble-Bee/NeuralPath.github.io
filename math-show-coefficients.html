@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn coefficients and constants through visual examples with NeuralPath."
+    >
+
+    <title>Coefficients & Constants — NeuralPath</title>
+
+    <link
+        href="https://fonts.cdnfonts.com/css/starborn"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --cream: #f8f6f0;
+            --paper: #fffdf8;
+            --white: #ffffff;
+
+            --ink: #292a2d;
+            --soft-ink: #68686c;
+
+            --lavender: #e8dff0;
+            --lavender-dark: #bca8d2;
+
+            --blue: #dce9f1;
+            --blue-dark: #abc8d9;
+
+            --yellow: #f2e9c9;
+            --yellow-dark: #d9c98f;
+
+            --sage: #dce8d9;
+            --peach: #efd9d4;
+            --pink: #ead9df;
+
+            --border: #dedbd2;
+
+            --radius: 20px;
+
+            --shadow:
+                0 8px 25px rgba(55, 53, 48, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--ink);
+
+            line-height:
+                1.65;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background:
+                rgba(248, 246, 240, 0.94);
+
+            backdrop-filter:
+                blur(12px);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        .nav {
+            width:
+                min(1050px, 92%);
+
+            min-height:
+                76px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+        }
+
+
+        .logo {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.5rem;
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+        }
+
+
+        .logo-dot {
+            display:
+                inline-block;
+
+            width:
+                8px;
+
+            height:
+                8px;
+
+            margin-left:
+                4px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--lavender-dark);
+        }
+
+
+        .back-button {
+            padding:
+                10px 18px;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--lavender);
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+
+            font-size:
+                0.85rem;
+
+            font-weight:
+                700;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .back-button:hover {
+            background:
+                var(--lavender-dark);
+
+            transform:
+                translateX(-3px);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width:
+                min(850px, 92%);
+
+            margin:
+                auto;
+
+            padding:
+                60px 0 100px;
+        }
+
+
+        .breadcrumb {
+            margin-bottom:
+                28px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.83rem;
+        }
+
+
+        .breadcrumb a {
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+        }
+
+
+        .breadcrumb a:hover {
+            text-decoration:
+                underline;
+        }
+
+
+        /* =========================
+           ROADMAP
+        ========================= */
+
+        .lesson-roadmap {
+            margin-bottom:
+                45px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                17px;
+
+            background:
+                var(--paper);
+        }
+
+
+        .roadmap-title {
+            margin-bottom:
+                14px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.1em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .roadmap {
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .roadmap-item {
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                6px;
+
+            color:
+                #858589;
+
+            font-size:
+                0.76rem;
+
+            font-weight:
+                650;
+        }
+
+
+        .roadmap-dot {
+            width:
+                19px;
+
+            height:
+                19px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50%;
+
+            background:
+                #e6e3dc;
+
+            font-size:
+                0.62rem;
+        }
+
+
+        .roadmap-item.current {
+            color:
+                var(--ink);
+        }
+
+
+        .roadmap-item.current .roadmap-dot {
+            background:
+                var(--yellow);
+
+            color:
+                var(--ink);
+        }
+
+
+        .roadmap-arrow {
+            color:
+                #b3afa7;
+
+            font-size:
+                0.75rem;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .eyebrow {
+            display:
+                block;
+
+            margin-bottom:
+                15px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.77rem;
+
+            font-weight:
+                750;
+
+            letter-spacing:
+                0.12em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        h1 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                clamp(2.5rem, 6vw, 4.1rem);
+
+            line-height:
+                1.08;
+
+            font-weight:
+                400;
+        }
+
+
+        .intro {
+            margin-top:
+                20px;
+
+            max-width:
+                650px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                1.06rem;
+        }
+
+
+        /* =========================
+           VISUAL BLOCK
+        ========================= */
+
+        .visual-block {
+            margin-top:
+                50px;
+
+            padding:
+                35px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--paper);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .lesson-label {
+            display:
+                inline-block;
+
+            margin-bottom:
+                15px;
+
+            padding:
+                5px 11px;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--yellow);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.06em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .visual-block h2 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.9rem;
+
+            font-weight:
+                400;
+
+            line-height:
+                1.2;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .visual-block > p {
+            color:
+                var(--soft-ink);
+
+            margin-bottom:
+                20px;
+        }
+
+
+        /* =========================
+           MAIN EXPRESSION
+        ========================= */
+
+        .expression-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--yellow);
+
+            text-align:
+                center;
+        }
+
+
+        .expression {
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .expression-box {
+            min-width:
+                105px;
+
+            padding:
+                20px 15px;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2.1rem;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .expression-box:hover {
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 8px 18px rgba(55,53,48,0.08);
+        }
+
+
+        .coefficient-box {
+            background:
+                var(--blue);
+        }
+
+
+        .variable-box {
+            background:
+                var(--lavender);
+        }
+
+
+        .constant-box {
+            background:
+                var(--sage);
+        }
+
+
+        .operator {
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                2rem;
+        }
+
+
+        .box-label {
+            display:
+                block;
+
+            margin-top:
+                7px;
+
+            font-family:
+                Inter,
+                sans-serif;
+
+            font-size:
+                0.62rem;
+
+            font-weight:
+                800;
+
+            color:
+                var(--soft-ink);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.08em;
+        }
+
+
+        /* =========================
+           REVEAL
+        ========================= */
+
+        .visual-button {
+            margin-top:
+                25px;
+
+            padding:
+                12px 20px;
+
+            border:
+                none;
+
+            border-radius:
+                999px;
+
+            background:
+                var(--lavender);
+
+            color:
+                var(--ink);
+
+            font: inherit;
+
+            font-weight:
+                750;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .visual-button:hover {
+            background:
+                var(--lavender-dark);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .reveal {
+            display:
+                none;
+
+            margin-top:
+                20px;
+
+            padding:
+                20px;
+
+            border-radius:
+                15px;
+
+            background:
+                var(--sage);
+        }
+
+
+        .reveal.show {
+            display:
+                block;
+        }
+
+
+        .reveal strong {
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        /* =========================
+           COEFFICIENT VISUAL
+        ========================= */
+
+        .copies-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--blue);
+
+            text-align:
+                center;
+        }
+
+
+        .copies-number {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2.5rem;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .x-copies {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                9px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .x-card {
+            width:
+                58px;
+
+            height:
+                58px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                14px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                1.6rem;
+
+            box-shadow:
+                0 4px 10px rgba(55,53,48,0.05);
+        }
+
+
+        .copies-caption {
+            margin-top:
+                20px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.9rem;
+        }
+
+
+        /* =========================
+           CONSTANT VISUAL
+        ========================= */
+
+        .constant-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--sage);
+
+            text-align:
+                center;
+        }
+
+
+        .constant-number {
+            width:
+                100px;
+
+            height:
+                100px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                22px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                3rem;
+
+            box-shadow:
+                0 5px 15px rgba(55,53,48,0.05);
+        }
+
+
+        .constant-caption {
+            margin-top:
+                20px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.92rem;
+        }
+
+
+        /* =========================
+           COMPARISON
+        ========================= */
+
+        .comparison {
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                15px;
+
+            margin-top:
+                30px;
+        }
+
+
+        .comparison-card {
+            padding:
+                25px;
+
+            border-radius:
+                17px;
+
+            text-align:
+                center;
+        }
+
+
+        .comparison-card.coefficient {
+            background:
+                var(--blue);
+        }
+
+
+        .comparison-card.constant {
+            background:
+                var(--sage);
+        }
+
+
+        .comparison-symbol {
+            margin-bottom:
+                10px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                2.2rem;
+        }
+
+
+        .comparison-card h3 {
+            margin-bottom:
+                7px;
+
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.15rem;
+
+            font-weight:
+                400;
+        }
+
+
+        .comparison-card p {
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.83rem;
+        }
+
+
+        /* =========================
+           INTERACTIVE EXAMPLE
+        ========================= */
+
+        .interactive-stage {
+            margin-top:
+                30px;
+
+            padding:
+                35px 20px;
+
+            border-radius:
+                18px;
+
+            background:
+                var(--peach);
+
+            text-align:
+                center;
+        }
+
+
+        .interactive-equation {
+            margin-bottom:
+                25px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(2rem, 5vw, 3rem);
+        }
+
+
+        .highlight-area {
+            min-height:
+                65px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .highlight-word {
+            padding:
+                10px 17px;
+
+            border-radius:
+                13px;
+
+            background:
+                var(--white);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                1.25rem;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .highlight-word:hover {
+            transform:
+                translateY(-3px);
+        }
+
+
+        .highlight-word.selected-coefficient {
+            background:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px var(--blue-dark);
+        }
+
+
+        .highlight-word.selected-variable {
+            background:
+                var(--lavender);
+
+            box-shadow:
+                0 0 0 3px var(--lavender-dark);
+        }
+
+
+        .highlight-word.selected-constant {
+            background:
+                var(--sage);
+
+            box-shadow:
+                0 0 0 3px #aec3aa;
+        }
+
+
+        .interaction-message {
+            min-height:
+                25px;
+
+            margin-top:
+                18px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.88rem;
+        }
+
+
+        /* =========================
+           PRACTICE
+        ========================= */
+
+        .practice {
+            margin-top:
+                50px;
+
+            padding:
+                35px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--lavender);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .practice h2 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.9rem;
+
+            font-weight:
+                400;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .practice > p {
+            color:
+                var(--soft-ink);
+        }
+
+
+        .practice-question {
+            margin-top:
+                25px;
+
+            padding:
+                25px;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--white);
+
+            text-align:
+                center;
+        }
+
+
+        .question-equation {
+            margin-bottom:
+                20px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                2rem;
+        }
+
+
+        .answer-buttons {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .answer-button {
+            min-width:
+                100px;
+
+            padding:
+                12px 18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--ink);
+
+            font: inherit;
+
+            font-weight:
+                750;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .answer-button:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .practice-feedback {
+            display:
+                none;
+
+            margin-top:
+                18px;
+
+            padding:
+                17px;
+
+            border-radius:
+                13px;
+        }
+
+
+        .practice-feedback.show {
+            display:
+                block;
+        }
+
+
+        .practice-feedback.correct {
+            background:
+                var(--sage);
+        }
+
+
+        .practice-feedback.incorrect {
+            background:
+                var(--pink);
+        }
+
+
+        /* =========================
+           REMEMBER
+        ========================= */
+
+        .remember {
+            margin-top:
+                50px;
+
+            padding:
+                30px;
+
+            border-radius:
+                var(--radius);
+
+            background:
+                var(--yellow);
+        }
+
+
+        .remember h2 {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.7rem;
+
+            font-weight:
+                400;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .remember p {
+            color:
+                var(--soft-ink);
+        }
+
+
+        .remember-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                12px;
+
+            margin-top:
+                22px;
+        }
+
+
+        .remember-card {
+            padding:
+                20px;
+
+            border-radius:
+                15px;
+
+            background:
+                var(--white);
+
+            text-align:
+                center;
+        }
+
+
+        .remember-card .big {
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                1.9rem;
+        }
+
+
+        .remember-card strong {
+            font-size:
+                0.85rem;
+        }
+
+
+        /* =========================
+           NEXT
+        ========================= */
+
+        .next-section {
+            display:
+                flex;
+
+            gap:
+                15px;
+
+            margin-top:
+                55px;
+        }
+
+
+        .next-button {
+            flex:
+                1;
+
+            padding:
+                20px;
+
+            border-radius:
+                17px;
+
+            background:
+                var(--paper);
+
+            border:
+                1px solid var(--border);
+
+            color:
+                var(--ink);
+
+            text-decoration:
+                none;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .next-button:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .next-label {
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                750;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.08em;
+        }
+
+
+        .next-title {
+            font-weight:
+                700;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding:
+                45px 0;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-inner {
+            width:
+                min(850px, 92%);
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+        }
+
+
+        .footer-brand {
+            font-family:
+                "Starborn",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+        }
+
+
+        .footer-text {
+            color:
+                var(--soft-ink);
+
+            font-size:
+                0.8rem;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .visual-block,
+            .practice {
+                padding:
+                    25px;
+            }
+
+
+            .comparison,
+            .remember-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .next-section {
+                flex-direction:
+                    column;
+            }
+
+
+            .roadmap {
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .roadmap-arrow {
+                display:
+                    none;
+            }
+
+
+            .footer-inner {
+                flex-direction:
+                    column;
+
+                gap:
+                    10px;
+
+                text-align:
+                    center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <nav class="nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            NeuralPath<span class="logo-dot"></span>
+
+        </a>
+
+
+        <a
+            href="math-show-me.html"
+            class="back-button"
+        >
+
+            ← Show Me
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            NeuralPath
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="mathematics.html">
+            Mathematics
+        </a>
+
+        &nbsp;→&nbsp;
+
+        <a href="math-show-me.html">
+            Show Me
+        </a>
+
+        &nbsp;→&nbsp;
+
+        Coefficients & Constants
+
+    </div>
+
+
+    <!-- ROADMAP -->
+
+    <div class="lesson-roadmap">
+
+        <div class="roadmap-title">
+
+            Show Me · Visual Mathematics
+
+        </div>
+
+
+        <div class="roadmap">
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    1
+                </span>
+
+                Variables
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item current">
+
+                <span class="roadmap-dot">
+                    2
+                </span>
+
+                Coefficients
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    3
+                </span>
+
+                Like Terms
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    4
+                </span>
+
+                Equations
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    5
+                </span>
+
+                Multi-Step
+
+            </div>
+
+
+            <span class="roadmap-arrow">
+                →
+            </span>
+
+
+            <div class="roadmap-item">
+
+                <span class="roadmap-dot">
+                    6
+                </span>
+
+                Inequalities
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <span class="eyebrow">
+
+        Show Me · Algebra
+
+    </span>
+
+
+    <h1>
+
+        Coefficients & Constants
+
+    </h1>
+
+
+    <p class="intro">
+
+        Let's take an algebraic expression apart
+        and see what each piece is doing.
+
+    </p>
+
+
+    <!-- VISUAL 01 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 01 · Take it apart
+
+        </span>
+
+
+        <h2>
+
+            Look at the expression.
+
+        </h2>
+
+
+        <p>
+
+            Here's a simple algebraic expression:
+
+            <strong>3x + 5</strong>.
+
+            Each part has a different job.
+
+        </p>
+
+
+        <div class="expression-stage">
+
+            <div class="expression">
+
+
+                <div class="expression-box coefficient-box">
+
+                    3
+
+                    <span class="box-label">
+                        coefficient
+                    </span>
+
+                </div>
+
+
+                <div class="expression-box variable-box">
+
+                    x
+
+                    <span class="box-label">
+                        variable
+                    </span>
+
+                </div>
+
+
+                <div class="operator">
+
+                    +
+
+                </div>
+
+
+                <div class="expression-box constant-box">
+
+                    5
+
+                    <span class="box-label">
+                        constant
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="visual-button"
+                onclick="revealParts()"
+            >
+
+                Show me what each part does
+
+            </button>
+
+
+            <div
+                id="parts-reveal"
+                class="reveal"
+            >
+
+                <strong>
+
+                    3 tells us how many x's we have.
+                    x is the variable.
+                    5 is a number that stays by itself.
+
+                </strong>
+
+
+                <span>
+
+                    These pieces work together to make
+                    the expression 3x + 5.
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 02 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 02 · Coefficient
+
+        </span>
+
+
+        <h2>
+
+            Think of the coefficient as a multiplier.
+
+        </h2>
+
+
+        <p>
+
+            In <strong>4x</strong>, the 4 tells us
+            how many x's we have.
+
+        </p>
+
+
+        <div class="copies-stage">
+
+            <div class="copies-number">
+
+                4x
+
+            </div>
+
+
+            <div class="x-copies">
+
+                <div class="x-card">
+                    x
+                </div>
+
+                <div class="x-card">
+                    x
+                </div>
+
+                <div class="x-card">
+                    x
+                </div>
+
+                <div class="x-card">
+                    x
+                </div>
+
+            </div>
+
+
+            <div class="copies-caption">
+
+                4x means:
+
+                <strong>
+                    x + x + x + x
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="visual-button"
+            onclick="revealCoefficient()"
+        >
+
+            So what is the coefficient?
+
+        </button>
+
+
+        <div
+            id="coefficient-reveal"
+            class="reveal"
+        >
+
+            <strong>
+
+                The coefficient is 4.
+
+            </strong>
+
+
+            <span>
+
+                It tells us how many times the variable
+                is being used.
+
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 03 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 03 · Constant
+
+        </span>
+
+
+        <h2>
+
+            A constant stands on its own.
+
+        </h2>
+
+
+        <p>
+
+            A constant is a number without a variable
+            attached to it.
+
+        </p>
+
+
+        <div class="constant-stage">
+
+            <div class="constant-number">
+
+                7
+
+            </div>
+
+
+            <div class="constant-caption">
+
+                Nothing is attached to the 7.
+
+                <br>
+
+                It simply stays <strong>7</strong>.
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="visual-button"
+            onclick="revealConstant()"
+        >
+
+            Why is it called a constant?
+
+        </button>
+
+
+        <div
+            id="constant-reveal"
+            class="reveal"
+        >
+
+            <strong>
+
+                Because its value does not depend
+                on a variable.
+
+            </strong>
+
+
+            <span>
+
+                In the expression 4x + 7,
+                the 7 remains 7.
+
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISUAL 04 -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 04 · Compare them
+
+        </span>
+
+
+        <h2>
+
+            Coefficient vs. constant
+
+        </h2>
+
+
+        <p>
+
+            They are both numbers, but they play
+            different roles.
+
+        </p>
+
+
+        <div class="comparison">
+
+
+            <div class="comparison-card coefficient">
+
+                <div class="comparison-symbol">
+
+                    4x
+
+                </div>
+
+
+                <h3>
+
+                    Coefficient
+
+                </h3>
+
+
+                <p>
+
+                    Connected to a variable.
+
+                    It tells us how many times
+                    the variable is being used.
+
+                </p>
+
+            </div>
+
+
+            <div class="comparison-card constant">
+
+                <div class="comparison-symbol">
+
+                    7
+
+                </div>
+
+
+                <h3>
+
+                    Constant
+
+                </h3>
+
+
+                <p>
+
+                    Stands alone.
+
+                    It has its own fixed value.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERACTIVE -->
+
+    <section class="visual-block">
+
+        <span class="lesson-label">
+
+            Visual 05 · Try it
+
+        </span>
+
+
+        <h2>
+
+            Find each part.
+
+        </h2>
+
+
+        <p>
+
+            Click a piece of the expression
+            to see what it represents.
+
+        </p>
+
+
+        <div class="interactive-stage">
+
+
+            <div class="interactive-equation">
+
+                6x + 4
+
+            </div>
+
+
+            <div class="highlight-area">
+
+
+                <button
+                    class="highlight-word"
+                    onclick="selectPart('6')"
+                >
+
+                    6
+
+                </button>
+
+
+                <button
+                    class="highlight-word"
+                    onclick="selectPart('x')"
+                >
+
+                    x
+
+                </button>
+
+
+                <button
+                    class="highlight-word"
+                    onclick="selectPart('4')"
+                >
+
+                    4
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="interaction-message"
+                class="interaction-message"
+            >
+
+                Choose a number or letter above.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRACTICE -->
+
+    <section class="practice">
+
+        <span class="lesson-label">
+
+            Visual Practice
+
+        </span>
+
+
+        <h2>
+
+            Can you identify the coefficient?
+
+        </h2>
+
+
+        <p>
+
+            Look at the expression and choose
+            the coefficient.
+
+        </p>
+
+
+        <div class="practice-question">
+
+
+            <div class="question-equation">
+
+                8x + 2
+
+            </div>
+
+
+            <div class="answer-buttons">
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('8')"
+                >
+
+                    8
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('x')"
+                >
+
+                    x
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="checkPractice('2')"
+                >
+
+                    2
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="practice-feedback"
+                class="practice-feedback"
+            >
+
+                <strong id="practice-title"></strong>
+
+                <span id="practice-text"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REMEMBER -->
+
+    <section class="remember">
+
+        <h2>
+
+            Remember it visually
+
+        </h2>
+
+
+        <p>
+
+            When you see an expression,
+            separate the pieces.
+
+        </p>
+
+
+        <div class="remember-grid">
+
+
+            <div class="remember-card">
+
+                <span class="big">
+                    5x
+                </span>
+
+                <strong>
+                    5 = coefficient
+                </strong>
+
+            </div>
+
+
+            <div class="remember-card">
+
+                <span class="big">
+                    x
+                </span>
+
+                <strong>
+                    x = variable
+                </strong>
+
+            </div>
+
+
+            <div class="remember-card">
+
+                <span class="big">
+                    + 3
+                </span>
+
+                <strong>
+                    3 = constant
+                </strong>
+
+            </div>
+
+
+            <div class="remember-card">
+
+                <span class="big">
+                    5x + 3
+                </span>
+
+                <strong>
+                    All three work together
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEXT -->
+
+    <div class="next-section">
+
+
+        <a
+            href="math-show-variables.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+
+                Previous visual lesson
+
+            </span>
+
+
+            <span class="next-title">
+
+                ← Understanding Variables
+
+            </span>
+
+        </a>
+
+
+        <a
+            href="math-show-like-terms.html"
+            class="next-button"
+        >
+
+            <span class="next-label">
+
+                Next visual lesson
+
+            </span>
+
+
+            <span class="next-title">
+
+                Combining Like Terms →
+
+            </span>
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+
+            NeuralPath
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Learn your way. © 2026 NeuralPath
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+
+    function revealParts() {
+
+        document
+            .getElementById("parts-reveal")
+            .classList.toggle("show");
+
+    }
+
+
+    function revealCoefficient() {
+
+        document
+            .getElementById("coefficient-reveal")
+            .classList.toggle("show");
+
+    }
+
+
+    function revealConstant() {
+
+        document
+            .getElementById("constant-reveal")
+            .classList.toggle("show");
+
+    }
+
+
+    function selectPart(part) {
+
+        const message =
+            document.getElementById(
+                "interaction-message"
+            );
+
+
+        if (part === "6") {
+
+            message.innerHTML =
+                "<strong>6 = coefficient.</strong> It tells us how many x's we have.";
+
+        }
+
+
+        if (part === "x") {
+
+            message.innerHTML =
+                "<strong>x = variable.</strong> It represents a value that can change or is unknown.";
+
+        }
+
+
+        if (part === "4") {
+
+            message.innerHTML =
+                "<strong>4 = constant.</strong> It stands alone and keeps its own value.";
+
+        }
+
+    }
+
+
+    function checkPractice(answer) {
+
+        const feedback =
+            document.getElementById(
+                "practice-feedback"
+            );
+
+        const title =
+            document.getElementById(
+                "practice-title"
+            );
+
+        const text =
+            document.getElementById(
+                "practice-text"
+            );
+
+
+        feedback.classList.add("show");
+
+
+        if (answer === "8") {
+
+            feedback.classList.remove(
+                "incorrect"
+            );
+
+            feedback.classList.add(
+                "correct"
+            );
+
+            title.textContent =
+                "Correct! ";
+
+            text.textContent =
+                "8 is the coefficient because it is directly attached to x.";
+
+        }
+
+        else {
+
+            feedback.classList.remove(
+                "correct"
+            );
+
+            feedback.classList.add(
+                "incorrect"
+            );
+
+            title.textContent =
+                "Not quite. ";
+
+            text.textContent =
+                "Look at the number directly attached to x. In 8x + 2, the coefficient is 8.";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
