@@ -1,1352 +1,2854 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Break It Down — Mathematics | NeuralPath</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+    --cream: #faf7f2;
+    --paper: #fffdf9;
+    --text: #4f4a48;
+    --muted: #827b77;
+
+    --pink: #e8cbd2;
+    --blue: #c9dce4;
+    --green: #cedfce;
+    --yellow: #eee1bd;
+    --lavender: #d9cfe5;
+    --peach: #efd3c3;
+
+    --border: #e5ded7;
+    --shadow: 0 8px 25px rgba(75, 68, 63, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: "Quicksand", sans-serif;
+    line-height: 1.6;
+}
 
-    <meta charset="UTF-8">
+/* HEADER */
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+header {
+    padding: 24px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    <meta
-        name="description"
-        content="NeuralPath mathematics lessons broken down step by step."
-    >
+    background: rgba(255,253,249,0.9);
+    border-bottom: 1px solid var(--border);
 
-    <title>Break It Down — NeuralPath</title>
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
 
-    <link
-        href="https://fonts.cdnfonts.com/css/starborn"
-        rel="stylesheet"
-    >
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-    <style>
+.back {
+    text-decoration: none;
+    color: var(--text);
 
-        :root {
+    padding: 9px 17px;
+    border-radius: 20px;
 
-            --cream: #f8f6f0;
-            --paper: #fffdf8;
-            --white: #ffffff;
+    background: var(--blue);
 
-            --ink: #292a2d;
-            --soft-ink: #65666a;
+    transition: 0.2s;
+}
 
-            --lavender: #e8dff0;
-            --blue: #dce9f1;
-            --yellow: #f2e9c9;
-            --sage: #dce8d9;
-            --peach: #efd9d4;
-            --pink: #ead9df;
+.back:hover {
+    transform: translateY(-2px);
+}
 
-            --lavender-dark: #bca8d2;
+/* HERO */
 
-            --border: #dedbd2;
+.hero {
+    text-align: center;
+    padding: 70px 20px 45px;
+}
 
-            --radius: 18px;
+.eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+}
 
-            --shadow:
-                0 8px 25px rgba(55, 53, 48, 0.07);
-        }
+.hero h1 {
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    margin: 10px 0;
+}
 
+.hero p {
+    max-width: 680px;
+    margin: auto;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* CONTAINER */
 
+.container {
+    width: min(1080px, 92%);
+    margin: auto;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* PROGRESS */
 
+.progress-area {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
 
-        body {
+    margin-bottom: 40px;
 
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
+    box-shadow: var(--shadow);
+}
 
-            background: var(--cream);
+.progress-top {
+    display: flex;
+    justify-content: space-between;
 
-            color: var(--ink);
+    font-size: 0.9rem;
 
-            line-height: 1.6;
-        }
+    margin-bottom: 9px;
+}
 
+.progress-bar {
+    height: 10px;
 
-        a {
-            color: inherit;
-        }
+    background: #eee9e3;
 
+    border-radius: 20px;
 
-        /* ============================
-           HEADER
-        ============================ */
+    overflow: hidden;
+}
 
-        .site-header {
+.progress-fill {
+    width: 0%;
 
-            position: sticky;
+    height: 100%;
 
-            top: 0;
+    background: var(--lavender);
 
-            z-index: 100;
+    border-radius: 20px;
 
-            background:
-                rgba(248, 246, 240, 0.94);
+    transition: width 0.4s ease;
+}
 
-            backdrop-filter: blur(12px);
+/* TITLES */
 
-            border-bottom:
-                1px solid rgba(222, 219, 210, 0.8);
-        }
+.section-title {
+    text-align: center;
+    margin: 50px 0 25px;
+}
 
+.section-title h2 {
+    margin-bottom: 5px;
+}
 
-        .nav {
+.section-title p {
+    color: var(--muted);
+}
 
-            width: min(1180px, 92%);
+/* CURRICULUM */
 
-            min-height: 76px;
+.category-grid {
+    display: grid;
 
-            margin: auto;
+    grid-template-columns: repeat(2, 1fr);
 
-            display: flex;
+    gap: 20px;
+}
 
-            align-items: center;
+.category {
+    border: 1px solid var(--border);
 
-            justify-content: space-between;
+    border-radius: 24px;
 
-            gap: 25px;
-        }
+    padding: 30px;
 
+    cursor: pointer;
 
-        .logo {
+    background: var(--paper);
 
-            font-family: "Starborn", sans-serif;
+    box-shadow: var(--shadow);
 
-            font-size: 1.5rem;
+    transition: 0.25s;
+}
 
-            text-decoration: none;
+.category:hover {
+    transform: translateY(-4px);
+}
 
-            white-space: nowrap;
-        }
+.category:nth-child(1) {
+    background: #f2e9ee;
+}
 
+.category:nth-child(2) {
+    background: #e8f1f4;
+}
 
-        .logo-dot {
+.category:nth-child(3) {
+    background: #edf3ed;
+}
 
-            display: inline-block;
+.category:nth-child(4) {
+    background: #f5efdc;
+}
 
-            width: 8px;
+.category:nth-child(5) {
+    background: #f1eaf4;
+}
 
-            height: 8px;
+.category-number {
+    font-size: 0.75rem;
 
-            margin-left: 4px;
+    letter-spacing: 2px;
 
-            border-radius: 50%;
+    color: var(--muted);
+}
 
-            background: var(--lavender-dark);
-        }
+.category h3 {
+    font-size: 1.5rem;
 
+    margin: 8px 0;
+}
 
-        .home-button {
+.category p {
+    color: var(--muted);
 
-            padding: 10px 18px;
+    margin: 0;
+}
 
-            border-radius: 999px;
+/* TOPICS */
 
-            background: var(--lavender);
+.topic-area {
+    display: none;
 
-            text-decoration: none;
+    margin-top: 45px;
+}
 
-            font-weight: 650;
+.topic-grid {
+    display: grid;
 
-            font-size: 0.88rem;
+    grid-template-columns: repeat(3, 1fr);
 
-            transition: 0.2s ease;
-        }
+    gap: 15px;
+}
 
+.topic {
+    border: 1px solid var(--border);
 
-        .home-button:hover {
+    background: var(--paper);
 
-            background: var(--lavender-dark);
+    border-radius: 18px;
 
-            transform: translateY(-2px);
-        }
+    padding: 22px;
 
+    cursor: pointer;
 
-        /* ============================
-           HERO
-        ============================ */
+    transition: 0.2s;
+}
 
-        .hero {
+.topic:hover {
+    background: #f4eeee;
 
-            width: min(1050px, 92%);
+    transform: translateY(-2px);
+}
 
-            margin: auto;
+.topic h4 {
+    margin: 0 0 5px;
+}
 
-            padding:
-                85px 0 55px;
-        }
+.topic p {
+    color: var(--muted);
 
+    font-size: 0.9rem;
 
-        .breadcrumb {
+    margin: 0;
+}
 
-            display: inline-block;
+/* LESSON */
 
-            margin-bottom: 25px;
+.lesson {
+    display: none;
 
-            color: var(--soft-ink);
+    margin-top: 45px;
 
-            font-size: 0.85rem;
+    margin-bottom: 80px;
+}
 
-            text-decoration: none;
-        }
+.lesson-card {
+    background: var(--paper);
 
+    border: 1px solid var(--border);
 
-        .breadcrumb:hover {
-            text-decoration: underline;
-        }
+    border-radius: 25px;
 
+    padding: 35px;
 
-        .eyebrow {
+    box-shadow: var(--shadow);
+}
 
-            display: block;
+.lesson-number {
+    color: var(--muted);
 
-            margin-bottom: 14px;
+    letter-spacing: 2px;
 
-            color: var(--soft-ink);
+    font-size: 0.8rem;
+}
 
-            font-size: 0.78rem;
+.lesson h2 {
+    font-size: 2rem;
 
-            font-weight: 750;
+    margin: 8px 0 15px;
+}
 
-            letter-spacing: 0.12em;
+.explanation {
+    background: #f7f3ed;
 
-            text-transform: uppercase;
-        }
+    border-radius: 18px;
 
+    padding: 22px;
 
-        .hero h1 {
+    margin: 20px 0;
+}
 
-            font-family: "Starborn", sans-serif;
+.example {
+    background: #edf3f5;
 
-            font-size:
-                clamp(2.8rem, 6vw, 4.5rem);
+    border-radius: 18px;
 
-            font-weight: 400;
+    padding: 22px;
 
-            line-height: 1.08;
-        }
+    margin: 20px 0;
+}
 
+.example strong {
+    display: block;
 
-        .hero h1 span {
+    margin-bottom: 8px;
+}
 
-            color: #82719b;
-        }
+/* QUESTIONS */
 
+.question {
+    margin-top: 30px;
 
-        .hero p {
+    padding: 25px;
 
-            max-width: 650px;
+    background: #f3edf4;
 
-            margin-top: 22px;
+    border-radius: 20px;
+}
 
-            color: var(--soft-ink);
+.answers {
+    display: grid;
 
-            font-size: 1.05rem;
-        }
+    gap: 10px;
 
+    margin-top: 15px;
+}
 
-        /* ============================
-           TOPIC SECTION
-        ============================ */
+.answer {
+    border: 1px solid var(--border);
 
-        .topics {
+    background: var(--paper);
 
-            width: min(1050px, 92%);
+    border-radius: 14px;
 
-            margin: auto;
+    padding: 13px 17px;
 
-            padding:
-                25px 0 90px;
-        }
+    cursor: pointer;
 
+    font-family: inherit;
 
-        .topic-section {
+    text-align: left;
 
-            margin-bottom: 65px;
-        }
+    transition: 0.2s;
+}
 
+.answer:hover {
+    background: #f1e7ea;
+}
 
-        .topic-title {
+.answer:disabled {
+    cursor: default;
+}
 
-            display: flex;
+.answer.correct {
+    background: var(--green);
+}
 
-            align-items: center;
+.answer.incorrect {
+    background: var(--pink);
+}
 
-            gap: 14px;
+.feedback {
+    margin-top: 15px;
 
-            margin-bottom: 20px;
-        }
+    font-weight: 600;
+}
 
+.hint {
+    margin-top: 15px;
+}
 
-        .topic-number {
+.hint button,
+.next-btn,
+.reset-btn,
+.change-btn {
+    border: none;
 
-            display: flex;
+    border-radius: 18px;
 
-            align-items: center;
+    padding: 10px 17px;
 
-            justify-content: center;
+    font-family: inherit;
 
-            width: 38px;
+    cursor: pointer;
 
-            height: 38px;
+    color: var(--text);
+}
 
-            border-radius: 50%;
+.hint button {
+    background: var(--yellow);
+}
 
-            background: var(--lavender);
+.hint-text {
+    display: none;
 
-            font-size: 0.8rem;
+    margin-top: 10px;
 
-            font-weight: 750;
-        }
+    color: var(--muted);
+}
 
+.explanation-answer {
+    display: none;
 
-        .topic-title h2 {
+    margin-top: 15px;
 
-            font-family: "Starborn", sans-serif;
+    padding: 17px;
 
-            font-size: 1.7rem;
+    border-radius: 15px;
 
-            font-weight: 400;
-        }
+    background: #f7f2e7;
+}
 
+.next-btn {
+    margin-top: 25px;
 
-        .topic-description {
+    background: var(--lavender);
 
-            max-width: 650px;
+    display: none;
+}
 
-            margin-bottom: 22px;
+.change-btn {
+    margin-top: 25px;
 
-            color: var(--soft-ink);
+    background: var(--blue);
+}
 
-            font-size: 0.92rem;
-        }
+/* RESULTS */
 
+.results {
+    display: none;
 
-        /* ============================
-           LESSON CARDS
-        ============================ */
+    text-align: center;
 
-        .lesson-grid {
+    padding: 40px;
 
-            display: grid;
+    background: var(--paper);
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    border: 1px solid var(--border);
 
-            gap: 14px;
-        }
+    border-radius: 25px;
 
+    margin-bottom: 70px;
 
-        .lesson {
+    box-shadow: var(--shadow);
+}
 
-            position: relative;
+.results h2 {
+    font-size: 2rem;
+}
 
-            min-height: 150px;
+/* FOOTER */
 
-            padding: 24px;
+footer {
+    text-align: center;
 
-            border-radius: var(--radius);
+    padding: 40px;
 
-            border:
-                1px solid rgba(41, 42, 45, 0.07);
+    color: var(--muted);
 
-            text-decoration: none;
+    border-top: 1px solid var(--border);
+}
 
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-        }
+/* MOBILE */
 
+@media (max-width: 750px) {
 
-        .lesson:hover {
+    .category-grid,
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
 
-            transform:
-                translateY(-5px);
+    header {
+        padding: 20px;
+    }
 
-            box-shadow:
-                0 10px 25px
-                rgba(55, 53, 48, 0.10);
-        }
+    .lesson-card {
+        padding: 23px;
+    }
 
+}
 
-        .lesson-label {
-
-            display: block;
-
-            margin-bottom: 28px;
-
-            color: #68686b;
-
-            font-size: 0.72rem;
-
-            font-weight: 750;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.08em;
-        }
-
-
-        .lesson h3 {
-
-            font-size: 1.02rem;
-
-            line-height: 1.35;
-        }
-
-
-        .lesson-arrow {
-
-            position: absolute;
-
-            right: 19px;
-
-            bottom: 15px;
-
-            font-size: 1rem;
-
-            transition:
-                transform 0.2s ease;
-        }
-
-
-        .lesson:hover
-        .lesson-arrow {
-
-            transform:
-                translateX(5px);
-        }
-
-
-        /* ============================
-           COLORS
-        ============================ */
-
-        .lavender {
-            background: var(--lavender);
-        }
-
-
-        .blue {
-            background: var(--blue);
-        }
-
-
-        .yellow {
-            background: var(--yellow);
-        }
-
-
-        .sage {
-            background: var(--sage);
-        }
-
-
-        .peach {
-            background: var(--peach);
-        }
-
-
-        .pink {
-            background: var(--pink);
-        }
-
-
-        /* ============================
-           STUDY TIP
-        ============================ */
-
-        .study-tip {
-
-            margin-top: 15px;
-
-            padding: 27px 30px;
-
-            border-radius: var(--radius);
-
-            background: var(--paper);
-
-            border:
-                1px solid var(--border);
-
-            box-shadow: var(--shadow);
-        }
-
-
-        .study-tip strong {
-
-            display: block;
-
-            margin-bottom: 5px;
-
-            font-size: 0.95rem;
-        }
-
-
-        .study-tip p {
-
-            color: var(--soft-ink);
-
-            font-size: 0.88rem;
-        }
-
-
-        /* ============================
-           BACK SECTION
-        ============================ */
-
-        .back-section {
-
-            width: min(1050px, 92%);
-
-            margin: auto;
-
-            padding:
-                0 0 80px;
-        }
-
-
-        .back-button {
-
-            display: inline-block;
-
-            padding: 12px 20px;
-
-            border-radius: 999px;
-
-            background: var(--paper);
-
-            border:
-                1px solid var(--border);
-
-            text-decoration: none;
-
-            font-size: 0.88rem;
-
-            transition: 0.2s ease;
-        }
-
-
-        .back-button:hover {
-
-            background: var(--lavender);
-
-            transform: translateX(-3px);
-        }
-
-
-        /* ============================
-           FOOTER
-        ============================ */
-
-        footer {
-
-            padding:
-                45px 0;
-
-            border-top:
-                1px solid var(--border);
-        }
-
-
-        .footer-inner {
-
-            width: min(1050px, 92%);
-
-            margin: auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-        }
-
-
-        .footer-brand {
-
-            font-family: "Starborn", sans-serif;
-
-            font-size: 1.1rem;
-        }
-
-
-        .footer-text {
-
-            color: var(--soft-ink);
-
-            font-size: 0.8rem;
-        }
-
-
-        /* ============================
-           MOBILE
-        ============================ */
-
-        @media (max-width: 800px) {
-
-            .lesson-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-        }
-
-
-        @media (max-width: 560px) {
-
-            .lesson-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-
-            .hero {
-
-                padding-top: 60px;
-            }
-
-
-            .footer-inner {
-
-                flex-direction: column;
-
-                gap: 10px;
-
-                text-align: center;
-            }
-
-        }
-
-    </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- ============================
-         HEADER
-    ============================ -->
+<header>
 
-    <header class="site-header">
+<div class="logo">
+NeuralPath
+</div>
 
-        <nav class="nav">
+<a class="back" href="mathematics.html">
+← Mathematics
+</a>
 
-            <a
-                href="index.html"
-                class="logo"
-            >
-                NeuralPath<span class="logo-dot"></span>
-            </a>
+</header>
 
 
-            <a
-                href="mathematics.html"
-                class="home-button"
-            >
-                ← Mathematics
-            </a>
+<section class="hero">
 
-        </nav>
+<div class="eyebrow">
+MATHEMATICS · BREAK IT DOWN
+</div>
 
-    </header>
+<h1>
+Let's take it one step at a time.
+</h1>
 
+<p>
+Choose an area of mathematics, pick a topic, and work through it
+slowly. You do not have to understand everything at once.
+</p>
 
-    <main>
+</section>
 
 
-        <!-- ============================
-             HERO
-        ============================ -->
+<main class="container">
 
-        <div class="hero">
 
-            <a
-                href="mathematics.html"
-                class="breadcrumb"
-            >
-                Mathematics → Learning Paths
-            </a>
+<div class="progress-area">
 
+<div class="progress-top">
 
-            <span class="eyebrow">
-                Mathematics · Step by step
-            </span>
+<span>
+Your progress
+</span>
 
+<span id="progressText">
+0%
+</span>
 
-            <h1>
-                Let's break it
-                <span>down.</span>
-            </h1>
+</div>
 
+<div class="progress-bar">
 
-            <p>
+<div
+class="progress-fill"
+id="progressFill">
+</div>
 
-                Choose a topic and work through it
-                one idea at a time. No rushing, no
-                assuming you already know everything.
+</div>
 
-            </p>
+</div>
 
-        </div>
 
+<div class="section-title">
 
-        <!-- ============================
-             TOPICS
-        ============================ -->
+<h2>
+Choose your path
+</h2>
 
-        <div class="topics">
+<p>
+What would you like to break down?
+</p>
 
+</div>
 
-            <!-- ALGEBRA -->
 
-            <section class="topic-section">
+<!-- CURRICULUM -->
 
-                <div class="topic-title">
+<div class="category-grid">
 
-                    <span class="topic-number">
-                        01
-                    </span>
 
+<div
+class="category"
+onclick="showCategory('algebra')">
 
-                    <h2>
-                        Algebra
-                    </h2>
+<div class="category-number">
+01
+</div>
 
-                </div>
+<h3>
+Algebra
+</h3>
 
+<p>
+Learn how numbers, variables, expressions, equations, and graphs work together.
+</p>
 
-                <p class="topic-description">
+</div>
 
-                    Learn how numbers, variables,
-                    expressions, equations, and graphs
-                    work together.
 
-                </p>
+<div
+class="category"
+onclick="showCategory('functions')">
 
+<div class="category-number">
+02
+</div>
 
-                <div class="lesson-grid">
+<h3>
+Functions
+</h3>
 
+<p>
+Understand how inputs and outputs create mathematical relationships.
+</p>
 
-                    <a
-                        href="math-variables.html"
-                        class="lesson lavender"
-                    >
+</div>
 
-                        <span class="lesson-label">
-                            Start here
-                        </span>
 
+<div
+class="category"
+onclick="showCategory('geometry')">
 
-                        <h3>
-                            Understanding Variables
-                        </h3>
+<div class="category-number">
+03
+</div>
 
+<h3>
+Geometry
+</h3>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<p>
+Explore shapes, measurements, angles, area, perimeter, and spatial relationships.
+</p>
 
-                    </a>
+</div>
 
 
-                    <a
-                        href="math-coefficients.html"
-                        class="lesson blue"
-                    >
+<div
+class="category"
+onclick="showCategory('statistics')">
 
-                        <span class="lesson-label">
-                            Algebra
-                        </span>
+<div class="category-number">
+04
+</div>
 
+<h3>
+Statistics
+</h3>
 
-                        <h3>
-                            Coefficients & Constants
-                        </h3>
+<p>
+Learn how to understand, organize, and interpret data.
+</p>
 
+</div>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
+<div
+class="category"
+onclick="showCategory('foundations')">
 
+<div class="category-number">
+05
+</div>
 
-                    <a
-                        href="math-like-terms.html"
-                        class="lesson yellow"
-                    >
+<h3>
+Foundations
+</h3>
 
-                        <span class="lesson-label">
-                            Algebra
-                        </span>
+<p>
+Review the building blocks that make later mathematics easier to understand.
+</p>
 
+</div>
 
-                        <h3>
-                            Combining Like Terms
-                        </h3>
 
+</div>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
 
+<!-- ALGEBRA -->
 
-                    <a
-                        href="math-one-step-equations.html"
-                        class="lesson sage"
-                    >
+<section
+class="topic-area"
+id="algebra">
 
-                        <span class="lesson-label">
-                            Equations
-                        </span>
+<div class="section-title">
 
+<h2>
+Algebra
+</h2>
 
-                        <h3>
-                            Solving One-Step Equations
-                        </h3>
+<p>
+Start with the building blocks of algebra.
+</p>
 
+</div>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
+<div class="topic-grid">
 
 
-                    <a
-                        href="math-multi-step-equations.html"
-                        class="lesson peach"
-                    >
+<div
+class="topic"
+onclick="startLesson('Understanding Variables')">
 
-                        <span class="lesson-label">
-                            Equations
-                        </span>
+<h4>
+Understanding Variables
+</h4>
 
+<p>
+Learn what variables represent and how they are used.
+</p>
 
-                        <h3>
-                            Multi-Step Equations
-                        </h3>
+</div>
 
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<div
+class="topic"
+onclick="startLesson('Coefficients & Constants')">
 
-                    </a>
+<h4>
+Coefficients & Constants
+</h4>
 
+<p>
+Identify the numbers that work with variables.
+</p>
 
-                    <a
-                        href="math-inequalities.html"
-                        class="lesson pink"
-                    >
+</div>
 
-                        <span class="lesson-label">
-                            Algebra
-                        </span>
 
+<div
+class="topic"
+onclick="startLesson('Combining Like Terms')">
 
-                        <h3>
-                            Inequalities
-                        </h3>
+<h4>
+Combining Like Terms
+</h4>
 
+<p>
+Simplify expressions by combining matching terms.
+</p>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+</div>
 
-                    </a>
 
-                </div>
+<div
+class="topic"
+onclick="startLesson('Solving One-Step Equations')">
 
-            </section>
+<h4>
+Solving One-Step Equations
+</h4>
 
+<p>
+Solve equations using inverse operations.
+</p>
 
-            <!-- FUNCTIONS -->
+</div>
 
-            <section class="topic-section">
 
-                <div class="topic-title">
+<div
+class="topic"
+onclick="startLesson('Multi-Step Equations')">
 
-                    <span class="topic-number">
-                        02
-                    </span>
+<h4>
+Multi-Step Equations
+</h4>
 
+<p>
+Solve equations that require several operations.
+</p>
 
-                    <h2>
-                        Functions
-                    </h2>
+</div>
 
-                </div>
 
+<div
+class="topic"
+onclick="startLesson('Inequalities')">
 
-                <p class="topic-description">
+<h4>
+Inequalities
+</h4>
 
-                    Understand how inputs and outputs
-                    create mathematical relationships.
+<p>
+Understand relationships involving greater than and less than.
+</p>
 
-                </p>
+</div>
 
 
-                <div class="lesson-grid">
+</div>
 
+</section>
 
-                    <a
-                        href="#"
-                        class="lesson blue"
-                    >
 
-                        <span class="lesson-label">
-                            Functions
-                        </span>
 
+<!-- FUNCTIONS -->
 
-                        <h3>
-                            What Is a Function?
-                        </h3>
+<section
+class="topic-area"
+id="functions">
 
+<div class="section-title">
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<h2>
+Functions
+</h2>
 
-                    </a>
+<p>
+Understand mathematical relationships.
+</p>
 
+</div>
 
-                    <a
-                        href="#"
-                        class="lesson lavender"
-                    >
 
-                        <span class="lesson-label">
-                            Functions
-                        </span>
+<div class="topic-grid">
 
 
-                        <h3>
-                            Function Notation
-                        </h3>
+<div
+class="topic"
+onclick="startLesson('What Is a Function?')">
 
+<h4>
+What Is a Function?
+</h4>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<p>
+Understand inputs, outputs, and relationships.
+</p>
 
-                    </a>
+</div>
 
 
-                    <a
-                        href="#"
-                        class="lesson yellow"
-                    >
+<div
+class="topic"
+onclick="startLesson('Function Notation')">
 
-                        <span class="lesson-label">
-                            Graphing
-                        </span>
+<h4>
+Function Notation
+</h4>
 
+<p>
+Learn what symbols such as f(x) mean.
+</p>
 
-                        <h3>
-                            Reading Function Graphs
-                        </h3>
+</div>
 
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<div
+class="topic"
+onclick="startLesson('Reading Function Graphs')">
 
-                    </a>
+<h4>
+Reading Function Graphs
+</h4>
 
-                </div>
+<p>
+Learn how to interpret information from graphs.
+</p>
 
-            </section>
+</div>
 
 
-            <!-- GEOMETRY -->
+</div>
 
-            <section class="topic-section">
+</section>
 
-                <div class="topic-title">
 
-                    <span class="topic-number">
-                        03
-                    </span>
 
+<!-- GEOMETRY -->
 
-                    <h2>
-                        Geometry
-                    </h2>
+<section
+class="topic-area"
+id="geometry">
 
-                </div>
+<div class="section-title">
 
+<h2>
+Geometry
+</h2>
 
-                <p class="topic-description">
+<p>
+Build your understanding of shapes and space.
+</p>
 
-                    Explore shapes, measurements,
-                    angles, area, perimeter, and
-                    spatial relationships.
+</div>
 
-                </p>
 
+<div class="topic-grid">
 
-                <div class="lesson-grid">
 
+<div
+class="topic"
+onclick="startLesson('Points, Lines & Planes')">
 
-                    <a
-                        href="#"
-                        class="lesson sage"
-                    >
+<h4>
+Points, Lines & Planes
+</h4>
 
-                        <span class="lesson-label">
-                            Foundations
-                        </span>
+<p>
+Learn the basic building blocks of geometry.
+</p>
 
+</div>
 
-                        <h3>
-                            Points, Lines & Planes
-                        </h3>
 
+<div
+class="topic"
+onclick="startLesson('Understanding Angles')">
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<h4>
+Understanding Angles
+</h4>
 
-                    </a>
+<p>
+Identify and understand different types of angles.
+</p>
 
+</div>
 
-                    <a
-                        href="#"
-                        class="lesson peach"
-                    >
 
-                        <span class="lesson-label">
-                            Geometry
-                        </span>
+<div
+class="topic"
+onclick="startLesson('Area & Perimeter')">
 
+<h4>
+Area & Perimeter
+</h4>
 
-                        <h3>
-                            Understanding Angles
-                        </h3>
+<p>
+Measure the space inside and around shapes.
+</p>
 
+</div>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
+</div>
 
+</section>
 
-                    <a
-                        href="#"
-                        class="lesson blue"
-                    >
 
-                        <span class="lesson-label">
-                            Measurement
-                        </span>
 
+<!-- STATISTICS -->
 
-                        <h3>
-                            Area & Perimeter
-                        </h3>
+<section
+class="topic-area"
+id="statistics">
 
+<div class="section-title">
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<h2>
+Statistics
+</h2>
 
-                    </a>
+<p>
+Learn how mathematics describes data.
+</p>
 
-                </div>
+</div>
 
-            </section>
 
+<div class="topic-grid">
 
-            <!-- STATISTICS -->
 
-            <section class="topic-section">
+<div
+class="topic"
+onclick="startLesson('Mean, Median & Mode')">
 
-                <div class="topic-title">
+<h4>
+Mean, Median & Mode
+</h4>
 
-                    <span class="topic-number">
-                        04
-                    </span>
+<p>
+Three common ways to describe a data set.
+</p>
 
+</div>
 
-                    <h2>
-                        Statistics
-                    </h2>
 
-                </div>
+<div
+class="topic"
+onclick="startLesson('Reading Data Displays')">
 
+<h4>
+Reading Data Displays
+</h4>
 
-                <p class="topic-description">
+<p>
+Understand graphs, charts, and tables.
+</p>
 
-                    Learn how to understand, organize,
-                    and interpret data.
+</div>
 
-                </p>
 
+<div
+class="topic"
+onclick="startLesson('Understanding Distributions')">
 
-                <div class="lesson-grid">
+<h4>
+Understanding Distributions
+</h4>
 
+<p>
+See how data values are spread out.
+</p>
 
-                    <a
-                        href="#"
-                        class="lesson yellow"
-                    >
+</div>
 
-                        <span class="lesson-label">
-                            Statistics
-                        </span>
 
+</div>
 
-                        <h3>
-                            Mean, Median & Mode
-                        </h3>
+</section>
 
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
+<!-- FOUNDATIONS -->
 
+<section
+class="topic-area"
+id="foundations">
 
-                    <a
-                        href="#"
-                        class="lesson lavender"
-                    >
+<div class="section-title">
 
-                        <span class="lesson-label">
-                            Data
-                        </span>
+<h2>
+Foundations
+</h2>
 
+<p>
+Strengthen the basics before moving forward.
+</p>
 
-                        <h3>
-                            Reading Data Displays
-                        </h3>
+</div>
 
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<div class="topic-grid">
 
-                    </a>
 
+<div
+class="topic"
+onclick="startLesson('Order of Operations')">
 
-                    <a
-                        href="#"
-                        class="lesson sage"
-                    >
+<h4>
+Order of Operations
+</h4>
 
-                        <span class="lesson-label">
-                            Data
-                        </span>
+<p>
+Understand PEMDAS and calculation order.
+</p>
 
+</div>
 
-                        <h3>
-                            Understanding Distributions
-                        </h3>
 
+<div
+class="topic"
+onclick="startLesson('Fractions & Decimals')">
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
+<h4>
+Fractions & Decimals
+</h4>
 
-                    </a>
+<p>
+Connect fractions, decimals, and numerical values.
+</p>
 
-                </div>
+</div>
 
-            </section>
 
+<div
+class="topic"
+onclick="startLesson('Positive & Negative Numbers')">
 
-            <!-- PRE-ALGEBRA -->
+<h4>
+Positive & Negative Numbers
+</h4>
 
-            <section class="topic-section">
+<p>
+Understand numbers on both sides of zero.
+</p>
 
-                <div class="topic-title">
+</div>
 
-                    <span class="topic-number">
-                        05
-                    </span>
 
+</div>
 
-                    <h2>
-                        Foundations
-                    </h2>
+</section>
 
-                </div>
 
 
-                <p class="topic-description">
+<!-- LESSON -->
 
-                    Review the building blocks that make
-                    later mathematics easier to understand.
+<section
+class="lesson"
+id="lesson">
 
-                </p>
+<div class="lesson-card">
 
 
-                <div class="lesson-grid">
+<div
+class="lesson-number"
+id="lessonNumber">
+STEP 01
+</div>
 
 
-                    <a
-                        href="#"
-                        class="lesson pink"
-                    >
+<h2
+id="lessonTitle">
+</h2>
 
-                        <span class="lesson-label">
-                            Foundations
-                        </span>
 
+<div
+class="explanation"
+id="lessonExplanation">
+</div>
 
-                        <h3>
-                            Order of Operations
-                        </h3>
 
+<div
+class="example"
+id="lessonExample">
+</div>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
+<div class="question">
 
 
-                    <a
-                        href="#"
-                        class="lesson blue"
-                    >
+<h3
+id="questionText">
+</h3>
 
-                        <span class="lesson-label">
-                            Foundations
-                        </span>
 
+<div
+class="answers"
+id="answers">
+</div>
 
-                        <h3>
-                            Fractions & Decimals
-                        </h3>
 
+<div
+class="feedback"
+id="feedback">
+</div>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
+<div class="hint">
 
+<button onclick="showHint()">
+Need a hint?
+</button>
 
-                    <a
-                        href="#"
-                        class="lesson yellow"
-                    >
 
-                        <span class="lesson-label">
-                            Foundations
-                        </span>
+<div
+class="hint-text"
+id="hintText">
+</div>
 
+</div>
 
-                        <h3>
-                            Positive & Negative Numbers
-                        </h3>
 
+<div
+class="explanation-answer"
+id="answerExplanation">
+</div>
 
-                        <span class="lesson-arrow">
-                            →
-                        </span>
 
-                    </a>
+<button
+class="next-btn"
+id="nextButton"
+onclick="nextQuestion()">
 
-                </div>
+Next →
 
-            </section>
+</button>
 
 
-            <!-- STUDY TIP -->
+</div>
 
-            <div class="study-tip">
 
-                <strong>
-                    A small reminder.
-                </strong>
+<button
+class="change-btn"
+onclick="changeTopic()">
 
+← Choose another topic
 
-                <p>
+</button>
 
-                    You don't need to understand
-                    everything immediately. If a lesson
-                    feels too difficult, go back one step
-                    and build from there.
 
-                </p>
+</div>
 
-            </div>
+</section>
 
-        </div>
 
 
-        <!-- ============================
-             BACK BUTTON
-        ============================ -->
+<!-- RESULTS -->
 
-        <div class="back-section">
+<section
+class="results"
+id="results">
 
-            <a
-                href="mathematics.html"
-                class="back-button"
-            >
-                ← Back to learning paths
-            </a>
+<h2>
+You've finished this path.
+</h2>
 
-        </div>
+<p
+id="resultMessage">
+</p>
 
+<button
+class="change-btn"
+onclick="changeTopic()">
 
-    </main>
+Explore another topic
 
+</button>
 
-    <!-- ============================
-         FOOTER
-    ============================ -->
+</section>
 
-    <footer>
 
-        <div class="footer-inner">
+</main>
 
-            <div class="footer-brand">
-                NeuralPath
-            </div>
 
+<footer>
 
-            <p class="footer-text">
-                Learn your way. © 2026 NeuralPath
-            </p>
+NeuralPath · Learn at your own pace.
 
-        </div>
+</footer>
 
-    </footer>
 
+
+<script>
+
+
+let currentTopic = "";
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+
+
+/* =====================================================
+   LESSON DATABASE
+===================================================== */
+
+
+const lessons = {
+
+
+
+/* ================= ALGEBRA ================= */
+
+
+"Understanding Variables": {
+
+category: "Algebra",
+
+explanations: [
+
+"A variable is a letter or symbol that represents a value. The value can change depending on the problem.",
+
+"Variables allow us to work with unknown values without needing to know the number immediately.",
+
+"In x + 5 = 12, x represents the unknown value."
+
+],
+
+examples: [
+
+"x = unknown value",
+
+"x + 5 = 12",
+
+"x = 7"
+
+],
+
+questions: [
+
+{
+q: "What does a variable represent?",
+
+answers: [
+"A fixed symbol with no meaning",
+"An unknown or changing value",
+"Only the number 0",
+"A mathematical operation"
+],
+
+correct: 1,
+
+hint: "Think about what x represents in an equation.",
+
+explanation: "A variable represents an unknown or changing value."
+},
+
+{
+q: "Which symbol is being used as the variable in 5x + 2?",
+
+answers: [
+"5",
+"x",
+"2",
+"+"
+],
+
+correct: 1,
+
+hint: "The variable is usually represented by a letter.",
+
+explanation: "x is the variable."
+}
+
+]
+
+},
+
+
+
+"Coefficients & Constants": {
+
+category: "Algebra",
+
+explanations: [
+
+"A coefficient is a number multiplied by a variable.",
+
+"A constant is a number without a variable attached to it.",
+
+"In 5x + 7, 5 is the coefficient and 7 is the constant."
+
+],
+
+examples: [
+
+"5x → coefficient = 5",
+
+"x + 7 → constant = 7",
+
+"3x + 4 → coefficient = 3, constant = 4"
+
+],
+
+questions: [
+
+{
+q: "What is the coefficient in 7x?",
+
+answers: [
+"7",
+"x",
+"0",
+"1"
+],
+
+correct: 0,
+
+hint: "The coefficient is the number multiplied by the variable.",
+
+explanation: "7 is multiplied by x, so 7 is the coefficient."
+},
+
+{
+q: "What is the constant in 3x + 9?",
+
+answers: [
+"3",
+"x",
+"9",
+"12"
+],
+
+correct: 2,
+
+hint: "The constant has no variable attached.",
+
+explanation: "9 has no variable, so it is the constant."
+}
+
+]
+
+},
+
+
+
+"Combining Like Terms": {
+
+category: "Algebra",
+
+explanations: [
+
+"Like terms have the same variables raised to the same powers.",
+
+"Only like terms can be combined.",
+
+"Add or subtract their coefficients while keeping the variable part."
+
+],
+
+examples: [
+
+"3x + 2x",
+
+"3 + 2 = 5",
+
+"3x + 2x = 5x"
+
+],
+
+questions: [
+
+{
+q: "Simplify 3x + 4x.",
+
+answers: [
+"7x",
+"12x",
+"7",
+"x"
+],
+
+correct: 0,
+
+hint: "Add the coefficients.",
+
+explanation: "3 + 4 = 7, so 3x + 4x = 7x."
+},
+
+{
+q: "Which terms are like terms?",
+
+answers: [
+"3x and 4x",
+"3x and 4y",
+"x and x²",
+"5 and 5x"
+],
+
+correct: 0,
+
+hint: "Like terms must have matching variable parts.",
+
+explanation: "3x and 4x both contain x to the first power."
+}
+
+]
+
+},
+
+
+
+"Solving One-Step Equations": {
+
+category: "Algebra",
+
+explanations: [
+
+"To solve an equation, we want to isolate the variable.",
+
+"Use the inverse operation to undo what is happening to the variable.",
+
+"Whatever you do to one side must also be done to the other side."
+
+],
+
+examples: [
+
+"x + 5 = 12",
+
+"x = 12 - 5",
+
+"x = 7"
+
+],
+
+questions: [
+
+{
+q: "Solve: x + 6 = 10.",
+
+answers: [
+"4",
+"16",
+"6",
+"3"
+],
+
+correct: 0,
+
+hint: "Subtract 6 from both sides.",
+
+explanation: "x + 6 = 10, so x = 10 - 6 = 4."
+},
+
+{
+q: "Solve: 3x = 15.",
+
+answers: [
+"5",
+"18",
+"12",
+"45"
+],
+
+correct: 0,
+
+hint: "Divide both sides by 3.",
+
+explanation: "3x = 15, so x = 15 ÷ 3 = 5."
+}
+
+]
+
+},
+
+
+
+"Multi-Step Equations": {
+
+category: "Algebra",
+
+explanations: [
+
+"Multi-step equations require more than one operation to isolate the variable.",
+
+"Start by simplifying the equation. Then use inverse operations to move constants and coefficients.",
+
+"Always perform the same operation on both sides."
+
+],
+
+examples: [
+
+"2x + 4 = 12",
+
+"2x = 8",
+
+"x = 4"
+
+],
+
+questions: [
+
+{
+q: "Solve: 2x + 4 = 12.",
+
+answers: [
+"4",
+"6",
+"8",
+"16"
+],
+
+correct: 0,
+
+hint: "Subtract 4 first, then divide by 2.",
+
+explanation: "2x + 4 = 12 → 2x = 8 → x = 4."
+},
+
+{
+q: "Solve: 3x - 6 = 9.",
+
+answers: [
+"3",
+"5",
+"7",
+"15"
+],
+
+correct: 1,
+
+hint: "Add 6, then divide by 3.",
+
+explanation: "3x - 6 = 9 → 3x = 15 → x = 5."
+}
+
+]
+
+},
+
+
+
+"Inequalities": {
+
+category: "Algebra",
+
+explanations: [
+
+"An inequality compares two values instead of saying they are exactly equal.",
+
+"Common symbols include >, <, ≥, and ≤.",
+
+"When multiplying or dividing an inequality by a negative number, reverse the inequality symbol."
+
+],
+
+examples: [
+
+"x > 4",
+
+"x < 10",
+
+"x ≥ 2"
+
+],
+
+questions: [
+
+{
+q: "Which symbol means 'greater than'?",
+
+answers: [
+"<",
+">",
+"=",
+"≤"
+],
+
+correct: 1,
+
+hint: "The wider side points toward the larger value.",
+
+explanation: "> means greater than."
+},
+
+{
+q: "Solve: x + 3 > 7.",
+
+answers: [
+"x > 4",
+"x < 4",
+"x > 10",
+"x = 4"
+],
+
+correct: 0,
+
+hint: "Subtract 3 from both sides.",
+
+explanation: "x + 3 > 7 → x > 4."
+}
+
+]
+
+},
+
+
+
+/* ================= FUNCTIONS ================= */
+
+
+"What Is a Function?": {
+
+category: "Functions",
+
+explanations: [
+
+"A function is a relationship where every input has exactly one output.",
+
+"Think of a function like a machine: input goes in, a rule is applied, and an output comes out."
+
+],
+
+examples: [
+
+"Input → Rule → Output",
+
+"2 → ×3 → 6",
+
+"5 → ×3 → 15"
+
+],
+
+questions: [
+
+{
+q: "If a function multiplies every input by 3, what is the output when the input is 4?",
+
+answers: [
+"7",
+"12",
+"1",
+"43"
+],
+
+correct: 1,
+
+hint: "Multiply the input by 3.",
+
+explanation: "4 × 3 = 12."
+},
+
+{
+q: "If f(x) = x + 5, what is f(2)?",
+
+answers: [
+"3",
+"5",
+"7",
+"10"
+],
+
+correct: 2,
+
+hint: "Replace x with 2.",
+
+explanation: "f(2) = 2 + 5 = 7."
+}
+
+]
+
+},
+
+
+
+"Function Notation": {
+
+category: "Functions",
+
+explanations: [
+
+"Function notation gives a function a name and shows its input.",
+
+"In f(x), f is the name of the function and x represents the input."
+
+],
+
+examples: [
+
+"f(x) = 2x + 1",
+
+"f(3) = 2(3) + 1",
+
+"f(3) = 7"
+
+],
+
+questions: [
+
+{
+q: "In f(5), what is the input?",
+
+answers: [
+"f",
+"5",
+"0",
+"The output"
+],
+
+correct: 1,
+
+hint: "Look inside the parentheses.",
+
+explanation: "The input is 5."
+},
+
+{
+q: "If f(x) = x + 4, what is f(6)?",
+
+answers: [
+"2",
+"10",
+"24",
+"6"
+],
+
+correct: 1,
+
+hint: "Replace x with 6.",
+
+explanation: "f(6) = 6 + 4 = 10."
+}
+
+]
+
+},
+
+
+
+"Reading Function Graphs": {
+
+category: "Functions",
+
+explanations: [
+
+"A function graph visually represents the relationship between inputs and outputs.",
+
+"The x-axis usually represents the input.",
+
+"The y-axis usually represents the output."
+
+],
+
+examples: [
+
+"x-axis → input",
+
+"y-axis → output",
+
+"(2, 6) → input 2 produces output 6"
+
+],
+
+questions: [
+
+{
+q: "Which axis usually represents the input?",
+
+answers: [
+"x-axis",
+"y-axis",
+"z-axis",
+"Neither"
+],
+
+correct: 0,
+
+hint: "Think about the x in an ordered pair.",
+
+explanation: "The x-axis represents the input."
+},
+
+{
+q: "What does the point (3, 8) tell you?",
+
+answers: [
+"Input 8 gives output 3",
+"Input 3 gives output 8",
+"3 + 8 = 11",
+"The graph is incorrect"
+],
+
+correct: 1,
+
+hint: "Coordinates are written (x, y).",
+
+explanation: "The first value is x and the second value is y."
+}
+
+]
+
+},
+
+
+
+/* ================= GEOMETRY ================= */
+
+
+"Points, Lines & Planes": {
+
+category: "Geometry",
+
+explanations: [
+
+"A point represents an exact location.",
+
+"A line extends forever in both directions.",
+
+"A plane is a flat surface that extends infinitely."
+
+],
+
+examples: [
+
+"Point → location",
+
+"Line → two directions",
+
+"Plane → flat surface"
+
+],
+
+questions: [
+
+{
+q: "Which geometric object represents an exact location?",
+
+answers: [
+"Line",
+"Plane",
+"Point",
+"Angle"
+],
+
+correct: 2,
+
+hint: "It has no length or width.",
+
+explanation: "A point represents an exact location."
+},
+
+{
+q: "Which object extends infinitely in two directions?",
+
+answers: [
+"Point",
+"Line",
+"Segment",
+"Angle"
+],
+
+correct: 1,
+
+hint: "Think of something with arrows on both ends.",
+
+explanation: "A line extends infinitely in both directions."
+}
+
+]
+
+},
+
+
+
+"Understanding Angles": {
+
+category: "Geometry",
+
+explanations: [
+
+"An angle is formed when two rays meet at a common endpoint.",
+
+"Angles are measured in degrees.",
+
+"A right angle measures exactly 90°."
+
+],
+
+examples: [
+
+"Acute → less than 90°",
+
+"Right → exactly 90°",
+
+"Obtuse → between 90° and 180°"
+
+],
+
+questions: [
+
+{
+q: "What is the measure of a right angle?",
+
+answers: [
+"45°",
+"90°",
+"180°",
+"360°"
+],
+
+correct: 1,
+
+hint: "A right angle forms a square corner.",
+
+explanation: "A right angle measures 90°."
+},
+
+{
+q: "An angle measuring 40° is what type?",
+
+answers: [
+"Obtuse",
+"Right",
+"Acute",
+"Straight"
+],
+
+correct: 2,
+
+hint: "Acute angles are less than 90°.",
+
+explanation: "40° is less than 90°, so it is acute."
+}
+
+]
+
+},
+
+
+
+"Area & Perimeter": {
+
+category: "Geometry",
+
+explanations: [
+
+"Area measures the space inside a shape.",
+
+"Perimeter measures the distance around a shape.",
+
+"For a rectangle, area is length × width."
+
+],
+
+examples: [
+
+"Length = 5",
+
+"Width = 3",
+
+"Area = 5 × 3 = 15 square units"
+
+],
+
+questions: [
+
+{
+q: "What does area measure?",
+
+answers: [
+"Distance around a shape",
+"Space inside a shape",
+"Angle size",
+"Height only"
+],
+
+correct: 1,
+
+hint: "Think about the space inside.",
+
+explanation: "Area measures the space inside a shape."
+},
+
+{
+q: "What is the area of a rectangle with length 6 and width 4?",
+
+answers: [
+"10",
+"20",
+"24",
+"28"
+],
+
+correct: 2,
+
+hint: "Use length × width.",
+
+explanation: "6 × 4 = 24 square units."
+}
+
+]
+
+},
+
+
+
+/* ================= STATISTICS ================= */
+
+
+"Mean, Median & Mode": {
+
+category: "Statistics",
+
+explanations: [
+
+"The mean is the average of a data set.",
+
+"The median is the middle value when numbers are ordered.",
+
+"The mode is the value that appears most often."
+
+],
+
+examples: [
+
+"Data: 2, 4, 4, 6, 9",
+
+"Mean = 25 ÷ 5 = 5",
+
+"Median = 4",
+
+"Mode = 4"
+
+],
+
+questions: [
+
+{
+q: "What is the mean of 2, 4, and 6?",
+
+answers: [
+"3",
+"4",
+"5",
+"6"
+],
+
+correct: 1,
+
+hint: "Add the numbers, then divide by 3.",
+
+explanation: "(2 + 4 + 6) ÷ 3 = 4."
+},
+
+{
+q: "What is the median of 3, 5, and 8?",
+
+answers: [
+"3",
+"5",
+"8",
+"16"
+],
+
+correct: 1,
+
+hint: "The median is the middle value.",
+
+explanation: "5 is the middle value."
+},
+
+{
+q: "What is the mode of 2, 3, 3, 5?",
+
+answers: [
+"2",
+"3",
+"5",
+"13"
+],
+
+correct: 1,
+
+hint: "Which number appears most often?",
+
+explanation: "3 appears twice, so it is the mode."
+}
+
+]
+
+},
+
+
+
+"Reading Data Displays": {
+
+category: "Statistics",
+
+explanations: [
+
+"Data displays organize information so patterns are easier to see.",
+
+"Common displays include bar graphs, line graphs, histograms, and tables.",
+
+"Titles and labels explain what the data represents."
+
+],
+
+examples: [
+
+"Title → what the graph is about",
+
+"x-axis → categories",
+
+"y-axis → values"
+
+],
+
+questions: [
+
+{
+q: "What helps explain what a graph represents?",
+
+answers: [
+"The title and labels",
+"Only the color",
+"The border",
+"The font"
+],
+
+correct: 0,
+
+hint: "Look at the information surrounding the graph.",
+
+explanation: "Titles and labels explain what the data represents."
+},
+
+{
+q: "Which graph is commonly used to show change over time?",
+
+answers: [
+"Line graph",
+"Angle",
+"Number line",
+"Triangle"
+],
+
+correct: 0,
+
+hint: "Think about points connected by lines.",
+
+explanation: "Line graphs are commonly used to show change over time."
+}
+
+]
+
+},
+
+
+
+"Understanding Distributions": {
+
+category: "Statistics",
+
+explanations: [
+
+"A distribution describes how values in a data set are spread out.",
+
+"Some data sets are clustered around certain values while others are more spread out."
+
+],
+
+examples: [
+
+"Clustered → values close together",
+
+"Spread out → values cover a wider range"
+
+],
+
+questions: [
+
+{
+q: "What does a distribution describe?",
+
+answers: [
+"How data values are spread",
+"Only the largest number",
+"Only the smallest number",
+"The graph title"
+],
+
+correct: 0,
+
+hint: "Think about where the data values are located.",
+
+explanation: "A distribution describes how values are spread throughout a data set."
+}
+
+]
+
+},
+
+
+
+/* ================= FOUNDATIONS ================= */
+
+
+"Order of Operations": {
+
+category: "Foundations",
+
+explanations: [
+
+"Order of operations tells us which calculations to perform first.",
+
+"PEMDAS stands for Parentheses, Exponents, Multiplication and Division, Addition and Subtraction.",
+
+"Multiplication and division happen from left to right, as do addition and subtraction."
+
+],
+
+examples: [
+
+"2 + 3 × 4",
+
+"3 × 4 = 12",
+
+"2 + 12 = 14"
+
+],
+
+questions: [
+
+{
+q: "What should you calculate first in 2 + 3 × 4?",
+
+answers: [
+"2 + 3",
+"3 × 4",
+"2 × 4",
+"Everything at once"
+],
+
+correct: 1,
+
+hint: "Multiplication comes before addition.",
+
+explanation: "3 × 4 must be calculated first."
+},
+
+{
+q: "What does the E in PEMDAS stand for?",
+
+answers: [
+"Equations",
+"Exponents",
+"Examples",
+"Even numbers"
+],
+
+correct: 1,
+
+hint: "Think powers.",
+
+explanation: "E stands for Exponents."
+}
+
+]
+
+},
+
+
+
+"Fractions & Decimals": {
+
+category: "Foundations",
+
+explanations: [
+
+"Fractions and decimals are two ways of representing parts of a whole.",
+
+"For example, one-half can be written as 1/2 or 0.5."
+
+],
+
+examples: [
+
+"1/2 = 0.5",
+
+"1/4 = 0.25",
+
+"3/4 = 0.75"
+
+],
+
+questions: [
+
+{
+q: "Which decimal is equal to 1/2?",
+
+answers: [
+"0.2",
+"0.25",
+"0.5",
+"1.5"
+],
+
+correct: 2,
+
+hint: "Think about half of one.",
+
+explanation: "1 ÷ 2 = 0.5."
+},
+
+{
+q: "Which fraction equals 0.25?",
+
+answers: [
+"1/2",
+"1/4",
+"3/4",
+"2/5"
+],
+
+correct: 1,
+
+hint: "0.25 means 25 out of 100.",
+
+explanation: "0.25 = 25/100 = 1/4."
+}
+
+]
+
+},
+
+
+
+"Positive & Negative Numbers": {
+
+category: "Foundations",
+
+explanations: [
+
+"Positive numbers are greater than zero.",
+
+"Negative numbers are less than zero.",
+
+"Zero sits between positive and negative numbers on a number line."
+
+],
+
+examples: [
+
+"Positive → 1, 2, 3",
+
+"Zero → 0",
+
+"Negative → -1, -2, -3"
+
+],
+
+questions: [
+
+{
+q: "Which number is negative?",
+
+answers: [
+"4",
+"0",
+"-3",
+"8"
+],
+
+correct: 2,
+
+hint: "Look for the minus sign.",
+
+explanation: "-3 is less than zero, so it is negative."
+},
+
+{
+q: "Which number is greatest?",
+
+answers: [
+"-5",
+"-2",
+"-8",
+"-10"
+],
+
+correct: 1,
+
+hint: "On a number line, numbers farther right are greater.",
+
+explanation: "-2 is greater than -5, -8, and -10."
+}
+
+]
+
+}
+
+};
+
+
+
+/* =====================================================
+   CATEGORY SELECTION
+===================================================== */
+
+
+function showCategory(category) {
+
+document.querySelectorAll(".topic-area").forEach(area => {
+
+area.style.display = "none";
+
+});
+
+document.getElementById(category).style.display = "block";
+
+document.getElementById(category).scrollIntoView({
+
+behavior: "smooth",
+
+block: "start"
+
+});
+
+}
+
+
+
+/* =====================================================
+   START LESSON
+===================================================== */
+
+
+function startLesson(topic) {
+
+currentTopic = topic;
+
+currentQuestion = 0;
+
+score = 0;
+
+answered = false;
+
+document.querySelectorAll(".topic-area").forEach(area => {
+
+area.style.display = "none";
+
+});
+
+document.getElementById("lesson").style.display = "block";
+
+document.getElementById("results").style.display = "none";
+
+document.getElementById("lesson").scrollIntoView({
+
+behavior: "smooth",
+
+block: "start"
+
+});
+
+loadQuestion();
+
+}
+
+
+
+/* =====================================================
+   LOAD QUESTION
+===================================================== */
+
+
+function loadQuestion() {
+
+let lesson = lessons[currentTopic];
+
+let question = lesson.questions[currentQuestion];
+
+answered = false;
+
+
+document.getElementById("lessonNumber").textContent =
+
+"STEP " +
+
+String(currentQuestion + 1).padStart(2, "0");
+
+
+document.getElementById("lessonTitle").textContent =
+
+currentTopic;
+
+
+document.getElementById("lessonExplanation").innerHTML =
+
+"<strong>Break it down</strong><br><br>" +
+
+lesson.explanations[currentQuestion % lesson.explanations.length];
+
+
+document.getElementById("lessonExample").innerHTML =
+
+"<strong>Example</strong><br>" +
+
+lesson.examples.join("<br>");
+
+
+document.getElementById("questionText").textContent =
+
+question.q;
+
+
+let answers = document.getElementById("answers");
+
+answers.innerHTML = "";
+
+
+question.answers.forEach((answer, index) => {
+
+let button = document.createElement("button");
+
+button.className = "answer";
+
+button.textContent = answer;
+
+button.onclick = () => checkAnswer(index, button);
+
+answers.appendChild(button);
+
+});
+
+
+document.getElementById("feedback").textContent = "";
+
+
+document.getElementById("hintText").style.display = "none";
+
+document.getElementById("hintText").textContent = question.hint;
+
+
+document.getElementById("answerExplanation").style.display = "none";
+
+document.getElementById("answerExplanation").textContent =
+
+question.explanation;
+
+
+document.getElementById("nextButton").style.display = "none";
+
+
+updateProgress();
+
+}
+
+
+
+/* =====================================================
+   ANSWER
+===================================================== */
+
+
+function checkAnswer(index, button) {
+
+if (answered) return;
+
+answered = true;
+
+let lesson = lessons[currentTopic];
+
+let question = lesson.questions[currentQuestion];
+
+let buttons = document.querySelectorAll(".answer");
+
+buttons.forEach(b => {
+
+b.disabled = true;
+
+});
+
+
+if (index === question.correct) {
+
+button.classList.add("correct");
+
+document.getElementById("feedback").textContent =
+
+"✓ Correct!";
+
+score++;
+
+}
+
+else {
+
+button.classList.add("incorrect");
+
+buttons[question.correct].classList.add("correct");
+
+document.getElementById("feedback").textContent =
+
+"Not quite — the correct answer is highlighted.";
+
+}
+
+
+document.getElementById("answerExplanation").style.display = "block";
+
+document.getElementById("nextButton").style.display = "inline-block";
+
+
+updateProgress();
+
+}
+
+
+
+/* =====================================================
+   HINT
+===================================================== */
+
+
+function showHint() {
+
+document.getElementById("hintText").style.display = "block";
+
+}
+
+
+
+/* =====================================================
+   NEXT QUESTION
+===================================================== */
+
+
+function nextQuestion() {
+
+let lesson = lessons[currentTopic];
+
+currentQuestion++;
+
+
+if (currentQuestion >= lesson.questions.length) {
+
+finishLesson();
+
+return;
+
+}
+
+
+loadQuestion();
+
+}
+
+
+
+/* =====================================================
+   FINISH LESSON
+===================================================== */
+
+
+function finishLesson() {
+
+document.getElementById("lesson").style.display = "none";
+
+document.getElementById("results").style.display = "block";
+
+
+let total = lessons[currentTopic].questions.length;
+
+let percentage = Math.round((score / total) * 100);
+
+
+document.getElementById("resultMessage").textContent =
+
+"You scored " +
+
+score +
+
+" out of " +
+
+total +
+
+" (" +
+
+percentage +
+
+"%). Take a moment to review what you learned.";
+
+
+updateProgress(100);
+
+
+document.getElementById("results").scrollIntoView({
+
+behavior: "smooth"
+
+});
+
+}
+
+
+
+/* =====================================================
+   CHANGE TOPIC
+===================================================== */
+
+
+function changeTopic() {
+
+document.getElementById("lesson").style.display = "none";
+
+document.getElementById("results").style.display = "none";
+
+
+window.scrollTo({
+
+top: 0,
+
+behavior: "smooth"
+
+});
+
+}
+
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+
+function updateProgress(custom) {
+
+let progress;
+
+
+if (custom !== undefined) {
+
+progress = custom;
+
+}
+
+else if (currentTopic) {
+
+let total = lessons[currentTopic].questions.length;
+
+progress = Math.round((currentQuestion / total) * 100);
+
+}
+
+else {
+
+progress = 0;
+
+}
+
+
+document.getElementById("progressFill").style.width =
+
+progress + "%";
+
+
+document.getElementById("progressText").textContent =
+
+progress + "%";
+
+}
+
+
+</script>
 
 </body>
-
 </html>
+```
