@@ -1,0 +1,1927 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Go Deeper | NeuralPath Mathematics</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --cream: #faf7f2;
+    --paper: #fffdf9;
+    --text: #4f4b52;
+    --soft-text: #77727a;
+
+    --pink: #e8cdd5;
+    --blue: #cdddea;
+    --green: #d5e4d5;
+    --yellow: #eee1b8;
+    --purple: #ddd3e8;
+
+    --border: #e5ddd6;
+    --shadow: 0 8px 25px rgba(80, 70, 70, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: "Nunito", sans-serif;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #9a8498;
+}
+
+.back-button {
+    text-decoration: none;
+    color: var(--text);
+    background: var(--blue);
+    padding: 9px 17px;
+    border-radius: 20px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px 45px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero .symbol {
+    font-size: 2.2rem;
+    color: #9b8ba5;
+}
+
+.hero h1 {
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    margin: 10px 0;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--soft-text);
+    font-size: 1.05rem;
+}
+
+/* MAIN */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 25px 80px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    margin-bottom: 5px;
+}
+
+.section-title p {
+    color: var(--soft-text);
+}
+
+/* CURRICULUM */
+
+.curriculum {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 55px;
+}
+
+.curriculum button {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px 15px;
+    background: var(--paper);
+    color: var(--text);
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: var(--shadow);
+    transition: 0.25s;
+}
+
+.curriculum button:hover {
+    transform: translateY(-4px);
+}
+
+.curriculum button.active {
+    transform: translateY(-3px);
+    border: 2px solid #b7a5b5;
+}
+
+.curriculum .number {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #8c858d;
+}
+
+.curriculum h3 {
+    margin: 7px 0 3px;
+}
+
+.curriculum p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--soft-text);
+}
+
+.algebra {
+    background: #f2e3e7 !important;
+}
+
+.functions {
+    background: #e1ebf2 !important;
+}
+
+.geometry {
+    background: #e2eee2 !important;
+}
+
+.statistics {
+    background: #f1ead0 !important;
+}
+
+.foundations {
+    background: #e8e0ef !important;
+}
+
+/* TOPIC AREA */
+
+#topicArea {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 15px;
+}
+
+.topic {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.topic:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.topic strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.topic span {
+    color: var(--soft-text);
+    font-size: 0.9rem;
+}
+
+/* LESSON */
+
+#lessonArea {
+    display: none;
+    margin-top: 45px;
+}
+
+.lesson-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: var(--shadow);
+}
+
+.lesson-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #958496;
+    text-transform: uppercase;
+}
+
+.lesson-card h2 {
+    font-size: 2rem;
+    margin: 7px 0;
+}
+
+.lesson-intro {
+    color: var(--soft-text);
+}
+
+/* PROGRESS */
+
+.progress-container {
+    margin: 25px 0;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--soft-text);
+}
+
+.progress-bar {
+    height: 10px;
+    background: #eee8e2;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 7px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #bcaabd;
+    transition: width 0.4s;
+}
+
+/* QUESTION */
+
+.question-box {
+    background: #faf7f2;
+    border-radius: 18px;
+    padding: 25px;
+    margin-top: 25px;
+}
+
+.question-box h3 {
+    margin-top: 0;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 12px;
+    padding: 13px 15px;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #f7f1f4;
+}
+
+.option.correct {
+    background: var(--green);
+}
+
+.option.incorrect {
+    background: #f1dddd;
+}
+
+/* HINT */
+
+.hint-button {
+    margin-top: 18px;
+    border: none;
+    background: var(--yellow);
+    color: var(--text);
+    padding: 10px 16px;
+    border-radius: 18px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hint {
+    display: none;
+    background: #f5efd9;
+    padding: 15px;
+    margin-top: 12px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+}
+
+/* EXPLANATION */
+
+.explanation {
+    display: none;
+    background: var(--blue);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.explanation strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* NEXT */
+
+.next-button {
+    display: none;
+    margin-top: 25px;
+    border: none;
+    background: var(--purple);
+    color: var(--text);
+    padding: 12px 22px;
+    border-radius: 22px;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* SCORE */
+
+.score-card {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--paper);
+    border-radius: 20px;
+    margin-top: 25px;
+}
+
+.score-card .score {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #927f91;
+}
+
+.restart {
+    border: none;
+    background: var(--pink);
+    padding: 12px 22px;
+    border-radius: 22px;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 35px;
+    color: var(--soft-text);
+    font-size: 0.9rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .lesson-card {
+        padding: 22px;
+    }
+
+    .curriculum {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Neural<span>Path</span></div>
+    <a href="mathematics.html" class="back-button">← Mathematics</a>
+</header>
+
+<section class="hero">
+
+    <div class="symbol">↗</div>
+
+    <h1>Go Deeper</h1>
+
+    <p>
+        Curious about the “why” behind mathematics?
+        Explore connections, patterns, reasoning, and ideas that go beyond
+        simply getting the answer.
+    </p>
+
+</section>
+
+<main>
+
+    <div class="section-title">
+        <h2>Choose a path</h2>
+        <p>Select a mathematics area to explore.</p>
+    </div>
+
+    <div class="curriculum">
+
+        <button class="algebra" onclick="selectCategory('Algebra', this)">
+            <div class="number">01</div>
+            <h3>Algebra</h3>
+            <p>Patterns, variables & equations</p>
+        </button>
+
+        <button class="functions" onclick="selectCategory('Functions', this)">
+            <div class="number">02</div>
+            <h3>Functions</h3>
+            <p>Inputs, outputs & relationships</p>
+        </button>
+
+        <button class="geometry" onclick="selectCategory('Geometry', this)">
+            <div class="number">03</div>
+            <h3>Geometry</h3>
+            <p>Shapes, space & measurement</p>
+        </button>
+
+        <button class="statistics" onclick="selectCategory('Statistics', this)">
+            <div class="number">04</div>
+            <h3>Statistics</h3>
+            <p>Data, patterns & interpretation</p>
+        </button>
+
+        <button class="foundations" onclick="selectCategory('Foundations', this)">
+            <div class="number">05</div>
+            <h3>Foundations</h3>
+            <p>The building blocks of mathematics</p>
+        </button>
+
+    </div>
+
+
+    <!-- TOPICS -->
+
+    <section id="topicArea">
+
+        <div class="section-title">
+            <h2 id="categoryTitle"></h2>
+            <p>Choose something you'd like to investigate more deeply.</p>
+        </div>
+
+        <div id="topicGrid" class="topic-grid"></div>
+
+    </section>
+
+
+    <!-- LESSON -->
+
+    <section id="lessonArea">
+
+        <div class="lesson-card">
+
+            <div class="lesson-label" id="lessonCategory">
+                ALGEBRA
+            </div>
+
+            <h2 id="lessonTitle">
+                Topic
+            </h2>
+
+            <p class="lesson-intro" id="lessonIntro"></p>
+
+            <div class="progress-container">
+
+                <div class="progress-top">
+                    <span id="progressText">Question 1 of 4</span>
+                    <span id="scoreText">Score: 0</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+            </div>
+
+            <div class="question-box">
+
+                <h3 id="questionText"></h3>
+
+                <div class="options" id="options"></div>
+
+                <button class="hint-button" onclick="showHint()">
+                    ✦ Give me a hint
+                </button>
+
+                <div class="hint" id="hintText"></div>
+
+                <div class="explanation" id="explanation">
+                    <strong>Why?</strong>
+                    <span id="explanationText"></span>
+                </div>
+
+                <button class="next-button" id="nextButton" onclick="nextQuestion()">
+                    Continue →
+                </button>
+
+            </div>
+
+            <div class="score-card" id="scoreCard">
+
+                <div>You've reached the end of this path.</div>
+
+                <div class="score" id="finalScore">
+                    0 / 4
+                </div>
+
+                <p id="scoreMessage"></p>
+
+                <button class="restart" onclick="restartTopic()">
+                    Try again
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    NeuralPath · Learn in the way that works for you.
+</footer>
+
+
+<script>
+
+/* =========================
+   CURRICULUM
+========================= */
+
+const curriculum = {
+
+    Algebra: {
+
+        "Understanding Variables": {
+            intro: "Go beyond identifying variables and explore why mathematics uses symbols to represent changing or unknown quantities.",
+            questions: [
+                {
+                    q: "Why are variables useful in mathematics?",
+                    options: [
+                        "They allow us to represent values that can change or are unknown.",
+                        "They make every equation harder.",
+                        "They replace all numbers.",
+                        "They are only used in geometry."
+                    ],
+                    answer: 0,
+                    hint: "Think about what happens when a quantity can have different values.",
+                    explanation: "Variables give us a flexible way to represent unknown or changing quantities. This lets one mathematical rule describe many different situations."
+                },
+                {
+                    q: "In y = 3x + 2, what happens to y when x increases by 1?",
+                    options: [
+                        "y increases by 1.",
+                        "y increases by 2.",
+                        "y increases by 3.",
+                        "y decreases by 3."
+                    ],
+                    answer: 2,
+                    hint: "Look at the coefficient attached to x.",
+                    explanation: "The coefficient 3 tells us that every increase of 1 in x produces an increase of 3 in y."
+                },
+                {
+                    q: "Which statement best describes a variable?",
+                    options: [
+                        "A value that must always remain 1.",
+                        "A symbol that can represent a value.",
+                        "A symbol that always represents zero.",
+                        "A mathematical operation."
+                    ],
+                    answer: 1,
+                    hint: "Variables are usually letters or symbols.",
+                    explanation: "A variable is a symbol used to represent a number or quantity. Its value can depend on the situation."
+                },
+                {
+                    q: "Why can the same equation work for many different situations?",
+                    options: [
+                        "Because variables allow values to change.",
+                        "Because equations never contain numbers.",
+                        "Because the answer is always the same.",
+                        "Because variables are meaningless."
+                    ],
+                    answer: 0,
+                    hint: "Think about flexibility.",
+                    explanation: "Variables make mathematical relationships general. Instead of solving one isolated situation, a formula can describe an entire family of situations."
+                }
+            ]
+        },
+
+        "Coefficients & Constants": {
+            intro: "Explore what coefficients and constants tell us about an algebraic expression.",
+            questions: [
+                {
+                    q: "In 5x + 7, what does the 5 represent?",
+                    options: [
+                        "The constant",
+                        "The coefficient",
+                        "The variable",
+                        "The exponent"
+                    ],
+                    answer: 1,
+                    hint: "It is multiplying the variable.",
+                    explanation: "The coefficient is the number multiplied by a variable. In 5x, the coefficient is 5."
+                },
+                {
+                    q: "What makes a constant different from a variable?",
+                    options: [
+                        "A constant represents a fixed value.",
+                        "A constant is always negative.",
+                        "A constant must contain a letter.",
+                        "A constant cannot be added."
+                    ],
+                    answer: 0,
+                    hint: "Think about the word 'constant'.",
+                    explanation: "A constant remains fixed within the expression or situation. In x + 7, the 7 is constant."
+                },
+                {
+                    q: "What does 3x mean?",
+                    options: [
+                        "3 + x",
+                        "x divided by 3",
+                        "3 multiplied by x",
+                        "3 minus x"
+                    ],
+                    answer: 2,
+                    hint: "A coefficient sits directly beside a variable.",
+                    explanation: "3x means 3 multiplied by x. Multiplication is often written without a symbol in algebra."
+                },
+                {
+                    q: "Which part of 8x + 12 is the constant?",
+                    options: [
+                        "8",
+                        "x",
+                        "12",
+                        "8x"
+                    ],
+                    answer: 2,
+                    hint: "Look for the number without a variable.",
+                    explanation: "12 has no variable attached to it, so it is the constant."
+                }
+            ]
+        },
+
+        "Combining Like Terms": {
+            intro: "Look deeper at why some algebraic terms can be combined while others cannot.",
+            questions: [
+                {
+                    q: "Why can 3x and 5x be combined?",
+                    options: [
+                        "They contain the same variable.",
+                        "They are both positive.",
+                        "They are both numbers.",
+                        "They contain different variables."
+                    ],
+                    answer: 0,
+                    hint: "Focus on what makes the terms 'like'.",
+                    explanation: "Like terms have the same variable part with the same exponents. Their coefficients can therefore be combined."
+                },
+                {
+                    q: "Simplify: 4x + 2x",
+                    options: [
+                        "6",
+                        "6x",
+                        "8x",
+                        "2x"
+                    ],
+                    answer: 1,
+                    hint: "Combine the coefficients.",
+                    explanation: "4x + 2x = (4 + 2)x = 6x."
+                },
+                {
+                    q: "Can 3x and 3y be combined into one term?",
+                    options: [
+                        "Yes, because both have 3.",
+                        "Yes, because both are variables.",
+                        "No, because their variable parts differ.",
+                        "Only if x is negative."
+                    ],
+                    answer: 2,
+                    hint: "Are x and y the same variable?",
+                    explanation: "3x and 3y are unlike terms because their variables differ."
+                },
+                {
+                    q: "What is the main idea behind combining like terms?",
+                    options: [
+                        "Combine compatible quantities.",
+                        "Multiply every number.",
+                        "Remove all variables.",
+                        "Change every sign."
+                    ],
+                    answer: 0,
+                    hint: "Think about combining similar objects.",
+                    explanation: "Combining like terms is similar to grouping the same type of object together. Only compatible algebraic terms can be combined."
+                }
+            ]
+        },
+
+        "Solving One-Step Equations": {
+            intro: "Investigate the reasoning behind maintaining equality while solving equations.",
+            questions: [
+                {
+                    q: "Why can you subtract the same number from both sides of an equation?",
+                    options: [
+                        "It keeps the equation balanced.",
+                        "It changes the variable randomly.",
+                        "It removes equality.",
+                        "It only works with positive numbers."
+                    ],
+                    answer: 0,
+                    hint: "Think of an equation as a balance.",
+                    explanation: "Performing the same operation on both sides preserves equality."
+                },
+                {
+                    q: "Solve: x + 6 = 10",
+                    options: [
+                        "x = 16",
+                        "x = 6",
+                        "x = 4",
+                        "x = -4"
+                    ],
+                    answer: 2,
+                    hint: "Undo the +6.",
+                    explanation: "Subtract 6 from both sides: x + 6 - 6 = 10 - 6, so x = 4."
+                },
+                {
+                    q: "What operation undoes multiplication?",
+                    options: [
+                        "Addition",
+                        "Subtraction",
+                        "Division",
+                        "Exponentiation"
+                    ],
+                    answer: 2,
+                    hint: "Think about inverse operations.",
+                    explanation: "Division is the inverse operation of multiplication."
+                },
+                {
+                    q: "What is the goal when solving an equation?",
+                    options: [
+                        "Make the equation longer.",
+                        "Isolate the variable.",
+                        "Remove every number.",
+                        "Change the equal sign."
+                    ],
+                    answer: 1,
+                    hint: "What are you trying to find?",
+                    explanation: "The usual goal is to isolate the variable so its value can be determined."
+                }
+            ]
+        },
+
+        "Multi-Step Equations": {
+            intro: "Go deeper into how several algebraic operations work together when solving an equation.",
+            questions: [
+                {
+                    q: "What should usually be simplified first in 2x + 5 = 17?",
+                    options: [
+                        "The variable",
+                        "The constant term",
+                        "The equal sign",
+                        "Nothing"
+                    ],
+                    answer: 1,
+                    hint: "Undo addition before division.",
+                    explanation: "Subtract 5 from both sides first, leaving 2x = 12. Then divide by 2."
+                },
+                {
+                    q: "Solve: 2x + 4 = 12",
+                    options: [
+                        "x = 4",
+                        "x = 6",
+                        "x = 8",
+                        "x = 2"
+                    ],
+                    answer: 0,
+                    hint: "Subtract 4, then divide by 2.",
+                    explanation: "2x + 4 = 12 → 2x = 8 → x = 4."
+                },
+                {
+                    q: "Why do we use inverse operations?",
+                    options: [
+                        "To undo operations and isolate the variable.",
+                        "To make equations longer.",
+                        "To change the answer.",
+                        "To eliminate equality."
+                    ],
+                    answer: 0,
+                    hint: "Inverse means opposite.",
+                    explanation: "Inverse operations undo one another, allowing us to gradually isolate the variable."
+                },
+                {
+                    q: "Which equation requires more than one solving step?",
+                    options: [
+                        "x + 4 = 9",
+                        "3x = 12",
+                        "2x + 5 = 17",
+                        "x = 7"
+                    ],
+                    answer: 2,
+                    hint: "Look for multiple operations affecting x.",
+                    explanation: "2x + 5 = 17 contains both multiplication and addition, so it requires multiple inverse operations."
+                }
+            ]
+        },
+
+        "Inequalities": {
+            intro: "Explore how inequalities describe ranges of possible values rather than one exact answer.",
+            questions: [
+                {
+                    q: "What does x > 4 mean?",
+                    options: [
+                        "x is exactly 4.",
+                        "x is less than 4.",
+                        "x is greater than 4.",
+                        "x is equal to or less than 4."
+                    ],
+                    answer: 2,
+                    hint: "The wide side of > points toward the larger value.",
+                    explanation: "x > 4 means every value greater than 4 is a solution."
+                },
+                {
+                    q: "When multiplying or dividing an inequality by a negative number, what happens?",
+                    options: [
+                        "The inequality symbol reverses.",
+                        "The variable disappears.",
+                        "The inequality becomes an equation.",
+                        "Nothing changes."
+                    ],
+                    answer: 0,
+                    hint: "Negative multiplication changes the direction of the number line.",
+                    explanation: "Multiplying or dividing by a negative reverses the inequality because the order of values on the number line reverses."
+                },
+                {
+                    q: "Which value satisfies x < 7?",
+                    options: [
+                        "9",
+                        "8",
+                        "7",
+                        "5"
+                    ],
+                    answer: 3,
+                    hint: "Look for a number smaller than 7.",
+                    explanation: "5 is less than 7, so it satisfies the inequality."
+                },
+                {
+                    q: "Why can an inequality have many solutions?",
+                    options: [
+                        "It describes a range of values.",
+                        "It always has no answer.",
+                        "It only describes one number.",
+                        "It cannot contain variables."
+                    ],
+                    answer: 0,
+                    hint: "Think about x > 2.",
+                    explanation: "Every number greater than 2 satisfies x > 2, so an inequality can have infinitely many solutions."
+                }
+            ]
+        }
+    },
+
+
+    /* =========================
+       FUNCTIONS
+    ========================= */
+
+    Functions: {
+
+        "What Is a Function?": {
+            intro: "Explore functions as mathematical relationships between inputs and outputs.",
+            questions: [
+                {
+                    q: "What does a function connect?",
+                    options: [
+                        "Inputs to outputs",
+                        "Only positive numbers",
+                        "Only equations",
+                        "Shapes to angles"
+                    ],
+                    answer: 0,
+                    hint: "Think of a function as a machine.",
+                    explanation: "A function takes an input, applies a rule, and produces an output."
+                },
+                {
+                    q: "If f(x) = x + 2, what is f(3)?",
+                    options: [
+                        "3",
+                        "5",
+                        "6",
+                        "1"
+                    ],
+                    answer: 1,
+                    hint: "Replace x with 3.",
+                    explanation: "f(3) = 3 + 2 = 5."
+                },
+                {
+                    q: "What is the input usually called?",
+                    options: [
+                        "x-value",
+                        "y-intercept",
+                        "output",
+                        "constant"
+                    ],
+                    answer: 0,
+                    hint: "Think about x and y.",
+                    explanation: "The x-value is commonly treated as the input, while the y-value represents the output."
+                },
+                {
+                    q: "What makes a relation a function?",
+                    options: [
+                        "Each input has exactly one output.",
+                        "Every output must be positive.",
+                        "Every input has many outputs.",
+                        "It must be linear."
+                    ],
+                    answer: 0,
+                    hint: "Focus on the input-output rule.",
+                    explanation: "A function assigns exactly one output to each input."
+                }
+            ]
+        },
+
+        "Function Notation": {
+            intro: "Understand what notation such as f(x) actually communicates.",
+            questions: [
+                {
+                    q: "What does f(x) represent?",
+                    options: [
+                        "The output of a function for input x.",
+                        "f multiplied by x.",
+                        "Only the variable x.",
+                        "A fraction."
+                    ],
+                    answer: 0,
+                    hint: "Read it as 'f of x.'",
+                    explanation: "f(x) represents the output produced by function f when x is used as the input."
+                },
+                {
+                    q: "If f(x) = 2x and x = 4, what is f(4)?",
+                    options: [
+                        "2",
+                        "4",
+                        "6",
+                        "8"
+                    ],
+                    answer: 3,
+                    hint: "Substitute 4 for x.",
+                    explanation: "f(4) = 2(4) = 8."
+                },
+                {
+                    q: "What does the number inside f(5) represent?",
+                    options: [
+                        "The input",
+                        "The output",
+                        "The coefficient",
+                        "The slope"
+                    ],
+                    answer: 0,
+                    hint: "The value being fed into the function.",
+                    explanation: "The number inside the parentheses is the input."
+                },
+                {
+                    q: "Why is function notation useful?",
+                    options: [
+                        "It clearly identifies inputs and outputs.",
+                        "It removes variables.",
+                        "It only works with geometry.",
+                        "It prevents calculations."
+                    ],
+                    answer: 0,
+                    hint: "Think about organization.",
+                    explanation: "Function notation gives a clear way to describe which function is being used and what input is being evaluated."
+                }
+            ]
+        },
+
+        "Reading Function Graphs": {
+            intro: "Learn how graphs reveal relationships between inputs and outputs.",
+            questions: [
+                {
+                    q: "On a typical coordinate graph, which axis represents x?",
+                    options: [
+                        "Horizontal axis",
+                        "Vertical axis",
+                        "Diagonal axis",
+                        "There is no x-axis"
+                    ],
+                    answer: 0,
+                    hint: "x moves from left to right.",
+                    explanation: "The x-axis is horizontal, while the y-axis is vertical."
+                },
+                {
+                    q: "What does a point (3, 7) tell you?",
+                    options: [
+                        "When x = 3, y = 7.",
+                        "When x = 7, y = 3.",
+                        "The slope is 3.",
+                        "The graph has no output."
+                    ],
+                    answer: 0,
+                    hint: "Coordinates are written (x, y).",
+                    explanation: "The first coordinate is x and the second is y, so the point means x = 3 and y = 7."
+                },
+                {
+                    q: "What does a steep line generally indicate?",
+                    options: [
+                        "A larger rate of change.",
+                        "No relationship.",
+                        "A smaller x-axis.",
+                        "No output."
+                    ],
+                    answer: 0,
+                    hint: "Think about slope.",
+                    explanation: "A steeper line has a larger absolute slope, meaning y changes more rapidly as x changes."
+                },
+                {
+                    q: "What does the y-intercept show?",
+                    options: [
+                        "Where the graph crosses the y-axis.",
+                        "Where the graph crosses the x-axis.",
+                        "The highest x-value.",
+                        "The domain."
+                    ],
+                    answer: 0,
+                    hint: "The name tells you which axis.",
+                    explanation: "The y-intercept is the point where a graph crosses the y-axis."
+                }
+            ]
+        }
+    },
+
+
+    /* =========================
+       GEOMETRY
+    ========================= */
+
+    Geometry: {
+
+        "Points, Lines & Planes": {
+            intro: "Investigate the foundational objects used to describe geometric space.",
+            questions: [
+                {
+                    q: "What is a point used to represent?",
+                    options: [
+                        "An exact location",
+                        "A curved surface",
+                        "A measurement",
+                        "An angle"
+                    ],
+                    answer: 0,
+                    hint: "A point has a location but no size.",
+                    explanation: "A point represents an exact location in space."
+                },
+                {
+                    q: "What is a line?",
+                    options: [
+                        "A straight path extending infinitely in both directions.",
+                        "A finite segment.",
+                        "A single location.",
+                        "A shape with four sides."
+                    ],
+                    answer: 0,
+                    hint: "Think about what happens at both ends.",
+                    explanation: "A geometric line extends forever in both directions."
+                },
+                {
+                    q: "How many dimensions does a plane have?",
+                    options: [
+                        "0",
+                        "1",
+                        "2",
+                        "4"
+                    ],
+                    answer: 2,
+                    hint: "Think about a flat surface.",
+                    explanation: "A plane is a two-dimensional flat surface extending infinitely."
+                },
+                {
+                    q: "How many points determine a unique line?",
+                    options: [
+                        "One",
+                        "Two",
+                        "Five",
+                        "Ten"
+                    ],
+                    answer: 1,
+                    hint: "Two locations can determine a straight path.",
+                    explanation: "Exactly two distinct points determine one unique line."
+                }
+            ]
+        },
+
+        "Understanding Angles": {
+            intro: "Explore how angles describe rotation and relationships between lines.",
+            questions: [
+                {
+                    q: "What is an angle formed by?",
+                    options: [
+                        "Two rays sharing an endpoint.",
+                        "One point only.",
+                        "Two circles.",
+                        "Three parallel lines."
+                    ],
+                    answer: 0,
+                    hint: "Think about the sides of an angle.",
+                    explanation: "An angle consists of two rays that share a common endpoint called the vertex."
+                },
+                {
+                    q: "What type of angle measures 90°?",
+                    options: [
+                        "Acute",
+                        "Right",
+                        "Obtuse",
+                        "Straight"
+                    ],
+                    answer: 1,
+                    hint: "Think of the corner of a square.",
+                    explanation: "A right angle measures exactly 90 degrees."
+                },
+                {
+                    q: "What is an acute angle?",
+                    options: [
+                        "Less than 90°",
+                        "Exactly 90°",
+                        "Between 90° and 180°",
+                        "Exactly 180°"
+                    ],
+                    answer: 0,
+                    hint: "Acute means smaller.",
+                    explanation: "An acute angle is greater than 0° and less than 90°."
+                },
+                {
+                    q: "A straight angle measures...",
+                    options: [
+                        "45°",
+                        "90°",
+                        "180°",
+                        "360°"
+                    ],
+                    answer: 2,
+                    hint: "Think of a perfectly straight line.",
+                    explanation: "A straight angle forms a line and measures 180 degrees."
+                }
+            ]
+        },
+
+        "Area & Perimeter": {
+            intro: "Go deeper into the difference between measuring space inside a shape and measuring its boundary.",
+            questions: [
+                {
+                    q: "What does perimeter measure?",
+                    options: [
+                        "The distance around a shape.",
+                        "The space inside a shape.",
+                        "The height only.",
+                        "The number of corners."
+                    ],
+                    answer: 0,
+                    hint: "Imagine walking around the edge.",
+                    explanation: "Perimeter is the total distance around the boundary of a shape."
+                },
+                {
+                    q: "What does area measure?",
+                    options: [
+                        "Space inside a shape.",
+                        "Distance around a shape.",
+                        "Number of sides.",
+                        "Angle size."
+                    ],
+                    answer: 0,
+                    hint: "Think about covering a surface.",
+                    explanation: "Area measures the amount of two-dimensional space inside a shape."
+                },
+                {
+                    q: "What is the area of a rectangle 5 units by 3 units?",
+                    options: [
+                        "8 square units",
+                        "15 square units",
+                        "16 square units",
+                        "10 square units"
+                    ],
+                    answer: 1,
+                    hint: "Area = length × width.",
+                    explanation: "5 × 3 = 15 square units."
+                },
+                {
+                    q: "Why is area measured in square units?",
+                    options: [
+                        "Because it describes two-dimensional space.",
+                        "Because all shapes are squares.",
+                        "Because perimeter uses squares.",
+                        "Because angles require squares."
+                    ],
+                    answer: 0,
+                    hint: "Think about dimensions.",
+                    explanation: "Area measures two dimensions, so its units are squared, such as cm² or m²."
+                }
+            ]
+        }
+    },
+
+
+    /* =========================
+       STATISTICS
+    ========================= */
+
+    Statistics: {
+
+        "Mean, Median & Mode": {
+            intro: "Look deeper at how different measures summarize a collection of data.",
+            questions: [
+                {
+                    q: "What does the mean represent?",
+                    options: [
+                        "The arithmetic average.",
+                        "The most common value.",
+                        "The middle value only.",
+                        "The largest value."
+                    ],
+                    answer: 0,
+                    hint: "Add the values and divide.",
+                    explanation: "The mean is calculated by adding all values and dividing by the number of values."
+                },
+                {
+                    q: "What is the median?",
+                    options: [
+                        "The middle value when data is ordered.",
+                        "The largest value.",
+                        "The average of every value.",
+                        "The most common value."
+                    ],
+                    answer: 0,
+                    hint: "Median = middle.",
+                    explanation: "The median is the middle value of an ordered data set."
+                },
+                {
+                    q: "What is the mode?",
+                    options: [
+                        "The most frequently occurring value.",
+                        "The middle value.",
+                        "The average.",
+                        "The range."
+                    ],
+                    answer: 0,
+                    hint: "Think 'most common.'",
+                    explanation: "The mode is the value that appears most frequently."
+                },
+                {
+                    q: "Which measure can be especially affected by an extreme outlier?",
+                    options: [
+                        "Mean",
+                        "Median",
+                        "Mode",
+                        "None"
+                    ],
+                    answer: 0,
+                    hint: "Think about adding a very large number.",
+                    explanation: "The mean uses every value in the calculation, so extreme values can pull it significantly."
+                }
+            ]
+        },
+
+        "Reading Data Displays": {
+            intro: "Explore how graphs and charts communicate patterns in data.",
+            questions: [
+                {
+                    q: "What does a bar graph compare?",
+                    options: [
+                        "Categories or groups.",
+                        "Only angles.",
+                        "Only equations.",
+                        "Variables in an expression."
+                    ],
+                    answer: 0,
+                    hint: "Look at the separate bars.",
+                    explanation: "Bar graphs are commonly used to compare quantities across categories."
+                },
+                {
+                    q: "What does the height of a bar usually represent?",
+                    options: [
+                        "The quantity or frequency.",
+                        "The title.",
+                        "The category name.",
+                        "The axis itself."
+                    ],
+                    answer: 0,
+                    hint: "Higher bars usually mean more.",
+                    explanation: "The height or length of a bar represents the measured quantity."
+                },
+                {
+                    q: "Why are labels important on graphs?",
+                    options: [
+                        "They tell us what the data represents.",
+                        "They make graphs decorative.",
+                        "They remove data.",
+                        "They change the values."
+                    ],
+                    answer: 0,
+                    hint: "Without labels, what would the numbers mean?",
+                    explanation: "Labels provide context and tell the reader what each axis or category represents."
+                },
+                {
+                    q: "What should you examine before interpreting a graph?",
+                    options: [
+                        "Title, labels, scale, and data.",
+                        "Only the colors.",
+                        "Only the largest point.",
+                        "Nothing."
+                    ],
+                    answer: 0,
+                    hint: "Start by understanding the graph's context.",
+                    explanation: "Reading the title, labels, scale, and data prevents misleading interpretations."
+                }
+            ]
+        },
+
+        "Understanding Distributions": {
+            intro: "Explore how data can be spread out, clustered, or influenced by unusual values.",
+            questions: [
+                {
+                    q: "What does a distribution describe?",
+                    options: [
+                        "How data values are spread.",
+                        "Only the largest number.",
+                        "Only the mean.",
+                        "A geometric shape."
+                    ],
+                    answer: 0,
+                    hint: "Think about how the data is arranged.",
+                    explanation: "A distribution describes the pattern and spread of values in a data set."
+                },
+                {
+                    q: "What is an outlier?",
+                    options: [
+                        "A value unusually far from the others.",
+                        "The average.",
+                        "The most common value.",
+                        "The smallest possible number."
+                    ],
+                    answer: 0,
+                    hint: "It stands out from the rest.",
+                    explanation: "An outlier is a data value that is unusually distant from the general pattern."
+                },
+                {
+                    q: "What does a clustered group of data suggest?",
+                    options: [
+                        "Many values occur near one another.",
+                        "All values are different.",
+                        "There are no patterns.",
+                        "The mean must be zero."
+                    ],
+                    answer: 0,
+                    hint: "Cluster = group.",
+                    explanation: "A cluster indicates that many observations are concentrated in a similar range."
+                },
+                {
+                    q: "Why is distribution shape useful?",
+                    options: [
+                        "It helps reveal patterns in the data.",
+                        "It removes outliers automatically.",
+                        "It guarantees causation.",
+                        "It replaces all calculations."
+                    ],
+                    answer: 0,
+                    hint: "Think about what a graph can reveal.",
+                    explanation: "The shape of a distribution can reveal clustering, gaps, skew, spread, and unusual observations."
+                }
+            ]
+        }
+    },
+
+
+    /* =========================
+       FOUNDATIONS
+    ========================= */
+
+    Foundations: {
+
+        "Order of Operations": {
+            intro: "Investigate why mathematical expressions follow a conventional order when multiple operations appear together.",
+            questions: [
+                {
+                    q: "What does PEMDAS help you remember?",
+                    options: [
+                        "The order for evaluating expressions.",
+                        "How to graph lines.",
+                        "How to measure angles.",
+                        "How to calculate statistics."
+                    ],
+                    answer: 0,
+                    hint: "P-E-M-D-A-S.",
+                    explanation: "PEMDAS is a memory aid for the conventional order of operations."
+                },
+                {
+                    q: "Which should be handled first?",
+                    options: [
+                        "Addition",
+                        "Subtraction",
+                        "Parentheses",
+                        "Multiplication"
+                    ],
+                    answer: 2,
+                    hint: "P comes first.",
+                    explanation: "Parentheses are evaluated before the other operations."
+                },
+                {
+                    q: "What is 2 + 3 × 4?",
+                    options: [
+                        "20",
+                        "14",
+                        "24",
+                        "9"
+                    ],
+                    answer: 1,
+                    hint: "Multiplication comes before addition.",
+                    explanation: "3 × 4 = 12, then 2 + 12 = 14."
+                },
+                {
+                    q: "Why is order of operations necessary?",
+                    options: [
+                        "It gives expressions a consistent interpretation.",
+                        "It makes equations longer.",
+                        "It removes multiplication.",
+                        "It only applies to calculators."
+                    ],
+                    answer: 0,
+                    hint: "Imagine two people evaluating the same expression differently.",
+                    explanation: "A shared order of operations ensures that everyone interprets a mathematical expression consistently."
+                }
+            ]
+        },
+
+        "Fractions & Decimals": {
+            intro: "Explore how fractions and decimals represent quantities and how they connect to one another.",
+            questions: [
+                {
+                    q: "What does a fraction represent?",
+                    options: [
+                        "A ratio or part of a whole.",
+                        "Only a whole number.",
+                        "Only a negative number.",
+                        "An angle."
+                    ],
+                    answer: 0,
+                    hint: "Think numerator and denominator.",
+                    explanation: "A fraction can represent a part of a whole, a ratio, or a division relationship."
+                },
+                {
+                    q: "What decimal is equivalent to 1/2?",
+                    options: [
+                        "0.2",
+                        "0.25",
+                        "0.5",
+                        "1.5"
+                    ],
+                    answer: 2,
+                    hint: "Divide 1 by 2.",
+                    explanation: "1 ÷ 2 = 0.5, so 1/2 = 0.5."
+                },
+                {
+                    q: "What does the denominator tell you?",
+                    options: [
+                        "How many equal parts make the whole.",
+                        "How many parts are selected.",
+                        "The decimal value only.",
+                        "The sign."
+                    ],
+                    answer: 0,
+                    hint: "It is the bottom number.",
+                    explanation: "The denominator describes the total number of equal parts in the whole."
+                },
+                {
+                    q: "Which is greater?",
+                    options: [
+                        "0.4",
+                        "0.75",
+                        "0.2",
+                        "0.1"
+                    ],
+                    answer: 1,
+                    hint: "Compare the decimal tenths and hundredths.",
+                    explanation: "0.75 is greater than 0.4, 0.2, and 0.1."
+                }
+            ]
+        },
+
+        "Positive & Negative Numbers": {
+            intro: "Explore how signed numbers describe direction, change, and quantities on a number line.",
+            questions: [
+                {
+                    q: "Where are negative numbers located?",
+                    options: [
+                        "To the left of zero.",
+                        "To the right of zero.",
+                        "Only above zero.",
+                        "Only below a graph."
+                    ],
+                    answer: 0,
+                    hint: "Picture a number line.",
+                    explanation: "Negative numbers appear to the left of zero on a horizontal number line."
+                },
+                {
+                    q: "Which is greater?",
+                    options: [
+                        "-8",
+                        "-3",
+                        "-10",
+                        "-12"
+                    ],
+                    answer: 1,
+                    hint: "On a number line, farther right means greater.",
+                    explanation: "-3 is greater because it lies farther to the right than the other negative numbers."
+                },
+                {
+                    q: "What is the opposite of -5?",
+                    options: [
+                        "-10",
+                        "0",
+                        "5",
+                        "1/5"
+                    ],
+                    answer: 2,
+                    hint: "Opposites are the same distance from zero.",
+                    explanation: "5 and -5 are opposites because they are equally distant from zero in opposite directions."
+                },
+                {
+                    q: "What does zero represent on a number line?",
+                    options: [
+                        "The reference point between positive and negative values.",
+                        "The largest number.",
+                        "Only a positive value.",
+                        "A negative value."
+                    ],
+                    answer: 0,
+                    hint: "Positive and negative values are measured relative to it.",
+                    explanation: "Zero serves as the central reference point separating positive and negative numbers."
+                }
+            ]
+        }
+    }
+};
+
+
+/* =========================
+   STATE
+========================= */
+
+let currentCategory = "";
+let currentTopic = "";
+let currentQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+
+/* =========================
+   SELECT CATEGORY
+========================= */
+
+function selectCategory(category, button) {
+
+    currentCategory = category;
+
+    document.querySelectorAll(".curriculum button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    const topicArea = document.getElementById("topicArea");
+    const topicGrid = document.getElementById("topicGrid");
+
+    document.getElementById("categoryTitle").textContent =
+        category + " · Choose a topic";
+
+    topicGrid.innerHTML = "";
+
+    Object.keys(curriculum[category]).forEach(topic => {
+
+        const data = curriculum[category][topic];
+
+        const div = document.createElement("div");
+
+        div.className = "topic";
+
+        div.innerHTML = `
+            <strong>${topic}</strong>
+            <span>${data.questions.length} deeper questions</span>
+        `;
+
+        div.onclick = () => startTopic(topic);
+
+        topicGrid.appendChild(div);
+    });
+
+    topicArea.style.display = "block";
+
+    document.getElementById("lessonArea").style.display = "none";
+
+    topicArea.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+/* =========================
+   START TOPIC
+========================= */
+
+function startTopic(topic) {
+
+    currentTopic = topic;
+    currentQuestions = curriculum[currentCategory][topic].questions;
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("lessonArea").style.display = "block";
+    document.getElementById("scoreCard").style.display = "none";
+
+    document.getElementById("lessonCategory").textContent =
+        currentCategory;
+
+    document.getElementById("lessonTitle").textContent =
+        currentTopic;
+
+    document.getElementById("lessonIntro").textContent =
+        curriculum[currentCategory][topic].intro;
+
+    document.getElementById("scoreText").textContent =
+        "Score: 0";
+
+    loadQuestion();
+
+    document.getElementById("lessonArea").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+/* =========================
+   LOAD QUESTION
+========================= */
+
+function loadQuestion() {
+
+    answered = false;
+
+    const question = currentQuestions[currentQuestion];
+
+    document.getElementById("questionText").textContent =
+        question.q;
+
+    document.getElementById("progressText").textContent =
+        `Question ${currentQuestion + 1} of ${currentQuestions.length}`;
+
+    const progress =
+        (currentQuestion / currentQuestions.length) * 100;
+
+    document.getElementById("progressFill").style.width =
+        progress + "%";
+
+    document.getElementById("hintText").style.display = "none";
+    document.getElementById("explanation").style.display = "none";
+    document.getElementById("nextButton").style.display = "none";
+
+    const optionsContainer =
+        document.getElementById("options");
+
+    optionsContainer.innerHTML = "";
+
+    question.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent = option;
+
+        button.onclick = () =>
+            chooseAnswer(index, button);
+
+        optionsContainer.appendChild(button);
+    });
+}
+
+
+/* =========================
+   ANSWER
+========================= */
+
+function chooseAnswer(index, button) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const question = currentQuestions[currentQuestion];
+
+    const allOptions =
+        document.querySelectorAll(".option");
+
+    if (index === question.answer) {
+
+        button.classList.add("correct");
+
+        score++;
+
+        document.getElementById("scoreText").textContent =
+            "Score: " + score;
+
+    } else {
+
+        button.classList.add("incorrect");
+
+        allOptions[question.answer]
+            .classList.add("correct");
+    }
+
+    document.getElementById("explanationText").textContent =
+        question.explanation;
+
+    document.getElementById("explanation").style.display =
+        "block";
+
+    document.getElementById("nextButton").style.display =
+        "inline-block";
+}
+
+
+/* =========================
+   HINT
+========================= */
+
+function showHint() {
+
+    const hint =
+        currentQuestions[currentQuestion].hint;
+
+    const hintBox =
+        document.getElementById("hintText");
+
+    hintBox.textContent = hint;
+
+    hintBox.style.display = "block";
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if (currentQuestion >= currentQuestions.length) {
+
+        finishTopic();
+
+        return;
+    }
+
+    loadQuestion();
+}
+
+
+/* =========================
+   FINISH
+========================= */
+
+function finishTopic() {
+
+    document.getElementById("progressFill").style.width =
+        "100%";
+
+    document.getElementById("progressText").textContent =
+        "Complete";
+
+    document.getElementById("questionText").textContent =
+        "Nice work exploring this topic.";
+
+    document.getElementById("options").innerHTML = "";
+
+    document.querySelector(".hint-button").style.display =
+        "none";
+
+    document.getElementById("explanation").style.display =
+        "none";
+
+    document.getElementById("nextButton").style.display =
+        "none";
+
+    const scoreCard =
+        document.getElementById("scoreCard");
+
+    scoreCard.style.display = "block";
+
+    document.getElementById("finalScore").textContent =
+        `${score} / ${currentQuestions.length}`;
+
+    let message;
+
+    const percentage =
+        score / currentQuestions.length;
+
+    if (percentage === 1) {
+        message =
+            "Excellent. You connected the ideas, not just the answers.";
+    } else if (percentage >= 0.75) {
+        message =
+            "Strong work. You have a solid understanding of this topic.";
+    } else if (percentage >= 0.5) {
+        message =
+            "You're building the connection. Try the topic again when you're ready.";
+    } else {
+        message =
+            "That's okay. Deeper learning takes time. Review the explanations and try again.";
+    }
+
+    document.getElementById("scoreMessage").textContent =
+        message;
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartTopic() {
+
+    document.querySelector(".hint-button").style.display =
+        "inline-block";
+
+    startTopic(currentTopic);
+}
+
+</script>
+
+</body>
+</html>
+```
