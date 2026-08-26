@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="description"
+content="Quick mathematics definitions, rules, formulas, and examples for NeuralPath."
+>
+
+<title>Keep It Short — NeuralPath</title>
+
+<link
+href="https://fonts.cdnfonts.com/css/starborn"
+rel="stylesheet"
+>
+
+<style>
+
+:root {
+
+    --cream: #f8f6f0;
+    --paper: #fffdf8;
+    --white: #ffffff;
+
+    --ink: #292a2d;
+    --soft-ink: #68686c;
+
+    --lavender: #e8dff0;
+    --lavender-dark: #bca8d2;
+
+    --blue: #dce9f1;
+    --blue-dark: #abc8d9;
+
+    --yellow: #f2e9c9;
+    --yellow-dark: #d9c98f;
+
+    --sage: #dce8d9;
+    --sage-dark: #aec3aa;
+
+    --peach: #efd9d4;
+    --pink: #ead9df;
+
+    --border: #dedbd2;
+
+    --radius: 20px;
+
+    --shadow:
+        0 8px 25px rgba(55, 53, 48, 0.07);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background:
+        rgba(248, 246, 240, 0.94);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.nav {
+
+    width:
+        min(1050px, 92%);
+
+    min-height:
+        76px;
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+}
+
+
+.logo {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.5rem;
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
+}
+
+
+.logo-dot {
+
+    display:
+        inline-block;
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    margin-left:
+        4px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--lavender-dark);
+}
+
+
+.back-button {
+
+    padding:
+        10px 18px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--lavender);
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        700;
+
+    transition:
+        0.2s ease;
+}
+
+
+.back-button:hover {
+
+    background:
+        var(--lavender-dark);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+    width:
+        min(900px, 92%);
+
+    margin:
+        auto;
+
+    padding:
+        60px 0 100px;
+}
+
+
+.breadcrumb {
+
+    margin-bottom:
+        28px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.83rem;
+}
+
+
+.breadcrumb a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+}
+
+
+.breadcrumb a:hover {
+
+    text-decoration:
+        underline;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        50px;
+}
+
+
+.eyebrow {
+
+    display:
+        block;
+
+    margin-bottom:
+        15px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+}
+
+
+h1 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        clamp(2.5rem, 7vw, 4.2rem);
+
+    line-height:
+        1.1;
+
+    font-weight:
+        400;
+}
+
+
+.intro p {
+
+    max-width:
+        650px;
+
+    margin:
+        20px auto 0;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        1.05rem;
+}
+
+
+/* =========================
+   QUICK NAV
+========================= */
+
+.quick-nav {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        9px;
+
+    margin-bottom:
+        45px;
+}
+
+
+.quick-nav a {
+
+    padding:
+        9px 15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--paper);
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+    transition:
+        0.2s ease;
+}
+
+
+.quick-nav a:hover {
+
+    background:
+        var(--lavender);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.short-section {
+
+    margin-bottom:
+        45px;
+}
+
+
+.section-heading {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        18px;
+}
+
+
+.section-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--lavender);
+
+    font-size:
+        1.05rem;
+}
+
+
+.section-heading h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.5rem;
+
+    font-weight:
+        400;
+}
+
+
+/* =========================
+   REFERENCE CARDS
+========================= */
+
+.reference-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        14px;
+}
+
+
+.reference-card {
+
+    min-height:
+        150px;
+
+    padding:
+        22px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        18px;
+
+    background:
+        var(--paper);
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        0.2s ease;
+}
+
+
+.reference-card:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.reference-card h3 {
+
+    margin-bottom:
+        9px;
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        800;
+}
+
+
+.reference-card p {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.83rem;
+}
+
+
+.math-example {
+
+    display:
+        inline-block;
+
+    margin-top:
+        12px;
+
+    padding:
+        6px 10px;
+
+    border-radius:
+        9px;
+
+    background:
+        var(--blue);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1rem;
+
+    color:
+        var(--ink);
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+.reference-card:nth-child(3n + 1) {
+
+    background:
+        #fffdf8;
+}
+
+
+.reference-card:nth-child(3n + 2) {
+
+    background:
+        #fcfbff;
+}
+
+
+.reference-card:nth-child(3n) {
+
+    background:
+        #fbfdf9;
+}
+
+
+/* =========================
+   FORMULAS
+========================= */
+
+.formula-section {
+
+    padding:
+        30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--yellow);
+
+    margin-bottom:
+        45px;
+}
+
+
+.formula-section h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.6rem;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        8px;
+}
+
+
+.formula-section > p {
+
+    color:
+        var(--soft-ink);
+
+    margin-bottom:
+        25px;
+}
+
+
+.formula-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        12px;
+}
+
+
+.formula-card {
+
+    padding:
+        20px;
+
+    border-radius:
+        15px;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.formula-name {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.07em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.formula {
+
+    margin-top:
+        9px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(1.2rem, 3vw, 1.55rem);
+}
+
+
+/* =========================
+   RULES
+========================= */
+
+.rules-section {
+
+    margin-bottom:
+        45px;
+}
+
+
+.rule-list {
+
+    display:
+        grid;
+
+    gap:
+        10px;
+}
+
+
+.rule {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        42px 1fr;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    padding:
+        16px 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        15px;
+
+    background:
+        var(--paper);
+}
+
+
+.rule-number {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--sage);
+
+    font-weight:
+        800;
+
+    font-size:
+        0.8rem;
+}
+
+
+.rule strong {
+
+    font-size:
+        0.9rem;
+}
+
+
+.rule span {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.82rem;
+}
+
+
+/* =========================
+   QUICK LOOK
+========================= */
+
+.quick-look {
+
+    padding:
+        32px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--blue);
+
+    margin-bottom:
+        45px;
+}
+
+
+.quick-look h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.6rem;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        18px;
+}
+
+
+.quick-table {
+
+    width:
+        100%;
+
+    border-collapse:
+        collapse;
+
+    background:
+        var(--white);
+
+    border-radius:
+        14px;
+
+    overflow:
+        hidden;
+}
+
+
+.quick-table th,
+.quick-table td {
+
+    padding:
+        13px 15px;
+
+    text-align:
+        left;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.quick-table th {
+
+    font-size:
+        0.72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.07em;
+
+    color:
+        var(--soft-ink);
+}
+
+
+.quick-table td {
+
+    font-size:
+        0.84rem;
+}
+
+
+.quick-table td:nth-child(2) {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.1rem;
+}
+
+
+/* =========================
+   MEMORY BOX
+========================= */
+
+.memory-box {
+
+    padding:
+        30px;
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--peach);
+
+    border:
+        1px solid var(--border);
+
+    text-align:
+        center;
+}
+
+
+.memory-box h2 {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.6rem;
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        10px;
+}
+
+
+.memory-box p {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.9rem;
+}
+
+
+.memory {
+
+    margin-top:
+        18px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(1.2rem, 4vw, 1.7rem);
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+.next-section {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    margin-top:
+        55px;
+}
+
+
+.next-button {
+
+    flex:
+        1;
+
+    padding:
+        20px;
+
+    border-radius:
+        17px;
+
+    background:
+        var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
+
+    transition:
+        0.2s ease;
+}
+
+
+.next-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.next-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        750;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.08em;
+}
+
+
+.next-title {
+
+    font-weight:
+        700;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding:
+        45px 0;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.footer-inner {
+
+    width:
+        min(900px, 92%);
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+}
+
+
+.footer-brand {
+
+    font-family:
+        "Starborn",
+        sans-serif;
+
+    font-size:
+        1.1rem;
+}
+
+
+.footer-text {
+
+    color:
+        var(--soft-ink);
+
+    font-size:
+        0.8rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .reference-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .formula-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .next-section {
+
+        flex-direction:
+            column;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .reference-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .quick-table {
+
+        font-size:
+            0.8rem;
+
+    }
+
+
+    .quick-table th,
+    .quick-table td {
+
+        padding:
+            10px;
+
+    }
+
+
+    .formula-section,
+    .quick-look,
+    .memory-box {
+
+        padding:
+            23px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+<nav class="nav">
+
+<a
+href="index.html"
+class="logo"
+>
+NeuralPath<span class="logo-dot"></span>
+</a>
+
+
+<a
+href="mathematics.html"
+class="back-button"
+>
+← Mathematics
+</a>
+
+</nav>
+
+</header>
+
+
+<main>
+
+
+<div class="breadcrumb">
+
+<a href="index.html">
+NeuralPath
+</a>
+
+&nbsp;→&nbsp;
+
+<a href="mathematics.html">
+Mathematics
+</a>
+
+&nbsp;→&nbsp;
+
+Keep It Short
+
+</div>
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+<span class="eyebrow">
+Mathematics · Quick Reference
+</span>
+
+
+<h1>
+Keep It Short
+</h1>
+
+
+<p>
+
+You don't need a whole lesson every time.
+
+Use this page when you just need a definition,
+formula, rule, or quick reminder.
+
+</p>
+
+</section>
+
+
+<!-- QUICK NAV -->
+
+<nav class="quick-nav">
+
+<a href="#algebra">
+Algebra
+</a>
+
+<a href="#equations">
+Equations
+</a>
+
+<a href="#inequalities">
+Inequalities
+</a>
+
+<a href="#exponents">
+Exponents
+</a>
+
+<a href="#functions">
+Functions
+</a>
+
+<a href="#formulas">
+Formulas
+</a>
+
+</nav>
+
+
+<!-- ALGEBRA -->
+
+<section
+class="short-section"
+id="algebra"
+>
+
+<div class="section-heading">
+
+<div class="section-icon">
+x
+</div>
+
+<h2>
+Algebra
+</h2>
+
+</div>
+
+
+<div class="reference-grid">
+
+
+<div class="reference-card">
+
+<h3>
+Variable
+</h3>
+
+<p>
+A letter or symbol representing an unknown value.
+</p>
+
+<div class="math-example">
+x = unknown
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Coefficient
+</h3>
+
+<p>
+The number multiplied by a variable.
+</p>
+
+<div class="math-example">
+5x → 5
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Constant
+</h3>
+
+<p>
+A number without a variable.
+</p>
+
+<div class="math-example">
+x + 7 → 7
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Like Terms
+</h3>
+
+<p>
+Terms with the same variables and exponents.
+</p>
+
+<div class="math-example">
+3x + 2x = 5x
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Distributive Property
+</h3>
+
+<p>
+Multiply the outside number by every term inside.
+</p>
+
+<div class="math-example">
+2(x + 3) = 2x + 6
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Order of Operations
+</h3>
+
+<p>
+Parentheses → Exponents → Multiply/Divide → Add/Subtract.
+</p>
+
+<div class="math-example">
+PEMDAS
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EQUATIONS -->
+
+<section
+class="short-section"
+id="equations"
+>
+
+<div class="section-heading">
+
+<div class="section-icon">
+=
+</div>
+
+<h2>
+Equations
+</h2>
+
+</div>
+
+
+<div class="reference-grid">
+
+
+<div class="reference-card">
+
+<h3>
+One-Step Equation
+</h3>
+
+<p>
+Undo the operation acting on the variable.
+</p>
+
+<div class="math-example">
+x + 4 = 9 → x = 5
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Two-Step Equation
+</h3>
+
+<p>
+Undo addition/subtraction first, then multiplication/division.
+</p>
+
+<div class="math-example">
+2x + 4 = 10 → x = 3
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Golden Rule
+</h3>
+
+<p>
+Whatever you do to one side, do to the other.
+</p>
+
+<div class="math-example">
+x + 2 = 7
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INEQUALITIES -->
+
+<section
+class="short-section"
+id="inequalities"
+>
+
+<div class="section-heading">
+
+<div class="section-icon">
+&lt;
+</div>
+
+<h2>
+Inequalities
+</h2>
+
+</div>
+
+
+<div class="reference-grid">
+
+
+<div class="reference-card">
+
+<h3>
+Less Than
+</h3>
+
+<p>
+The first value is smaller.
+</p>
+
+<div class="math-example">
+3 &lt; 5
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Greater Than
+</h3>
+
+<p>
+The first value is larger.
+</p>
+
+<div class="math-example">
+7 &gt; 4
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Flip the Sign
+</h3>
+
+<p>
+Multiply or divide by a negative? Reverse the inequality.
+</p>
+
+<div class="math-example">
+−x &gt; 4 → x &lt; −4
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXPONENTS -->
+
+<section
+class="short-section"
+id="exponents"
+>
+
+<div class="section-heading">
+
+<div class="section-icon">
+²
+</div>
+
+<h2>
+Exponents
+</h2>
+
+</div>
+
+
+<div class="reference-grid">
+
+
+<div class="reference-card">
+
+<h3>
+Exponent
+</h3>
+
+<p>
+Shows how many times a base is multiplied by itself.
+</p>
+
+<div class="math-example">
+2³ = 2 × 2 × 2
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Zero Exponent
+</h3>
+
+<p>
+Any nonzero number raised to zero equals 1.
+</p>
+
+<div class="math-example">
+7⁰ = 1
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Negative Exponent
+</h3>
+
+<p>
+Move the base to the denominator.
+</p>
+
+<div class="math-example">
+2⁻³ = 1/2³
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FUNCTIONS -->
+
+<section
+class="short-section"
+id="functions"
+>
+
+<div class="section-heading">
+
+<div class="section-icon">
+f
+</div>
+
+<h2>
+Functions
+</h2>
+
+</div>
+
+
+<div class="reference-grid">
+
+
+<div class="reference-card">
+
+<h3>
+Function
+</h3>
+
+<p>
+A relationship where each input has exactly one output.
+</p>
+
+<div class="math-example">
+f(x) = 2x + 1
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Input
+</h3>
+
+<p>
+The value you put into a function.
+</p>
+
+<div class="math-example">
+x = 3
+</div>
+
+</div>
+
+
+<div class="reference-card">
+
+<h3>
+Output
+</h3>
+
+<p>
+The value produced by the function.
+</p>
+
+<div class="math-example">
+f(3) = 7
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FORMULAS -->
+
+<section
+class="formula-section"
+id="formulas"
+>
+
+<h2>
+Quick Formulas
+</h2>
+
+
+<p>
+Useful formulas to keep nearby.
+</p>
+
+
+<div class="formula-grid">
+
+
+<div class="formula-card">
+
+<div class="formula-name">
+Slope
+</div>
+
+<div class="formula">
+m = (y₂ − y₁) / (x₂ − x₁)
+</div>
+
+</div>
+
+
+<div class="formula-card">
+
+<div class="formula-name">
+Slope-Intercept Form
+</div>
+
+<div class="formula">
+y = mx + b
+</div>
+
+</div>
+
+
+<div class="formula-card">
+
+<div class="formula-name">
+Distance
+</div>
+
+<div class="formula">
+d = √((x₂−x₁)² + (y₂−y₁)²)
+</div>
+
+</div>
+
+
+<div class="formula-card">
+
+<div class="formula-name">
+Pythagorean Theorem
+</div>
+
+<div class="formula">
+a² + b² = c²
+</div>
+
+</div>
+
+
+<div class="formula-card">
+
+<div class="formula-name">
+Quadratic Formula
+</div>
+
+<div class="formula">
+x = (−b ± √(b²−4ac)) / 2a
+</div>
+
+</div>
+
+
+<div class="formula-card">
+
+<div class="formula-name">
+Arithmetic Sequence
+</div>
+
+<div class="formula">
+aₙ = a₁ + (n−1)d
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUICK TABLE -->
+
+<section class="quick-look">
+
+<h2>
+Inequality Quick Look
+</h2>
+
+
+<table class="quick-table">
+
+<thead>
+
+<tr>
+
+<th>
+Symbol
+</th>
+
+<th>
+Meaning
+</th>
+
+<th>
+Example
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr>
+
+<td>
+&lt;
+</td>
+
+<td>
+Less than
+</td>
+
+<td>
+x &lt; 5
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+&gt;
+</td>
+
+<td>
+Greater than
+</td>
+
+<td>
+x &gt; 5
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+≤
+</td>
+
+<td>
+Less than or equal to
+</td>
+
+<td>
+x ≤ 5
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+≥
+</td>
+
+<td>
+Greater than or equal to
+</td>
+
+<td>
+x ≥ 5
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory-box">
+
+<h2>
+If you only remember one thing...
+</h2>
+
+
+<p>
+Math is often about undoing operations and keeping both sides balanced.
+</p>
+
+
+<div class="memory">
+
+"What happened to the variable?"
+<br>
+↓
+<br>
+"Undo it."
+</div>
+
+</section>
+
+
+<!-- NEXT -->
+
+<div class="next-section">
+
+
+<a
+href="mathematics.html"
+class="next-button"
+>
+
+<span class="next-label">
+Back to Mathematics
+</span>
+
+<span class="next-title">
+← Mathematics Home
+</span>
+
+</a>
+
+
+<a
+href="mathematics.html"
+class="next-button"
+>
+
+<span class="next-label">
+Next learning path
+</span>
+
+<span class="next-title">
+Let Me Practice →
+</span>
+
+</a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+NeuralPath
+</div>
+
+
+<div class="footer-text">
+Learn your way. © 2026 NeuralPath
+</div>
+
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
